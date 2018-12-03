@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\'on}{3}{0}{1}
+\beamer@sectionintoc {2}{Diagonalizaci\'on}{9}{0}{2}
+\beamer@sectionintoc {3}{Vectores y valores propios de una matriz}{14}{0}{3}
+\beamer@subsectionintoc {3}{1}{Definiciones}{15}{0}{3}
+\beamer@subsectionintoc {3}{2}{C\'alculo de los valores y de los vectores propios}{20}{0}{3}
+\beamer@subsectionintoc {3}{3}{Subespacio propio asociado a un valor propio}{35}{0}{3}
+\beamer@subsectionintoc {3}{4}{Propiedades de los valores y vectores propios}{44}{0}{3}
+\beamer@sectionintoc {4}{Matrices diagonalizables}{49}{0}{4}
+\beamer@subsectionintoc {4}{1}{C\'alculo de la matriz diagonal}{56}{0}{4}
+\beamer@sectionintoc {5}{Diagonalizaci\'on ortogonal}{66}{0}{5}

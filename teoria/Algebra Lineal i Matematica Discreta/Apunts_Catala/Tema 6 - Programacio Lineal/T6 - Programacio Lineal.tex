@@ -1,0 +1,1387 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multicol} % indice en 2 columnas
+\usepackage{centernot}
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+
+\usepackage{color}
+
+
+\usepackage{graphicx}
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+\usetheme{Warsaw}
+%\usecolortheme{crane}
+\useoutertheme{shadow}
+\useinnertheme{rectangles}
+
+\setbeamertemplate{navigation symbols}{} % quitar simbolitos
+
+
+
+\title[Tema 6 - Programació Lineal]{Programació Lineal}
+\subtitle{Grau en Enginyeria Telemàtica}
+\author[Juan Gabriel Gomila]{
+Juan Gabriel Gomila%$^{1}$  \and E. Eva$^{2}$ \and S. Serpiente$^{3}$
+}
+\institute[UIB]{
+ % $^{1-2}$
+ Grau en Enginyeria Telemàtica
+ \and
+  Universitat de les Illes Balears
+  \and
+  \texttt{juangabriel.gomila@uib.es}
+}
+\date{\today}
+
+\AtBeginSection{
+\begin{frame}
+  \begin{multicols}{2}
+  \tableofcontents[currentsection]   
+\end{multicols}
+\end{frame}
+}
+
+\AtBeginSubsection{
+\begin{frame}
+  \begin{multicols}{2}
+  \tableofcontents[currentsection,currentsubsection]
+\end{multicols}
+\end{frame}
+}
+
+
+
+%empieza aqui
+
+
+\begin{document} 
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{Índex}
+  \tableofcontents
+\end{frame}
+
+\section{Introducció}
+
+\begin{frame}
+\frametitle{Introducció}
+Començarem el tema mostrant diversos exemples que es poden modelitzar mitjançant tècniques de programació lineal.
+
+L'objectiu de la programació lineal és optimitzar (minimitzar o maximitzar) una funció lineal de $n$ variables subjectes a restriccions d'igualtat o de desigualtat, també lineals.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Introducció}
+La programació lineal s'aplica en diversos camps, com per exemple:
+\begin{itemize}
+\item Logística: Problema del transport.
+\item Mescles: Problema de la dieta.
+\item Finances.
+\item Màrqueting.
+\item Assignació de tasques. 
+\item Producció.
+\item Altres decisions.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Introducció}
+Qualsevol problema de programació lineal requereix identificar quatre components bàsics:
+\begin{enumerate}
+\item El conjunt de dades del problema.
+\item El conjunt de variables que intervenen en el problema, juntament amb els seus dominis de definició.
+\item El conjunt de restriccions del problema que defineixen el conjunt de solucions admissibles.
+\item La funció que s'ha d'optimitzar.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El problema del transport}
+El problema del transport es refereix al procés de determinar el nombre de mercaderies que s'han de lliurar des de cada un dels orígens fins a cada destinació possible.
+
+L'objectiu sol ser minimitzar el cost de transport, i les restriccions venen donades per les capacitats de producció de cada orígen i les necessitats de cada destinació.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{figure}[h]
+\label{fig:volum}
+\centering
+\includegraphics[width=\textwidth]{amazon}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{El problema del transport}
+Suposem que un determinat producte s'ha de lliurar en quantitats $u_1, u_2, \cdots, u_m$ des de $m$ punts d'orígen i s'ha de rebre a $n$ destinacions en quantitats $v_1, v_2, \cdots, v_n$.
+
+El problema consisteix en determinar les quantitats $x_{ij}$ que s'han de lliurar des de l'origen $i$ a la destinació $j$, per tal d'aconseguir minimitzar el cost del lliurament.
+
+Els quatre elements principal del problema són:
+\end{frame}
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{itemize}
+\item[1] Dades:
+\begin{itemize}
+\item $m$: nombre d'orígens
+\item $n$: nombre de destinacions
+\item $u_i$: quantitat de producte que s'ha de lliurar des de l'orígen $i$
+\item $v_j$: quantitat de producte que s'ha de rebre a la desticació $j$
+\item $c_{ij}$: cost de lliurar una unitat de producte des de $i$ fins a $j$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{itemize}
+\item[2] Variables:
+\begin{itemize}
+\item $x_{ij}$: quantitat de producte que es lliura des de $i$ fins a $j$, amb $x_{ij}\geq 0$ per a tot $i=1,\cdots,m$, per a tot $j=1\cdots, n$ (domini de definició de les variables
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{itemize}
+\item[3] Restriccions:
+\begin{itemize}
+\item La quantitat total del producte que surt de $i$ ($u_i$) ha de coincidir amb la suma de les quantitats que surten de $i$ fins a totes les destinacions $j=1,\cdots, n$:
+\[\sum_{j=1}^n x_{ij} = u_i \]
+\item La quantitat total del producte que rep $j$ ($v_i$) ha de coincidir amb la suma de les quantitats que arriben a $j$ des de tots els origens $i=1,\cdots, m$:
+\[\sum_{i=1}^m x_{ij} = v_j \]
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{itemize}
+\item[4] Objectiu:
+
+En aquest cas, es vol minimitzar el cost del lliurament.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El problema del transport}
+\begin{figure}[h]
+\label{fig:volum}
+\centering
+\includegraphics[width=\textwidth]{problema_transporte}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El problema del transport - Exemple}
+Una companyia d'àmbit nacional produeix i distribueix una línia de neveres d'alta eficiència energètica. L'empresa té línies de producció i muntatge en dues ciutats, Pamplona i Bilbao, i tres cadenes de distribució localitzades a Madrid, Barcelona i Sevilla. 
+
+L'oficina de Madrid presenta una demanda anual de 10.000 neveres, la de Sevilla 8.000 i la de Barcelona 15.000.
+
+La planta de Bilbao pot produir fins a 20.000 neveres anuals i la de Pamplona 15.000. 
+
+Els costos de transport per unitat (en euros) són els següents:
+
+\begin{tabular}{ |p{2.5cm}||p{2.3cm}|p{2.3cm}|p{2.3cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Costs de transport per unitat (en euros)} \\
+ \hline
+ Origen/Destí& Madrid &Barcelona&Sevilla\\
+ \hline
+ Pamplona   & 3    &1&   5\\
+ Bilbao &   2  & 2   &4\\
+ \hline
+\end{tabular}
+Plantejau un problema de Programació Lineal que minimitzi els costos anuals de la companyia. 
+\end{frame}
+
+\begin{frame}
+\frametitle{Mescles. El problema de la dieta}
+El problema de la dieta representa una de les primeres aplicacions de la programació lineal i va començar a utilitzar-se en hospitals per tal de determinar la dieta dels pacients que, satisfent unes especificacions nutritives mínimes, fos la més barata possible.
+
+Actualment també s'aplica en el sector de la ramaderia amb la mateixa idea; trobar la combinació òptima d'aliments que, conseguint una aportació nutritiva mínima, suposi el menor cost possible. Una aplicació d'aquest problema es mostra al següent exemple.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Mescles. El problema de la dieta - Exemple}
+Un ramader es vol assegurar que els seus animals ingereixin, diàriament, almenys 14 unitats de Ferro, 12 de vitamina A i 18 de vitamina C.
+
+Un quilo de farina té un cost de 2 euros i conté una unitat de ferro, una de vitamina A i tres de vitamina C. Un quilo de blat de moro té un cost de 2 euros i conté dues unitats de ferro, una de vitamina A i una de vitamina C.
+Determinau les possibles maneres d'alimentar el ramat, per tal de satisfer les necessitats alimentàries diàries mínimes amb el cost mínim possible.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Producció - Exemple}
+Una empresa fabrica quatre tipus de corbata, una de seda, una altra de poliester i dues de poliester/cotó. La taula següent mostra el cost (en euros) dels materials i la seva disponibilitat:
+\begin{tabular}{ |p{2.5cm}||p{2.5cm}|p{4cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Costs i disponibilitat dels materials} \\
+ \hline
+ Material& Cost per Metre &Metres disponibles/mes\\
+ \hline
+ Seda   & 21    &800\\
+ Poliester &   6  & 3000\\
+ Cotó &   9  & 1600\\
+ \hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{Producció - Exemple}
+La taula següent mostra totes les dades relatives a la producció, la demanda mensual, i la composició de cada tipus de corbata:
+\begin{tabular}{ |p{1.5cm}||p{1.8cm}|p{2.4cm}|p{1.6cm}|p{2cm}|  }
+ \hline
+ \multicolumn{5}{|c|}{Propietats} \\
+ \hline
+ Tipus& Preu venda &Demanda min/max & Metres necessaris & Composició\\
+ \hline
+ Seda   & 6.70    &6000 - 7000 &  0.125 & 100\% seda\\
+ Poliester   & 3.55    &10000 - 14000 &  0.08 & 100\% pol\\
+ Pol/Cotó   & 4.31    &13000 - 16000 &  0.10 & 50\%pol - 50\%cotó\\
+ Pol/Cotó   & 4.81    &6000 - 8500 &  0.1. & 30\%pol - 70\%cotó\\
+ \hline
+\end{tabular}
+Plantejau un programa de programació lineal per determinar el pla de producció que maximitzi els beneficis de l'empresa.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Planificació d'horaris}
+La planificació d'horaris intenta donar resposta efectiva a les necessitats de personal durant un periode de temps concret.
+
+Sectors típics on es fa ús de la programació lineal per prendre decisions sobre planificació d'horaris són les entitats bancàries i els grans magatzems. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Planificació d'horaris - Exemple}
+Suposem que una entitat bancària necessita diàriament entre 10 i 18 caixers en funció de l'hora del dia. Les necessitats diàries s'especifiquen a la taula següent:
+\begin{tabular}{ |p{4cm}||p{4cm}|  }
+ \hline
+ \multicolumn{2}{|c|}{Disponibilitat} \\
+ \hline
+ Franja horària& N. Caixers\\
+ \hline
+ 9a.m. - 10a.m.   & 10\\
+ 10a.m. - 11a.m.   & 12\\
+ 11a.m. - 12a.m.   & 14\\
+ 12a.m. - 1p.m.   & 16\\
+ 1p.m. - 2p.m.   & 18\\
+ 2p.m. - 3p.m.   & 17\\
+ 3p.m. - 4p.m.   & 15\\
+ 4p.m. - 5p.m.   & 10\\
+
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Planificació d'horaris - Exemple}
+L'oficina té 12 treballadors a jornada completa i disposa de personal suficient per treballar a mitja jornada. Un caixer que treballi a mitja jornada ha d'estar operatiu 4h. al dia i estar disponible per començar a treballar a qualsevol hora entre les 9 a.m. i la 1 p.m. Els treballadors a jornada completa estan operatius des de les 9 a.m. fins a les 5 p.m. i tenen una hora lliure per dinar (la meitat dina de 11 a.m.-12 a.m., i l'altra meitat ho fa de 12 a.m.-1 p.m.).
+
+Les normes de l'entitat limiten el nombre d'hores realitzades pels treballadors a temps parcial a, com a màxim, el 50\% de les hores diàries que es realitzen. (Notem que es realitzen 112h. diàries). Aquests treballadors guanyen 16 euros al dia i els treballadors a jornada completa 50 euros al dia.
+
+Plantejau un problema de programació lineal que estableixi un horari que minimitzi els costos salarials al banc.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Finances. Selecció d'una cartera de valors - Exemple}
+Un banc inverteix en crèdits al consum, bons corporatius, dipòsits d'or i préstecs a la construcció. Actualment disposa de 5 milions d'euros per invertir i pretén, per una banda, maximitzar l'interès esperat per als propers 6 mesos i, per l'altra, complir amb la diversificació propugnada per la Junta Directiva segons s'especifica en la taula següent:
+
+\begin{tabular}{ |p{3cm}||p{3cm}|p{3cm}|  }
+ \hline
+ \multicolumn{3}{|c|}{Finances} \\
+ \hline
+ Tipus d'inversió& Interès esperat &Límít d'inversió (milions d'euros)\\
+ \hline
+ Crèdits al consum   & 7\%    &1\\
+ Bons corporatius   & 11\%    &2.5\\
+ Dipòsits d'or   & 19\%    &1.5\\
+  Prestecs constr.   & 15\%    &1.8\\
+    \hline
+\end{tabular}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Finances. Selecció d'una cartera de valors - Exemple}
+
+La Directiva també exigeix que almenys un 55\% dels fons es dediquin a dipòsits d'or i préstecs a la construcció, mentre que el percentatge dedicat als crèdits al consum no ha de superar el 15\% dels fons.
+
+Plantejau un programa de programació lineal que optimitzi l'objectiu del banc.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Màrqueting}
+
+
+La programació lineal s'utilitza en el camp del màrqueting i la publicitat com una eina que permet determinar quina és la combinació més efectiva de mitjans per anunciar els productes d'una empresa.
+
+Moltes vegades l'empresa disposa d'un pressupost fixat per a publicitat, i l'objectiu és distribuir aquest pressupost entre diverses opcions (TV, ràdio, diaris, revistes, Google, Facebook...) de manera que els productes de l'empresa tenguin la màxima difusió. En altres casos, les restriccions venen donades per la disponibilitat dels mitjans i de les polítiques publicitàries de l'empresa. Veurem una aplicació amb l'exemple següent:
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Màrqueting - Exemple}
+Una cadena nacional de locals de lleure disposa de 8000 euros setmanals per a publicitat. Aquests doblers s'han de destinar a publicar anuncis en TV, diaris i dues emissores de ràdio.
+
+L'objectiu final és aconseguir la major audiència possible.
+
+La taula següent recull tota la informació referent a l'audiència esperada per anunci, el cost (en euros) de cada anunci i el nombre màxim d'anuncis setmanals possibles en cada mitjà.
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2.5cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Màrketing} \\
+ \hline
+ Mitja& Audiència &Cost & Nombre màxim\\
+ \hline
+ TV   & 5000   &800&12\\
+ Diari & 8500 &925&5\\
+ Ràdio 1   & 2400  &290&25\\
+ Ràdio 2  & 2800   &380&20\\
+    \hline
+\end{tabular}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Màrqueting - Exemple}
+L'empresa també exigeix la contractació d'almenys 5 anuncis per ràdio setmanals i no pot destinar a aquest mitjà més de 1800 euros per setmana.
+Plantejau un programa de programació lineal que optimitzi l'objectiu de l'empresa.
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Investigació de mercats}
+ La programació lineal també s'aplica a l'estudi de mercats. Mitjançant el següent exemple es pot veure com els estadístics poden emprar la programació lineal per al disseny d'enquestes.
+ \end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Investigació de mercats - Exemple}
+Es vol relitzar una enquesta per determinar l'opinió dels ciutadans de Balears sobre la immigració. L'enquesta ha de satisfer el següent:
+\begin{enumerate}
+\item Entrevistar almenys 2300 famílies balears.
+\item En almenys 1000 famílies entrevistades, la persona de més edat no ha de superar els 30 anys.
+\item En almenys 600 de les famílies entrevistades, l'edat de la persona més gran ha d'estar compresa entre 31 i 50 anys.
+\item El percentatge de famílies entrevistades que pertànyen a zones amb alta taxa d'immigració no ha de ser inferior a un 15\% del total.
+\end{enumerate}
+Totes les enquestes s'han de fer personalment i l'ha de respondre la persona més gran de cada família. 
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Investigació de mercats - Exemple}
+La taula següent indica el cost (en euros) de cada enquesta segons l'edat de l'enquestat i si pertany, o no, a una zona amb taxa elevada d'immigració.
+
+\begin{tabular}{ |p{2cm}||p{2cm}|p{2cm}|p{2.5cm}|  }
+ \hline
+ \multicolumn{4}{|c|}{Inmigració} \\
+ \hline
+ Zona& $<$30 anys &31-50 anys & $>$50 anys\\
+ \hline
+ Inmigració baixa   & 6.90   &7.25&6.10\\
+ Inmigració alta & 7.50 &6.80&5.50\\
+    \hline
+\end{tabular}
+Plantejau un programa de programació lineal que satisfaci totes les condicions de lienquesta i minimitzi el seu cost.
+\end{frame}
+
+\section{Programació lineal}
+
+\begin{frame}
+\frametitle{Programació Lineal}
+Ja hem vist amb els exemples de l'apartat anterior que la programació lineal és present en moltes aplicacions en les quals es fa necessària la presa de decisions.
+\end{frame}
+
+\begin{frame}
+\frametitle{Programació Lineal}
+\begin{block}{Definició}
+La forma més general d'un problema de programació lineal (PPL) consisteix en minimitzar o maximitzar una funció
+\[Z=f(x) = \sum_{j=1}^n c_jx_j\]
+...
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Programació Lineal}
+\begin{block}{Definició}
+...sota les restriccions
+\[\sum_{j=1}^na_{ij}x_j=b_i,\ \ i=1, 2, \cdots, p-1\]
+\[\sum_{j=1}^na_{ij}x_j\geq b_i,\ \ i=p, p+1, \cdots, q-1\]
+\[\sum_{j=1}^na_{ij}x_j\leq b_i,\ \ i=q, q+1, \cdots, m\]
+on $p$, $q$ i $m$ són nombres positius tals que $1\leq p \leq q\leq m$, normalment $n\geq m$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Programació Lineal}
+\begin{block}{Solució factible}
+Un punt $(x_1,x_2,\cdots, x_n)\in \mathbb R$ que satisfà totes les restriccions del PPL, s'anomena solució factible. El conjunt de totes les solucions factibles s'anomena regió factible o regió de factibilitat.
+\end{block}
+
+\begin{block}{Solució òptima}
+Un punt factible $\bar x$ s'anomena solució òptima del PPL de maximització (o minimització) quan
+\[f(\bar x)\geq f(x) \ \ (\ o \ f(\bar x) \leq f(x))\]
+per a qualsevol altre punt factible $x$.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Programació Lineal}
+L'objectiu dels problemes d'optimització és trobar un òptim global. En general només es troben òptims locals (problemes d'optimització, estudiats a batxillerat, calculaven òptims locals i només baix certes condicions els òptims eren globals).
+
+Els problemes de PL presenten propietats que fan possible trobar l'òptim global.
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Propietats}
+\begin{enumerate}
+\item Si la regió factible està fitada, aleshores el problema sempre té solució.
+\item L'òptim d'un PPL és sempre un òptim global.
+\item Si $x$ i $y$ són solucions d'un PPL, aleshores qualssevol combinació lineal convexa d'elles també es una solució òptima:
+\[\lambda x + (1-\lambda)y,\ \ \lambda \in [0,1]\]
+\item La solució òptima s'assoleix sempre, almenys, en un punt extrem de la regió factible. 
+\end{enumerate}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+Veurem a continuació exemples de PPL amb solució única, solució múltiple, solució no fitada i solució infactible (i.e. no té solució). 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+\begin{block}{Exemple 1}
+Maximitzau la funció $Z=3x_1+x_2$ sota les restriccions
+\[\left\{\begin{array}{l}-x_1 + x_2 \leq 2 \\x_1+x_2\leq 6 \\x_1\leq 3 \\2x_1-x_2\leq 4 \\-x_2\leq 0 \\-x_1-x_2\leq -1 \\-x_1\leq 0\end{array}\right.\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemples de PL}
+Representarem gràficament la regió factible. La regió factible serà la intersecció de tots els semiplans que determinen cada una de les restriccions. Considerem les rectes: 
+\begin{itemize}
+\item $r_1:-x_1+x_2=2$, que passa pels punts $(0,2)$, $(-2,0)$.
+\item $r_2:x_1+x_2$, que passa pels punts $(0,6)$, $(6,0)$.
+\item $r_3:x_1=3$, que és paral·lela a l'eix $Y$.
+\item $r_4:-2x_1-x_2=4$, que passa pels punts $(0,-4)$, $(2,0)$.
+\item $r_5:x_2=0$, que és l'eix $X$.
+\item $r_6:x_1+x_2=1$, que passa pels punts $(0,1)$, $(1,0)$.
+\item $r_7:x_1=0$, que és l'eix $Y$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemples de PL}
+Si ara feim les intereccions $r_1\cap r_2$, obtenim el punt $(2,4)$, $r_2\cap r_3$ el punt $(3,3)$, i $r_3\cap r_4$ el punt $(3,2)$.
+\begin{figure}[h]
+\label{fig:ex1}
+\centering
+\includegraphics[height=7cm]{ex1}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+$R$ en aquest cas és un polígon tancat. Les solucions sempre es troben en els extrems de la regió factible, per tant avaluarem la funció objectiu $Z=3x_1+x_2$ en els vèrtexos de $R$:
+\[Z(0,1) = 1;\ \ \ Z(0,2) = 2;\ \ \ Z(2,4) = 10;\ \ \ Z(3,3) = 12;\]
+\[Z(3,2) = 11;\ \ \ Z(2,0) = 6;\ \ \ Z(1,0) = 3.\]
+Per tant, el màxim s'assoleix en el punt $(3,3)$ i val $Z=12$.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+\begin{block}{Exemple 2}
+Maximitzau la funció $Z=x_1+x_2$ sota les restriccions
+\[\left\{\begin{array}{l}-x_1 + x_2 \leq 2 \\x_1+x_2\leq 6 \\x_1\leq 3 \\2x_1-x_2\leq 4 \\-x_2\leq 0 \\-x_1-x_2\leq -1 \\-x_1\leq 0\end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+Observem que el conjunt de restriccions és el mateix que el de l'exemple anterior, per tant la regió factible serà la mateixa. \begin{figure}[h]
+\label{fig:ex1}
+\centering
+\includegraphics[height=5cm]{ex1}
+\end{figure}
+El màxim s'assoleix en els punts $(2,4)$ i $(3,3)$, aleshores tots els punts del segment que uneix aquests dos punts són màxims globals.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemples de PL}
+\begin{block}{Exemple 3}
+Maximitzau la funció $Z=3x_1+x_2$ sota les restriccions
+\[\left\{\begin{array}{l}-x_1 + x_2 \leq 2 \\-x_2\leq 0 \\-x_1-x_2\leq -1 \\-x_1\leq 0\end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+En aquest cas, es pot observar que la regió factible no està fitada en la direcció de creixement de la funció objectiu. \begin{figure}[h]
+\label{fig:ex3}
+\centering
+\includegraphics[height=7cm]{ex3}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+\begin{block}{Exemple 4}
+Minimitzau la funció $Z=0.6x_1+x_2$ sota les restriccions
+\[\left\{\begin{array}{l}10x_1 + 4x_2 \geq 20 \\5x_1+5x_2\geq 20 \\2x_1+6x_2\geq 12 \\x_1\geq 0\\ x_2\geq 0 \end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+En aquest cas, la regió factible no està fitada, pero la funció assoleix el mínim en el punt $(3,1)$ i val $Z=2.8$.
+ \begin{figure}[h]
+\label{fig:ex4}
+\centering
+\includegraphics[height=6cm]{ex4}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemples de PL}
+\begin{block}{Exemple 5}
+Minimitzau la funció $Z=2x_1-3x_2$ sota les restriccions
+\[\left\{\begin{array}{l}x_1-2x_2 \geq 4 \\2x_1-4x_2\leq -6 \\x_1\geq 0\\ x_2\geq 0 \end{array}\right.\]
+\end{block}
+En aquest cas, la regió factible és $R=\emptyset$, és a dir, el problema no té solució. 
+\end{frame}
+
+\subsection{Forma estàndard d'un PPL}
+
+\begin{frame}
+\frametitle{El PPL}
+\begin{block}{Forma estàndard}
+Per descriure un PPL, necessitam:
+\begin{enumerate}
+\item Un vector $c=(c_1,c_2,\cdots, c_n)\in \mathbb R^n$.
+\item Un vector $b=(b_1,b_2,\cdots, b_n)\in \mathbb R^n$ amb $b_i\geq 0$ per a tot $i=1,\cdots, m$.
+\item Una matriu $A = (a_{ij})_{m\times n}$.
+\end{enumerate}
+Amb aquests elements, el problema lineal associat en forma estàndard té la forma següent
+\[Min(Max)\ Z = cX\]
+sota les restriccions $AX=B$, on...
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El PPL}
+\begin{block}{Forma estàndard}
+\[X=\left(\begin{array}{l}x_1\\ x_2\\ \vdots \\ x_n \end{array}\right)\]
+amb $x_j\geq 0$ per a tot $j=i\cdots, n$ i
+\[B=\left(\begin{array}{l}b_1\\ b_2\\ \vdots \\ b_m \end{array}\right)\]
+amb $b_i\geq 0$ per a tot $i=1\cdots, m$. Normalment $n\geq m$.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El PPL}
+\begin{block}{Definició}
+Direm que un PPL està en forma estàndard si:
+\begin{enumerate}
+\item És de minimització o de maximització.
+\item Només inclou restriccions d'igualtat.
+\item $b_i\geq 0$ per a tot $i=1,\cdots, m$.
+\item $x_j\geq 0$ per a tot $j=i,\cdots, n$.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Qualsevol PPL es pot transformar a la forma estàndard. Vegem com:
+\begin{block}{Passa 1: transformar les variables en no negatives}
+Les variables no restringides en signe poden expressarse com a diferència de dues variables no negatives. Es defineix:
+\[x_i^{+} = max\{0,x_i\}\]
+\[x_i^{-} = max\{0,-x_i\}\]
+Se satisfà que $x_i^{+}, x_i^{-}\geq 0$ i $x_i = x_i^{+}-x_i^{-}$.
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Passa 2: transformar les restriccions de desigualtat en igualtats}
+Les restriccions de desigualtat es poden transformar en restriccions d'igualtat equivalents introduïnt noves variables anomenades variables compensatòries:
+Si $a_{i1}x_1+a_{i2}x_2+\cdots+a_{in}x_n\leq b_i$, aleshores existeix una variable $x_{n+1}\geq 0$ tal que
+\[a_{i1}x_1+a_{i2}x_2+\cdots+a_{in}x_n+x_{n+1} = b_i\]
+Si $a_{i1}x_1+a_{i2}x_2+\cdots+a_{in}x_n\geq b_i$, aleshores existeix una variable $x_{n+1}\geq 0$ tal que
+\[a_{i1}x_1+a_{i2}x_2+\cdots+a_{in}x_n-x_{n+1} = b_i\]
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Passa 3: maximitzar és el mateix que minimitzar}
+Un problema de maximització $Z_{max} = cX$ és equivalent a minimitzar $Z_{min} = -cX$ (i recíprocament) si ambdós problemes verifiquen el mateix conjunt de restriccions. 
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Passa 4: no negativitat dels termes independents}
+Tota restricció amb terme independent $b_i<0$ pot transformar-se en una altra amb terme independent no negatiu multiplicant tota la restricció per $-1$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Exemple 1}
+Trobau $max\ Z = 2x_1-3x_2+5x_3$ sota les restriccions:
+\[\left\{\begin{array}{l}x_1+x_2 \leq 2 \\3x_1+x_2-x_3\geq 3 \\x_1,x_2,x_3\geq 0 \end{array}\right.\]
+
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Per resoldre-ho, escriurem aquest problema en forma de màxim. Observem que totes les variables són no negatives. Haurem de transformar les restriccions de desigualtat en igualtats, per això haurem d'afegir variables compensatòries. Així, en forma estàndard ve donat per
+\[max\ Z = 2x_1-3x_2+5x_3+0x_4+0x_5\]
+sota les restriccions:
+
+\[\left\{\begin{array}{l}x_1+x_2 +x_4  = 2 \\3x_1+x_2-x_3-x_5 = 3 \\x_1,x_2,x_3, x_4, x_5\geq 0 \end{array}\right.\]
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Si volguessim el mateix problema en forma estàndard de mínim, seria:
+\[min\ Z = -2x_1+3x_2-5x_3+0x_4+0x_5\]
+sota les restriccions:
+
+\[\left\{\begin{array}{l}x_1+x_2 +x_4  = 2 \\3x_1+x_2-x_3-x_5 = 3 \\x_1,x_2,x_3, x_4, x_5\geq 0 \end{array}\right.\]
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Exemple 2}
+Trobau $max\ Z = 2x_1-3x_2+5x_3$ sota les restriccions:
+\[\left\{\begin{array}{l}x_1+x_2 \leq 2 \\3x_1+x_2-x_3\geq 3 \\x_1,x_2\geq 0 \end{array}\right.\]
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Observem que aquesta vegada la variable $x_3$ no està restringida en signe. Haurem d'escriure $x_3 = x_6-x_7$ amb $x_6 = x_3^{+}\geq 0$ i $x_7 = x_3^{-}\geq 0$. Així el problema en forma estàndard serà:
+\[max\ Z = 2x_1-3x_2+5(x_6-x_7)+0x_4+0x_5\]
+sota les restriccions:
+
+\[\left\{\begin{array}{l}x_1+x_2 +x_4  = 2 \\3x_1+x_2-(x_6-x_7)-x_5 = 3 \\x_1,x_2, x_4, x_5, x_6, x_7\geq 0 \end{array}\right.\]
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+\begin{block}{Exemple 3}
+Trobau $max\ Z = 3x_1-x_3$ sota les restriccions:
+\[\left\{\begin{array}{l}x_1+x_2+x_3 = 1 \\x_1-x_2-x_3\leq 1\\ x_1+x_3\geq -1 \\x_1\geq 0 \end{array}\right.\]
+
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Com que totes les variables han de ser no negatives, haurem de posar:
+\[x_2 = y_2-z_2; \ \ y_2 = x_2^{+},z_2 = x_2^{-}\]
+\[x_3 = y_3-z_3; \ \ y_3 = x_3^{+},z_3 = x_3^{-}\]
+amb $y_2,z_2,y_3,z_3\geq 0$. Notem que el terme independent de la tercera restricció és negatiu, aleshores la multiplicam tota per $-1$. El problema inicial serà
+\[max\ Z = max\ Z = 3x_1-y_3+z_3\]
+sota les restriccions:
+
+\[\left\{\begin{array}{l}x_1+y_2-z_2+y_3-z_3  = 1 \\x_1-y_2+z_2-y_3+z_3\leq 1 \\ -x_1-y_3+z_3\leq 1\\x_1,y_2,z_2, y_3, z_3\geq 0 \end{array}\right.\]
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Transformació d'un PPL a forma estàndard}
+Ara ens queda transformar les restriccions de desigualtat en restriccions d'igualtat:
+\[\left\{\begin{array}{l}x_1+y_2-z_2+y_3-z_3  = 1 \\x_1-y_2+z_2-y_3+z_3 +u_1=  1 \\ -x_1-y_3+z_3 + u_2 = 1\\x_1,y_2,z_2, y_3, z_3, u_1, u_2\geq 0 \end{array}\right.\]
+\end{frame}
+
+
+\subsection{Solucions bàsiques d'un PPL}
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+Suposem que un PPL ve donat en forma estàndard $min(max)\ Z = cX$ sota les restriccions $AX=B$ on
+\[X=(x_1,x_2,\cdots, x_n)^t, \ \ x_j\geq 0 \ \forall i = i,\cdots, n\]
+\[B=(b_1,b_2,\cdots, b_m)^t, \ \ b_i\geq 0 \ \forall i =1,\cdots, m\]
+\[A=(a_{ij})_{m\times n}\]
+Podem suposar sense pèrdua de generalitat que $rang(A) = m$, ja que $m\leq n$ i que el sistema $AX=B$ té solució. En qualssevol altre cas, o bé el sistema és equivalent a un altre sistema compatible amb menys equacions, o bé el sistema és incompatible. 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+Sigui $A$ la matriu anterior, aleshores
+\begin{block}{Definició}
+\begin{itemize}
+\item S'anomena matriu bàsica de $A$ tota matriu d'ordre $m$, $M_b$ de rang $m$ extreta de $A$.
+\item $M_b$ és bàsica factible si és bàsica i satisfà $M_b^{-1}B\geq 0$.
+
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+\begin{block}{Definició}
+ Sigui $X_b$ el vector de les variables associades a les columnes de $M_b$, aquestes variables s'anomenen bàsiques i les demés variables no bàsiques. Si s'assigna el valor zero a les variables no bàsiques $X_N$, el sistema $AX=B$ es pot escriure com
+\[(M_b\ \ |\ \ X_N) \left(\begin{array}{c}X_b \\0\end{array}\right) = B\]
+d'on $M_bX_b = B$ i, com que $M_b$ és invertible, $X_b = M_b^{-1}B$ és la solució bàsica associada a $M_b$. Si a més $M_b$ és una matriu bàsica factible, la seva solució bàsica és factible.
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+\begin{block}{Exemple 1}
+Trobau les solucions bàsiques del sistema
+
+\[\left\{\begin{array}{ccc}x_1+2x_2+x_3 & = & 8 \\x_1+3x_2-x_3 & = & 12\end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Exemple 1}
+Les matrius $A$ i $B$ són:
+\[A=\left(\begin{array}{ccc}1&2&1 \\1&3&-1\end{array}\right)\]
+\[B=\left(\begin{array}{c}8 \\12\end{array}\right)\]
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Exemple 1.1}
+Si consideram
+\[M_b=\left(\begin{array}{cc}1&2 \\1&3\end{array}\right)\]
+les variables són $x_1,x_2$ i la variable no bàsica $x_3=0$, aleshores
+\[X_b = M_b^{-1} B= \left(\begin{array}{cc}3&-2 \\-1&1\end{array}\right) \left(\begin{array}{c}8 \\12\end{array}\right) = \left(\begin{array}{c}0 \\4\end{array}\right)\]
+Així $(x_1,x_2) = (0,4)$ és una solució bàsica factible.
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple 1.2}
+Si prenem com a matriu bàsica
+\[M_b=\left(\begin{array}{cc}1&1 \\1&-1\end{array}\right)\]
+les variables són $x_1,x_3$ i la variable no bàsica $x_2=0$, aleshores
+\[X_b = M_b^{-1} B= \left(\begin{array}{cc}1/2&1/2 \\1/2&-1/2\end{array}\right) \left(\begin{array}{c}8 \\12\end{array}\right) = \left(\begin{array}{c}10 \\-2\end{array}\right)\]
+En aquest cas s'obté una solució bàsica no factible ($x_3<0$)
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemple 1.3}
+Si prenem com a matriu bàsica
+\[M_b=\left(\begin{array}{cc}2&1 \\3&-1\end{array}\right)\]
+les variables són $x_2,x_3$ i la variable no bàsica $x_1=0$, aleshores
+\[X_b = M_b^{-1} B= \left(\begin{array}{cc}1/5&1/5 \\3/5&-2/5\end{array}\right) \left(\begin{array}{c}8 \\12\end{array}\right) = \left(\begin{array}{c}4 \\0\end{array}\right)\]
+Així $(x_2,x_3) = (4,0)$ és una solució bàsica factible.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemple 1}
+El nombre de solucions bàsiques factibles d'un PPL fitat amb un nombre finit de restriccions és sempre finit i cadascuna es correspon amb un punt extrem de la regió factible. 
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+\begin{block}{Teorema}
+Sigui 
+\[R=\{x=(x_1,x_2,\cdots, x_n) : AX=B, x_j\geq 0\ j=1\cdots, n\}\]
+ amb $A=(a_{ij})_{m\times n}$ i $rang(A) = m$, aleshores $x\in \mathbb R^n$ és un punt extrem de $R$ si i només si $A$ es pot descompondre com $A=(M_b \ | \ X_N)$ tal que
+ \[X = \left(\begin{array}{c}X_b \\X_N\end{array}\right) \left(\begin{array}{c}M_b^{-1} B \\0\end{array}\right) \]
+ on $M_b$ és una matriu d'ordre $m$ invertible, extreta de $A$ que satisfà $M^{-1}B\geq 0$
+
+\end{block}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+\begin{block}{Observació}
+Recordem que si $M_b$ és una matriu d'ordre $m$ invertible, és equivalent per files a la matriu identitat $I_m$ o a qualsevol altre matriu d'ordre $m$, les columnes de la qual són els vectors unitaris $e_1=(1,0,\cdots,0), e_2=(0,1,\cdots,0),\cdots,e_m=(0,0,\cdots,1)$ no necessàriament en aquest ordre:
+ \[I_m \sim \left(\begin{array}{ccc}1&0&0 \\0&1&0\\ 0&0&1\end{array}\right)  
+ \sim \left(\begin{array}{ccc}0&1&0 \\1&0&0\\ 0&0&1\end{array}\right) 
+ \sim \left(\begin{array}{ccc}0&1&0 \\0&0&1\\ 1&0&0\end{array}\right) \sim \cdots\]
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Solucions bàsiques d'un PPL}
+\begin{block}{Teorema. Propietat fonamental de la programació lineal}
+Si un PPL té una solució òptima, aquesta és una solució bàsica factible. 
+\end{block}
+Per tant, per trobar l'òptim d'un PPL el cercarem dins el conjunt de solucions factibles. 
+\end{frame}
+
+
+\section{El mètode del símplex}
+
+\begin{frame}
+\frametitle{El mètode del símplex}
+
+És un procediment algebraic (no geomètric) mitjançant el qual es passa d'una solució bàsica factible inicial (o qualsevol altra) a una solució bàsica factible adjacent, millorant o, almenys, no empitjorant el valor de la funció objectiu.
+
+Hi ha moltes versions del mètode del símplex i totes pretenen el mateix: trobar la solució òptima d'un PPL.
+
+Per trobar aquest òptim s'empren unes taules. Es parteix d'una taula inicial i es van tranformant els valors de la taula fins a arribar a la solució òptima.
+
+Nosaltres aplicarem el Mètode revisat del símplex que inclou la funció objectiu en les taules. En el mètode del símplex es pren com a matriu bàsica factible inicial la matriu identitat i qualsevol altra matriu bàsica factible una matriu obtinguda a partir de la matriu identitat fent intercanvis de files.
+\end{frame}
+
+\subsection{Un exemple, per començar}
+\begin{frame}
+\frametitle{El mètode del símplex}
+\begin{block}{Exemple del símplex}
+Trobau $max\ Z = 40x_1+30x_2$ sota les restriccions
+\[\left\{\begin{array}{ccc}x_1 & \leq & 16 \\x_2 & \leq & 8 \\x_1+2x_2 & \leq & 24 \\x_1,x_2 & \geq & 0\end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex}
+Si el resolem gràficament obtenim la regió factible amb vèrtexos $(0, 0), (16, 0), (16, 4), (8, 8), (0, 8)$ i si avaluam $Z$ en aquests vèrtexos obtenim que el màxim s'assoleix en el punt $(16, 4)$ i val $760$.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex}
+Per aplicar el mètode del símplex hem de fer una sèrie de passes:
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 1}
+Hem d'escriure el problema en forma estàndard de màxim, que serà el mateix que escriure el sistema:
+\[\left.\begin{array}{rrrrrrrr}
+Z & -40x_1 & -30x_2 & +0s_1 & +0s_2& +0s_3 & = & 0 \\
+ &  x_1 &  & +s_1 & &  & = & 16 \\
+ &  & x_2 &  & +s_2&  & = & 8 \\
+  & x_1 & +2x_2 &  & & +s_3 & = & 24 \end{array}\right.\]
+amb $x_1,x_2,s_1,s_2,s_3\geq 0$.
+\end{frame}
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 1}
+Podem construir la taula:
+
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ & Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $s_3$ & Constants \\
+ \hline
+fila 1 &1 & -40 & -30 & 0& 0& 0 & 0 \\
+fila 2 & 0 &  1 & 0 & 1 & 0 & 0 & 16 \\
+fila 3 & 0 & 0 & 1 & 0 & 1 & 0  & 8 \\
+fila 4 &  0 & 1 & 2 & 0 &0 & 1  & 24\\
+      \hline
+\end{tabular}
+
+La matriu bàsica factible inicial (matriu identitat) correspon a les variables bàsiques, en aquest cas les variables compensatòries $s_1,s_2,s_3$ i les variables no bàsiques són $x_1=x_2=0$.
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 1}
+Tenint en compte també la fila 1 de la taula,  es pot extreure del sistema:
+\[\left(\begin{array}{cccc}
+1&0&0&0 \\
+0&1&0&0 \\
+0&0&1&0 \\
+0&0&0&1 \\
+ \end{array}\right)
+ \left(\begin{array}{c}
+Z\\s_1\\s_2\\s_3
+ \end{array}\right) = 
+  \left(\begin{array}{c}
+0\\16\\8\\24
+ \end{array}\right) 
+ \]
+
+que correspon a $s_1=16, s_2 = 8, s_3 = 24$ i $Z=0$ (amb $(x_1,x_2) = (0,0)$. Notem que el punt $(0,0)$ és un vèrtex de la regió factible. 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 2}
+\begin{itemize}
+\item Cercam la columna que en la fila 1 té l'entrada negativa amb major valor absolut (columna pivot)
+\item Dividim les constants pels valors positius de la columna pivot i en triam el mínim, la fila corresponent a aquest mínim serà la fila pivot. 
+\item L'element que estpa en la intersecció de la fila i la columna pivots serà el pivot i correspondrà a la nova variable bàsica. Notem que en el nostre cas la columna pivot és la segona fila i la fila pivot és la que correspon al mínim entre $16/1$ i $24/1$, és a dir la fila 2; per tant el pivot és 1 i correspon a la variable $x_1$).
+\item Transformam la taula inicial de manera que la columna pivot sigui un vector unitari (tots els elements de la columna han de ser nuls tret del pivot que ha de ser $1$). 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 2}
+Per tant, si feim $f_1+40f_2, f_4-f_2$ obtenim la nova taula:
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ & Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $s_3$ & Constants \\
+ \hline
+fila 1 &1 & 0 & -30 & 40& 0& 0 & 640 \\
+fila 2 & 0 &  1 & 0 & 1 & 0 & 0 & 16 \\
+fila 3 & 0 & 0 & 1 & 0 & 1 & 0  & 8 \\
+fila 4 &  0 & 0 & 2 &-1 &0 & 1  & 8\\
+      \hline
+\end{tabular}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 2}
+De la taula es pot extreure el sistema bàsic
+\[\left(\begin{array}{cccc}
+1&0&0&0 \\
+0&1&0&0 \\
+0&0&1&0 \\
+0&0&0&1 \\
+ \end{array}\right)
+ \left(\begin{array}{c}
+Z\\x_1\\s_2\\s_3
+ \end{array}\right) = 
+  \left(\begin{array}{c}
+640\\16\\8\\8
+ \end{array}\right) 
+ \]
+
+que correspon a $x_1=16, s_2 = 8, s_3 = 8$ i $Z=640$ (amb $x_2=0, s_2 = 0$. Notem que el punt $(16,0)$ és un altre vèrtex de la regió factible. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 3}
+Com que en la fila 1 encara hi ha un nombre negatiu, la solució es pot millorar. Iteram la passa 2 anterior:
+\begin{itemize}
+\item La nova variable bàsica és $x_2$. 
+\item Si feim el mínim entre $8/1$ i $8/2$, obtenim que el pivot està a la fila $4$
+\item El pivot és $2$ i per tant dividim la fila pivot per $2$ per obtenir pivot 1
+\item Finalment, feim zeros a la resta d'elements de la columna pivot.  
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 3}
+Per tant, si feim $f_1+30f_4, f_3-f_4$ obtenim la nova taula:
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ & Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $s_3$ & Constants \\
+ \hline
+fila 1 &1 & 0 & 0 & 25& 0& 15 & 760 \\
+fila 2 & 0 &  1 & 0 & 1 & 0 & 0 & 16 \\
+fila 3 & 0 & 0 & 0 & 1/2 & 1 & -1/2  & 4 \\
+fila 4 &  0 & 0 & 1 &-1/2 &0 & 1/2  & 4\\
+      \hline
+\end{tabular}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex - Passa 3}
+De la taula es pot extreure el sistema bàsic
+\[\left(\begin{array}{cccc}
+1&0&0&0 \\
+0&1&0&0 \\
+0&0&1&0 \\
+0&0&0&1 \\
+ \end{array}\right)
+ \left(\begin{array}{c}
+Z\\x_1\\ s_2\\x_2
+ \end{array}\right) = 
+  \left(\begin{array}{c}
+760\\16\\4\\4
+ \end{array}\right) 
+ \]
+
+que correspon a $x_1=16, x_2 = 4, s_2 = 4$ i $Z=760$ (amb $s_1=0, s_3 = 0$. Notem que el punt $(16,4)$ és un altre vèrtex de la regió factible. 
+
+A la fila 1 ja no queden nombres negatius, per tant la solució no es pot millorar.
+\end{frame}
+
+\subsection{El mètode del símplex en problemes de minimització}
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Per a problemes de minimització no es pot aplicar directament el mètode que hem descrit a l'apartat anterior. Vegem-ho amb el següent exemple. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+\begin{block}{Exemple 2 del símplex}
+Trobau $min\ Z =x_1+4x_2$ sota les restriccions
+\[\left\{\begin{array}{ccc}x_1+2x_2 & \geq & 8 \\3x_1+2x_2 & \geq & 12 \\x_1,x_2 & \geq & 0\end{array}\right.\]
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si l'escrivim en forma estàndard de mínim, ens queda
+\[min\ Z = x_1+4x_2+0s_1+0s_2\]
+sota les restriccions
+\[\left(\begin{array}{rrrr}1&2&-1&0 \\3&2&0&-1\end{array}\right)
+\left(\begin{array}{c}x_1\\ x_2\\ s_1\\ s_2\end{array}\right) = 
+\left(\begin{array}{c}8\\ 12 \\ \end{array}\right)\]
+amb $x_1,x_2,s_1,s_2\geq 0$
+\end{frame}
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Podem observar que de la matriu de coeficients no es pot extreure la matriu identitat com a matriu bàsica factible inicial. Es podria extreure la matriu:
+\[\left(\begin{array}{cc}-1&0 \\0&-1\end{array}\right)\]
+que correspon a les variables bàsiques $s_1,s_2$. La solució és $s_1 = -8, s_2 = -12$, que resulta una solució bàsica no factible. Conseqüentment, hem de cercar una manera d'obtenir una solució bàsica factible inicial. Això s'obté afegint una variable artifial no negativa a cadascuna de les restriccions. Aquestes variables artificials apareixeran en la funció objectiu amb coeficients \textbf{grans} respecte als coeficients de les variables del problema donat. 
+\end{frame}
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Una vegada afegides les variables compensatòries i artificials al problema de minimització aplicarem el mètode del símplex aplicant les passes següents:
+\begin{enumerate}
+\item Escriure la taula inicial del símplex
+\item Transformar les columnes de les variables artificials en vectors unitaris.
+\item Cercar el pivot: d'entre totes les columnes de les variables triar la columna amb l'entrada positiva major. Per determinar la fila pivot es fa el mateix que en el cas de maximització. 
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si consideram el problema de minimització de l'exemple anterior, un cop afegides les variables aritificials tenim:
+\[\left.\begin{array}{rrrrrrrrr}
+Z & -x_1 & -4x_2 & +0s_1 & +0s_2& -100v_1 & -100 v_2 & = & 0 \\
+ &  x_1 & +2x_2 & -s_1 & &  +v_1&& = & 8 \\
+ & 3x_1 & +2x_2 &  & -s_2&  & +v_2 & = & 12 \\
+  \end{array}\right.\]
+amb $x_1,x_2,s_1,s_2,v_1,v_2\geq 0$.
+\end{frame}
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Escrivim la taula inicial del problema
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &-1 & -4 & 0 & 0& -100& -100 & 0 \\
+0 & 1 &  2 & -1 & 0 & 1 & 0 & 8 \\
+0 & 3 & 2 & 0 & -1 & 0 & 1  & 12 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si feim $f_1+100f_2+100f_3$, els vectors columna de les variables artificials es transformen en unitaris i s'obté la taula
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &399 & 396 & -100 & -100& 0& 0 & 2000 \\
+0 & 1 &  2 & -1 & 0 & 1 & 0 & 8 \\
+0 & 3 & 2 & 0 & -1 & 0 & 1  & 12 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+La columna pivot correspon a la columna de la variable $x_1$ i la fila pivot és la tercera. Dividim la fila pivot per $3$ per tenir el pivot igual a 1 i obtenim
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &399 & 396 & -100 & -100& 0& 0 & 2000 \\
+0 & 1 &  2 & -1 & 0 & 1 & 0 & 8 \\
+0 & 1 & 2/3 & 0 & -1/3 & 0 & 1/3  & 4 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si ara feim $f_1-399f_3$ i $f_2-f_3$ transformam la columna pivot en vector unitari i obtenim una nova taula
+\begin{tabular}{ |p{1cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &0 & 130 & -100 & 33& 0& -133 & 404 \\
+0 & 0 &  4/3 & -1 & 1/3 & 1 & -1/3 & 4 \\
+0 & 1 & 2/3 & 0 & -1/3 & 0 & 1/3  & 4 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+D'aquesta es pot extreure el sistema: 
+\[\left(
+\begin{array}{ccc}
+1&0&0 \\ 0&1&0\\ 0&0&1
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+Z\\v_1\\x_1
+\end{array}
+\right) = \left(
+\begin{array}{c}
+404\\ 4\\ 4\end{array}
+\right)
+\]
+que correspon a la solució $x_1 = 4, v_1 = 4, s_1=s_2=x_2=v_2=0$ i  $Z=404$. Notem que a la solució apareix la variable artificial $v_1=4$, la qual cosa no ens interessa. La solució no és òptima, encara ens queden en la fila 1 entrades positives. L'entrada positiva més gran correspon a la variable $x_2$, per tant la columna corresponent a $x_2$ és la columna pivot i la fila pivot és la fila $2$, amb pivot $4/3$.
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si dividim la fila pivot per $4/3$ tenim que:
+\begin{tabular}{ |p{0.6cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &0 & 130 & -100 & 33& 0& -133 & 404 \\
+0 & 0 &  1 & -3/4 & 1/4 & 3/4 & -1/4 & 3 \\
+0 & 1 & 2/3 & 0 & -1/3 & 0 & 1/3  & 4 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si ara feim $f_1-130f_2$ i $f_3-2/3f_2$, transformam la columna pivot en un vector unitari i ens queda la nova taula:
+
+\begin{tabular}{ |p{0.6cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.2cm}|p{1.2cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &0 & 0 & -5/2 & 1/2& -195/2& -201/2 & 14 \\
+0 & 0 &  1 & -3/4 & 1/4 & 3/4 & -1/4 & 3 \\
+0 & 1 & 0 & 1/2 & -1/2 & -1/2 & 1/2  & 2 \\
+ \hline
+\end{tabular}
+La solució encara no és òptima. Si iteram el procès obtenim que la columna pivot correspon a la columna de la variable $s_2$ i la fila 2 és la fila pivot, amb pivot $1/4$. 
+
+Nota: la fila 3 no pot ser pivot, ja que és un nombre negatiu, i si dividissim per $-1/2$, el valor de $b_3$ es convertiria en negatiu també...
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si dividim la fila pivot per $1/4$, ens queda
+\begin{tabular}{ |p{0.6cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.2cm}|p{1.2cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &0 & 0 & -5/2 & 1/2& -195/2& -201/2 & 14 \\
+0 & 0 &  4 & -3 & 1 & 3 & -1 & 12 \\
+0 & 1 & 0 & 1/2 & -1/2 & -1/2 & 1/2  & 2 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+Si ara feim $f_1-1/2f_2$ i $f_3+1/2f_2$ transformam la columna pivot en vector unitari i obtenim una nova taula
+\begin{tabular}{ |p{0.6cm}||p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1.2cm}|p{1.2cm}|p{1.5cm}|  }
+ \hline
+ Z & $x_1$ & $x_2$ & $s_1$& $s_2$ & $v_1$  & $v_2$& Constants \\
+ \hline
+1 &0 & -2 & -1 & 0& -99& -100 & 8 \\
+0 & 0 &  4 & -3 & 1 & 3 & -1 & 12 \\
+0 & 1 & 2 & -1 & 0 & 1 & 0  & 8 \\
+ \hline
+\end{tabular}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{El mètode del símplex en problemes de minimització}
+D'aquesta es pot extreure el sistema: 
+\[\left(
+\begin{array}{ccc}
+1&0&0 \\ 0&1&0\\ 0&0&1
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+Z\\s_2\\x_1
+\end{array}
+\right) = \left(
+\begin{array}{c}
+8\\ 12\\ 8\end{array}
+\right)
+\]
+que correspon a la solució $x_1 = 8, s_2=12, x_2=s_1= v_1 =v_2=0$ i  $Z=8$. Per tant, la solució òptima és $(x_1,x_2) = (8,0)$ i $Z=8$.
+\end{frame}
+
+\subsection{Observacions finals}
+
+
+\begin{frame}
+\frametitle{Observació 1}
+L'ús de variables artificials no és exclusiu de programes de minimització. En alguns programes de maximització tabmé podem emprar-se profitosament.
+
+Quan en el context de maximització una de les restriccions és d'igualtat no serà necessari afegir una variable compensatòria. En aquest cas ens farà falta un vector unitari a la taula del símplex per poder tenir la solució bàsica factible inicial. Afegirem a la restricció d'igualtat una variable artificial que intervendrà en la funció objectiu amb coeficient negatiu per assegurar que no forma part de la solució òptima.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Observació 2}
+Quan, en la taula del símplex, dos o més quocients comparteixin la característica de ser els menors, dues o més files seran candidates a ser la fila pivot. S'ha d'adoptar un criteri, arbitrari, per decidir quina serà la fila pivot.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Observació 3}
+De vegades un pas de pivot pot no donar una millora de la solució i seran necessaris diverses passes de pivot amb millora nul·la abans de que el procés iteratiu trenqui el cercle viciós.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Observació 2}
+Hem donat una introducció a l'algoritme símplex. El procés no és difícil, però en programes lineals de dimensions considerables la tasca de computar és gran i avorrida.
+
+
+Afortunadament hi ha programes informàtics que fan tota aquesta feina: SOLVER de Excel, GAMS (General Algebraic Modeling System) i qualsevol altre programa del símplex que pogueu trobar a Internet.
+\end{frame}
+
+
+%  \begin{figure}[h]
+  %  \label{fig:volum}
+%\centering
+%\includegraphics[height=3cm]{volum}
+%\end{figure}
+
+
+\end{document}

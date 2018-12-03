@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {catalan}
+\beamer@sectionintoc {1}{Presentaci\IeC {\'o}}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Coordenades}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Objectius}{3}{0}{1}
+\beamer@subsectionintoc {1}{3}{Activitats}{4}{0}{1}
+\beamer@subsectionintoc {1}{4}{Avaluaci\IeC {\'o}}{7}{0}{1}
+\beamer@subsectionintoc {1}{5}{Bibliografia}{11}{0}{1}
+\beamer@subsectionintoc {1}{6}{Consells finals}{13}{0}{1}

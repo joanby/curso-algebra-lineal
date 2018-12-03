@@ -1,0 +1,164 @@
+.mstheme     { nav-banner-image: url(apasbanr.gif); separator-image: url(apasrule.gif); 
+               list-image-1: url(apasbul1.gif); list-image-2: 
+               url(apasbul2.gif); list-image-3: url(apasbul3.gif); 
+               navbutton-horiz-pushed: url(apashsel.gif); 
+               navbutton-horiz-normal: url(apashbtn.gif); 
+               navbutton-horiz-hovered: url(apashhov.gif); 
+               navbutton-vert-pushed: url(apasvsel.gif); 
+               navbutton-vert-normal: url(apasvbtn.gif); 
+               navbutton-vert-hovered: url(apasvhov.gif); 
+               navbutton-home-normal: url(apashom.gif); 
+               navbutton-home-hovered: url(apashomh.gif); 
+               navbutton-home-pushed: url(apashom.gif); navbutton-up-normal: 
+               url(apasup.gif); navbutton-up-hovered: url(apasuph.gif); 
+               navbutton-up-pushed: url(apasup.gif); navbutton-prev-normal: 
+               url(apasbck.gif); navbutton-prev-hovered: url(apasbckh.gif); 
+               navbutton-prev-pushed: url(apasbck.gif); 
+               navbutton-next-normal: url(apasnxt.gif); 
+               navbutton-next-hovered: url(apasnxth.gif); 
+               navbutton-next-pushed: url(apasnxt.gif) }
+.mstheme-bannertxt { font-family: 'Courier New', 'Courier New', Courier; font-size: 6; color: 
+               rgb(153,0,0) }
+.mstheme-horiz-navtxt { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0) }
+.mstheme-vert-navtxt { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0) }
+.mstheme-navtxthome { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0) }
+.mstheme-navtxtup { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0) }
+.mstheme-navtxtprev { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0) }
+.mstheme-navtxtnext { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0) }
+ul           { list-style-image: url('apasbul1.gif') }
+ul ul        { list-style-image: url('apasbul2.gif') }
+ul ul ul     { list-style-image: url('apasbul3.gif') }
+a:link       { color: rgb(153,0,0) }
+a:visited    { color: rgb(102,102,102) }
+a:active     { color: rgb(204,153,102) }
+body         { color: rgb(0,0,0); background-color: rgb(204,204,204) }
+h1           { color: rgb(153,0,0) }
+h2, marquee  { color: rgb(153,0,0) }
+h3           { color: rgb(153,0,0) }
+h4           { color: rgb(153,0,0) }
+h5           { color: rgb(153,0,0) }
+h6           { color: rgb(153,0,0) }
+button       { background-color: rgb(153,0,0); color: white; border-color: rgb(204,204,204) }
+label, .MSTHEME-LABEL { color: rgb(0,0,0) }
+textarea     { color: black; border-color: rgb(153,0,0) }
+fieldset     { color: black or white; border-color: rgb(153,0,0) }
+legend       { color: rgb(153,0,0) }
+select       { color: black; border-color: rgb(153,0,0) }
+table        { table-border-color-light: rgb(204,204,204); table-border-color-dark: 
+               rgb(153,0,0); color: rgb(0,0,0); border-color: rgb(153,0,0) }
+caption      { color: rgb(153,0,0) }
+th           { color: rgb(0,0,0); border-color: rgb(153,0,0) }
+hr           { color: rgb(153,0,0) }
+td           { border-color: rgb(153,0,0) }
+.mstheme-bannertxt a:active { color: rgb(0,0,0) }
+.mstheme-bannertxt a:link { color: rgb(0,0,0) }
+.mstheme-bannertxt a:visited { color: rgb(0,0,0) }
+.mstheme-bannertxt-g { font-family: 'Courier New', 'Courier New', Courier; font-size: 6; color: 
+               rgb(0,0,0); background-image: url('pasbanr.gif') }
+.mstheme-bannertxt-g a:active { color: rgb(0,0,0) }
+.mstheme-bannertxt-g a:link { color: rgb(0,0,0) }
+.mstheme-bannertxt-g a:visited { color: rgb(0,0,0) }
+.mstheme-bannertxt-s { font-family: 'Courier New', 'Courier New', Courier; font-size: 6; color: 
+               rgb(0,0,0) }
+.mstheme-bannertxt-s a:active { color: rgb(0,0,0) }
+.mstheme-bannertxt-s a:link { color: rgb(0,0,0) }
+.mstheme-bannertxt-s a:visited { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt a:active { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt a:link { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt a:visited { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0); 
+               background-image: url('pashbtn.gif') }
+.mstheme-horiz-navtxt-g a:active { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-g a:link { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-g a:visited { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-gs { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0); 
+               background-image: url('pashsel.gif') }
+.mstheme-horiz-navtxt-gs a:active { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-gs a:link { color: rgb(0,0,0) }
+.mstheme-horiz-navtxt-gs a:visited { color: rgb(0,0,0) }
+.mstheme-navtxthome a:active { color: rgb(153,51,0) }
+.mstheme-navtxthome a:link { color: rgb(153,51,0) }
+.mstheme-navtxthome a:visited { color: rgb(153,51,0) }
+.mstheme-navtxthome-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: 
+               rgb(153,51,0); background-image: url('pashom.gif') }
+.mstheme-navtxthome-g a:active { color: rgb(153,51,0) }
+.mstheme-navtxthome-g a:link { color: rgb(153,51,0) }
+.mstheme-navtxthome-g a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtnext a:active { color: rgb(153,51,0) }
+.mstheme-navtxtnext a:link { color: rgb(153,51,0) }
+.mstheme-navtxtnext a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtnext-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: 
+               rgb(153,51,0); background-image: url('pasnxt.gif') }
+.mstheme-navtxtnext-g a:active { color: rgb(153,51,0) }
+.mstheme-navtxtnext-g a:link { color: rgb(153,51,0) }
+.mstheme-navtxtnext-g a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtprev a:active { color: rgb(153,51,0) }
+.mstheme-navtxtprev a:link { color: rgb(153,51,0) }
+.mstheme-navtxtprev a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtprev-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: 
+               rgb(153,51,0); background-image: url('pasbck.gif') }
+.mstheme-navtxtprev-g a:active { color: rgb(153,51,0) }
+.mstheme-navtxtprev-g a:link { color: rgb(153,51,0) }
+.mstheme-navtxtprev-g a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtup a:active { color: rgb(153,51,0) }
+.mstheme-navtxtup a:link { color: rgb(153,51,0) }
+.mstheme-navtxtup a:visited { color: rgb(153,51,0) }
+.mstheme-navtxtup-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: 
+               rgb(153,51,0); background-image: url('pasup.gif') }
+.mstheme-navtxtup-g a:active { color: rgb(153,51,0) }
+.mstheme-navtxtup-g a:link { color: rgb(153,51,0) }
+.mstheme-navtxtup-g a:visited { color: rgb(153,51,0) }
+.mstheme-topbar-font a:active { color: rgb(0,0,0) }
+.mstheme-topbar-font a:link { color: rgb(0,0,0) }
+.mstheme-topbar-font a:visited { color: rgb(0,0,0) }
+.mstheme-topbar-font-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0); 
+               background-image: url('pasglobl.gif') }
+.mstheme-topbar-font-g a:active { color: rgb(0,0,0) }
+.mstheme-topbar-font-g a:link { color: rgb(0,0,0) }
+.mstheme-topbar-font-g a:visited { color: rgb(0,0,0) }
+.mstheme-vert-navtxt a:active { color: rgb(0,0,0) }
+.mstheme-vert-navtxt a:link { color: rgb(0,0,0) }
+.mstheme-vert-navtxt a:visited { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-g { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0); 
+               background-image: url('pasvbtn.gif') }
+.mstheme-vert-navtxt-g a:active { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-g a:link { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-g a:visited { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-gs { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 2; color: rgb(0,0,0); 
+               background-image: url('pasvsel.gif') }
+.mstheme-vert-navtxt-gs a:active { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-gs a:link { color: rgb(0,0,0) }
+.mstheme-vert-navtxt-gs a:visited { color: rgb(0,0,0) }
+.mstheme     { navbutton-background-color: rgb(255,255,255); top-bar-button: 
+               url(pasglobl.gif) }
+.mstheme-topbar-font { font-family: 'Trebuchet MS', Arial, Helvetica; font-size: 1; color: rgb(0,0,0) }
+body         { font-family: 'Trebuchet MS', Arial, Helvetica }
+h1           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 24pt }
+h2           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 18pt }
+h3           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 14pt }
+h4           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 12pt }
+h5           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 10pt }
+h6           { font-family: Georgia, 'Times New Roman', Times; font-weight: normal; 
+               font-style: normal; font-size: 8pt }
+button       { font-size: 8pt; font-family: 'Trebuchet MS', Arial, Helvetica; font-style: 
+               bold; border-style: solid; border-width: 1pt }
+label, .MSTHEME-LABEL { font-size: 8pt; font-family: 'Trebuchet MS', Arial, Helvetica; font-style: 
+               bold }
+textarea     { font-size: 8pt; font-family: 'Trebuchet MS', Arial, Helvetica; font-style: 
+               normal; border-style: solid; border-width: 1pt }
+fieldset     { font-size: 8pt; font-family: 'Trebuchet MS', Arial, Helvetica; font-style: 
+               normal; border-style: solid; border-width: 1pt }
+legend       { font-size: 8pt; font-family: Georgia, 'Times New Roman', Times; font-style: 
+               normal }
+select       { font-size: 8pt; font-family: 'Trebuchet MS', Arial, Helvetica; font-style: 
+               normal; border-style: solid; border-width: 1pt }
+table        { font-family: 'Trebuchet MS', Arial, Helvetica; font-style: normal }
+caption      { font-size: 14pt; font-family: Georgia, 'Times New Roman', Times; font-style: 
+               normal }
+th           { font-family: 'Trebuchet MS', Arial, Helvetica; font-style: normal }
+marquee      { font-size: 14pt; font-family: 'Trebuchet MS', Arial, Helvetica }

@@ -1,0 +1,20 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Vectors}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Definicions}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Vectors fixs}{8}{0}{1}
+\beamer@subsectionintoc {1}{3}{Vectors lliures}{20}{0}{1}
+\beamer@sectionintoc {2}{Operacions amb vectors}{27}{0}{2}
+\beamer@subsectionintoc {2}{1}{Suma i resta de vectors lliures}{28}{0}{2}
+\beamer@subsectionintoc {2}{2}{Producte de vector per escalar}{36}{0}{2}
+\beamer@subsectionintoc {2}{3}{Combinaci\'o lineal de vectors}{43}{0}{2}
+\beamer@sectionintoc {3}{Propietats de les operacions amb vectors}{46}{0}{3}
+\beamer@sectionintoc {4}{Estructura euclidiana de $\mathbb {R}^n$}{51}{0}{4}
+\beamer@subsectionintoc {4}{1}{Producte escalar}{52}{0}{4}
+\beamer@subsectionintoc {4}{2}{Norma o longitud}{58}{0}{4}
+\beamer@subsectionintoc {4}{3}{Dist\`ancia entre dos punts}{65}{0}{4}
+\beamer@subsectionintoc {4}{4}{Angle entre dos vectors}{72}{0}{4}
+\beamer@subsectionintoc {4}{5}{Desigualtat de Cauchy-Schwarz}{76}{0}{4}
+\beamer@sectionintoc {5}{Producte Vectorial. Producte Mixt}{81}{0}{5}
+\beamer@subsectionintoc {5}{1}{Producte Vectorial}{82}{0}{5}
+\beamer@subsectionintoc {5}{2}{Producte Mixt}{88}{0}{5}

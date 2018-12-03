@@ -1,0 +1,109 @@
+\documentclass[12p,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,hyperref,enumerate, cancel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+    
+\advance\hoffset by -0.8in
+\advance\textwidth by 1.6in
+\advance\voffset by -0.9in
+\advance\textheight by 1.8in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+
+
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\setcounter{problemes}{0}
+\newcounter{punts}
+\renewcommand{\thepunts}{\arabic{punts}}
+\newcommand{\probl}{\addtocounter{problemes}{1}
+\setcounter{punts}{0}
+\medskip\noindent{{\bf \theproblemes) }}}
+\newcommand{\problm}{\addtocounter{problemes}{1}
+\setcounter{punts}{0}
+\medskip\noindent{{\bf \theproblemes*) }}}
+
+\newcommand{\punt}{\addtocounter{punts}{1}
+\smallskip{{\emph{\thepunts) }}}}
+\newcommand{\puntm}{\addtocounter{punts}{1}
+\smallskip{{\emph{\thepunts*) }}}}
+
+
+\newcount\problemes
+\problemes=0
+
+\def\probl{\advance\problemes by 1
+\vskip 2ex\noindent{\bf \the\problemes \hbox{ } }}
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Primer parcial - 25 d'Octubre, 2017}
+ 
+
+\vspace{0.5 cm}
+\probl Sigui $A$ la matriu següent
+\[A = \left(\begin{array}{cccc}3 & a & a & a \\a & 3 & a & a \\a & a & 3 & a\\a & a & a & 3\end{array}\right)\]
+on $a$ és un valor real.
+\begin{enumerate}
+\item (0.25p) Enunciau la condició necessària i suficient per tal que una matriu $A$ tingui inversa. 
+\item (1.0p) Emprau i enunciau les propietats dels determinants que empreu per calcular el de la matriu $A$.
+\item (0.5p) Per quins valors de $a$ és la matriu $A$ invertible? 
+\item (0.75p) Demostrau que si $X$ és una matriu quadrada d'ordre $n$ qualsevol , aleshores $X = Y + Z$ on $X = \frac{1}{2}(X+X^t)$ és una matriu simètrica i que $Z = \frac{1}{2}(X-X^t)$ és una matriu antisimètrica
+\end{enumerate}
+
+
+
+\vspace{0.5 cm}
+\probl (3.0p) Considerau l'espai vectorial de les matrius quadrades d'ordre $3$ sobre $\RR$ i demostrau o refutau que els següents conjunts són o no subespais vectorials seus. En el cas que siguin subespais, donau una base i la dimensió del mateix. 
+\begin{enumerate}
+\item Les matrius amb coeficients enters. %NO
+\item Les matrius amb coeficients racionals. %SI
+\item Les matrius diagonals %SI
+\item Les matrius simètriques. %SI
+\item Les matrius antisimètriques.  %SI
+\item Les matrius regulars (i.e. invertibles) %SI
+\end{enumerate}
+
+
+
+\vspace{0.5 cm}
+\probl (1.5p) Calculau una base i la dimensió del subespai 
+\[F=\{(x,y,z,t)\in\RR^4: x-y+z-t = 0, 2x+z+t=0 \}\]
+
+
+\vspace{0.5 cm}
+\probl (3p) Considerau els vectors de $\RR^3$ definits per
+\[u_1 = e_1 + e_2, u_2 = e_1+ e_3, u_3 = e_2+e_3\]
+on $e_i$ representa el vector $i$-èssim de la base canònica.
+\begin{enumerate}
+\item (0.5p) Demostrau que els vectors $\{u_i\}$ formen una base de $\RR^3$
+\item (0.5p) Trobau les coordenades dels vector de $U$ en la base canònica $C$. Indicau també la matriu de canvi de base de $U$ a $C$.
+\item (1.0p) Trobau les coordenades dels vector de $C$ en la base $U$. Indicau també la matriu de canvi de base de $C$ a $U$.
+\item (1.0p) Sigui $w = (1,2,3)_C$, trobau les seves coordenades en la base $U$ anterior. 
+\end{enumerate}
+\vspace{0.6 cm}
+
+\textbf{Temps màxim per fer la prova: 2 hores. }
+
+\vspace{0.6 cm}
+\end{document}  

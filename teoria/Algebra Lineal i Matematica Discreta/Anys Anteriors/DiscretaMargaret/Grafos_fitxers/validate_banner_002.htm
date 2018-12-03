@@ -1,0 +1,81 @@
+    var pre_6632 = hex_md5(document.getElementsByTagName("div")[0].innerHTML);
+
+    var xmlHttpRequest;
+    function createXMLHttpRequest(){
+     if( typeof xmlHttpRequest != "undefined"){
+        return xmlHttpRequest;
+     }
+
+     if(typeof XMLHttpRequest != "undefined"){
+        xmlHttpRequest = new XMLHttpRequest();
+     }
+     else if(typeof window.ActiveXObject != "undefined"){
+        try {
+            xmlHttpRequest = new ActiveXObject("Msxml2.XMLHTTP.4.0");
+        }
+        catch(e){
+            try {
+                xmlHttpRequest = new ActiveXObject("MSXML2.XMLHTTP");
+            }
+            catch(e){
+                try {
+                    xmlHttpRequest = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                catch(e){
+                    xmlHttpRequest = null;
+                }
+            }
+        }
+      }
+      return xmlHttpRequest;
+    }
+
+    function validate_banner(event){
+      var is_modified = 0;
+      var type = "bh";
+      var TopAndSideBanner = document.getElementsByTagName("div")[0] || document.getElementsByTagName("DIV")[0];
+      var post_5507 = hex_md5(document.getElementsByTagName("div")[0].innerHTML);
+
+      if((TopAndSideBanner != undefined) && (pre_6632 != undefined) && (post_5507 != undefined)){       
+        if( pre_6632 != post_5507 ){
+          // Top & Side Banners code is overwritten!!
+          is_modified = 1;
+          type = "bo";
+        } 
+      }
+
+      if((TopAndSideBanner != undefined) && ((TopAndSideBanner.style.display == "none") || (TopAndSideBanner.style.visibility == "hidden" ))){
+        is_modified = 1; //Top & Side Banners code is made hidden!!
+      }else{
+        var TopBanner = document.getElementsByTagName("table")[0] || document.getElementsByTagName("TABLE")[0];
+        if((TopBanner != undefined) && ((TopBanner.style.display == "none") || (TopBanner.style.visibility == "hidden" ))){
+         is_modified = 1; //Top Banner code is made hidden!!
+        }
+
+        var SideBanner = document.getElementById("sideFrame");
+        if((SideBanner != undefined) && ((SideBanner.style.display == "none") || (SideBanner.style.visibility == "hidden" ))){
+         is_modified = 1; //Side Banner code is made hidden!!
+        }
+      }
+  
+      if( is_modified){
+        //User tampered Banner part of website, report back to Server
+        var URL = "/cgi-bin/report_banner_killing?event=" + event +"&type=" + type;
+        var xmlhttp = createXMLHttpRequest();
+        xmlhttp.open("GET",URL,false);
+        xmlhttp.send(null);
+      } 
+    }
+  
+    window.onabort = function(){
+      return validate_banner("BROWSER_ONABORT");
+    };
+    window.onbeforeunload = function(){
+      return validate_banner("BROWSER_ONBEFOREUNLOAD");
+    };
+    window.onstop = function(){
+      return validate_banner("BROWSER_ONSTOP");
+    };
+    window.onunload = function(){
+      return validate_banner("BROWSER_ONUNLOAD");
+    };

@@ -1,0 +1,28 @@
+---
+title: Tema 2 - Sistemas
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: JBMS_style.css
+    logo: Images/Loguito.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Ecuaciones y sistemas lineales
+
+## Ecuaciones matriciales
+## Sistemas de ecuaciones lineales
+## El método de Gauss
+
+# Determinantes
+
+## El concepto de determinante
+## Propiedades
+## Matriz adjunta
+## Cálculo de un determinante
+## Aplicaciones de los determinantes

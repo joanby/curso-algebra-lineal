@@ -1,0 +1,207 @@
+\documentclass[12p,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry}                		
+\geometry{letterpaper}                   		
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\topmargin}{-1.3cm}
+
+
+\newcommand{\sC}{{\cal C}}
+\newcommand{\sF}{{\cal F}}
+\newcommand{\sL}{{\cal L}}
+\newcommand{\sU}{{\cal U}}
+\newcommand{\sX}{{\cal X}}
+\newcommand{\eop}{{\Box}}
+
+\newcommand{\ar}{A^{(r)}}
+\newcommand{\HH}{{\bf H}}
+\newcommand{\sS}{{\cal S}}
+\newcommand{\Img}{\mbox{Img}}
+
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{C\!\!\!\!I}
+
+
+\newcount\problemes
+\problemes=0
+
+\def\probl{\advance\problemes by 1
+\vskip 2ex\noindent{\bf \the\problemes \hbox{ } }}
+
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+
+\begin{document}
+
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Problemes d'Algebra Lineal. Primer de Telemàtica. 
+\hfill Tema 3 - Espais Vectorials}
+
+\vspace{0.6 cm}
+\probl Considereu els vectors $\vec u = (3,0,0), \vec v = (1,0,-3)$ i $\vec w = (0,-2,4)$ 
+\begin{enumerate}
+\item Estudiau si són linealment dependents o linealment independents. 
+\item Trobau, si és possible, una combinació lineal d'aquests vectors tal que el seu resultat sigui el vector $(-2,4,1)$. 
+\item Finalment, és possible obtenir qualsevol vector $(x,y,z)\in \mathbb R^3$ com a combinació lineal de $\vec u, \vec v, \vec w$? Raonau la resposta.
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Donats els vectors $\vec v = (1,2,3), \vec u = (2,4,0), \vec w =(3,-2,3)$.
+\begin{enumerate}
+\item Troba tres nombres $a,b,c$ tals que $a \vec v + b \vec u + c \vec w = \vec 0$.
+\item És $\vec v $ combinació lineal de $\vec u$ i $\vec w$?
+\item És $\vec w $ combinació lineal de $\vec u$ i $\vec v$?
+\item Expressa el vector $(6,0,9)$ com a combinació lineal dels tres vectors. 
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Determina si els següents conjunts de vectors de $\mathbb R^3$ són linealment dependents o independents. Estudia el seu rang:
+\begin{enumerate}
+\item $(1,-2,1),(2,1,-1),(7,-4,1)$.
+\item $(1,-3,7),(2,0,-6),(3,-1,-1), (2,4,-5)$.
+\item $(1,2,-3),(1,-3,2),(2,-1,5)$.
+\item $(2,-3,7),(0,0,0),(3,-1,-4)$.
+\item $(1,1,1),(1,-1,5)$.
+\item $(1,1,1),(1,2,3),(2,-1,1)$.
+\item $(2,2,-1),(4,2,-2),(7,-4,1)$.
+\item $(1,0,1,3),(0,0,2,-5),(-1,2,0,7)$.
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Demostrau que $\vec a = (x,y)$ i $\vec b = (z,t)$ de $\vec R^2$ són linealment dependents si i només si $xt-yz=0$.
+
+\vspace{0.4cm}
+\probl Trobau els valors d'$a$ per tal que els vectors $(-2,a,a), (a,-2,a),(a,a,-2)$ siguin linealment dependets.
+
+\vspace{0.4cm}
+\probl Donat el conjunt de vectors $U=\{ \vec u_1,\vec u_2,\vec u_3,\vec u_4   \}$ tal que $\vec u_4$ és combinació lineal de $\vec u_1$ i $\vec u_2$, i $\vec u_3$ és combinació lineal de $\vec u_1$ i $\vec u_4$, discutiu si els vectors de $U$ són LI o LD, i quin és el rang de $U$.
+
+\vspace{0.4cm}
+\probl Determinar si els vectors $\vec v = (1,0,2),\vec u = (0,1,-3), \vec w = (1,1,0), \vec z = (0,0,-1)$ de l'espai vectorial $\mathbb R^3 $ formen un sistema generador de $\mathbb R^3$. 
+
+\vspace{0.4cm}
+\probl Si  $U=\{ \vec u_1,\vec u_2,\vec u_3,\vec u_4 , \vec u_5  \}$ és un conjunt de vectors de rang 3, comenta la veritat o falsetat de les següents afirmacions. 
+\begin{enumerate}
+\item Tots els subconjunts de $U$ de tres vectors són conjunts lliures.
+\item El vector $\vec u_3$ és linealment independent dels altres.
+\item Els vectors del subconjunt $U=\{\vec u_1, \vec u_2, \vec u_3\}$ són linealment independents.
+\item Algun subconjunt de $U$ de tres vectors és lliure (els seus vectors són linealment independents) ja que el rang és el nombre màxim de vectors LI que podem trobar en el conjunt. Per tant és suficient amb que hi hagi almenys un subconjunt de 3 vectors LI.
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Estudiar si els següents conjunts de vectors compleixen els requisits per formar una base de $\mathbb R^3$:
+\begin{enumerate}
+\item $A=\{(1,1,1),(3,1,-1),(-4,2,8)\}$
+\item $B=\{(3,2,1),(2,1,0),(1,0,0)\}$
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Considerau els vectors $(1,2,-1),(2,1,-1)$. Trobau un vector tal que amb els altres dos formi una base de $\mathbb R^3$.
+
+\vspace{0.4cm}
+\probl Sigui $\vec u = (2,1,3)$ en la base canònica. Calculau les components de $\vec u$ en la nova base $B=\{(1,2,0),(1,-1,1),(0,1,1)\}$.
+
+\vspace{0.4cm}
+\probl Provau que el conjunt $C=\{(1,1,1),(1,1,2),(1,2,3)\}$ formen una base de $\mathbb R^3$. Trobau, respecte d'aquesta base, les coordenades del vector $(5,1,-3)$. Trobau les coordenades en la base canònica del vector que té per coordenades $(3,1,-1)$ en la base $C$.
+
+\vspace{0.4cm}
+\probl Expressau $\vec v = (1,-2,5)\in \mathbb R^3$ com a combinació lineal dels vectors $\vec u_1= (1,-3,2), \vec u_2 = (2,-4,-1), \vec u_3 = (1,-5,7)$. Formen $\vec u_1, \vec u_2, \vec u_3$ una base de $\mathbb R^3$?
+
+\vspace{0.4cm}
+\probl Provau que el conjunt $D=\{(1,0,0,-1),(0,1,-1,0),(0,1,0,-1),(0,1,1,1)\}$ formen una base de $\mathbb R^4$. Obteniu les coordenades del vector $(-3,2,1,-2)$ en aquesta base. Si el vector $\vec u$ té coordenades $(3,0,-1,1)$ en la base $D$ obteniu-ne les coordenades en la base canònica. 
+
+\vspace{0.4cm}
+\probl Sigui $B_1=\{\vec u_1, \vec u_2, \vec u_3\}$ una base d'un espai vectorial $V$. Sabent que
+\[\left\{\begin{array}{ccccc}\vec v_1 & = & 2\vec u_1 & - & \vec u_2 \\\vec v_2 & = & -\vec u_1 & + & \vec u_3 \\\vec v_3 & = & \vec u_2 &  & \end{array}\right.\]
+obteniu les coordenades de $\vec v_1, \vec v_2, \vec v_3$ en la base $B_1$. Demostrau que $B_2=\{\vec v_1, \vec v_2, \vec v_3\}$ també forma una base de $V$. Siguin $(2,1,3)$ les coordenades del vector $\vec u$ en la base $B_1$, calculau les coordenades en la base $B_2$.
+
+\vspace{0.4cm}
+\probl Sigui $\{\vec v_1, \vec v_2, \vec v_3\}$ una base de $V$. Demostrau que si 
+\[\left\{\begin{array}{ccccccc}\vec u_1 & = & \vec v_1 &  &  &  &  \\\vec u_2 & = & \vec v_1 & + & \vec v_2 &  &  \\\vec u_3 & = & \vec v_1 & + & \vec v_2 & + & \vec v_3\end{array}\right.\]
+el conjunt $\{\vec u_1, \vec u_2, \vec u_3\}$ també és una base de $V$.
+
+\vspace{0.4cm}
+\probl Considerem $\vec e_1, \vec e_2, \vec e_3$ tres vectors LI.
+\begin{enumerate}
+\item Demostrau que $\vec u_1, \vec u_2, \vec u_3$ són també LI, on
+\[\left\{\begin{array}{ccccc}\vec u_1 & = & 2\vec e_1 & + & \vec e_3 \\\vec u_2 & = & 3\vec e_3 &  &  \\\vec u_3 & = & \vec e_2 & - & \vec e_3\end{array}\right.\]
+\item Donat un vector $\vec v = 2\vec e_1+\vec e_2-3\vec e_3$, expressau-lo com a combinació lineal de $\vec u_1, \vec u_2, \vec u_3$.
+\end{enumerate}
+
+
+\vspace{0.4cm}
+\probl Donada la base $\{(1,2,0,0), (-1,0,1,1), (0,0,-2,1), (-1,0,-1,0)\}$ de $\mathbb R^4$ i donat $\vec u$  de components $(-3,2,1,-2)$ en aquesta base, obteniu les components en la base formada pels vectors $(1,0,0,-1), (0,1,-1,0), (0,1,0,-1), (0,1,1,1)$.
+
+
+\vspace{0.4cm}
+\probl Sigui $B_V = \{\vec v_1, \vec v_2, \vec v_3\}$ una base d'$\mathbb R^3$ i siguin els vectors 
+\[\left\{\begin{array}{ccccccc}\vec u_1 & = & 3\vec v_1 & + & 2\vec v_2 & - & \vec v_3 \\\vec u_2 & = & 4\vec v_1 & + & \vec v_2 & + & \vec v_3 \\\vec u_3 & = & 2\vec v_1 & - & \vec v_2 & + & \vec v_3\end{array}\right.\]
+Provau que:
+\begin{enumerate}
+\item $B_U = \{\vec u_1, \vec u_2, \vec u_3\}$ és una base de $\mathbb R^3$.
+\item Trobau les coordenades dels vectors $\vec v_1, \vec v_2, \vec v_3$ en la base $B_U$.
+\item El vector $\vec x\in \mathbb R^3$ té coordenades $(1,2,3)$ en la base $B_V$. Calcula les coordenades de $\vec x$ en la base $B_U$.
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Expressau el vector $(3,1,4)$ en la base d'$\mathbb R^3$ formada pels vectors $(1,-2,-1), (1,-1,0),(0,0,3)$.
+
+\vspace{0.4cm}
+\probl Sigui la base $B_1 = \{(1,0,0,-1),(0,1,-1,0),(0,1,0,-1),(0,1,1,1)\}$ de $\mathbb R^4$. Obteniu  les components en aquesta base del vector $\vec u$ que té coordenades $(-3,2,1,-2)$ en la base $B_2$ formada pels vectors $(1,2,0,0), (-1,0,1,1),(0,0,-2,1), (-1,0,-1,0)$.
+
+\vspace{0.4cm}
+\probl Indicau quins dels següents conjunts són subespais vectorials dels espais indicats. Donau una base en el cas que siguin subespais:
+\begin{enumerate}
+\item $U=\{(x,y,z)\in \mathbb R^3\ :\ x-z = 0 \}$
+\item $V=\{(x,y,z)\in \mathbb R^3\ :\ x-y+z = 0 \}$
+\item $W=\{(x,y,z)\in \mathbb R^3\ :\ x=0,\ y+z = 0 \}$
+\item $X=\{(a,b,0)\in \mathbb R^3\}$
+\item $Y=\{(a,b,c,d)\in \mathbb R^4\ :\ b=a+c+d+1\}$
+\item $Z=\{(a,b,c,d)\in \mathbb R^4\ :\ b=a+c,\ d=2a \}$
+\end{enumerate}
+
+\vspace{0.4cm}
+\probl Trobau una base del subespai vectorial $E$ generat per $\vec v_1 = (1,-2,0,3), \vec v_2 = (2,-5,-3,6), \vec v_3 = (0,1,3,0), \vec v_4 = (2,-1,4,-7)$ i $\vec v_5 = (5,-8,1,2)$.
+
+\vspace{0.4cm}
+\probl Trobau una base del subespai vectorial $F=\langle (1,2,1,0), (0,0,1,0), (1,2,0,0) \rangle$
+
+\vspace{0.4cm}
+\probl Provau que
+\[\langle (1,-1,-1,1), (1,-2,-2,1), (0,1,1,0) \rangle = \langle (1,0,0,1), (0,-1,-1,0) \rangle\]
+Donau una base d'aquest subespai vectorial. 
+
+\vspace{0.4cm}
+\probl Sigui $E$ l'espai vectorial generat pels vectors $\vec v_1, \vec v_2, \vec v_3$, $E=\langle \vec v_1, \vec v_2, \vec v_3 \rangle$ on $\vec v_1 = (2,1,0,3), \vec v_2 = (3,-1,5,2), \vec v_3 = (-1,0,2,1)$. Determinau la dimensió de $E$ i dir si els vectors $(1,1,1,1)$ i $(2,3,-7,3)$ pertanyen o no a $E$.
+
+\vspace{0.4cm}
+\probl Demostrau que el conjunt de les matrius de la forma
+\[\left(\begin{array}{cc}x-3y & 5y \\-4y & x+3y\end{array}\right)\]
+amb $x,y\in \mathbb Q$ formen un subespai vectorial de l'espai de matrius d'ordre 2 sobre el cos dels racionals $M_2(\mathbb Q)$.
+
+\end{document}  

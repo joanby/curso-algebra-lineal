@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Introducci\'o}{3}{0}{1}
+\beamer@sectionintoc {2}{Programaci\'o lineal}{31}{0}{2}
+\beamer@subsectionintoc {2}{1}{Forma est\`andard d'un PPL}{50}{0}{2}
+\beamer@subsectionintoc {2}{2}{Solucions b\`asiques d'un PPL}{66}{0}{2}
+\beamer@sectionintoc {3}{El m\`etode del s\IeC {\'\i }mplex}{79}{0}{3}
+\beamer@subsectionintoc {3}{1}{Un exemple, per comen\c car}{81}{0}{3}
+\beamer@subsectionintoc {3}{2}{El m\`etode del s\IeC {\'\i }mplex en problemes de minimitzaci\'o}{94}{0}{3}
+\beamer@subsectionintoc {3}{3}{Observacions finals}{111}{0}{3}

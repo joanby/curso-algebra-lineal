@@ -1,0 +1,129 @@
+---
+title: "Tema 0 - Preliminares"
+author: "Juan Gabriel Gomila & María Santos"
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: JBMS_style.css
+    logo: Images/Loguito.png
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Cuerpos
+
+## La estructura de cuerpo
+
+<l class="definition">
+Cuerpo.
+</l> Sea $\mathbb{K}$ un conjunto dotado de dos operaciones, adición ($+$) y multiplicación ($\cdot$). Diremos que $\mathbb{K}$ es un cuerpo si se cumplen las condiciones siguientes:
+
+- $+$ y $\cdot$ son operaciones internas sobre $\mathbb{K}$: $a+b\in\mathbb{K}$ y $a\cdot b\in\mathbb{K}$
+- $+$ y $\cdot$ son operaciones conmutativas: $a+b=b+a$ y $a\cdot b=b\cdot a$
+- $+$ y $\cdot$ son operaciones asociativas: $(a+b)+c=a+(b+c)$ y $(a\cdot b)\cdot c=a\cdot(b\cdot c)$
+- Hay un elemento neutro para la adición: $a+0=0+a=a\ \forall a\in\mathbb{K}$
+- Hay un elemento neutro para la multiplicación (distinto del neutro de la adición): $a\cdot 1=1\cdot a=a\ \forall a\in\mathbb{K}$
+
+## La estructura de cuerpo
+
+- Elemento opuesto: $\forall a\in\mathbb{K}$ hay otro elemento $-a\in\mathbb{K}$ tal que $a+(-a)=(-a)+a=0$
+- Elemento inverso: $\forall a\in\mathbb{K}$ hay otro elemento $a^{-1}\in\mathbb{K}$ tal que $a\cdot a^{-1}=a^{-1}\cdot a=1$
+- La operación $\cdot$ es distributiva respecto $+$: $a\cdot(b+c)=a\cdot b+a\cdot c$
+
+Cuando no pueda haber confusión quitaremos el signo $\cdot$ para denotar la operación de multiplicación. Es decir, denotaremos $a\cdot b$ como $ab$.
+
+## Propiedades de los cuerpos
+
+<l class="prop">
+Propiedades de los cuerpos.
+</l> En un cuerpo $\mathbb{K}$ se verifican las siguientes propiedades:
+
+- Propiedad de simplificación para la suma: $a+b=a+c\Rightarrow\ b=c$
+- Los neutros (0 y 1) son únicos
+- Cada elemento tienen un único opuesto
+- Cada elemento $\ne 0$ tiene un único inverso
+- 0 es absorbente para la multiplicación: $a\cdot 0 = 0\ \forall a\in\mathbb{K}$
+- $\mathbb{K}$ no tiene divisores de 0: $ab=0\Rightarrow a=0$ o $b=0$
+
+# Polinomios
+
+## Polinomios
+Sea $\mathbb{K}$ un cuerpo cualquiera
+
+<l class="definition">
+Polinomio en una variable.
+</l> Objeto de la forma $p(x)=a_0+a_1x+\cdots+a_nx^n$ donde $a_i\in\mathbb{K}\ \forall i=0,\dots,n$ 
+
+Un polinomio $p(x)=a_0+a_1x+\cdots+a_nx^n$ se puede escribir también en forma de sucesión: $(a_0,a_1,\dots,a_n,0,0,\dots)$
+
+<l class="definition">
+Polinomio iguales.
+</l> Dos polinomios son iguales si tienen los mismos coeficientes. Es decir, son iguales como sucesiones.
+
+
+## Polinomios
+
+<l class="definition">
+Grado de un polinomio.
+</l> Si $a_n\ne 0$, se dice que el grado del polinomio es $n$.
+
+<div class="example">
+**Ejemplo**
+
+$$p(x)=x^2+5x+1$$
+es un polinomio de segundo grado
+</div>
+
+<l class="definition">
+Polinomio constante.
+</l> El polinomio $0$ ($a_i=0$ para todo $i=0,\dots,n$) y los polinomios de grado $0$. 
+
+## Polinomios
+
+<l class="definition">
+Conjunto de polinomios en una variable.
+</l> Indicaremos por $\mathbb{K}[x]$ el conjunto de polinomios en una determinada variable $x$ y con coeficientes en $\mathbb{K}$. Sobre $\mathbb{K}[x]$ se pueden considerar la adición y la multiplicación definidas a partir de las operaciones de $\mathbb{K}$ de la manera siguiente
+
+- $p(x)+q(x)$ es el polinomio que tiene por coeficientes la suma (en $\mathbb{K}$) de los coeficientes de $p(x)$ y $q(x)$. Más claramente, si $p(x)=a_0+a_1x+\cdots+a_nx^n$ y $q(x)=b_0+b_1x+\cdots+b_mx^m$, entonces $p(x)+q(x)=(a_0+b_0)+(a_1+b_1)x+\cdots$
+- $p(x)q(x)$ es el polinomio $c_0+c_1(x)+\cdots+c_{nm}x^{n+m}$ donde $c_j=a_0b_j+a_1b_{j-1}+\cdots+a_jb_0;$ $j=0,1,\dots,n+m$
+
+## Polinomios
+
+Con estas operaciones el conjunto $\mathbb{K}[x]$ presenta una serie de propiedades importantes que no permiten decir que es un cuerpo. La condición de cuerpo que nos falla aquí es únicamente que no existe elemento inverso para todo elemento de $\mathbb{K}[x]$. De hecho, los únicos elementos que tienen inverso son los polinomios constantes y diferentes de 0.
+
+## Polinomios
+<l class="definition">
+Polinomio primo (o irreducible).
+</l>Si es un polinomio con coeficientes en un cuerpo, no es constante y no se puede descomponer en producto de otros polinomios sin que esta descomposición sea trivial.
+
+
+<div class="example">
+**Ejemplo**
+
+$p(x) = 1+x^2\in\mathbb{R}[x]$ es primo ya que no puede escribirse de forma $r(x)s(x)$.
+
+En cambio, $q(x)=1-x^2$ no es primo ya que $q(x)=(1-x)(1+x)$
+</div>
+
+## Polinomios
+
+Dado un polinomio $p(x)\in\mathbb{K}[x]$, podemos asociar a $p(x)$ una aplicación o función $\mathbb{K}\longrightarrow\mathbb{K}$m definida de la manera siguiente: a cada elemento $\alpha\in\mathbb{K}$ le hacemos corresponder $p(\alpha)=a_0+a_1\alpha+\cdots+a_n\alpha^n$.
+
+En el caso en que $\mathbb{K}$ sea un cuerpo infinito, podemos identificar polinomio con función asociada.
+
+<l class="definition">
+Raíz de un polinomio.
+</l> Sean $p(x)\in\mathbb{K}[x]$ y $\alpha\in\mathbb{K}$, diremos que $\alpha$ es raíz de $p(x)$ si $p(\alpha)=0$.
+
+## Polinomios
+
+<l class="prop">
+Proposición.
+</l> $\alpha\in\mathbb{K}$ es raíz de $p(x)$ $\Leftrightarrow$ $p(x)=(x-\alpha)q(x)$ con $q(x)\in\mathbb{K}[x]$.
+
+De aquí deducimos que si un polinomio de $\mathbb{K}[x]$ de grado mayor que 1 tiene una raíz (en $\mathbb{K}$) entonces no es primo. El recíproco no es cierto.
+
+# Operaciones externas

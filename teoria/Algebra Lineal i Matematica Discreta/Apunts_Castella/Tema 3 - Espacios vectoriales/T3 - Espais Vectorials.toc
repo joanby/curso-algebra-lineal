@@ -1,0 +1,19 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {spanish}
+\beamer@sectionintoc {1}{Conjuntos libres y ligados}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Combinaciones lineales}{4}{0}{1}
+\beamer@subsectionintoc {1}{2}{Dependencia e independencia lineal}{9}{0}{1}
+\beamer@subsectionintoc {1}{3}{Rango de un conjunto de vectores}{15}{0}{1}
+\beamer@sectionintoc {2}{Espacios vectoriales de dimensi\'on finita}{18}{0}{2}
+\beamer@subsectionintoc {2}{1}{Espacios vectoriales}{19}{0}{2}
+\beamer@subsectionintoc {2}{2}{Sistema generador}{26}{0}{2}
+\beamer@subsectionintoc {2}{3}{Base de un espacio vectorial}{32}{0}{2}
+\beamer@subsectionintoc {2}{4}{Dimensi\'on y coordenadas de una base}{37}{0}{2}
+\beamer@sectionintoc {3}{Cambio de base}{42}{0}{3}
+\beamer@subsectionintoc {3}{1}{El cambio de base}{43}{0}{3}
+\beamer@subsectionintoc {3}{2}{Matriz de cambio de base}{62}{0}{3}
+\beamer@sectionintoc {4}{Subespacios vectoriales}{71}{0}{4}
+\beamer@subsectionintoc {4}{1}{Concepto de subespacio vectorial}{72}{0}{4}
+\beamer@sectionintoc {5}{Bases ortogonales y ortonormales}{81}{0}{5}
+\beamer@subsectionintoc {5}{1}{M\'etodo de diagonalizaci\'on de Gram-Schmidt}{83}{0}{5}
+\beamer@subsectionintoc {5}{2}{Proyecci\'on ortogonal de un vector sobre un subespacio}{94}{0}{5}

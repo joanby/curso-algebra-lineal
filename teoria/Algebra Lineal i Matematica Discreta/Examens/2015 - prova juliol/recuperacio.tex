@@ -1,0 +1,108 @@
+\documentclass[12p,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry}                		
+\geometry{letterpaper}                   		
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\topmargin}{-1.3cm}
+
+
+\newcommand{\sC}{{\cal C}}
+\newcommand{\sF}{{\cal F}}
+\newcommand{\sL}{{\cal L}}
+\newcommand{\sU}{{\cal U}}
+\newcommand{\sX}{{\cal X}}
+\newcommand{\eop}{{\Box}}
+
+\newcommand{\ar}{A^{(r)}}
+\newcommand{\HH}{{\bf H}}
+\newcommand{\sS}{{\cal S}}
+\newcommand{\Img}{\mbox{Img}}
+
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{C\!\!\!\!I}
+
+
+\newcount\problemes
+\problemes=0
+
+\def\probl{\advance\problemes by 1
+\vskip 2ex\noindent{\bf \the\problemes \hbox{ } }}
+
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Examen de recuperació - 27 de Juny, 2016}
+
+\vspace{1.5 cm}
+\probl [1p] Donats els vectors $\vec u = (3,0,0), \vec v = (0,-2,-1)$ i $\vec w = a\vec u + b\vec v$, quina condició han de complir els escalars $a$ i $b$ per tal de que satisfaguin alhora:
+\begin{itemize}
+\item $\vec w$ sigui ortogonal al vector $(1,1,1)$.
+\item $\vec w$ sigui unitari.
+\end{itemize}
+\vspace{0.6 cm}
+
+\probl [1p] Considerau els vectors del conjunt $C=\{(1,0,0),(1,1,0),(1,1,1)\}$.
+\begin{enumerate}
+\item Demostrau que formen una base de $\mathbb R^3$.
+\item Trobau respecte d'aquesta base les coordenades del vector $(5,1,-3)$.
+\end{enumerate}
+\vspace{0.6 cm}
+
+\probl [3p] Un endomorfisme $f$ de $\mathbb{R}^3$ està determinat per $f(x,y,z)=(x+3z, x-2y, -2z)$ en la base canònica. Es demana
+\begin{enumerate}
+\item Trobar el nucli i la imatge de $f$. Classificau el morfisme $f$ segons els resultats obtinguts.
+\item Trobar la matriu de $f$ en aquesta base
+\item Trobar la matriu de $f$ en la base $V$ constituida pels vectors $v_1=(1,1,1), v_2=(1,1,0), v_3=(1,0,0)$
+\item L'expressió analítica de $f$ en aquesta base $V$
+\end{enumerate}
+\vspace{0.6 cm}
+
+\probl [3p] Donada la matriu
+\[A=\left(\begin{array}{ccc}2 & -2 & 6 \\0 & a & 4-a \\0 & a & -a\end{array}\right)\]
+\begin{enumerate}
+\item Trobau els valors  de $a$ per els quals $\lambda = 4$ és un valor propi de $A$.
+\item Per $a = 1$, donau si és possible una matriu $P$ de vectors propis i la seva matriu diagonal $D$ corresponent.
+\item Per $a = 1$, calculau $A^n$ per a tot $n\geq 0$. 
+\end{enumerate}
+
+\vspace{0.6 cm}
+
+\probl [2p] Donada la funció booleana $f(x,y,z)={(\bar{x}y)}(x+\overline{xy\bar{z}})$
+\begin{enumerate}
+\item Donau la forma canònica disjuntiva
+\item Donau la taula de veritat de la funció
+\item Dibuixau el seu mapa de Carnaugh i emprau-lo per donar-ne una simplificació. 
+\end{enumerate}
+\vspace{0.6 cm}
+
+\vspace{0.6 cm}
+\end{document}  

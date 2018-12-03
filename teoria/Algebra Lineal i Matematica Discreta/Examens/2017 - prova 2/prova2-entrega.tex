@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage[catalan]{babel}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,hyperref,enumerate, cancel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}    
+    
+\advance\hoffset by -0.8in
+\advance\textwidth by 1.6in
+\advance\voffset by -0.9in
+\advance\textheight by 1.8in
+\parskip= 1 ex
+\parindent = 10pt
+\baselineskip= 13pt
+
+
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcounter{problemes}
+\setcounter{problemes}{0}
+\newcounter{punts}
+\renewcommand{\thepunts}{\arabic{punts}}
+\newcommand{\probl}{\addtocounter{problemes}{1}
+\setcounter{punts}{0}
+\medskip\noindent{{\bf \theproblemes) }}}
+\newcommand{\problm}{\addtocounter{problemes}{1}
+\setcounter{punts}{0}
+\medskip\noindent{{\bf \theproblemes*) }}}
+
+\newcommand{\punt}{\addtocounter{punts}{1}
+\smallskip{{\emph{\thepunts) }}}}
+\newcommand{\puntm}{\addtocounter{punts}{1}
+\smallskip{{\emph{\thepunts*) }}}}
+
+
+\pagestyle{empty}
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Segon parcial - 22 de Desembre, 2017}
+ 
+
+\vspace{0.6 cm}
+\probl (2.5p) Una alimentació sana i equilibrada passa per ingerir aliments que tinguin proteïnes, hidrats de carboni i greixos. 
+
+Anem al mercat a comprar a Desembarc del Rei amb la nostra senalleta. Els quatre mercaders de la zona ens ofereixen diferents delicies de la regió: senglar del nord a l'estaca a 4 venats de plata, serp dorniense cruixent amb mostassa i mel a 2 venats de plata, vi calent de les terres del Rejo a 3 venats de plata el litre i panellets de llimona a l'estil de Sansa a 6 venats de plata el panellet.
+
+Cadascún d'aquests aliments té els següents valors calòrics i alimenticis:
+
+
+$$
+\begin{array}{|c|c|c|c|c|}\hline  & kcal & Prote\text{ï}nes & Hidrats & Greixos \\\hline Senglar\ del\ nord & 300 & 2 & 1 & 1 \\\hline Serp\ dorniense & 200 & 1 & 1 & 2 \\\hline Vi\ calent & 100 & 0 & 2 & 1 \\\hline Panellets\ de\ llimona & 400 & 0 & 3 & 3 \\\hline \end{array}
+$$
+
+
+Cada dia, els guerrers de més enllà del Mur, necessiten ingerir almenys 600 kcal, 20 unitats de proteïnes, 30 d'hidrats i 25 de greix per sobreviure a l'hivern que s'acosta i lluitar contra els caminants blancs. 
+
+Amb tota aquesta informació:
+\begin{enumerate}
+\item (0.3p) Plantejau el problema de programació lineal pertinent que minimitzi el cost de comprar aliments pel nostre regiment de 500 soldats. 
+\item (0.3p) Expressau-lo en forma estàndard 
+\item (0.7p) Resoleu-lo pel mètode del símplex i digueu quants aliments de cada hem de comprar per a cada soldat, i quants de venats de plata necessitarem per abastir tot el nostre regiment. 
+\item (0.3p) Determinau si la solució actual segueix essent l'òptima en el cas en que el preu unitari del senglar del nord a l'estaca augmenti en un 25$\%$ el seu preu original en venats de plata, i que els panellets de llimona es trobin a un venat de plata de descompte. En cas de que la nova solució no sigui essent l'òptima, trobau la nova solució òptima del problema. 
+\item (0.6p) Fins quin preu pot baixar el senglar del nord a l'estaca de manera que la base actual sigui essent l'òptima del problema?
+\item (0.3p) Fins quin preu pot baixar el preu dels panellets de llimona de manera que la base actual sigui essent l'òptima del problema?
+\end{enumerate}
+
+
+\textbf{Heu d'entregar aquest exercici de forma individual, com a tard el día del Segon Parcial (22 de Desembre de 2017). Qualsevol sospita de que dues persones s'han copiat o empren un mateix argument per fer l'exercici suposarà tenir un zero directament del mateix.}
+
+\vspace{0.6 cm}
+\end{document}  

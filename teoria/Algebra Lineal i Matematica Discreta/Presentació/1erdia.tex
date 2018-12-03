@@ -1,0 +1,378 @@
+\documentclass[12pt,t]{beamer}
+% \documentclass[t]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{verbatim}
+\usepackage{hyperref}
+\usepackage{amsfonts,amssymb,amsmath,amsthm,wasysym}
+\usepackage{listings}
+\usepackage[T1]{fontenc}        
+\usepackage{accents}
+
+\usepackage{multicol} % indice en 2 columnas
+\usepackage{centernot}
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+
+\usepackage{color}
+
+
+\usepackage{graphicx}
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+%\usetheme{default}
+\usetheme[hideothersubsections,left]{Marburg}
+\usecolortheme{sidebartab}
+\useinnertheme[shadow]{rounded}
+\setbeamertemplate{navigation symbols}{}
+% \useoutertheme[footline=empty,subsection=true,compress]{infolines}
+ %\useoutertheme[footline=empty,subsection=true,compress]{miniframes}
+\usefonttheme{serif}
+
+\setbeamertemplate{caption}[numbered]
+%\usepackage{pgfpages}
+%\pgfpagesuselayout{4 on 1}[a4paper,border shrink=5mm,landscape]
+%\setbeamertemplate{footline}[frame number]
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+\newcommand{\green}[1]{\textcolor{green}{#1}}
+\newcommand{\blue}[1]{\textcolor{blue}{#1}}
+\newcommand{\gray}[1]{\textcolor{gray}{#1}}
+\renewcommand{\emph}[1]{{\color{red}#1}}
+
+\setbeamertemplate{frametitle}
+{\begin{centering}
+\medskip
+\color{blue}
+\textbf{\insertframetitle}
+\medskip
+\end{centering}
+}
+\usecolortheme{rose}
+\usecolortheme{dolphin}
+\mode<presentation>
+
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\theoremstyle{plain}
+\newtheorem{teorema}{Teorema}
+\newtheorem{formula}[theorem]{Fórmula}
+\theoremstyle{definition}
+\newtheorem{pregunta}{Pregunta}
+\newtheorem{definicio}{Definició}
+
+\title[\red{22350 - Álgebra Lineal y Matemática Discreta}]{}
+
+\author[]{Juan Gabriel Gomila}
+
+
+\date{}
+
+
+\begin{document}
+\beamertemplatedotitem
+
+
+\lstset{backgroundcolor=\color{green!50}}
+\lstset{breaklines=true}
+\lstset{basicstyle=\ttfamily}
+
+
+\begin{frame}
+\vfill
+\begin{center}
+\gray{\Huge 22350 - Álgebra Lineal y Matemática Discreta}\\[3ex]
+\Large Curs 2018-19\\
+Grau en Enginyeria Telemàtica\\
+UIB
+\end{center}
+\vfill
+\end{frame}
+
+\section{Presentació}
+
+\subsection{Coordenades}
+
+
+\begin{frame}
+\frametitle{Qui som?}
+\vspace*{-0.2cm}
+\centering
+\begin{minipage}[c]{0.45\linewidth}
+\small \begin{center}
+\red{Grups grans:}\\
+  Juan Gabriel Gomila\\
+\medskip
+
+%\includegraphics[width=0.7\linewidth]{cescM.jpg}\\
+\includegraphics[height=0.7\linewidth]{jb.jpg}\\
+\medskip
+
+\red{Despatx} d'associats \\
+(al costat dels ascensors del hall)\\
+ Ed. Anselm Turmeda
+\medskip
+
+\red{Tutories:} Avisau\medskip
+
+\red{Mail:} juangabriel.gomila@uib.es
+\end{center}
+\end{minipage}
+
+
+
+\end{frame}
+
+
+\subsection{Objectius}
+\begin{frame}
+\frametitle{Objectius}
+\medskip
+
+Aprendre les tècniques d'àlgebra lineal i matemàtica discreta des d'un punt de vista molt aplicat, continuant la vostra formació  en base als vostres coneixements de batxillerat:
+\medskip
+
+\begin{itemize}
+\item Matrius, sistemes, determinants i vectors.
+\item Espais vectorials, bases, aplicacions lineals i diagonalització
+\item Optimització i programació lineal
+\item Teoria de conjunts, àlgebra de Boole i teoria de grafs 
+
+\end{itemize}
+
+\end{frame}
+
+\subsection{Activitats}
+\begin{frame}
+\frametitle{Activitats}
+
+\red{Classes en grup gran:}
+\smallskip
+
+Teoria en forma de transparències per part meva. Resolució de problemes per part vostra.\bigskip
+\pause
+
+\red{Classes en grup mitjà:}
+\smallskip
+
+Resolució de problemes individuals o en equips petits
+\bigskip
+\pause
+
+\red{Feina a casa} ($\sim$ 4--5 hores setmanals):
+\smallskip
+
+Estudiar, resoldre problemes per entregar, participar activament en el fòrum plantejant i resolent dubtes dels vostres companys,...
+
+\end{frame}
+
+
+\subsection{Avaluació}
+
+\begin{frame}
+\frametitle{Avaluació}
+\medskip
+
+\red{1. Examens:} 3 examens, consistents en algunes qüestions, exercicis i problemes dels continguts vists a classe
+\bigskip
+
+\begin{itemize}
+\item El \emph{primer examen parcial} (Dilluns 22 d'Octubre) pesa un \blue{$30\%$} a la nota final.
+\medskip
+\item El \emph{segon examen parcial} (Dilluns 3 de Desembre) pesa un \blue{$30\%$} a la nota final.
+\medskip
+
+\item El \emph{tercer examen final} (Dilluns 14 de Gener) pesa un \blue{$30\%$} a la nota final.
+\end{itemize}
+\bigskip
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Avaluació}
+\medskip
+
+\red{1. Controls:} Important!
+\bigskip
+
+\begin{itemize}
+\item L'examen parcial allibera matèria per a l'examen final.
+\item Per tal de ser avaluat positivament del global de l'assignatura, els estudiants hauran d'obtenir una puntuació mínima de 4 punts (sobre 10) en el global agregat dels exàmens.
+\item El día de l'Examen Final, es farà una recuperació dels parcials I i II. 
+\item En cas d'anar a la recuperació de Febrer, s'haurà de recuperar tota l'assignatura i no es guardaran les notes dels controls realitzats. La nota final serà l'obtinguda en aquesta convocatoria
+
+\medskip
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Avaluació}
+\bigskip
+
+\red{2. Seminari i Taller de problemes} La nota mitjana pesa un \blue{$10\%$} a la nota final.
+\bigskip
+
+\red{3. Problemes per fer a casa}: No té pes a l'avaluació final però es molt recomanable per dur el curs de manera fluïda. 
+
+\red{4. Participació activa al fòrum}: Es valorarà amb dècimes extra (fins a un màxim d'un punt) a la nota final la vostra participació de forma activa al fòrum, tant per plantejar dubtes de forma oberta, com per resoldre les dels vostres companys. 
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Avaluació}
+
+$$
+\begin{array}{rl}
+\mbox{\red{\bf Nota final}} & =0.30\cdot \mbox{\blue{Primer control}}\\
+& \quad+0.30 \cdot\mbox{\blue{Segon control}}\\
+& \quad+0.30 \cdot\mbox{\blue{Tercer control}}\\
+& \quad +0.10 \cdot\mbox{\blue{Exercicis de taller i problemes}}\\
+& \quad +\mbox{\blue{Dècimes extra per participació}}
+\end{array}
+$$
+\bigskip
+
+Per la recuperació febrer, s'hauran de recuperar els tres controls. Cap altra activitat d'avaluació (exercicis de taller, o participació) serà recuperable.
+
+
+\end{frame}
+
+
+\subsection{Bibliografia}
+
+\begin{frame}
+\frametitle{Bibliografia}
+
+\begin{itemize} 
+
+\item Apunts de classe disponibles en Campus Extens 
+\item Rosen, Kenneth H. Matemática discreta y sus aplicaciones 5a ed. McGraw-Hill, 2004 
+\item Ferrer, M. Pilar; Lerís, M. Dolores; Ribera, J. Manual sobre álgebra lineal. Prensas Universitarias de Zaragoza, 2003, ISBN: 84-7733-672-5
+
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Bibliografia}
+
+\begin{itemize} 
+
+
+\item  García Merayo, Félix. Matemática discreta 2a ed. Thomson-Paraninfo, 2005 
+\item J.R. Evans, E. Minieka. Optimization algorithms for networks and graphs. Second edition. 
+\item Grimaldi, Ralph P. Matemáticas discreta y combinatoria:introducción y aplicaciones. Addison-Wesley Iberoamericana, 1997. 
+\item S. Pemmaraju, S. Skiena. Computational Discrete Mathematics. Cambridge.
+\end{itemize}
+
+\end{frame}
+
+
+
+\subsection{Consells finals}
+
+
+\begin{frame}
+\frametitle{Consells finals}
+
+\begin{itemize}
+
+\item Procurau accedir a Campus Extens de forma regular per consultar qualsevol esdeveniment, exercici o notícia sobre l'assignatura.
+
+\item Posau-vos com abans millor una foto de perfil (vostra no de qualsevol cosa que vos pugui agradar\ldots) a Campus Extens per així­ coneixer-vos. 
+
+\item Veniu a classe de teoria amb les transparències impreses o amb soport digital (tablet, ordinador\ldots)
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Consells finals}
+
+\begin{itemize}
+
+\item Consultau el \emph{Tauler d'Anuncis de Campus Extens}, serà la manera bàsica de comunicar-nos amb vosaltres per temes de logí­stica.
+
+\item Procurau fer totes les tasques que us encarregui, i com abans millor. Un $10\%$ de l'assignatura us pot salvar en un moment donat... Amb un 4.5 de mitjana de parcials i un 5 de les tasques aprovaríeu\ldots
+
+\item Utilitzau el fòrum individualitzat per tutories per contactar amb nosaltres.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Consells finals}
+
+No dediqueu més temps del necessari a l'assignatura:
+\begin{itemize}
+\item No repetiu exercicis innecessàriament.
+\medskip
+
+\item El exercicis estan pensats per ser resolts en menys d'una hora, si trigau més, demanau ajuda.
+\medskip
+\item Les tutories són més barates que les academies (de fet són de franc). Aprofitau-les des del primer dia. 
+
+\item Sense estudiar tot costa molt \ldots
+\medskip
+
+\item Emprau els recursos de Campus Extens.
+\medskip
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Consells finals}
+
+\begin{itemize}
+
+\item El frau en qualsevol de les activitats d'avaluació serà durament penalitzat segons l'Article 32 del Reglament Acadèmic de la UIB.
+
+\item Si en les entregues de problemes, detectam entregues de dos o més grups amb clars indicis de còpia mútua o de font comú, els grups en qüestió seran penalitzats.
+
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Consells finals}
+
+\begin{itemize}
+
+\item Anau a les festes de la Univerland, Biofestes i gaudiu de la vostra vida universitària, que mai més tindreu tantes ocasions  de sortir de festa com estudiants de la UIB ;)
+
+\end{itemize}
+\centering
+
+\includegraphics[height=0.6\linewidth]{univerland.jpg}\\
+
+\end{frame}
+
+\end{document}
+
+

@@ -1,0 +1,90 @@
+\documentclass[14p,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry}                		
+\geometry{letterpaper}                   		
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\topmargin}{-1.3cm}
+
+
+\newcommand{\sC}{{\cal C}}
+\newcommand{\sF}{{\cal F}}
+\newcommand{\sL}{{\cal L}}
+\newcommand{\sU}{{\cal U}}
+\newcommand{\sX}{{\cal X}}
+\newcommand{\eop}{{\Box}}
+
+\newcommand{\ar}{A^{(r)}}
+\newcommand{\HH}{{\bf H}}
+\newcommand{\sS}{{\cal S}}
+\newcommand{\Img}{\mbox{Img}}
+
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{C\!\!\!\!I}
+
+
+\newcount\problemes
+\problemes=0
+
+\def\probl{\advance\problemes by 1
+\vskip 2ex\noindent{\bf \the\problemes \hbox{ } }}
+
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Segon parcial - 19 de Desembre, 2015}
+ 
+
+\vspace{0.6 cm}
+\probl (3p) Considera la següent matriu:
+\[A = \left(\begin{array}{ccc}1 & a & a \\-1 & 1 & -1 \\1 & 0 & 2\end{array}\right)\]
+\begin{enumerate}
+\item (1p) Què ha de verificar el paràmetre $a\in\mathbb{R}$ per tal que la matriu $A$ sigui diagonalitzable sobre els reals? 
+\item (1p) Quan ho sigui, trobau la seva forma diagonal, una matriu de canvi de base.
+\item (1p) Calculau $A^n$ per a qualssevol nombre $n$ natural. 
+\end{enumerate}
+%%RESULETO EN REL 6
+
+
+
+\vspace{0.4cm}
+\probl (4p) Sigui $f:\mathbb R^3\longrightarrow \mathbb R^2$ definida per $f(x,y,z) = (3x+2y-4z, x-5y+3z)$ 
+\begin{enumerate}
+\item (1p) Demostrau que l'aplicació $f$ és lineal. 
+\item (1p) Trobau el nucli i la imatge de $f$. Discutiu quin tipus d'aplicació és (i.e. monomorfisme, epimorfisme, isomorfisme, automorfisme,...)
+\item (0.5p) Calculau la matriu de $f$ respecte de les bases canòniques respectives.
+\item (1.5p) Calculau la matriu de $f$ respecte de les bases $B_{\mathbb R^3} =\{(1,1,1),(1,1,0),(1,0,0)\}$ i $B_{\mathbb R^2}=\{(1,1), (0,1)\}$.
+\end{enumerate} 
+
+\textbf{Heu d'entregar aquest exercici com a tard el día del Segon Parcial (19 de Desembre de 2015). }
+
+\vspace{0.6 cm}
+\end{document}  

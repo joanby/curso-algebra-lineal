@@ -1,0 +1,55 @@
+.aligncenter {
+    text-align: center;
+}
+
+.exercise {
+  background-color: green;
+  color: white;
+  opacity: 0.5;
+  font-size: 0.75em;
+}
+
+.example{
+  color: white;
+  background-color: blue;
+  opacity: 0.5;
+  font-size: 0.75em;
+}
+
+.prop{
+  color: lightgreen;
+  display:inline;
+}
+
+.important{
+  color: red;
+  display:inline;
+}
+
+.subsection{
+  color: blue;
+  text-align: center;
+  text-shadow: 3px 2px black;
+  font-size:3em;
+  opacity: 0.3
+}
+
+.definition{
+  color: blue;
+  display:inline;
+}
+
+.box{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 2px solid blue;
+  opacity: 0.5;
+}
+
+.dem {
+  background-color: gray;
+  color:white;
+  opacity: 0.5;
+  font-size: 0.75em;
+}

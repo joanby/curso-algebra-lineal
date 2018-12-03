@@ -1,0 +1,127 @@
+\documentclass[12p,spanish]{article}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{geometry}                		
+\geometry{letterpaper}                   		
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{color}
+
+
+\setlength{\textwidth}{16cm}
+\setlength{\textheight}{24cm}
+\setlength{\oddsidemargin}{-0.3cm}
+\setlength{\topmargin}{-1.3cm}
+
+
+\newcommand{\sC}{{\cal C}}
+\newcommand{\sF}{{\cal F}}
+\newcommand{\sL}{{\cal L}}
+\newcommand{\sU}{{\cal U}}
+\newcommand{\sX}{{\cal X}}
+\newcommand{\eop}{{\Box}}
+
+\newcommand{\ar}{A^{(r)}}
+\newcommand{\HH}{{\bf H}}
+\newcommand{\sS}{{\cal S}}
+\newcommand{\Img}{\mbox{Img}}
+
+\def\N{I\!\!N}
+\def\R{I\!\!R}
+\def\Z{Z\!\!\!Z}
+\def\Q{O\!\!\!\!Q}
+\def\C{C\!\!\!\!I}
+
+
+\newcount\problemes
+\problemes=0
+
+\def\probl{\advance\problemes by 1
+\vskip 2ex\noindent{\bf \the\problemes \hbox{ } }}
+
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+
+
+
+\begin{document}
+\pagestyle{empty}
+
+\parindent =0 pt
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Primer parcial - 26 de Gener, 2016}
+
+\vspace{1.5 cm}
+\probl Donats els vectors $\vec u = (2,0,0), \vec v = (0,1,-3)$ i $\vec w = a\vec u + b\vec v$, quina condició han de complir els escalars $a$ i $b$ per tal de que:
+\begin{enumerate}
+\item $\vec w$ sigui ortogonal al vector $(1,1,1)$.
+\item $\vec w$ sigui unitari.
+\item $\vec w$ sigui paral·lel al vector $(1,2,-6)$.
+\item Per $a=1, b=-1$, calculau el vector de longitud 3 en sentit oposat a $\vec w$.
+\end{enumerate}
+\vspace{0.6 cm}
+
+\probl Considerau els vectors del conjunt $C=\{(1,1,1),(1,1,2),(1,2,3)\}$.
+\begin{enumerate}
+\item Demostrau que formen una base de $\mathbb R^3$.
+\item Trobau respecte d'aquesta base les coordenades del vector $(5,1,-3)$.
+\item Trobau respecte de la base canònica les coordenades del vector que té per coordenades $(3,1,-1)$ en la base $C$.  
+\end{enumerate}
+\vspace{2.5 cm}
+
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Segon parcial - 26 de Gener, 2016}
+ 
+
+\probl Un endomorfisme $f$ de $\mathbb{R}^3$ està determinat per $f(x,y,z)=(2y+z, x-4y, 3x)$ en la base canònica. Es demana
+\begin{enumerate}
+\item Trobar el nucli i la imatge de $f$.
+\item Trobar la matriu de $f$ en aquesta base
+\item Trobar la matriu de $f$ en la base $V$ constituida pels vectors $v_1=(1,1,1), v_2=(1,1,0), v_3=(1,0,0)$
+\item L'expressió analítica de $f$ en aquesta base $V$
+\end{enumerate}
+\vspace{0.6 cm}
+
+\probl Donada la matriu
+\[A=\left(\begin{array}{ccc}a+1 & a-1 & a \\a-1 & a+1 & a \\0 & 0 & 1\end{array}\right)\]
+\begin{enumerate}
+\item Trobau els valors propis de la matriu $A$ en funció del paràmetre $a$.
+\item En funció dels valors propis trobats, estudiau si $A$ és o no és diagonalitzable segons els valors del paràmetre $a$ (no cal trobar explícitament els vectors propis).
+\item Per $a=0$, calculau els vectors propis de A. Digau en aquest cas qui és $D$ i $VP$.
+\end{enumerate}
+
+\vspace{2.5 cm}
+
+
+{\bf Algebra Lineal. Primer de Telemàtica. 
+\hfill Tercer parcial - 26 de Gener, 2016}
+
+\probl Donada la funció booleana $f(x,y,z)=\overline{(\bar{x}y)}(\bar{x}+xy\bar{z})$
+\begin{enumerate}
+\item Donau la forma canònica disjuntiva
+\item Donau la taula de veritat de la funció
+\item Dibuixau el seu mapa de Carnaugh i emprau-lo per donar-ne una simplificació. 
+\end{enumerate}
+\vspace{0.6 cm}
+
+
+
+\probl Considerem el joc del $N$-dòmino generalitzat. En aquest joc es tenen fitxes, cadascuna de les quals està etiquetada amb dos nombres, $a, b \in \{0, . . . , N\}$, i que indicarem per $[a \cdot b]$; les fitxes es poden girar; es a dir, la fitxa $[a \cdot b]$ i la fitxa $[b \cdot a]$ són indistingibles. 
+\begin{enumerate}
+\item Suposant que no hi ha fitxes repetides, amb quantes fitxes juguem al $3$-dòmino? I al $4$-dòmino? I al $5$-dòmino?\item Suposant que no hi ha fitxes repetides, amb quantes fitxes juguem al $N$-dòmino?
+\item Una partida de dòmino és una seqüència de fitxes, $[a_1 \cdot b_1][a_2 \cdot b_2] \cdots [a_k \cdot b_k]$, de manera que els nombres adjacents de fitxes diferents coincideixen, és a dir, amb $b_i = a_{i+1}$ per a tot $i = 1,\cdots,k-1$. És possible fer una partida on s'emprin totes les fitxes del joc? Justifica la teva resposta emprant la terminología vista a classe. 
+\end{enumerate}
+
+\vspace{0.6 cm}
+\end{document}  

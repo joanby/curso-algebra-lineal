@@ -1,0 +1,1046 @@
+\documentclass{beamer}
+\usepackage[spanish]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{multicol} % indice en 2 columnas
+\usepackage{centernot}
+\usepackage{amsmath}% http://ctan.org/pkg/amsmath
+
+\usepackage{color}
+
+
+\usepackage{graphicx}
+\graphicspath{ {im/} }
+
+
+\newcommand{\notimplies}{%
+  \mathrel{{\ooalign{\hidewidth$\not\phantom{=}$\hidewidth\cr$\implies$}}}}
+
+
+\usetheme{Warsaw}
+%\usecolortheme{crane}
+\useoutertheme{shadow}
+\useinnertheme{rectangles}
+
+\setbeamertemplate{navigation symbols}{} % quitar simbolitos
+
+
+
+\title[Tema 2 - Vectors]{Vectors}
+\subtitle{Grau en Enginyeria Telemàtica}
+\author[Juan Gabriel Gomila]{
+Juan Gabriel Gomila%$^{1}$  \and E. Eva$^{2}$ \and S. Serpiente$^{3}$
+}
+\institute[UIB]{
+ % $^{1-2}$
+ Grau en Enginyeria Telemàtica
+ \and
+  Universitat de les Illes Balears
+  \and
+  \texttt{juangabriel.gomila@uib.es}
+}
+\date{\today}
+
+\AtBeginSection{
+\begin{frame}
+  \begin{multicols}{2}
+  \tableofcontents[currentsection]   
+\end{multicols}
+\end{frame}
+}
+
+\AtBeginSubsection{
+\begin{frame}
+  \begin{multicols}{2}
+  \tableofcontents[currentsection,currentsubsection]
+\end{multicols}
+\end{frame}
+}
+
+
+
+%empieza aqui
+
+
+\begin{document} 
+
+\frame{\titlepage}
+
+\begin{frame}
+  \frametitle{Índex}
+  \tableofcontents
+\end{frame}
+
+\section{Vectors}
+\subsection{Definicions}
+
+\begin{frame}
+  \frametitle{Vectors}
+Els vectors tenen un paper fonamental no només al món de les Matemàtiques, si no també en la Física, Enginyeria i altres camps científics.
+
+Ja coneixem d'anys precedents les nocions de vectors en el pla o en l'espai. Els vectors en general tenen dues vessants íntimament lligades: l'algebraica i la geomètrica. 
+
+Veurem en primer lloc els vectors des del punt de vista geomètric.
+
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Vectors}
+  Sigui $\mathbb{K}$ un cos
+  \begin{block}{Punt en la recta $\mathbb{K}$}
+Donats un origen i una unitat de longitud, cada punt de la recta ve definit per un i només un escalar del cos $\mathbb{K}$ i viceversa.
+  \end{block}
+
+  \begin{block}{Punt en el pla $\mathbb{K}^2$}
+Donats un origen, dos eixos (rectes) i una unitat de longitud, un punt del pla és una parella $(x,y)$ on $x$ i $y$ son dos elements del cos $\mathbb{K}$.
+  \end{block}
+  
+  \begin{block}{Punt en l'espai $\mathbb{K}^3$}
+Donats un origen, tres eixos (rectes) i una unitat de longitud, un punt del pla és una parella $(x,y,z)$ on $x,y$ i $z$ son dos elements del cos $\mathbb{K}$.
+  \end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vectors}
+  \begin{block}{Punts a $\mathbb{K}^n$}
+Un punt a l'espai $\mathbb{R}^n$ es defineix com una $n$-epla de nombres
+\[X=(x_1,x_2,\cdots,x_n)\]
+on $n$ es la dimensió de l'espai $\mathbb{K}^n$.
+  \end{block}
+
+  \begin{block}{Coordenades del punt}
+Les coordenades de $X$ són els valors $x_1,x_2,\cdots, x_n$ del punt $X$.
+  \end{block}
+
+\end{frame}
+
+\subsection{Vectors fixs}
+
+\begin{frame}
+  \frametitle{Vectors fixs }
+Les següents definicions ens permeten veure els vectors des d'una perspectiva geomètrica.
+  \begin{block}{Vector fix}
+Un vector fix es una parella de punts $A$ i $B$, que indicarem com $\vec{AB}$. El punt $A$ s'anomena \textbf{origen} i el punto $B$ \textbf{extrem}.
+  \end{block}
+
+Normalment els vectors en el pla o en l'espai de tres dimensions es solen representar mitjançant segments acabats en una punta de fletxa en un dels seus extrems. 
+  
+\end{frame}
+
+Las componentes cartesianas de un vector son los vectores que se obtienen al proyectarlo sobre los ejes de un sistema de coordenadas situado en el origen del vector.
+
+
+\begin{frame}
+  \frametitle{Components d'un vector fix $\vec{AB}$ }
+  \begin{block}{Vector fix}
+Les components d'un vector fix $\vec{AB}$ són els vectors que s'obtenen en projectarlo sobre els eixos d'un sistema de coordenades situat sobre l'origen del vector.
+\end{block}
+
+
+
+\begin{figure}[h]
+\caption{Criteri de colors. {\color{red}Rojo}:+ {\color{green}Verde}:-. Les  components poden ser positives o negatives }
+    \label{fig:vectors}
+\centering
+\includegraphics[width=\textwidth]{vectors}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vectors fixs}
+  \begin{block}{Components d'un vector fix $\vec{AB}$}
+Si $A=(a_x,a_y)$ i $B=(b_x,b_y)$ aleshores les components del vector $\vec{AB}$ s'obtenen restant les coordenades del punt extrem $B$ al punt origen $A$:
+\[\vec{AB} = (b_x-a_x, b_y-a_y)\]
+  \end{block}
+  El valor absoluts de les components del vector coincideix amb la longitud dels catets del triangle rectangle format i tal que el vector sigui la seva hipotenusa. 
+  
+  
+\begin{figure}[h]
+    \label{fig:components}
+\centering
+\includegraphics[scale=0.5]{components}
+\end{figure}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Vectors fixs}
+
+  
+\begin{figure}[h]
+    \label{fig:components_example}
+\centering
+\includegraphics[width=\textwidth]{components_example}
+\end{figure}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Vectors fixs}
+  \begin{block}{Caracterització d'un vector fix (I)}
+En el context geomètric, les 3 característiques d'un vector fix són:
+\begin{itemize}
+\item Origen: el punt d'aplicació on comença el vector
+\item Mòdul: la longitud del segment
+\item Direcció: la de la recta a la qual pertany
+\item Sentit: el que determina la punta de la flecha del vector.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vectors fixs}
+  \begin{block}{Caracterització d'un vector fix (II)}
+També queda completament determinat amb:
+\begin{itemize}
+\item Les seves componets
+\item El punt origen
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vectors fixs}
+  \begin{block}{Caracterització d'un vector fix (III)}
+O fins i tot si coneixem:
+\begin{itemize}
+\item Les coordenades del punt origen
+\item Les coordenades del punt extrem
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Vectors equivalents}
+  \begin{block}{Vectors equivalents}
+Dos vectors $\vec{AB}$ i $\vec{CD}$ són equivalents si tenen les mateixes components, és a dir:
+\[(b_x-a_x,b_y-a_y) = (d_x-c_x,d_y-c_y)\]
+\end{block}
+
+\begin{figure}[h]
+    \label{fig:vectors_equivalents}
+\centering
+\includegraphics[scale=0.2]{vectors_equivalents}
+\caption{$\vec{AB}$ i $\vec{CD}$ són equivalents tot i tenir diferents origens i extrems.}
+
+\end{figure}
+
+Geomètricament, les longituds dels segments de la recta determinats per la parella de punts i els sentits d'ambdós vectors són iguals.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vectors equivalents}
+  \begin{block}{Exercici}
+Trobau un vector equivalent a $\vec{AB}$ on $A=(1,2)$ i $B=(5,4)$
+\end{block}
+Sol: Punts qualssevol $C$ i $D$ tals que:
+\[(d_x-c_x,d_y-c_y) = (4,2)\]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vectors equivalents}
+  \begin{block}{Exercici}
+Trobau un vector equivalent a $\vec{AB}$ on $A=(3,4)$ i $B=(7,6)$ amb origen al punt $A'=(-1,0)$.
+\end{block}
+Sol: 
+\[B'=(3,2)\]
+\end{frame}
+
+
+
+
+\subsection{Vectors lliures}
+\begin{frame}
+  \frametitle{Vectors lliures}
+
+Tots els vectors fixs equivalents entre sí tenen les mateixes components. En aquest sentit es pot establir una relació d'equivalencia que identifica tots els vectors fixs equivalents i els representa per un únic representant de la classe d'equivalencia corresponent, el \textbf{vector lliure}. Aquest representant defineix un conjunt infinit de vectors i els representa a tots ells.
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Vectors lliures}
+
+
+  \begin{block}{Vectors lliures}
+El conjunt de tots els vectors fixs equivalents entre si s'anomena vector lliure. Un vector lliure no té un origen fix, si no que es pot ubicar a qualssevol punt de l'espai. Cada vector fix és un representant del vector lliure. 
+\end{block}
+
+\begin{figure}[h]
+    \label{fig:vector_lliure}
+\centering
+\includegraphics[scale = 0.6]{vector_lliure}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vectors lliures}
+  \begin{block}{Vectors fix en l'origen}
+És de tos els representants del vector fix, aquell que té el seu punt origen a l'origen de coordenades.\end{block}
+En aquest cas, les coordenades del punt extrem coincideixen numèricament amb les components del vector, ja que el punt origen es $0=(0,0)$.
+\begin{figure}[h]
+    \label{fig:vec_lliure_origin}
+\centering
+\includegraphics[scale = 0.6]{vec_lliure_origin}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Vectors lliures}
+  
+  Per tant, tot vector lliure té un representant situat a l'origen de coordenades on el punt extrem té les mateixes coordenades que les components del vector. En aquest sentit podem dir:
+  \begin{block}{Resultat}
+Existeix una correspondència un a un entre els vectors lliures i punts segons la qual cada punt $P=(a,b)$ s'identifica amb un vector $\vec{OP} = (a,b)$.
+ \end{block}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Vectors lliures}
+  
+  \begin{block}{Caracterització d'un vector lliure (I)}
+Per caracteritzar un vector lliure necessitam mòdul, direcció i sentit.
+ \end{block}
+   \begin{block}{Caracterització d'un vector lliure (II)}
+També el podem caracteritzar coneixent-ne les components. \end{block}
+El mòdul, al igual que en els vectors fixs ve donat per la longitud del segment i la direcció i sentit venen definits per l'àngle que forma el vector amb la direcció positiva de l'eix $OX$.
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Vectors lliures}
+  
+  \begin{block}{Exercici}
+Troba mòdul, direcció i sentit del vector de components (7,-5). \end{block}
+Sol: mòdul$=\sqrt{74}$ i $\tan \alpha=\frac{-5}{7}$
+   \begin{block}{Exercici}
+   Donat el vector de mòdul $8$ i que forma un angle de $135º$ amb l'eix $OX$, calcula les seves components
+    \end{block}
+Sol:$(8\cos 135, 8\sin 135)$
+\end{frame}
+
+
+\section{Operacions amb vectors}
+
+\subsection{Suma i resta de vectors lliures}
+
+\begin{frame}
+  \frametitle{Suma de vectors lliures}
+  
+  \begin{block}{Definició}
+Sigui $\vec{u} = (u_1,u_2, \cdots, u_n)$ i $\vec{v} = (v_1,v_2,\cdots,v_n)$, aleshores
+\[\vec{u}+\vec{v} = (u_1+v_1, u_2+v_2, \cdots, u_n+v_n)\]
+\end{block}
+Geomètricament és el vector format per la diagonal del paralelogram que té als dos vectors sumands com a costats i origen el mateix que ambdos. 
+\begin{figure}[h]
+    \label{fig:suma}
+\centering
+\includegraphics[width = \textwidth]{suma}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Suma de vectors lliures}
+  
+
+Si s'han de sumar més de dos vectors, resulta més útil la segona construcció gràfica. Basta col·locar cada origen dels vectors sumands sobre l'extrem del vector sumand precedent. \begin{figure}[h]
+    \label{fig:suma_2}
+\centering
+\includegraphics[width = \textwidth]{suma_2}
+\end{figure}
+\end{frame}
+
+
+
+
+
+
+\begin{frame}
+  \frametitle{Resta de vectors lliures}
+  
+  \begin{block}{Definició}
+Sigui $\vec{u} = (u_1,u_2, \cdots, u_n)$ i $\vec{v} = (v_1,v_2,\cdots,v_n)$, aleshores
+\[\vec{u}-\vec{v} = (u_1-v_1, u_2-v_2, \cdots, u_n-v_n)\]
+\end{block}
+Geomètricament se realitza la suma entre el vector minuend i l'oposat del substraend. 
+\begin{figure}[h]
+    \label{fig:resta}
+\centering
+\includegraphics[width = 5cm]{resta}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Resta de vectors lliures}
+  
+
+Una petita observació: en realitzar la resta $\vec{u} - \vec{v}$ cercam un vector $\vec{w}$ tal que si se li suma al substraend ha de donar el minuend:
+\begin{figure}[h]
+    \label{fig:resta_2}
+\centering
+\includegraphics[width = \textwidth]{resta_2}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Obtenció de les components d'un vector $\vec{AB}$}
+  
+
+Si tenim un vector $\vec{AB}$ obtingut a partir dels punts $A$ i $B$ i dibuixam els vectors $\vec{OA}$ i $\vec{OB}$
+\begin{figure}[h]
+    \label{fig:components_suma}
+\centering
+\includegraphics[width = \textwidth]{components_suma}
+\end{figure}
+aleshores podem veure com $\vec{AB}$, $\vec{OA}$ i $\vec{OB}$ formen un triangle vectorial i podem escriure les relacions
+\[\vec{OA}+\vec{AB}-\vec{OB} = \vec{0}\Rightarrow \vec{AB} = \vec{OB}-\vec{OA}\]
+\end{frame}
+
+
+
+
+\begin{frame}
+  \frametitle{Obtenció de les components d'un vector $\vec{AB}$}
+  
+  \begin{block}{Exercici}
+Obteniu $\vec{SR}$ a partir de $\vec{OR} = (-1,4)$ i $\vec{OS} = (-3,-2)$
+\end{block}
+
+  \begin{block}{Exercici}
+Obteniu $\vec{PR}-\vec{PS}$ a partir de $\vec{OR} = (-1,4)$, $\vec{OS} = (-3,-2)$ i $\vec{OP} = (3,0)$.
+\end{block}
+
+\end{frame}
+
+
+
+
+
+\begin{frame}
+  \frametitle{Obtenció de les components d'un vector $\vec{AB}$}
+  
+
+\begin{figure}[h]
+    \label{fig:ex_components}
+\centering
+\includegraphics[width = \textwidth]{ex_components}
+\end{figure}
+\end{frame}
+
+
+
+\subsection{Producte de vector per escalar}
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+  
+  \begin{block}{Definició}
+Sigui $\vec{u} = (u_1,u_2,\cdots,u_n)\in\mathbb{K}^n$ i sigui $\lambda\in\mathbb{K}$ aleshores
+\[\lambda\vec{u} =  (\lambda u_1, \lambda u_2,\cdots, \lambda u_n)\in\mathbb{K}^n \]
+\end{block}
+
+\begin{figure}[h]
+    \label{fig:components_product}
+\centering
+\includegraphics[width = \textwidth]{components_product}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+ 
+ En l'exemple anterior $\vec{v} = (4,-2)$ i $2\vec{v} = (8,-4)$. A més, la longitud de $\vec{v} = 2\sqrt{5} $u.l i la de $2\vec{v} = 4\sqrt{5}$, d'on observam que en duplicar el vector, també duplicam el seu mòdul o longitud. En canvi la direcció i sentit de $\vec{2v}$ coincideix amb la de $\vec{v}$. Vegem que no sempre serà així.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+ 
+El resultat de multiplicar un escalar $\lambda\neq 0 $ per un vector $\vec{v}$ és un altre vector $\vec{u}$ de la mateixa direcció que $\vec{v}$, de sentit igual o contrari segons si el signe de l'escalar és $+$ o $-$, i de mòdul igual a $\lambda$ vegades el de $\vec{v}$
+\begin{figure}[h]
+    \label{fig:pte_escalar}
+\centering
+\includegraphics[height = 3cm]{pte_escalar}
+\caption{A la figura de la dreta, si el vector $\vec{v}=(1,-2)$ el multiplicam per l'escalar $-2$ obtindrem un altre vector $\vec{u}$ paralel a $\vec{v}$ i de components $\vec{u} = (-2,4)$.}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+  
+  \begin{block}{Vectors paral·lels}
+Dos vectors $\vec{u} =(u_1,u_2,\cdots,u_n)$ i $\vec{v}=(v_1,v_2,\cdots,v_n)$ són paral·lels (o proporcionals) si existeix un valor $\lambda\neq 0$ tal que $\vec{u} = \lambda \vec{v}$. \end{block}
+Seran del mateix sentit si $\lambda>0$ i de sentits oposats si $\lambda<0$.
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+  
+  \begin{block}{Exercici}
+Donats els punts $A=(1,2,3), B=(0,-1,2)$ i $C=(-2,-7,0)$, si $D$ és el punt de coordenades $(-1,x,0)$ troba, si es possible, el valor de $x$ perque els vectors $\vec{AB}$ i $\vec{CD}$ siguin paral·lels. Raona el procediment emprat.
+\end{block}
+Sol: el problema no té solució.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte per escalar}
+  
+  \begin{block}{Exercici}
+Donats els vectors $\vec{u}=(2,3,0)$ i $\vec{v}=(-3,0,1)$ troba el valor de $k$ perque els vectors $\vec{a}$ i $\vec{b}$ siguin paral·les, on $\vec{a} = 2\vec{u}-\vec{v}$ i $\vec{b} = -3\vec{u}+k\vec{v}$.
+\end{block}
+Sol: $k = \frac{3}{2}$.
+\end{frame}
+
+\subsection{Combinació lineal de vectors}
+\begin{frame}
+  \frametitle{Combinació lineal}
+  
+  \begin{block}{Combinació lineal de vectors}
+Donats $V = \{\vec{v_1},\vec{v_2},\cdots,\vec{v_k}\}$ un conjunt de vectors de $\mathbb{K}^n$ i $\alpha_1,\alpha_2,\cdots,\alpha_k \in \mathbb{K}$ es defineix la combinació lineal dels vectors de $V$ com el vector $\vec{w}$:
+\[\vec{w} = \alpha_1\vec{v_1}+\alpha_2\vec{v_2}+\cdots+\alpha_k\vec{v_k} =\sum_{i=1}^{k}\alpha_i\vec{v_i} \]
+\end{block}
+La combinació lineal de vectors no és una opració nova, si no que reuneix en un mateix lloc la suma de vectors i el producte per escalars. Per poder fer combinacions lineals de vectors, és necessari que tots ells tinguin el mateix nombre de components i el resultat serà un altre vector d'aquestes mateixes característiques. 
+\end{frame}
+
+\begin{frame}
+  \frametitle{Combinació lineal}
+    \begin{block}{Exercici}
+És el vector $(2,3)$ combinació lineal de $(3,1)$ i $(-6,-2)$? Justifica la teva resposta gràficament. 
+\end{block}
+Sol: no. 
+\end{frame}
+
+
+\section{Propietats de les operacions amb vectors}
+\begin{frame}
+  \frametitle{Propietats de les operacions amb vectors}
+  En definir les operacions de suma i producte per un escalar convé prendre consciència de les diferencies i similituds entre ambdues.
+    \begin{block}{Llei de composició interna}
+La suma de vectors s'anomena llei de composició interna ja que opera entre elements d'un conjunt donat, $\mathbb{K}^n$ i el resultat és un altre element d'aquest conjunt:
+\[\begin{array}{r@{\hspace{-2pt}}c@{\hspace{-4pt}}
+c@{\hspace{4pt}}l}
+f:&\mathbb K^n\times \mathbb K^n&\longrightarrow&\mathbb K^n\\
+  &(\vec{u}, \vec{v})\ \ &\mapsto&\vec u + \vec v
+\end{array}\]
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Propietats de les operacions amb vectors}
+    \begin{block}{Llei de composició externa}
+El producte d'un escalar per un vector té com a operands conjunts diferents: escalars per una banda i vectors per una altra. El resultat cau del costat dels vectors, i l'operació s'anomena llei de composició externa:
+\[\begin{array}{r@{\hspace{-2pt}}c@{\hspace{-4pt}}
+c@{\hspace{4pt}}l}
+f:&\mathbb K\times \mathbb K^n&\longrightarrow&\mathbb K^n\\
+  &(\lambda, \vec{v})\ \ &\mapsto&\lambda  \vec v
+\end{array}\]
+\end{block}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Propietats de la suma de vectors}
+Siguin $\vec u, \vec v, \vec w\in \mathbb K^n$ i $\alpha, \beta\in\mathbb K$ aleshores es compleix
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Llei associativa: $(\vec u+\vec v) +\vec w = \vec u +(\vec v + \vec w)$
+\item Llei conmutativa: $\vec u+\vec v = \vec v +\vec u$
+\item Element neutre de la suma: $\vec u+\vec 0 = \vec 0 +\vec u = \vec u$
+\item Vector oposat: $\vec u+(-\vec{u}) = (-\vec u) +\vec u = \vec 0$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Propietats del producte de vectors per un escalar}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Llei distributiva del producte d'un escalar per la suma de vectors: $\alpha(\vec u+\vec v)  = \alpha\vec u +\alpha\vec v $
+\item Llei distributiva del producte d'un vector per la suma d'escalars: $(\alpha+\beta)\vec u =\alpha \vec u +\beta\vec u$
+\item Llei associativa del producte entre escalars i vectors: $(\alpha\beta)\vec u = \alpha (\beta\vec u) = \beta(\alpha\vec u )$
+\item Element unitat: $1\vec u = \vec u$
+\end{itemize}
+\end{block}
+\end{frame}
+
+
+\section{Estructura euclidiana de $\mathbb{R}^n$}
+
+\subsection{Producte escalar}
+
+\begin{frame}
+  \frametitle{Producte Escalar}
+El producte escalar és la tercera operació bàsica entre vectors de $\mathbb R^n$. 
+    \begin{block}{Producte escalar}
+    Siguin $\vec u = (u_1,u_2,\cdots,u_n)$ i $\vec{v} = (v_1,v_2,\cdots,v_n)$ dos vectors de $\mathbb R^n$. Es defineix el producte escalar $\vec u \cdot \vec v$ com el nombre real
+    \[\vec u \cdot \vec v = u_1v_1+u_2v_2+\cdots+u_nv_n\]
+\end{block}
+D'ell es deriven conceptes mètrics com l'ortogonalitat, la norma, l'àngle i s'obren camins a múltiples aplicacions geomètriques i físiques de l'àlgebra lineal. 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte Escalar}
+    \begin{block}{Exemple}
+    Siguin $\vec u = (2,3,0)$ i $\vec{v} = (-1,-3,1)$ dos vectors de $\mathbb R^3$. Calcula el seu producte escalar
+\end{block}
+Sol:    \[\vec u \cdot \vec v = -11\]
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Propietats del producte escalar}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Conmutativa: $\vec u\cdot \vec v = \vec v \cdot \vec u $
+\item Distributiva respecte de la suma: $\vec v \cdot (\vec u + \vec w) = \vec v\cdot \vec u + \vec v \cdot \vec w$
+\item Associativa i conmutativa entre escalars i vectors: 
+\[(\lambda\vec u) \cdot \vec v = \lambda (\vec u \cdot \vec v)\]
+\[\vec u\cdot (\lambda \vec v) = \lambda (\vec u \cdot \vec v)\]
+\item Si $\vec u = \vec 0 \Rightarrow \vec u \cdot \vec u = 0$. 
+\item Si $\vec u \neq \vec 0 \Rightarrow \vec u \cdot \vec u > 0$.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Propietats del producte escalar}
+    \begin{block}{Exercici}
+Donats els vectors $\vec u = (2,-1,5), \vec v = (-3,4,1)$ i $\vec w = (-1,0,5)$
+\begin{enumerate}
+\item Comprovau que el producte escalar té la propietat conmutativa.
+\item Comprovau que el producte escalar té la propietat distributiva respecte de la suma.
+\item Comprovau que el producte escalar té la propietat associativa entre escalars i vectors.
+\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Propietats del producte escalar}
+    \begin{block}{Exercici}
+Demostrau que si $\vec u \neq \vec 0$ aleshores $\vec u \cdot \vec u >0$
+\end{block}
+\end{frame}
+
+
+\subsection{Norma o longitud}
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Norma}
+Donat $\vec u = (u_1,u_2\cdots,u_n)\in \mathbb R^n$ la seva norma o longitud ve donata per
+\[||\vec u || = \sqrt{\vec u \cdot \vec u} = \sqrt{u_1^2+u_2^2+\cdots+u_n^2}\]
+\end{block}
+En molts de casos resulta útil la norma al quadrat d'un vector:
+\[||\vec u||^2 = ( \sqrt{\vec u \cdot \vec u})^2 \Rightarrow ||\vec u||^2 = \vec u \cdot \vec u \]
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Exercici}
+Donat $\vec u = (2,3,-1)\in \mathbb R^3$, calcula la seva longitud.
+\end{block}
+Sol: \[||\vec u|| = \sqrt{14} \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item $||\vec u||>0, \forall \vec u \neq \vec 0$
+\item $||\lambda \vec u|| = |\lambda|.||\vec u||$
+\item $|| \vec u+\vec v|| \leq ||\vec u||+||\vec v||$ (Desigualtat triangular)
+\item $|| \vec u+\vec v|| = ||\vec u||+||\vec v||\Leftrightarrow \vec u \perp \vec v$ (teorema de Pitàgoras)
+\item $|| \vec u\cdot\vec v|| \leq ||\vec u||\cdot||\vec v||$ (Desigualtat de Cauchy-Schwarz)
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Exercicis}
+ Donat $\vec u = (2,3,-1)$ comprovau que 
+ \[||2\vec u|| = 2||\vec u ||\]
+ \[||-2\vec u|| = |-2|||\vec u || = 2||\vec u||\]
+ \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Vector unitari}
+Un vector unitari $\vec e$ és aquell que té norma 1: \[||\vec e|| = 1\]
+ \end{block}
+ Per exemple el vector $(1,0,0)$ és un vector unitari. 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Norma d'un vector}
+    \begin{block}{Exercici}
+Donat el vector $\vec u = (2,3,-1)$ comprova que si el dividim per la seva norma, obtenim un altre vector que és unitari
+ \end{block}
+     \begin{block}{Exercici}
+Demotra que qualsevol vector $\vec u$ dividit per la seva norma és unitari. 
+\end{block}
+    \begin{block}{Exercici}
+Donat el vector $\vec u = (2,3,-1)$ troba un altre vector de la mateixa direcció, sentit pero de norma igual a 3.
+ \end{block}
+ 
+\end{frame}
+
+
+
+\subsection{Distància entre dos punts}
+
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+    \begin{block}{Distància entre dos punts}
+Donats dos punts $A$ i $B$ es defineix la distància entre ambdós com
+\[d(A,B) = ||\vec{AB}|| = \sqrt{\vec{AB}\cdot\vec{AB}}\]
+ \end{block}
+Aquest valor coincideix amb la intuició geomètrica quan $A$ i $B$ són dos punts del pla. Equival a la longitud del vector fix $\vec{AB}$.
+
+    \begin{block}{Exercici}
+Donats dos punts $A=(1,2)$ i $B=(4,3)$  troba la distància entre ambdós.
+ \end{block}
+ Sol: $\sqrt{10}$.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+    \begin{block}{Teorema}
+Donats dos vectors $\vec u$ i $\vec v$  i $\alpha$ l'angle que formen ambdós, aleshores es verifica que
+
+\[\vec u \cdot \vec v = ||\vec u ||\cdot ||\vec v||\cdot  \cos \alpha\]
+ \end{block}
+
+\begin{figure}[h]
+    \label{fig:th_cos}
+\centering
+\includegraphics[height=3cm]{th_cos}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+  Per fer la demostració emprarem un resultat previ.
+    \begin{block}{Teorema del cosinus}
+En un triangle $ABC$ qualsevol i siguin $\alpha,\beta,\gamma$ els angles i  $a,b,c$ els angles dels costats respectivament oposats a aquests angles, llavors
+
+\[b^2=a^2+c^2-2ac\cos\alpha\]
+ \end{block}
+
+\begin{figure}[h]
+    \label{fig:triangle}
+\centering
+\includegraphics[height=3cm]{triangle}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+    \begin{block}{Demostració}
+En primer lloc dibuixam el vector $\vec u -\vec v$ amb el que queda dibuixat un triangle. Aplicam la definició de norma sota la forma $||\vec w||^2 = \vec w \cdot \vec w$ al vector $\vec u -\vec v$  resulta
+\[||\vec u - \vec v||^2 = ||\vec u||^2+||\vec v||^2-2(\vec u\cdot \vec v)\]
+ \end{block}
+
+\begin{figure}[h]
+    \label{fig:th_1}
+\centering
+\includegraphics[height=3cm]{th_1}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+    \begin{block}{Demostració}
+D'altra banda si aplicam el teorema del cosinus al triangle format per $\vec u, \vec v $ i $\vec u-\vec v$
+\[||\vec u - \vec v||^2 = ||\vec u||^2+||\vec v||^2-2(||\vec u||\cdot ||\vec v|\cos \alpha)\]
+ \end{block}
+
+\begin{figure}[h]
+    \label{fig:th_2}
+\centering
+\includegraphics[height=3cm]{th_2}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Distància entre dos punts}
+    \begin{block}{Demostració}
+Si comparam ambdúes expresions obtenim el resultat:
+\[||\vec u - \vec v||^2 = ||\vec u||^2+||\vec v||^2-2(\vec u\cdot \vec v)\]
+\[||\vec u - \vec v||^2 = ||\vec u||^2+||\vec v||^2-2(||\vec u||\cdot ||\vec v|\cos \alpha)\]
+ \end{block}
+
+\end{frame}
+
+\subsection{Angle entre dos vectors}
+
+\begin{frame}
+  \frametitle{Angle entre dos vectors}
+  Com acabam de veure, si $\vec u$ i $\vec v$ formen un angle $\alpha$ aleshores podem definir el seu producte escalar com: $\vec u \cdot \vec v = ||\vec u||\cdot|| \vec v||\cos\alpha$.
+    \begin{block}{Angle entre dos vectors}
+Es defineix l'angle que formen dos vectors com el valor real $\alpha$:
+\[\cos\alpha = \frac{\vec u \cdot \vec v} {||\vec u||\cdot|| \vec v||}\]
+ \end{block}
+    \begin{block}{Exercici}
+Troba l'angle que formen els vectors $(2,3,-1)$ i $(-2,0,3)$
+ \end{block}
+Sol: $\cos \alpha = -\frac{\sqrt{182}}{26}$
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Angle entre dos vectors}
+    \begin{block}{Vectors ortogonals}
+Dos vectors són ortogonals si el seu producte escalar és zero
+\[\vec u \perp \vec v \Leftrightarrow \vec u \cdot \vec v = 0 \Leftrightarrow \alpha = \frac{\pi}{2}\]
+ \end{block}
+    \begin{block}{Vectors ortonormals}
+Dos vectors són ortonormals si són ortogonals i de norma 1.
+ \end{block}
+Per exemple, $(0,1)$ i $(1,0)$ són dos vectors ortonormals. 
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Angle entre dos vectors}
+    \begin{block}{Exercici}
+Troba $a$ perque $(a,0,-1,3)$ sigui perpendicular a $(1,7,a-1,2a+3)$.
+ \end{block}
+ Sol: $a=-\frac{5}{3}$
+    \begin{block}{Exercici}
+Per quins valors de $x$ són ortogonals $(x,-x-8,x,x)$ i $(x,1,-2,1)$?
+ \end{block}
+Sol: $x=-2$ i $x=4$.
+\end{frame}
+
+\subsection{Desigualtat de Cauchy-Schwarz}
+
+
+\begin{frame}
+  \frametitle{Desigualtat de Cauchy-Schwarz}
+    \begin{block}{Resultat}
+A partir de l'expressió
+\[\cos\alpha = \frac{\vec u \cdot \vec v} {||\vec u||\cdot|| \vec v||}\]
+i tenint en compte que el cosinus de qualssevol angle és sempre menor o igual que 1 podem obtenir:
+\[|\vec u\cdot \vec v| \leq ||\vec u||\cdot ||\vec v||\]
+  \end{block}
+  
+ És a dir, que el producte escalar de dos vectors és menor o igual que el producte de les seves normes.
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Projecció ortogonal}
+    \begin{block}{Projecció ortogonal}
+La projecció ortogonal d'un vector $\vec v$ sobre un altre vector $\vec u$ és un vector paral·lel a $\vec u$ tal que sumat a un altre perpendicular a $\vec u$ dóna $\vec v$ 
+  \end{block}
+  
+\begin{figure}[h]
+    \label{fig:ortho}
+\centering
+\includegraphics[height=3cm]{ortho}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Projecció ortogonal}
+  Es tracta d'obtenir $P_{\vec v} (\vec u) = \vec v_1$ coneguent els vectors $\vec u$ o $\vec v$
+    \begin{block}{Càlcul de la Projecció ortogonal}
+\begin{itemize}
+\item Descomponem el vector $\vec v = \vec{v_1}+\vec{v_2}$ on $\vec v_1||\vec u$ i $\vec v_2 \perp \vec u$.
+\item $\vec v_1 = \lambda \vec u$
+\item $\vec v = \lambda \vec u + \vec{v_2}\Rightarrow \vec v_2 = \vec v - \lambda \vec u$
+\item $\vec v_2\cdot \vec u = 0\Rightarrow (\vec v - \lambda \vec u)\cdot \vec u = 0$
+\item $\lambda = \frac{\vec v\cdot \vec u}{\vec u\cdot \vec u} = \frac{\vec v\cdot \vec u}{||\vec u||^2}$
+\end{itemize}
+Per tant
+\[P_{\vec v} (\vec u) = \vec v_1 = \lambda \vec u = \frac{\vec v\cdot \vec u}{||\vec u||^2} \vec u\]
+  \end{block}
+  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Projecció ortogonal}
+    \begin{block}{Càlcul de la Projecció ortogonal}
+Projectau el vector $\vec v = (1,2)$ sobre $\vec u = (3,1)$.
+  \end{block}
+  Sol: $P_{\vec v} (\vec u) = \frac{1}{2}(3,1)$.
+\end{frame}
+
+
+
+\section{Producte Vectorial. Producte Mixt}
+
+\subsection{Producte Vectorial}
+
+\begin{frame}
+  \frametitle{Producte vectorial}
+    \begin{block}{Producte vectorial}
+Sguin $\vec u = (u_1,u_2,u_3)$ i $\vec v = (v_1,v_2,v_3)$ dos vectors de $\mathbb R^3$. El producte vectorial de $\vec u$ i $\vec v$ es defineix com el vector:
+\[\vec u \wedge \vec v = (u_2v_3-u_3v_2,u_3v_1-u_1v_3,u_1v_2-u_2v_1)\]
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Producte vectorial}
+    \begin{block}{Resultats}
+Si multiplicam escalarment:
+\[\vec u \cdot (\vec u \wedge \vec v )  =0\]
+\[\vec v \cdot (\vec u \wedge \vec v )  =0\]
+D'on veim que és perpendicular a $\vec u$ i $\vec v$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Producte vectorial}
+    \begin{block}{Resultats}
+El sentit del producte vectorial és el que indicaria la regla de la mà dreta en dur el primer vector sobre el segón pel camí més curt i de mòdul l'àrea del paral·lelogram determinat per $\vec u$ i $\vec v$
+\[||\vec u \wedge \vec v|| = ||\vec u ||\cdot h = ||\vec u ||\cdot ||\vec v|| \cdot \sen \alpha \]
+  \end{block}
+  
+  \begin{figure}[h]
+    \label{fig:pte_vect}
+\centering
+\includegraphics[height=3cm]{pte_vect}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Producte vectorial}
+    \begin{block}{Producte vectorial com a determinant}
+\[\vec u \wedge \vec v = (u_2v_3-u_3v_2,u_3v_1-u_1v_3,u_1v_2-u_2v_1)\]
+\[\vec u \wedge \vec v = (u_2v_3-u_3v_2)\vec i + (u_3v_1-u_1v_3)\vec j+(u_1v_2-u_2v_1)\vec k\]
+
+\[\vec u \wedge \vec v  =
+\left|\begin{array}{ccc}\vec i & \vec j & \vec k \\u_1 & u_2 & u_3 \\v_1 & v_2 & v_3\end{array}\right|
+\]
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte vectorial}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Propietat anticonmutativa: $\vec u \wedge \vec v = -\vec v \wedge \vec u$
+\item Propietat distributiva:
+ \[\vec u \wedge( \vec v+\vec w) = \vec u\wedge \vec v + \vec u \wedge \vec w\]
+ \[ ( \vec v+\vec w) \wedge \vec u = \vec v\wedge \vec u + \vec w \wedge \vec u\]
+ \item Associativa de vectors i escalars:
+ \[\alpha\cdot ( \vec u\wedge\vec v) =(\alpha\cdot  \vec u)\wedge\vec v =   \vec u\wedge(\alpha\cdot\vec v) \]
+ \item $\vec u \wedge \vec 0 = \vec 0 \wedge \vec u = \vec 0$
+ \item $\vec u \wedge \vec u = \vec 0$
+\end{itemize}
+\end{block}
+\end{frame}
+
+\subsection{Producte Mixt}
+
+\begin{frame}
+  \frametitle{Producte mixt de tres vectors}
+    \begin{block}{Producte mixt}
+Sguin $\vec u = (u_1,u_2,u_3)$, $\vec v = (v_1,v_2,v_3)$ i $\vec w = (w_1,w_2,w_3)$ tres vectors de $\mathbb R^3$ distints del zero. El producte mixt de $\vec u, \vec v$ i $\vec w$ es defineix com el vector:
+\[\{\vec u, \vec v,\vec w\} = \vec u (\vec v \wedge \vec w)\]
+\[\{\vec u, \vec v,\vec w\} = \left|\begin{array}{ccc}u_1 & u_2 & u_3 \\v_1 & v_2 & v_3\\w_1 & w_2 & w_3\end{array}\right|
+ \]
+  \end{block}
+  Si aquest determinant és zero, vol dir que alguna de les files és combinació lineal de les restants, i que per tant un vector és pot obtenir com a CL dels altres: són coplanaris.
+\end{frame}
+
+\begin{frame}
+  \frametitle{Producte mixt de tres vectors}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item $\{\vec u, \vec v,\vec w\} = u_1v_2w_3-u_1v_3w_2+u_2v_3w_1-u_2v_1w_3+u_3v_1w_2-u_3v_2w_1$
+\item $\{\vec u, \vec v,\vec w\} = \{\vec v, \vec w,\vec u\} = \{\vec w, \vec u,\vec v\} = -\{\vec v, \vec u,\vec w\} = -\{\vec u, \vec w,\vec v\} = -\{\vec w, \vec v,\vec u\}$
+\end{itemize}
+\end{block}
+
+  
+\end{frame}
+
+
+
+\begin{frame}
+  \frametitle{Producte mixt de tres vectors}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Si els tres vectors son coplanaris, aleshores $\{\vec u, \vec v,\vec w\}=0$
+\item Si $\{\vec u, \vec v,\vec w\}=0$ aleshores o algún vector es $\vec 0$ o els tres vectors són coplanaris
+\end{itemize}
+\end{block}
+
+  
+  \begin{figure}[h]
+    \label{fig:pte_mixt}
+\centering
+\includegraphics[height=3cm]{pte_mixt}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+  \frametitle{Producte mixt de tres vectors}
+    \begin{block}{Propietats}
+\begin{itemize}
+\item Geomètricament $\{\vec u, \vec v,\vec w\}$ representa el volum del paral·lelepíped determinat pels tres vectors
+\end{itemize}
+\end{block}
+Pista $\{\vec u, \vec v,\vec w\} = ||\vec u || \cdot ||\vec v \wedge \vec w|| \cos \alpha $, on $||\vec v \wedge \vec w||$ = àrea de la base i $||\vec u || \cos \alpha$ és la projecció escalar del vector $\vec u$ sobre la direcció perpendicular a la base, és a dir, l'altura.
+  
+  \begin{figure}[h]
+    \label{fig:volum}
+\centering
+\includegraphics[height=3cm]{volum}
+\end{figure}
+
+\end{frame}
+
+
+\end{document}

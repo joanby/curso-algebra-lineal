@@ -1,0 +1,247 @@
+\beamer@endinputifotherversion {3.36pt}
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\slideentry {0}{0}{2}{2/2}{}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\sectionentry {1}{Definicions b\`asiques}{3}{Definicions b\`asiques}{0}}
+\headcommand {\beamer@sectionpages {1}{2}}
+\headcommand {\beamer@subsectionpages {1}{2}}
+\headcommand {\slideentry {1}{0}{1}{3/3}{}{0}}
+\headcommand {\beamer@framepages {3}{3}}
+\headcommand {\slideentry {1}{0}{2}{4/4}{}{0}}
+\headcommand {\beamer@framepages {4}{4}}
+\headcommand {\slideentry {1}{0}{3}{5/5}{}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{0}{4}{6/6}{}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{0}{5}{7/7}{}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\slideentry {1}{0}{6}{8/8}{}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{0}{7}{9/9}{}{0}}
+\headcommand {\beamer@framepages {9}{9}}
+\headcommand {\slideentry {1}{0}{8}{10/10}{}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\sectionentry {2}{Aplicacions Lineals}{11}{Aplicacions Lineals}{0}}
+\headcommand {\beamer@sectionpages {3}{10}}
+\headcommand {\beamer@subsectionpages {3}{10}}
+\headcommand {\slideentry {2}{0}{1}{11/11}{}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{12}{L'aplicaci\'o identitat}}\headcommand {\beamer@subsectionpages {11}{11}}
+\headcommand {\slideentry {2}{1}{1}{12/12}{L'aplicaci\'o identitat}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {2}{1}{2}{13/13}{L'aplicaci\'o identitat}{0}}
+\headcommand {\beamer@framepages {13}{13}}
+\headcommand {\slideentry {2}{1}{3}{14/14}{L'aplicaci\'o identitat}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {2}{1}{4}{15/15}{L'aplicaci\'o identitat}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{16}{L'aplicaci\'o constant}}\headcommand {\beamer@subsectionpages {12}{15}}
+\headcommand {\slideentry {2}{2}{1}{16/16}{L'aplicaci\'o constant}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {2}{2}{2}{17/17}{L'aplicaci\'o constant}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {2}{2}{3}{18/18}{L'aplicaci\'o constant}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {2}{2}{4}{19/19}{L'aplicaci\'o constant}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{20}{Definici\'o d'aplicaci\'o lineal}}\headcommand {\beamer@subsectionpages {16}{19}}
+\headcommand {\slideentry {2}{3}{1}{20/20}{Definici\'o d'aplicaci\'o lineal}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\slideentry {2}{3}{2}{21/21}{Definici\'o d'aplicaci\'o lineal}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {2}{3}{3}{22/22}{Definici\'o d'aplicaci\'o lineal}{0}}
+\headcommand {\beamer@framepages {22}{22}}
+\headcommand {\slideentry {2}{3}{4}{23/23}{Definici\'o d'aplicaci\'o lineal}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {2}{3}{5}{24/24}{Definici\'o d'aplicaci\'o lineal}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{25}{Propietats}}\headcommand {\beamer@subsectionpages {20}{24}}
+\headcommand {\slideentry {2}{4}{1}{25/25}{Propietats}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {2}{4}{2}{26/26}{Propietats}{0}}
+\headcommand {\beamer@framepages {26}{26}}
+\headcommand {\slideentry {2}{4}{3}{27/27}{Propietats}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\slideentry {2}{4}{4}{28/28}{Propietats}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\slideentry {2}{4}{5}{29/29}{Propietats}{0}}
+\headcommand {\beamer@framepages {29}{29}}
+\headcommand {\slideentry {2}{4}{6}{30/30}{Propietats}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\slideentry {2}{4}{7}{31/31}{Propietats}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\sectionentry {3}{Nucli, Imatge i Rang d'una Aplicaci\'o Lineal}{32}{Nucli, Imatge i Rang d'una Aplicaci\'o Lineal}{0}}
+\headcommand {\beamer@sectionpages {11}{31}}
+\headcommand {\beamer@subsectionpages {25}{31}}
+\headcommand {\slideentry {3}{0}{1}{32/32}{}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{33}{Nucli}}\headcommand {\beamer@subsectionpages {32}{32}}
+\headcommand {\slideentry {3}{1}{1}{33/33}{Nucli}{0}}
+\headcommand {\beamer@framepages {33}{33}}
+\headcommand {\slideentry {3}{1}{2}{34/34}{Nucli}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {3}{1}{3}{35/35}{Nucli}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\slideentry {3}{1}{4}{36/36}{Nucli}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {3}{1}{5}{37/37}{Nucli}{0}}
+\headcommand {\beamer@framepages {37}{37}}
+\headcommand {\slideentry {3}{1}{6}{38/38}{Nucli}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {3}{1}{7}{39/39}{Nucli}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{40}{Imatge}}\headcommand {\beamer@subsectionpages {33}{39}}
+\headcommand {\slideentry {3}{2}{1}{40/40}{Imatge}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {3}{2}{2}{41/41}{Imatge}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {3}{2}{3}{42/42}{Imatge}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {3}{2}{4}{43/43}{Imatge}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {3}{2}{5}{44/44}{Imatge}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {3}{2}{6}{45/45}{Imatge}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {3}{2}{7}{46/46}{Imatge}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{47}{Rang}}\headcommand {\beamer@subsectionpages {40}{46}}
+\headcommand {\slideentry {3}{3}{1}{47/47}{Rang}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {3}{3}{2}{48/48}{Rang}{0}}
+\headcommand {\beamer@framepages {48}{48}}
+\headcommand {\sectionentry {4}{Classificaci\'o de les aplicacions lineals}{49}{Classificaci\'o de les aplicacions lineals}{0}}
+\headcommand {\beamer@sectionpages {32}{48}}
+\headcommand {\beamer@subsectionpages {47}{48}}
+\headcommand {\slideentry {4}{0}{1}{49/49}{}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {4}{0}{2}{50/50}{}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {4}{0}{3}{51/51}{}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {4}{0}{4}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\sectionentry {5}{Matriu d'una aplicaci\'o lineal}{53}{Matriu d'una aplicaci\'o lineal}{0}}
+\headcommand {\beamer@sectionpages {49}{52}}
+\headcommand {\beamer@subsectionpages {49}{52}}
+\headcommand {\slideentry {5}{0}{1}{53/53}{}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{54}{Construcci\'o}}\headcommand {\beamer@subsectionpages {53}{53}}
+\headcommand {\slideentry {5}{1}{1}{54/54}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {5}{1}{2}{55/55}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {5}{1}{3}{56/56}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {5}{1}{4}{57/57}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {5}{1}{5}{58/58}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\slideentry {5}{1}{6}{59/59}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {5}{1}{7}{60/60}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {5}{1}{8}{61/61}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\slideentry {5}{1}{9}{62/62}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\slideentry {5}{1}{10}{63/63}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {63}{63}}
+\headcommand {\slideentry {5}{1}{11}{64/64}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {5}{1}{12}{65/65}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {5}{1}{13}{66/66}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\slideentry {5}{1}{14}{67/67}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\slideentry {5}{1}{15}{68/68}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {5}{1}{16}{69/69}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {5}{1}{17}{70/70}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\slideentry {5}{1}{18}{71/71}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\slideentry {5}{1}{19}{72/72}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\slideentry {5}{1}{20}{73/73}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {73}{73}}
+\headcommand {\slideentry {5}{1}{21}{74/74}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{75}{Definici\'o}}\headcommand {\beamer@subsectionpages {54}{74}}
+\headcommand {\slideentry {5}{2}{1}{75/75}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\slideentry {5}{2}{2}{76/76}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {5}{2}{3}{77/77}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {77}{77}}
+\headcommand {\slideentry {5}{2}{4}{78/78}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {78}{78}}
+\headcommand {\slideentry {5}{2}{5}{79/79}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {79}{79}}
+\headcommand {\slideentry {5}{2}{6}{80/80}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {80}{80}}
+\headcommand {\slideentry {5}{2}{7}{81/81}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {81}{81}}
+\headcommand {\slideentry {5}{2}{8}{82/82}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {5}{2}{9}{83/83}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\sectionentry {6}{Equaci\'o matricial d'una aplicaci\'o lineal}{84}{Equaci\'o matricial d'una aplicaci\'o lineal}{0}}
+\headcommand {\beamer@sectionpages {53}{83}}
+\headcommand {\beamer@subsectionpages {75}{83}}
+\headcommand {\slideentry {6}{0}{1}{84/84}{}{0}}
+\headcommand {\beamer@framepages {84}{84}}
+\headcommand {\slideentry {6}{0}{2}{85/85}{}{0}}
+\headcommand {\beamer@framepages {85}{85}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{86}{Construcci\'o}}\headcommand {\beamer@subsectionpages {84}{85}}
+\headcommand {\slideentry {6}{1}{1}{86/86}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\slideentry {6}{1}{2}{87/87}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\slideentry {6}{1}{3}{88/88}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\slideentry {6}{1}{4}{89/89}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\slideentry {6}{1}{5}{90/90}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {6}{1}{6}{91/91}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {6}{1}{7}{92/92}{Construcci\'o}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{93}{Definici\'o}}\headcommand {\beamer@subsectionpages {86}{92}}
+\headcommand {\slideentry {6}{2}{1}{93/93}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {93}{93}}
+\headcommand {\slideentry {6}{2}{2}{94/94}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\slideentry {6}{2}{3}{95/95}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {95}{95}}
+\headcommand {\slideentry {6}{2}{4}{96/96}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\slideentry {6}{2}{5}{97/97}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {97}{97}}
+\headcommand {\slideentry {6}{2}{6}{98/98}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {98}{98}}
+\headcommand {\slideentry {6}{2}{7}{99/99}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {99}{99}}
+\headcommand {\slideentry {6}{2}{8}{100/100}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {100}{100}}
+\headcommand {\slideentry {6}{2}{9}{101/101}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\slideentry {6}{2}{10}{102/102}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\slideentry {6}{2}{11}{103/103}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {103}{103}}
+\headcommand {\slideentry {6}{2}{12}{104/104}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {104}{104}}
+\headcommand {\slideentry {6}{2}{13}{105/105}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\slideentry {6}{2}{14}{106/106}{Definici\'o}{0}}
+\headcommand {\beamer@framepages {106}{106}}
+\headcommand {\beamer@partpages {1}{106}}
+\headcommand {\beamer@subsectionpages {93}{106}}
+\headcommand {\beamer@sectionpages {84}{106}}
+\headcommand {\beamer@documentpages {106}}
+\headcommand {\def \inserttotalframenumber {106}}
