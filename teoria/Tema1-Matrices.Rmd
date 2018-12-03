@@ -283,7 +283,7 @@ $$\lambda A=3A = \begin{pmatrix}3&6&9\\12&15&18\end{pmatrix}$$
 
 <l class="definition">
 Producto de matrices.
-</l> Para poder realizar el producto de una matriz $A$ por una matriz $B$, el número de columnas de $A$ ha de coincidir con el número de filas de $B$, entonces cada entrada $ij$ de la matriz producto se obtiene multiplicando la fila $i$ de $A$ por la columna $j$ de $B$.
+</l> Para poder realizar el producto de una matriz $A$ por una matriz $B$, el número de columnas de $A$ ha de coincidir con el número de filas de $B$, entonces cada entrada $ij$ de la matriz producto se obtiene multiplicando la fila $i$ de $A$ por la columna $j$ de $B$ y sumando los números resultantes.
 
 ## Operaciones con matrices
 
