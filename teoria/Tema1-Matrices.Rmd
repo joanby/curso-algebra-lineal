@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     widescreen: true
     css: JBMS_style.css
-    logo: Images/Loguito.png
+    logo: Images/matriz_mov.gif
 ---
 
 ```{r setup, include=FALSE}
