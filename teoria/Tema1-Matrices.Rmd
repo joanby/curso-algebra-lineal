@@ -66,7 +66,7 @@ Cuando $m=n$, el conjunto de todas las matrices de orden $m \times n$, $\mathcal
 Igualdad de matrices.
 </l> Dadas dos matrices del mismo orden $m\times n$, $A = (a_{ij})_{m\times n}$ y $B = (b_{ij})_{m\times n}$, son iguales si
 
-$$a_{ij} = b_{ij}\ \forall i = 1,\dots,n,\ \forall j=1,\dots,m$$
+$$a_{ij} = b_{ij}\ \forall i = 1,\dots,m,\ \forall j=1,\dots,n$$
 
 <div class="example">
 **Ejemplo**
@@ -179,7 +179,7 @@ $$A = \begin{pmatrix}1&\cdots&0\\ \vdots & \ddots& \vdots\\0&\cdots&1\end{pmatri
 <div class="example">
 **Ejemplo**
 
-$$I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix}\qquad I_3\begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$$
+$$I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix}\qquad I_3 = \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}$$
 son las matrices identidad de orden 2 y 3, respectivamente
 </div>
 
@@ -228,7 +228,7 @@ Para matrices en general (no necesariamente cuadradas) se mantendrá la denomina
 
 Las matrices triangulares superiores, si no son cuadradas, se corresponden con los siguientes casos, dependiendo si $m<n$ o $n<m$ respectivamente
 
-$$\begin{pmatrix}a_{11}&a_{12}&\cdots&a_{1m}&\cdots&a_{1n}\\0&a_{22}&\cdots&a_{2m}&\cdots&a_{2n}\\\vdots & \vdots & \ddots& \vdots&\ddots&\vdots\\0&0&\cdots&a_{mm}&\cdots&a_{mn}\end{pmatrix}\quad \begin{pmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\0&a_{22}&\cdots&a_{2n}\\\vdots & \vdots & \ddots& \vdots\\0&0&\cdots&a_{mn}\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix}$$
+$$\begin{pmatrix}a_{11}&a_{12}&\cdots&a_{1m}&\cdots&a_{1n}\\0&a_{22}&\cdots&a_{2m}&\cdots&a_{2n}\\\vdots & \vdots & \ddots& \vdots&\ddots&\vdots\\0&0&\cdots&a_{mm}&\cdots&a_{mn}\end{pmatrix}\quad \begin{pmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\0&a_{22}&\cdots&a_{2n}\\\vdots & \vdots & \ddots& \vdots\\0&0&\cdots&a_{nn}\\0&0&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&0\end{pmatrix}$$
 
 ## Caso general {.example}
 
