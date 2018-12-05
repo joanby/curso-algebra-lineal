@@ -888,7 +888,7 @@ Matriz escalonada reducida.
 
 Estas matrices son escalonadas reducidas por filas:
 
-$$\begin{pmatrix}1&1&10&2\\0&1&-2&1\\0&0&1&-1\\0&0&0&0\end{pmatrix}\qquad \begin{pmatrix}1&2&2&5&8\\0&1&-1&7&-3\\0&0&1&10&2\end{pmatrix} $$
+$$\begin{pmatrix}1&0&0&2\\0&1&0&1\\0&0&1&-1\\0&0&0&0\end{pmatrix}\qquad \begin{pmatrix}1&0&0&5&8\\0&1&0&7&-3\\0&0&1&10&2\end{pmatrix} $$
 
 ## Matrices escalonadas{.exercise}
 
