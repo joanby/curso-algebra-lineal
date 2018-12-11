@@ -1,0 +1,52 @@
+# Created by Octave 4.4.0, Thu Dec 06 12:58:27 2018 CET <juangabriel@MacBook-Pro-de-Juan.local>
+# name: B
+# type: matrix
+# rows: 3
+# columns: 3
+ 1 0 1
+ 2 -3 4
+ 0 1 1
+
+
+# name: M
+# type: matrix
+# rows: 3
+# columns: 3
+ 1 2 3
+ 4 5 6
+ 7 8 9
+
+
+# name: a
+# type: scalar
+1
+
+
+# name: ans
+# type: sq_string
+# elements: 1
+# length: 4
+Full
+
+
+# name: b
+# type: scalar
+8
+
+
+# name: col
+# type: matrix
+# rows: 3
+# columns: 1
+ 1
+ 2
+ 3
+
+
+# name: row
+# type: matrix
+# rows: 1
+# columns: 3
+ 1 2 3
+
+

@@ -3,9 +3,9 @@ title: "Tema 1 - Matrices"
 author: "Curso de Álgebra Lineal"
 date: "6/12/2018"
 output:
+  pdf_document: default
   html_document:
     df_print: paged
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = TRUE)
 library(knitr)
 library(kableExtra)
 library(printr)
-library(xtable)
 library(expm)
 ```
 
