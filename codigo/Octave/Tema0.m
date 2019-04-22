@@ -1,0 +1,1 @@
+# Crear número complejo: z1 = complex(1,2)z2 = 2-i#Comprobando tipo de dato:class(z1)#Suma: z1+z2#Producto por escalar: 8*z2#Producto: z1*z2#Parte real: real(z1)#Parte imaginaria: imag(z2)#Módulo: abs(z1)#Conjugado:conj(z2)

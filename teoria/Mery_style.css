@@ -1,0 +1,76 @@
+.center {
+    text-align: center;
+}
+
+.prop{
+  color: #26b95d;
+  font-variant: small-caps;
+  display: inline;
+}
+
+.observ{
+  color: #1FD1D9;
+  font-variant: small-caps;
+  display: inline;
+}
+
+.important{
+  color: red;
+  display:inline;
+  font-variant: small-caps;
+}
+
+.definition{
+  color: blue;
+  display:inline;
+  font-variant: small-caps;
+}
+
+.box{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border: 2px solid blue;
+  opacity: 0.5;
+}
+
+.dem {
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #c9b2f8;
+  font-size: 0.7em;
+  color: black;
+}
+
+
+.r-code{
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #F2F2F2;
+  font-size: 0.7em;
+  font-family: "Courier", monospace;
+}
+
+.example{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #bfeeff;
+  font-size: 0.7em;
+}
+
+.exercise{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #92e394;
+  font-size: 0.7em;
+}
+
+.phototext{
+  font-size: 0.5em
+}
