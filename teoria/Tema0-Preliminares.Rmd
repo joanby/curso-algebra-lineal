@@ -679,7 +679,7 @@ Una solución a este problema es rellenar con 0 el vector de coeficientes hasta 
 
 ```{octave}
 p = [1,2,3,4,5]; q = [1,0,0,1]; gradoP = length(p)-1; gradoQ = length(q)-1;
-p = [ zeros(1, gradoQ-gradoP), p], q = [zeros(1, gradoP-gradoQ), q], suma = p+q
+p = [zeros(1, gradoQ-gradoP), p], q = [zeros(1, gradoP-gradoQ), q], suma = p+q
 ```
 
 ## Polinomios con Octave
