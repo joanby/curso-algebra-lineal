@@ -862,7 +862,7 @@ gradoQ =  3</pre>
 <p>Una solución a este problema es rellenar con 0 el vector de coeficientes hasta alcanzar la máxima longitud de los vectores que tengamos. Esto lo podemos conseguir mediante la función <code>zeros()</code>:</p>
 
 <pre class = 'prettyprint lang-octave'>p = [1,2,3,4,5]; q = [1,0,0,1]; gradoP = length(p)-1; gradoQ = length(q)-1;
-p = [ zeros(1, gradoQ-gradoP), p], q = [zeros(1, gradoP-gradoQ), q], suma = p+q</pre>
+p = [zeros(1, gradoQ-gradoP), p], q = [zeros(1, gradoP-gradoQ), q], suma = p+q</pre>
 
 <pre >p =
 
