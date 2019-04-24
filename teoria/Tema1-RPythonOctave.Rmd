@@ -11,6 +11,8 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(Biodem)
+library(expm)
 ```
 
 # Matrices con `R`
@@ -65,7 +67,196 @@ E
 
 ## Matrices con `R`
 
+Para obtener los elementos de la diagonal de una matriz, utilizamos la función `diag()` introduciendo por parámetro la matriz pertinente:
 
+```{r}
+M = rbind(c(1,0,1),c(2,-1,5),c(3,3,2))
+diag(M)
+```
+
+## Matrices con `R`
+
+Para obtener el número de filas o columnas de una matriz, utilizamos las funciones `nrow()` o `ncol()`, respectivamente:
+
+```{r}
+nrow(M)
+ncol(M)
+```
+
+## Matrices con `R`
+
+Y, si queremos la dimensión de la matriz, utilizamos la función `dim()`, la cual nos devuelve un vector de dos entradas: el primero, el número de filas y, el segundo, el de columnas:
+
+```{r}
+dim(M)
+```
+
+## Manipulación de matrices con `R`
+
+La función `sum()` aplicada a una matriz calcula la suma de todos los elementos de dicha matriz:
+
+```{r}
+sum(M)
+```
+
+Las sumas por filas o por columnas se calculan del siguiente modo
+
+```{r}
+rowSums(M) #sumas por filas
+colSums(M) #sumas por columnas
+```
+
+
+## Manipulación de matrices con `R`
+
+La función `prod()` aplicada a una matriz calcula el producto de todos los elementos de dicha matriz:
+
+```{r}
+prod(M)
+```
+
+La función `mean()` aplicada a una matriz calcula la media (aritmética) de todos los elementos de dicha matriz:
+
+```{r}
+mean(M)
+```
+
+## Manipulación de matrices con `R`
+
+Las medias por filas o por columnas se calculan del siguiente modo
+
+```{r}
+rowMeans(M) #sumas por filas
+colMeans(M) #sumas por columnas
+```
+
+## Operacions con matrices en `R`
+
+La transpuesta de una matriz se consegue aplicando la función `t()`
+
+```{r}
+M
+t(M)
+```
+
+## Operacions con matrices en `R`
+
+La suma de matrices:
+
+```{r}
+A = rbind(c(1,2,3),c(4,5,6),c(7,8,9))
+B = rbind(c(1,0,2),c(3,0,4),c(5,0,6))
+A+B
+B+A
+```
+
+## Operacions con matrices en `R`
+
+El producto de un esclalar por una matriz:
+
+```{r}
+5*A
+```
+
+## Operacions con matrices en `R`
+
+El producto de matrices:
+
+```{r}
+A%*%B
+B%*%A
+```
+
+## Operacions con matrices en `R`
+
+Fijaos que el producto de matrices se consigue aplicando `%*%` y no `*`. 
+
+En el segundo caso, lo que hace `R` es devolver como resultado una matriz $C = (c_{ij})$ cuyos elementos son $c_{ij}=a_{ij}\cdot b_{ij}$.
+
+```{r}
+A*B
+```
+
+## Operacions con matrices en `R`
+
+Para comprobar que dos matrices son iguales, utilizamos el operador lógico `==`
+
+```{r}
+A+B == B+A
+A%*%B == B%*%A
+```
+
+Con que haya un `FALSE`, sabemos que son diferentes
+
+## Operacions con matrices en `R`
+
+Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos la función `mtx.exp()`, del paquete `Biodem`
+
+```{r}
+mtx.exp(A,4)
+```
+
+## Operacions con matrices en `R`
+
+Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos `%^%`, del paquete `expm`
+
+```{r}
+A%^%4
+```
+
+## Determinante, rango e inversa en `R`
+
+El determinante de una matriz se calcula con la función `det()`
+
+```{r}
+det(A)
+```
+
+## Determinante, rango e inversa en `R`
+
+El rango de una matriz se calcula con la función `qr()$rank`
+
+```{r}
+qr(A)$rank
+```
+
+## Determinante, rango e inversa en `R`
+
+La inversa (aproximada) de una matriz (invertible) se calcula mediante la función `solve()`
+
+```{r}
+solve(M)
+round(M%*%solve(M))
+```
+
+## Determinante, rango e inversa en `R`
+
+```{r}
+round(solve(M)%*%M)
+```
+
+Fijaos que no se podría calcular la inversa de las matrices $A$ y $B$ ya que
+
+```{r}
+round(det(A))
+det(B)
+```
+
+## Determinante, rango e inversa en `R`
+
+Para resolver el sistema $Ax=b$, también utilizamos la función `solve(A,b)` (donde $A$ es una matriz invertible), que nos devuelve el vector solución $x$
+
+```{r}
+solve(M,c(1,2,3))
+```
+
+## Determinante, rango e inversa en `R`
+
+Para calcular la traza de la matriz (la suma de los elementos de la diagonal):
+
+```{r}
+sum(diag(M))
+```
 
 # Matrices con Python
 

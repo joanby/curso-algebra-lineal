@@ -197,6 +197,268 @@ E</pre>
 
 </article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-6">
 
+<p>Para obtener los elementos de la diagonal de una matriz, utilizamos la función <code>diag()</code> introduciendo por parámetro la matriz pertinente:</p>
+
+<pre class = 'prettyprint lang-r'>M = rbind(c(1,0,1),c(2,-1,5),c(3,3,2))
+diag(M)</pre>
+
+<pre >[1]  1 -1  2</pre>
+
+</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-7">
+
+<p>Para obtener el número de filas o columnas de una matriz, utilizamos las funciones <code>nrow()</code> o <code>ncol()</code>, respectivamente:</p>
+
+<pre class = 'prettyprint lang-r'>nrow(M)</pre>
+
+<pre >[1] 3</pre>
+
+<pre class = 'prettyprint lang-r'>ncol(M)</pre>
+
+<pre >[1] 3</pre>
+
+</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-8">
+
+<p>Y, si queremos la dimensión de la matriz, utilizamos la función <code>dim()</code>, la cual nos devuelve un vector de dos entradas: el primero, el número de filas y, el segundo, el de columnas:</p>
+
+<pre class = 'prettyprint lang-r'>dim(M)</pre>
+
+<pre >[1] 3 3</pre>
+
+</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r">
+
+<p>La función <code>sum()</code> aplicada a una matriz calcula la suma de todos los elementos de dicha matriz:</p>
+
+<pre class = 'prettyprint lang-r'>sum(M)</pre>
+
+<pre >[1] 16</pre>
+
+<p>Las sumas por filas o por columnas se calculan del siguiente modo</p>
+
+<pre class = 'prettyprint lang-r'>rowSums(M) #sumas por filas</pre>
+
+<pre >[1] 2 6 8</pre>
+
+<pre class = 'prettyprint lang-r'>colSums(M) #sumas por columnas</pre>
+
+<pre >[1] 6 2 8</pre>
+
+</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r-1">
+
+<p>La función <code>prod()</code> aplicada a una matriz calcula el producto de todos los elementos de dicha matriz:</p>
+
+<pre class = 'prettyprint lang-r'>prod(M)</pre>
+
+<pre >[1] 0</pre>
+
+<p>La función <code>mean()</code> aplicada a una matriz calcula la media (aritmética) de todos los elementos de dicha matriz:</p>
+
+<pre class = 'prettyprint lang-r'>mean(M)</pre>
+
+<pre >[1] 1.777778</pre>
+
+</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r-2">
+
+<p>Las medias por filas o por columnas se calculan del siguiente modo</p>
+
+<pre class = 'prettyprint lang-r'>rowMeans(M) #sumas por filas</pre>
+
+<pre >[1] 0.6666667 2.0000000 2.6666667</pre>
+
+<pre class = 'prettyprint lang-r'>colMeans(M) #sumas por columnas</pre>
+
+<pre >[1] 2.0000000 0.6666667 2.6666667</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r">
+
+<p>La transpuesta de una matriz se consegue aplicando la función <code>t()</code></p>
+
+<pre class = 'prettyprint lang-r'>M</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    1    0    1
+[2,]    2   -1    5
+[3,]    3    3    2</pre>
+
+<pre class = 'prettyprint lang-r'>t(M)</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    0   -1    3
+[3,]    1    5    2</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-1">
+
+<p>La suma de matrices:</p>
+
+<pre class = 'prettyprint lang-r'>A = rbind(c(1,2,3),c(4,5,6),c(7,8,9))
+B = rbind(c(1,0,2),c(3,0,4),c(5,0,6))
+A+B</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    2    2    5
+[2,]    7    5   10
+[3,]   12    8   15</pre>
+
+<pre class = 'prettyprint lang-r'>B+A</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    2    2    5
+[2,]    7    5   10
+[3,]   12    8   15</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-2">
+
+<p>El producto de un esclalar por una matriz:</p>
+
+<pre class = 'prettyprint lang-r'>5*A</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    5   10   15
+[2,]   20   25   30
+[3,]   35   40   45</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-3">
+
+<p>El producto de matrices:</p>
+
+<pre class = 'prettyprint lang-r'>A%*%B</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]   22    0   28
+[2,]   49    0   64
+[3,]   76    0  100</pre>
+
+<pre class = 'prettyprint lang-r'>B%*%A</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]   15   18   21
+[2,]   31   38   45
+[3,]   47   58   69</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-4">
+
+<p>Fijaos que el producto de matrices se consigue aplicando <code>%*%</code> y no <code>*</code>.</p>
+
+<p>En el segundo caso, lo que hace <code>R</code> es devolver como resultado una matriz \(C = (c_{ij})\) cuyos elementos son \(c_{ij}=a_{ij}\cdot b_{ij}\).</p>
+
+<pre class = 'prettyprint lang-r'>A*B</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    1    0    6
+[2,]   12    0   24
+[3,]   35    0   54</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-5">
+
+<p>Para comprobar que dos matrices son iguales, utilizamos el operador lógico <code>==</code></p>
+
+<pre class = 'prettyprint lang-r'>A+B == B+A</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,] TRUE TRUE TRUE
+[2,] TRUE TRUE TRUE
+[3,] TRUE TRUE TRUE</pre>
+
+<pre class = 'prettyprint lang-r'>A%*%B == B%*%A</pre>
+
+<pre >      [,1]  [,2]  [,3]
+[1,] FALSE FALSE FALSE
+[2,] FALSE FALSE FALSE
+[3,] FALSE FALSE FALSE</pre>
+
+<p>Con que haya un <code>FALSE</code>, sabemos que son diferentes</p>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-6">
+
+<p>Para calcular la potencia \(n\)-ésima (aproximada) de una matriz, utilizamos la función <code>mtx.exp()</code>, del paquete <code>Biodem</code></p>
+
+<pre class = 'prettyprint lang-r'>mtx.exp(A,4)</pre>
+
+<pre >      [,1]  [,2]  [,3]
+[1,]  7560  9288 11016
+[2,] 17118 21033 24948
+[3,] 26676 32778 38880</pre>
+
+</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-7">
+
+<p>Para calcular la potencia \(n\)-ésima (aproximada) de una matriz, utilizamos <code>%^%</code>, del paquete <code>expm</code></p>
+
+<pre class = 'prettyprint lang-r'>A%^%4</pre>
+
+<pre >      [,1]  [,2]  [,3]
+[1,]  7560  9288 11016
+[2,] 17118 21033 24948
+[3,] 26676 32778 38880</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r">
+
+<p>El determinante de una matriz se calcula con la función <code>det()</code></p>
+
+<pre class = 'prettyprint lang-r'>det(A)</pre>
+
+<pre >[1] 6.661338e-16</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-1">
+
+<p>El rango de una matriz se calcula con la función <code>qr()$rank</code></p>
+
+<pre class = 'prettyprint lang-r'>qr(A)$rank</pre>
+
+<pre >[1] 2</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-2">
+
+<p>La inversa (aproximada) de una matriz (invertible) se calcula mediante la función <code>solve()</code></p>
+
+<pre class = 'prettyprint lang-r'>solve(M)</pre>
+
+<pre >       [,1]   [,2]   [,3]
+[1,]  2.125 -0.375 -0.125
+[2,] -1.375  0.125  0.375
+[3,] -1.125  0.375  0.125</pre>
+
+<pre class = 'prettyprint lang-r'>round(M%*%solve(M))</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-3">
+
+<pre class = 'prettyprint lang-r'>round(solve(M)%*%M)</pre>
+
+<pre >     [,1] [,2] [,3]
+[1,]    1    0    0
+[2,]    0    1    0
+[3,]    0    0    1</pre>
+
+<p>Fijaos que no se podría calcular la inversa de las matrices \(A\) y \(B\) ya que</p>
+
+<pre class = 'prettyprint lang-r'>round(det(A))</pre>
+
+<pre >[1] 0</pre>
+
+<pre class = 'prettyprint lang-r'>det(B)</pre>
+
+<pre >[1] 0</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-4">
+
+<p>Para resolver el sistema \(Ax=b\), también utilizamos la función <code>solve(A,b)</code> (donde \(A\) es una matriz invertible), que nos devuelve el vector solución \(x\)</p>
+
+<pre class = 'prettyprint lang-r'>solve(M,c(1,2,3))</pre>
+
+<pre >[1] 1 0 0</pre>
+
+</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-5">
+
+<p>Para calcular la traza de la matriz (la suma de los elementos de la diagonal):</p>
+
+<pre class = 'prettyprint lang-r'>sum(diag(M))</pre>
+
+<pre >[1] 2</pre>
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python">
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave"></article></slide>
