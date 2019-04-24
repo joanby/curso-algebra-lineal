@@ -5,7 +5,7 @@ date:
 output: 
   ioslides_presentation:
     widescreen: true
-    css: JBMS_style.css
+    css: Mery_style.css
     logo: Images/matriz_mov.gif
 ---
 
@@ -13,13 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
-# Matrices
-
-##{.subsection}
-
-Definiciones generales
-
-
+# Definiciones generales
 
 ## ¿Qué es una matriz?
 
@@ -78,9 +72,7 @@ $A$ y $C$ son las únicas matrices que son iguales
 El resto de pares de matrices son diferentes porque tienen órdenes diferentes: $A,C\in\mathcal{M}_{2\times 3}(\mathbb{R})$, $B\in\mathcal{M}_{3\times 2}(\mathbb{R})$ y $D\in\mathcal{M}_{2}(\mathbb{R})$
 </div>
 
-##{.subsection}
-
-Tipos de matrices
+# Tipos de matrices
 
 
 ## Tipos de matrices
@@ -239,9 +231,7 @@ Estas son matrices triangulares superiores de orden $4\times 6$ y $5\times 3$ re
 $$A = \begin{pmatrix}1&4&-3&2&3&1\\0&3&2&5&2&-1\\0&0&8&-1&2&-2\\0&0&0&-7&1&3\end{pmatrix}\qquad B = \begin{pmatrix}1&3&-1\\0&3&5\\0&0&1\\0&0&0\\0&0&0\end{pmatrix}$$
 
 
-##{.subsection}
-
-Operaciones con matrices
+# Operaciones con matrices
 
 ## Operaciones con matrices
 
@@ -314,9 +304,7 @@ $$BA=\begin{pmatrix}2\cdot(-1)+1\cdot3&2\cdot2+1\cdot(-2)&2\cdot3+1\cdot1&2\cdot
 
 $$\begin{pmatrix}1&2&7&2\\6&-4&2&0\\10&-8&0&-1\\3&-2&1&0\end{pmatrix}$$
 
-## {.subsection}
-
-Propiedades
+# Propiedades
 
 
 ## Propiedades características
@@ -470,7 +458,7 @@ Se puede realizar el producto $AI_n$ y el resultado será una matriz $m\times n$
 Análogamente, se puede realizar el producto $I_nB$ y el resultado será una matriz $n\times p$.
 
 Además, se puede comprobar que se verifica que
-$$AI_n = A\qquad\text{y} I_nB=B$$
+$$AI_n = A\qquad\text{y}\qquad I_nB=B$$
 
 
 ## Propiedades características
@@ -820,9 +808,7 @@ donde $(AB)^{-1}=-\frac{1}{18}\begin{pmatrix}21&-3\\1&-1\end{pmatrix}$
 </div>
 
 
-## {.subsection}
-
-Resumen
+# Resumen
 
 ## Resumen
 
@@ -847,11 +833,7 @@ Si $A$ y $B$ conmutan, entonces $(A+B)^2=A^2+2AB+B^2$
 
 
 
-# Operaciones elementales
-
-## {.subsection}
-
-Matrices escalonadas
+# Operaciones elementales. Matrices escalonadas
 
 ## Matrices escalonadas
 
@@ -966,9 +948,7 @@ $$A=\begin{pmatrix}0&0&3&5&-1\\1&0&4&-1&2\\2&3&0&-2&3\end{pmatrix}$$
 
 Calculad su matriz escalonada y su escalonada reducida por filas.
 
-## {.subsection}
-
-Rango de una matriz
+# Rango de una matriz
 
 ## Rango de una matriz
 
@@ -1004,9 +984,7 @@ $$B = \begin{pmatrix}1&3&1\\0&3&-2\\2&2&3\end{pmatrix}$$
 
 
 
-## {.subsection}
-
-Cálculo de la matriz inversa
+# Cálculo de la matriz inversa
 
 ## Caracterización de las matrices invertibles
 

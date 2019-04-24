@@ -734,7 +734,7 @@ Para hallar las raíces de un polinomio, hacemos uso de la función `roots()`:
 
 ```{octave}
 p = [1,2,3,4,5];
-q = [1,0,0,1];
+q = [1,0,1];
 roots(p)
 roots(q)
 ```

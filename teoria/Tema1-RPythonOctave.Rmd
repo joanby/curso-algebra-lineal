@@ -1,0 +1,72 @@
+---
+title: Tema 1 - Matrices con R, Python y Octave
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Matrices con `R`
+
+## Matrices con `R`
+
+Para crear matrices se utiliza la instrucción `matrix()`
+
+```{r}
+A = matrix(c(1,1,3,5,2,4,3,-2,-2,2,-1,3), nrow = 3, ncol = 4, byrow = TRUE)
+A
+B = matrix(c(1,0,2,3,3,2,1,-2,3), nrow = 3, byrow = FALSE)
+B
+```
+
+## Matrices con `R`
+
+- Los datos de la matriz deben ir en un vector `c()`
+- Hay que indicar el número de filas y/o columnas con `nrow` o `ncol`, respectivamente
+- Debemos utilizar le parámetro lógico `byrow` para indicar si hemos escrito los números del vector por filas o por columnas
+
+## Matrices con `R`
+
+También podemos crear matrices con las funciones `bind()`
+
+```{r}
+C = rbind(c(1,2,3),c(4,5,6),c(7,8,9))
+C
+D = cbind(c(1,2,3),c(4,5,6),c(7,8,9))
+D
+```
+
+
+## Matrices con `R`
+
+Para acceder a una fila/columna/elemento de una matriz se sigue la sintaxis `A[i,j]`, donde $i$ indica la fila y j, la columna
+
+```{r}
+A[1,] #Primera fila
+B[,2] #Segunda columna
+A[3,3] #Elemento a33
+```
+
+## Matrices con `R`
+
+Para crear una matriz diagonal, utilizamos la función `diag()`
+
+```{r}
+E = diag(c(1,2,3,4,5,6))
+E
+```
+
+## Matrices con `R`
+
+
+
+# Matrices con Python
+
+# Matrices con Octave
