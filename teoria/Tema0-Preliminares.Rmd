@@ -413,6 +413,9 @@ Con estas operaciones el conjunto $\mathbb{K}[x]$ presenta una serie de propieda
 
 <l class = "definition">División de polinomios.</l> Dado un polinomio $p(x)\in\mathbb{K}[x]$, la división de $p(x)$ entre otro polinomio $s(x)\in\mathbb{K}[x]$ de grado menor o igual al de  $p(x)$, consiste en hallar 2 polinomios $q(x),r(x)\in\mathbb{K}[x]$ tales que $$p(x) = s(x)q(x)+r(x)$$
 
+Véamoslo más claramente con un ejemplo
+
+
 ## Polinomios
 <l class="definition">
 Polinomio irreducible.

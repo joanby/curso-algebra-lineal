@@ -260,4 +260,222 @@ sum(diag(M))
 
 # Matrices con Python
 
+## Matrices con Python
+
+Utilizaremos la librería `numpy`. Para crear una matriz fila,  
+
+```{python}
+row = [1,2,3]
+row
+```
+
+Para crear una matriz columna, 
+
+```{python}
+col = [[1],[2],[3]]
+col
+```
+
+## Matrices con Python
+
+Para crear una matriz, 
+
+```{python}
+M = [[1,2,3],[4,5,6],[7,8,9]]
+M
+```
+
+## Matrices con Python
+
+Para llamar a un elemento, utilizamos la sintaxis siguiente:
+
+```{python}
+M[1][1]
+```
+
+La primera posición indica la fila y, la segunda, la columna. 
+
+<l class = "observ">Observación.</l> En Python, al contrario que en `R`, las posiciones empiezan en 0.
+
+```{python}
+M[0][0]
+```
+
+## Matrices con Python
+
+Para llamar a una fila, 
+
+```{python}
+M[0]
+```
+
+## Matrices con Python
+
+Cambiémosle la sintaxis a la matriz, para poder trabajar correctamente con ella:
+
+```{python}
+import numpy as np
+M = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(M)
+```
+
+## Matrices con Python
+
+La función `np.array()` tiene un parámetro, `dtype`, en el cual podemos indicar el tipo de dato de la matriz: int, float, complex...
+
+```{python}
+M = np.array([[1,2,3],[4,5,6],[7,8,9]], dtype = complex)
+print(M)
+M = np.array([[1,2,3],[4,5,6],[7,8,9]], dtype = float)
+print(M)
+```
+
+## Matrices con Python
+
+Para llamar a un elemento, utilizamos la sintaxis mostrada anteriormente:
+
+```{python}
+M = np.array([[1,2,3],[4,5,6],[7,8,9]])
+M[0][2]
+```
+
+Para llamar a una fila, 
+
+```{python}
+print(M[1])
+```
+
+## Matrices con Python
+
+Para llamar a una columna, necesitamos recorrer todas las filas de la matriz:
+
+```{python}
+for row in M:
+  print(row[0]) #Primera columna
+```
+
+
+## Matrices con Python
+
+Para crear una matriz de ceros, utilizamos la función `np.zeros((fil,col))`:
+
+```{python}
+print(np.zeros((5,7)))
+```
+
+## Matrices con Python
+
+Para crear una matriz de ceros, utilizamos la función `np.ones((fil,col))`:
+
+```{python}
+print(np.ones((5,10)))
+```
+
+## Matrices con Python
+
+Para saber la dimensión de una matriz, utilizamos la función `np.shape()`:
+
+```{python}
+np.shape(M)
+```
+
+## Operaciones con matrices en Python
+
+Suma de matrices:
+
+```{python}
+A = np.array([[1,2],[2,0]])
+B = np.array([[3,0],[1,4]])
+
+print(A+B)
+```
+
+## Operaciones con matrices en Python
+
+El producto de un escalar por una matriz:
+
+```{python}
+print(5*A)
+```
+
+
+## Operaciones con matrices en Python
+
+Producto de matrices: 
+
+```{python}
+print(A.dot(B))
+```
+
+Observad que si utilizáis la sintaxis `A*B`, se multiplican elemento a elemento, como ocurría en `R`.
+
+```{python}
+print(A*B)
+```
+
+## Operaciones con matrices en Python
+
+Para calcular la transpuesta de una matriz, utilizamos la función `.transpose()`:
+
+```{python}
+print(M.transpose())
+```
+
+## Operaciones con matrices en Python
+
+Para calcular la traza de una matriz:
+
+```{python}
+print(M.trace())
+print(A.trace())
+print(B.trace())
+```
+
+## Operaciones con matrices en Python
+
+Para calcular la potencia de una matriz:
+
+```{python}
+print(np.linalg.matrix_power(A,5))
+```
+
+
+## Determinante, rango e inversa en Python
+
+Para calcular el determinante de una matriz:
+
+```{python}
+np.linalg.det(M)
+np.linalg.det(A)
+np.linalg.det(B)
+```
+
+## Determinante, rango e inversa en Python
+
+Para calcular el rango de una matriz, utilizamos `np.linalg.matrix_rank()`
+
+```{python}
+np.linalg.matrix_rank(A)
+np.linalg.matrix_rank(B)
+```
+
+## Determinante, rango e inversa en Python
+
+Para calcular la inversa:
+
+```{python}
+print(np.linalg.inv(A))
+print(np.linalg.inv(A).dot(A))#Comprobamos
+```
+
+## Determinante, rango e inversa en Python
+
+Fijaos que la matriz $M$ tiene determinante 0, lo que se traduce en que no tiene inversa. Sin embargo, Python la calcula sin queja alguna porque utiliza métodos numéricos. No obstante, el resultado es una «matriz infinita» que no tiene mucho sentido:
+
+```{python}
+print(np.linalg.inv(M))
+```
+
 # Matrices con Octave
+
+## Matrices con Octave
