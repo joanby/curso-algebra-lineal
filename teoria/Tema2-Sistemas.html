@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 1 - Matrices con R, Python y Octave</title>
+  <title>Tema 2 - Ecuaciones y Sistemas Lineales</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 1 - Matrices con R, Python y Octave',
+                title: 'Tema 2 - Ecuaciones y Sistemas Lineales',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -114,808 +114,104 @@
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Ecuaciones matriciales</h2></hgroup><article  id="ecuaciones-matriciales">
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-1">
+</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales</h2></hgroup><article  id="ecuaciones-matriciales-1">
 
-<p>Para crear matrices se utiliza la instrucción <code>matrix()</code></p>
+<p><l class = "definition"> Ecuación matricial.</l> Ecuación donde la incógnita es una matriz.</p>
 
-<pre class = 'prettyprint lang-r'>A = matrix(c(1,1,3,5,2,4,3,-2,-2,2,-1,3), nrow = 3, ncol = 4, byrow = TRUE)
-A</pre>
+<p>Se resuelven transformando la ecuación inicial en otra equivalente utilizando las propiedades y definiciones vistas en el tema anterior.</p>
 
-<pre >     [,1] [,2] [,3] [,4]
-[1,]    1    1    3    5
-[2,]    2    4    3   -2
-[3,]   -2    2   -1    3</pre>
+<p>Para hallar la incógnita necesitamos la matriz inversa</p>
 
-<pre class = 'prettyprint lang-r'>B = matrix(c(1,0,2,3,3,2,1,-2,3), nrow = 3, byrow = FALSE)
-B</pre>
+</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales</h2></hgroup><article  id="ecuaciones-matriciales-2">
 
-<pre >     [,1] [,2] [,3]
-[1,]    1    3    1
-[2,]    0    3   -2
-[3,]    2    2    3</pre>
+<p><l class = "prop">Método de resolución</l></p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-2">
+<p>Dada la ecuación matricial \[XP = Q-R\]</p>
 
-<ul>
-<li>Los datos de la matriz deben ir en un vector <code>c()</code></li>
-<li>Hay que indicar el número de filas y/o columnas con <code>nrow</code> o <code>ncol</code>, respectivamente</li>
-<li>Debemos utilizar le parámetro lógico <code>byrow</code> para indicar si hemos escrito los números del vector por filas o por columnas</li>
-</ul>
+<p>donde \(X\in\mathcal{M}_{n}(\mathbb{K})\) es nuestra incógnita y \(P,Q,R\in\mathcal{M}_{n}(\mathbb{K})\) son matrices cuadradas conocidas.</p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-3">
+<p>Multiplicamos por la derecha en ambos miembros de la igualdad por \(P^{-1}\)</p>
 
-<p>También podemos crear matrices con las funciones <code>bind()</code></p>
+<p>\[XPP^{-1}=(Q-R)P^{-1}\]</p>
 
-<pre class = 'prettyprint lang-r'>C = rbind(c(1,2,3),c(4,5,6),c(7,8,9))
-C</pre>
+</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales</h2></hgroup><article  id="ecuaciones-matriciales-3">
 
-<pre >     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    4    5    6
-[3,]    7    8    9</pre>
+<p><l class = "prop">Método de resolución (Continuación)</l></p>
 
-<pre class = 'prettyprint lang-r'>D = cbind(c(1,2,3),c(4,5,6),c(7,8,9))
-D</pre>
+<p>Como \(P^{-1}\) es la inversa de \(P\), se cumple que \(PP^{-1}=I_n\), donde \(I_n\) es la matriz identidad de orden \(n\). Entonces,</p>
 
-<pre >     [,1] [,2] [,3]
-[1,]    1    4    7
-[2,]    2    5    8
-[3,]    3    6    9</pre>
+<p>\[XI_n=(Q-R)P^{-1}\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-4">
+<p>con lo cual \(X=(Q-R)P^{-1}\)</p>
 
-<p>Para acceder a una fila/columna/elemento de una matriz se sigue la sintaxis <code>A[i,j]</code>, donde \(i\) indica la fila y j, la columna</p>
+</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales</h2></hgroup><article  id="ecuaciones-matriciales-4" class="example">
 
-<pre class = 'prettyprint lang-r'>A[1,] #Primera fila</pre>
+<p><strong>Ejemplo</strong></p>
 
-<pre >[1] 1 1 3 5</pre>
+<p>Resolver la ecuación matricial \(P+QX=RS-TX\). ¿Qué condiciones tienen que cumplirse para poder hallar \(X\)?</p>
 
-<pre class = 'prettyprint lang-r'>B[,2] #Segunda columna</pre>
+<p>En primer lugar, intentemos aislar \(X\):</p>
 
-<pre >[1] 3 3 2</pre>
+<p>\[P+QX=RS-TX\] \[QX+TX=RS-P\]</p>
 
-<pre class = 'prettyprint lang-r'>A[3,3] #Elemento a33</pre>
+<p>Ahora, podemos sacar factor común \(X\),</p>
 
-<pre >[1] -1</pre>
+<p>\[(Q+T)X = RS-P\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-5">
+<p>Con lo cuál, para poder hallar \(X\), necesitamos que la matriz \((Q+T)\) sea invertible y así poder continuar multiplicando a la izquierda de cada miembro de la igualdad por \((Q+T)^{-1}\),</p>
 
-<p>Para crear una matriz diagonal, utilizamos la función <code>diag()</code></p>
+<p>\[(Q+T)^{-1}(Q+T)X = (Q+T)^{-1}(RS-P)\] \[X = (Q+T)^{-1}(RS-P)\]</p>
 
-<pre class = 'prettyprint lang-r'>E = diag(c(1,2,3,4,5,6))
-E</pre>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales">
 
-<pre >     [,1] [,2] [,3] [,4] [,5] [,6]
-[1,]    1    0    0    0    0    0
-[2,]    0    2    0    0    0    0
-[3,]    0    0    3    0    0    0
-[4,]    0    0    0    4    0    0
-[5,]    0    0    0    0    5    0
-[6,]    0    0    0    0    0    6</pre>
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-1">
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-6">
+<p><l class = "definition">Sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Es de la forma</p>
 
-<p>Para obtener los elementos de la diagonal de una matriz, utilizamos la función <code>diag()</code> introduciendo por parámetro la matriz pertinente:</p>
+<p>\[\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n &amp; = &amp; b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n &amp; = &amp; b_2\\
+\vdots &amp; \  &amp; \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n &amp; = &amp; b_m\\\end{matrix}\right.\]</p>
 
-<pre class = 'prettyprint lang-r'>M = rbind(c(1,0,1),c(2,-1,5),c(3,3,2))
-diag(M)</pre>
+<p>donde \(a_{ij},b_i\in\mathbb{K},\ i=1,2,\dots,m\) y \(j=1,2,\dots,n\)</p>
 
-<pre >[1]  1 -1  2</pre>
+<p><l class = "definition">Solució de un sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Conjunto de \(n\) valores \(\alpha_i\in\mathbb{K},\ i=1,2,\dots,n\) tales que al sutituir cada \(x_i=\alpha_i\), cada una de las \(m\) ecuaciones se convierten en identidades</p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-7">
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-2">
 
-<p>Para obtener el número de filas o columnas de una matriz, utilizamos las funciones <code>nrow()</code> o <code>ncol()</code>, respectivamente:</p>
+<p><l class = "definition">Forma matricial de un sistema de ecuaciones lineales.</l> \(AX = B\) donde</p>
 
-<pre class = 'prettyprint lang-r'>nrow(M)</pre>
+<p>\[A = \begin{pmatrix}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\\
+\end{pmatrix}\quad X = \begin{pmatrix}x_1\\x_2\\\vdots\\x_m\end{pmatrix}\quad B = \begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}\]</p>
 
-<pre >[1] 3</pre>
+<p><l class = "definition">Matriz de coeficientes.</l> \(A\)</p>
 
-<pre class = 'prettyprint lang-r'>ncol(M)</pre>
+<p><l class = "definition">Matriz de términos independientes.</l> \(B\)</p>
 
-<pre >[1] 3</pre>
+<p><l class = "definition">Matriz de incógnitas.</l> \(X\)</p>
 
-</article></slide><slide class=""><hgroup><h2>Matrices con <code>R</code></h2></hgroup><article  id="matrices-con-r-8">
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-3">
 
-<p>Y, si queremos la dimensión de la matriz, utilizamos la función <code>dim()</code>, la cual nos devuelve un vector de dos entradas: el primero, el número de filas y, el segundo, el de columnas:</p>
+<p><l class = "definition">Matriz ampliada.</l></p>
 
-<pre class = 'prettyprint lang-r'>dim(M)</pre>
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss">
 
-<pre >[1] 3 3</pre>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Determinantes</h2></hgroup><article  id="determinantes">
 
-</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r">
+</article></slide><slide class=""><hgroup><h2>El concepto de determinante</h2></hgroup><article  id="el-concepto-de-determinante">
 
-<p>La función <code>sum()</code> aplicada a una matriz calcula la suma de todos los elementos de dicha matriz:</p>
+</article></slide><slide class=""><hgroup><h2>Propiedades</h2></hgroup><article  id="propiedades">
 
-<pre class = 'prettyprint lang-r'>sum(M)</pre>
+</article></slide><slide class=""><hgroup><h2>Matriz adjunta</h2></hgroup><article  id="matriz-adjunta">
 
-<pre >[1] 16</pre>
+</article></slide><slide class=""><hgroup><h2>Cálculo de un determinante</h2></hgroup><article  id="calculo-de-un-determinante">
 
-<p>Las sumas por filas o por columnas se calculan del siguiente modo</p>
-
-<pre class = 'prettyprint lang-r'>rowSums(M) #sumas por filas</pre>
-
-<pre >[1] 2 6 8</pre>
-
-<pre class = 'prettyprint lang-r'>colSums(M) #sumas por columnas</pre>
-
-<pre >[1] 6 2 8</pre>
-
-</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r-1">
-
-<p>La función <code>prod()</code> aplicada a una matriz calcula el producto de todos los elementos de dicha matriz:</p>
-
-<pre class = 'prettyprint lang-r'>prod(M)</pre>
-
-<pre >[1] 0</pre>
-
-<p>La función <code>mean()</code> aplicada a una matriz calcula la media (aritmética) de todos los elementos de dicha matriz:</p>
-
-<pre class = 'prettyprint lang-r'>mean(M)</pre>
-
-<pre >[1] 1.777778</pre>
-
-</article></slide><slide class=""><hgroup><h2>Manipulación de matrices con <code>R</code></h2></hgroup><article  id="manipulacion-de-matrices-con-r-2">
-
-<p>Las medias por filas o por columnas se calculan del siguiente modo</p>
-
-<pre class = 'prettyprint lang-r'>rowMeans(M) #sumas por filas</pre>
-
-<pre >[1] 0.6666667 2.0000000 2.6666667</pre>
-
-<pre class = 'prettyprint lang-r'>colMeans(M) #sumas por columnas</pre>
-
-<pre >[1] 2.0000000 0.6666667 2.6666667</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r">
-
-<p>La transpuesta de una matriz se consegue aplicando la función <code>t()</code></p>
-
-<pre class = 'prettyprint lang-r'>M</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    1    0    1
-[2,]    2   -1    5
-[3,]    3    3    2</pre>
-
-<pre class = 'prettyprint lang-r'>t(M)</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    1    2    3
-[2,]    0   -1    3
-[3,]    1    5    2</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-1">
-
-<p>La suma de matrices:</p>
-
-<pre class = 'prettyprint lang-r'>A = rbind(c(1,2,3),c(4,5,6),c(7,8,9))
-B = rbind(c(1,0,2),c(3,0,4),c(5,0,6))
-A+B</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    2    2    5
-[2,]    7    5   10
-[3,]   12    8   15</pre>
-
-<pre class = 'prettyprint lang-r'>B+A</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    2    2    5
-[2,]    7    5   10
-[3,]   12    8   15</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-2">
-
-<p>El producto de un esclalar por una matriz:</p>
-
-<pre class = 'prettyprint lang-r'>5*A</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    5   10   15
-[2,]   20   25   30
-[3,]   35   40   45</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-3">
-
-<p>El producto de matrices:</p>
-
-<pre class = 'prettyprint lang-r'>A%*%B</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]   22    0   28
-[2,]   49    0   64
-[3,]   76    0  100</pre>
-
-<pre class = 'prettyprint lang-r'>B%*%A</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]   15   18   21
-[2,]   31   38   45
-[3,]   47   58   69</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-4">
-
-<p>Fijaos que el producto de matrices se consigue aplicando <code>%*%</code> y no <code>*</code>.</p>
-
-<p>En el segundo caso, lo que hace <code>R</code> es devolver como resultado una matriz \(C = (c_{ij})\) cuyos elementos son \(c_{ij}=a_{ij}\cdot b_{ij}\).</p>
-
-<pre class = 'prettyprint lang-r'>A*B</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    1    0    6
-[2,]   12    0   24
-[3,]   35    0   54</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-5">
-
-<p>Para comprobar que dos matrices son iguales, utilizamos el operador lógico <code>==</code></p>
-
-<pre class = 'prettyprint lang-r'>A+B == B+A</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,] TRUE TRUE TRUE
-[2,] TRUE TRUE TRUE
-[3,] TRUE TRUE TRUE</pre>
-
-<pre class = 'prettyprint lang-r'>A%*%B == B%*%A</pre>
-
-<pre >      [,1]  [,2]  [,3]
-[1,] FALSE FALSE FALSE
-[2,] FALSE FALSE FALSE
-[3,] FALSE FALSE FALSE</pre>
-
-<p>Con que haya un <code>FALSE</code>, sabemos que son diferentes</p>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-6">
-
-<p>Para calcular la potencia \(n\)-ésima (aproximada) de una matriz, utilizamos la función <code>mtx.exp()</code>, del paquete <code>Biodem</code></p>
-
-<pre class = 'prettyprint lang-r'>mtx.exp(A,4)</pre>
-
-<pre >      [,1]  [,2]  [,3]
-[1,]  7560  9288 11016
-[2,] 17118 21033 24948
-[3,] 26676 32778 38880</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operacions con matrices en <code>R</code></h2></hgroup><article  id="operacions-con-matrices-en-r-7">
-
-<p>Para calcular la potencia \(n\)-ésima (aproximada) de una matriz, utilizamos <code>%^%</code>, del paquete <code>expm</code></p>
-
-<pre class = 'prettyprint lang-r'>A%^%4</pre>
-
-<pre >      [,1]  [,2]  [,3]
-[1,]  7560  9288 11016
-[2,] 17118 21033 24948
-[3,] 26676 32778 38880</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r">
-
-<p>El determinante de una matriz se calcula con la función <code>det()</code></p>
-
-<pre class = 'prettyprint lang-r'>det(A)</pre>
-
-<pre >[1] 6.661338e-16</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-1">
-
-<p>El rango de una matriz se calcula con la función <code>qr()$rank</code></p>
-
-<pre class = 'prettyprint lang-r'>qr(A)$rank</pre>
-
-<pre >[1] 2</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-2">
-
-<p>La inversa (aproximada) de una matriz (invertible) se calcula mediante la función <code>solve()</code></p>
-
-<pre class = 'prettyprint lang-r'>solve(M)</pre>
-
-<pre >       [,1]   [,2]   [,3]
-[1,]  2.125 -0.375 -0.125
-[2,] -1.375  0.125  0.375
-[3,] -1.125  0.375  0.125</pre>
-
-<pre class = 'prettyprint lang-r'>round(M%*%solve(M))</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    1    0    0
-[2,]    0    1    0
-[3,]    0    0    1</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-3">
-
-<pre class = 'prettyprint lang-r'>round(solve(M)%*%M)</pre>
-
-<pre >     [,1] [,2] [,3]
-[1,]    1    0    0
-[2,]    0    1    0
-[3,]    0    0    1</pre>
-
-<p>Fijaos que no se podría calcular la inversa de las matrices \(A\) y \(B\) ya que</p>
-
-<pre class = 'prettyprint lang-r'>round(det(A))</pre>
-
-<pre >[1] 0</pre>
-
-<pre class = 'prettyprint lang-r'>det(B)</pre>
-
-<pre >[1] 0</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-4">
-
-<p>Para resolver el sistema \(Ax=b\), también utilizamos la función <code>solve(A,b)</code> (donde \(A\) es una matriz invertible), que nos devuelve el vector solución \(x\)</p>
-
-<pre class = 'prettyprint lang-r'>solve(M,c(1,2,3))</pre>
-
-<pre >[1] 1 0 0</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en <code>R</code></h2></hgroup><article  id="determinante-rango-e-inversa-en-r-5">
-
-<p>Para calcular la traza de la matriz (la suma de los elementos de la diagonal):</p>
-
-<pre class = 'prettyprint lang-r'>sum(diag(M))</pre>
-
-<pre >[1] 2</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python">
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-1">
-
-<p>Utilizaremos la librería <code>numpy</code>. Para crear una matriz fila,</p>
-
-<pre class = 'prettyprint lang-python'>row = [1,2,3]
-row</pre>
-
-<pre >[1, 2, 3]</pre>
-
-<p>Para crear una matriz columna,</p>
-
-<pre class = 'prettyprint lang-python'>col = [[1],[2],[3]]
-col</pre>
-
-<pre >[[1], [2], [3]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-2">
-
-<p>Para crear una matriz,</p>
-
-<pre class = 'prettyprint lang-python'>M = [[1,2,3],[4,5,6],[7,8,9]]
-M</pre>
-
-<pre >[[1, 2, 3], [4, 5, 6], [7, 8, 9]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-3">
-
-<p>Para llamar a un elemento, utilizamos la sintaxis siguiente:</p>
-
-<pre class = 'prettyprint lang-python'>M[1][1]</pre>
-
-<pre >5</pre>
-
-<p>La primera posición indica la fila y, la segunda, la columna.</p>
-
-<p><l class = "observ">Observación.</l> En Python, al contrario que en <code>R</code>, las posiciones empiezan en 0.</p>
-
-<pre class = 'prettyprint lang-python'>M[0][0]</pre>
-
-<pre >1</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-4">
-
-<p>Para llamar a una fila,</p>
-
-<pre class = 'prettyprint lang-python'>M[0]</pre>
-
-<pre >[1, 2, 3]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-5">
-
-<p>Cambiémosle la sintaxis a la matriz, para poder trabajar correctamente con ella:</p>
-
-<pre class = 'prettyprint lang-python'>import numpy as np
-M = np.array([[1,2,3],[4,5,6],[7,8,9]])
-print(M)</pre>
-
-<pre >[[1 2 3]
- [4 5 6]
- [7 8 9]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-6">
-
-<p>La función <code>np.array()</code> tiene un parámetro, <code>dtype</code>, en el cual podemos indicar el tipo de dato de la matriz: int, float, complex&#8230;</p>
-
-<pre class = 'prettyprint lang-python'>M = np.array([[1,2,3],[4,5,6],[7,8,9]], dtype = complex)
-print(M)</pre>
-
-<pre >[[ 1.+0.j  2.+0.j  3.+0.j]
- [ 4.+0.j  5.+0.j  6.+0.j]
- [ 7.+0.j  8.+0.j  9.+0.j]]</pre>
-
-<pre class = 'prettyprint lang-python'>M = np.array([[1,2,3],[4,5,6],[7,8,9]], dtype = float)
-print(M)</pre>
-
-<pre >[[ 1.  2.  3.]
- [ 4.  5.  6.]
- [ 7.  8.  9.]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-7">
-
-<p>Para llamar a un elemento, utilizamos la sintaxis mostrada anteriormente:</p>
-
-<pre class = 'prettyprint lang-python'>M = np.array([[1,2,3],[4,5,6],[7,8,9]])
-M[0][2]</pre>
-
-<pre >3</pre>
-
-<p>Para llamar a una fila,</p>
-
-<pre class = 'prettyprint lang-python'>print(M[1])</pre>
-
-<pre >[4 5 6]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-8">
-
-<p>Para llamar a una columna, necesitamos recorrer todas las filas de la matriz:</p>
-
-<pre class = 'prettyprint lang-python'>for row in M:
-  print(row[0]) #Primera columna</pre>
-
-<pre >1
-4
-7</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-9">
-
-<p>Para crear una matriz de ceros, utilizamos la función <code>np.zeros((fil,col))</code>:</p>
-
-<pre class = 'prettyprint lang-python'>print(np.zeros((5,7)))</pre>
-
-<pre >[[ 0.  0.  0.  0.  0.  0.  0.]
- [ 0.  0.  0.  0.  0.  0.  0.]
- [ 0.  0.  0.  0.  0.  0.  0.]
- [ 0.  0.  0.  0.  0.  0.  0.]
- [ 0.  0.  0.  0.  0.  0.  0.]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-10">
-
-<p>Para crear una matriz de ceros, utilizamos la función <code>np.ones((fil,col))</code>:</p>
-
-<pre class = 'prettyprint lang-python'>print(np.ones((5,10)))</pre>
-
-<pre >[[ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
- [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
- [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
- [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]
- [ 1.  1.  1.  1.  1.  1.  1.  1.  1.  1.]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Python</h2></hgroup><article  id="matrices-con-python-11">
-
-<p>Para saber la dimensión de una matriz, utilizamos la función <code>np.shape()</code>:</p>
-
-<pre class = 'prettyprint lang-python'>np.shape(M)</pre>
-
-<pre >(3, 3)</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python">
-
-<p>Suma de matrices:</p>
-
-<pre class = 'prettyprint lang-python'>A = np.array([[1,2],[2,0]])
-B = np.array([[3,0],[1,4]])
-
-print(A+B)</pre>
-
-<pre >[[4 2]
- [3 4]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python-1">
-
-<p>El producto de un escalar por una matriz:</p>
-
-<pre class = 'prettyprint lang-python'>print(5*A)</pre>
-
-<pre >[[ 5 10]
- [10  0]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python-2">
-
-<p>Producto de matrices:</p>
-
-<pre class = 'prettyprint lang-python'>print(A.dot(B))</pre>
-
-<pre >[[5 8]
- [6 0]]</pre>
-
-<p>Observad que si utilizáis la sintaxis <code>A*B</code>, se multiplican elemento a elemento, como ocurría en <code>R</code>.</p>
-
-<pre class = 'prettyprint lang-python'>print(A*B)</pre>
-
-<pre >[[3 0]
- [2 0]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python-3">
-
-<p>Para calcular la transpuesta de una matriz, utilizamos la función <code>.transpose()</code>:</p>
-
-<pre class = 'prettyprint lang-python'>print(M.transpose())</pre>
-
-<pre >[[1 4 7]
- [2 5 8]
- [3 6 9]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python-4">
-
-<p>Para calcular la traza de una matriz:</p>
-
-<pre class = 'prettyprint lang-python'>print(M.trace())</pre>
-
-<pre >15</pre>
-
-<pre class = 'prettyprint lang-python'>print(A.trace())</pre>
-
-<pre >1</pre>
-
-<pre class = 'prettyprint lang-python'>print(B.trace())</pre>
-
-<pre >7</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Python</h2></hgroup><article  id="operaciones-con-matrices-en-python-5">
-
-<p>Para calcular la potencia de una matriz:</p>
-
-<pre class = 'prettyprint lang-python'>print(np.linalg.matrix_power(A,5))</pre>
-
-<pre >[[65 58]
- [58 36]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Python</h2></hgroup><article  id="determinante-rango-e-inversa-en-python">
-
-<p>Para calcular el determinante de una matriz:</p>
-
-<pre class = 'prettyprint lang-python'>np.linalg.det(M)</pre>
-
-<pre >6.6613381477509402e-16</pre>
-
-<pre class = 'prettyprint lang-python'>np.linalg.det(A)</pre>
-
-<pre >-4.0</pre>
-
-<pre class = 'prettyprint lang-python'>np.linalg.det(B)</pre>
-
-<pre >12.0</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Python</h2></hgroup><article  id="determinante-rango-e-inversa-en-python-1">
-
-<p>Para calcular el rango de una matriz, utilizamos <code>np.linalg.matrix_rank()</code></p>
-
-<pre class = 'prettyprint lang-python'>np.linalg.matrix_rank(A)</pre>
-
-<pre >2</pre>
-
-<pre class = 'prettyprint lang-python'>np.linalg.matrix_rank(B)</pre>
-
-<pre >2</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Python</h2></hgroup><article  id="determinante-rango-e-inversa-en-python-2">
-
-<p>Para calcular la inversa:</p>
-
-<pre class = 'prettyprint lang-python'>print(np.linalg.inv(A))</pre>
-
-<pre >[[ 0.    0.5 ]
- [ 0.5  -0.25]]</pre>
-
-<pre class = 'prettyprint lang-python'>print(np.linalg.inv(A).dot(A))#Comprobamos</pre>
-
-<pre >[[ 1.  0.]
- [ 0.  1.]]</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Python</h2></hgroup><article  id="determinante-rango-e-inversa-en-python-3">
-
-<p>Fijaos que la matriz \(M\) tiene determinante 0, lo que se traduce en que no tiene inversa. Sin embargo, Python la calcula sin queja alguna porque utiliza métodos numéricos. No obstante, el resultado es una «matriz infinita» que no tiene mucho sentido:</p>
-
-<pre class = 'prettyprint lang-python'>print(np.linalg.inv(M))</pre>
-
-<pre >[[ -4.50359963e+15   9.00719925e+15  -4.50359963e+15]
- [  9.00719925e+15  -1.80143985e+16   9.00719925e+15]
- [ -4.50359963e+15   9.00719925e+15  -4.50359963e+15]]</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave">
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave-1">
-
-<p>Para crear una matriz fila,</p>
-
-<pre class = 'prettyprint lang-octave'>row = [1 2 3]</pre>
-
-<pre >row =
-
-   1   2   3</pre>
-
-<p>Para crear una matriz columna,</p>
-
-<pre class = 'prettyprint lang-octave'>col = [1;2;3]</pre>
-
-<pre >col =
-
-   1
-   2
-   3</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave-2">
-
-<p>Entonces, para crear una matriz:</p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9]</pre>
-
-<pre >M =
-
-   1   2   3
-   4   5   6
-   7   8   9</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave-3">
-
-<p>Para llamar a un elemento, utilizamos la sintaxis</p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-M(1,1)</pre>
-
-<pre >ans =  1</pre>
-
-<p>Para llamar a una fila,</p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-M(2)</pre>
-
-<pre >ans =  4</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave-4">
-
-<p>Para saber el tipo de una matriz, lo que hacemos es utilizar la función <code>matrix_type()</code></p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-matrix_type(M)
-N = [1 0 0; 0 1 0; 0 0 9];
-matrix_type(N)</pre>
-
-<pre >ans = Full
-ans = Upper</pre>
-
-</article></slide><slide class=""><hgroup><h2>Matrices con Octave</h2></hgroup><article  id="matrices-con-octave-5">
-
-<p>Para saber la dimensión de una matriz, hacemos uso de la función <code>size()</code></p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-size(M)</pre>
-
-<pre >ans =
-
-   3   3</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Octave</h2></hgroup><article  id="operaciones-con-matrices-en-octave">
-
-<p>Para calcular la transpuesta de una matriz, utilizamos el apostrofe, <code>&#39;</code></p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-M&#39;</pre>
-
-<pre >ans =
-
-   1   4   7
-   2   5   8
-   3   6   9</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Octave</h2></hgroup><article  id="operaciones-con-matrices-en-octave-1">
-
-<p>Suma de matrices:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-A+B</pre>
-
-<pre >ans =
-
-   3   0
-  -1   3</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Octave</h2></hgroup><article  id="operaciones-con-matrices-en-octave-2">
-
-<p>Producto de un escalar por una matriz:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-2*A</pre>
-
-<pre >ans =
-
-   2  -2
-   0   6</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Octave</h2></hgroup><article  id="operaciones-con-matrices-en-octave-3">
-
-<p>Producto de matrices:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-A*B</pre>
-
-<pre >ans =
-
-   3   1
-  -3   0</pre>
-
-</article></slide><slide class=""><hgroup><h2>Operaciones con matrices en Octave</h2></hgroup><article  id="operaciones-con-matrices-en-octave-4">
-
-<p>Para calcular la traza de una matriz, utilizamos la función <code>trace()</code>:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-trace(A)
-trace(B)</pre>
-
-<pre >ans =  4
-ans =  2</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Octave</h2></hgroup><article  id="determinante-rango-e-inversa-en-octave">
-
-<p>Para calcular el determinante, utilizamos la función <code>det)()</code>:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-det(A)
-det(B)</pre>
-
-<pre >ans =  3
-ans =  1</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Octave</h2></hgroup><article  id="determinante-rango-e-inversa-en-octave-1">
-
-<p>Para calcular el rango de una matriz, utilizamos la función <code>rank()</code>:</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-rank(A)
-rank(B)</pre>
-
-<pre >ans =  2
-ans =  2</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Octave</h2></hgroup><article  id="determinante-rango-e-inversa-en-octave-2">
-
-<p>Para calcular la inversa de una matriz, hacemos uso de la función <code>inv()</code></p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 -1; 0 3];
-B = [2 1; -1 0];
-inv(A)
-inv(A)*A</pre>
-
-<pre >ans =
-
-   1.00000   0.33333
-   0.00000   0.33333
-
-ans =
-
-   1.00000  -0.00000
-   0.00000   1.00000</pre>
-
-</article></slide><slide class=""><hgroup><h2>Determinante, rango e inversa en Octave</h2></hgroup><article  id="determinante-rango-e-inversa-en-octave-3">
-
-<p>Ocurrirá lo mismo que en Python: por mucho que la matriz no sea invertible, Octave nos calculará la inversa numéricamente. En cambio, en este caso, nos devolverá un «warning» indicando que la matriz es singular.</p>
-
-<pre class = 'prettyprint lang-octave'>M = [1 2 3; 4 5 6; 7 8 9];
-det(M)
-inv(M)</pre>
-
-<pre >ans =   -9.5162e-16
-warning: matrix singular to machine precision, rcond = 2.20282e-18
-ans =
-
-   3.1525e+15  -6.3050e+15   3.1525e+15
-  -6.3050e+15   1.2610e+16  -6.3050e+15
-   3.1525e+15  -6.3050e+15   3.1525e+15</pre></article></slide>
+</article></slide><slide class=""><hgroup><h2>Aplicaciones de los determinantes</h2></hgroup><article  id="aplicaciones-de-los-determinantes"></article></slide>
 
 
   <slide class="backdrop"></slide>

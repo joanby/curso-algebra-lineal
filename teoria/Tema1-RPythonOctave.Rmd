@@ -10,7 +10,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, comment = NA)
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
 library(Biodem)
 library(expm)
 ```
@@ -479,3 +481,157 @@ print(np.linalg.inv(M))
 # Matrices con Octave
 
 ## Matrices con Octave
+
+Para crear una matriz fila,
+
+```{octave}
+row = [1 2 3]
+```
+
+Para crear una matriz columna,
+
+```{octave}
+col = [1;2;3]
+```
+
+## Matrices con Octave
+
+Entonces, para crear una matriz:
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9]
+```
+
+## Matrices con Octave
+
+Para llamar a un elemento, utilizamos la sintaxis
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+M(1,1)
+```
+
+Para llamar a una fila,
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+M(2)
+```
+
+
+## Matrices con Octave
+
+Para saber el tipo de una matriz, lo que hacemos es utilizar la función `matrix_type()`
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+matrix_type(M)
+N = [1 0 0; 0 1 0; 0 0 9];
+matrix_type(N)
+```
+
+
+## Matrices con Octave
+
+Para saber la dimensión de una matriz, hacemos uso de la función `size()`
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+size(M)
+```
+
+## Operaciones con matrices en Octave
+
+Para calcular la transpuesta de una matriz, utilizamos el apostrofe, `'`
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+M'
+```
+
+## Operaciones con matrices en Octave
+
+Suma de matrices:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+A+B
+```
+
+## Operaciones con matrices en Octave
+
+Producto de un escalar por una matriz:
+
+```{octave}
+A = [1 -1; 0 3];
+2*A
+```
+
+## Operaciones con matrices en Octave
+
+Producto de matrices:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+A*B
+```
+
+## Operaciones con matrices en Octave
+
+Para calcular la traza de una matriz, utilizamos la función `trace()`:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+trace(A)
+trace(B)
+```
+
+
+## Determinante, rango e inversa en Octave
+
+Para calcular el determinante, utilizamos la función `det)()`:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+det(A)
+det(B)
+```
+
+
+## Determinante, rango e inversa en Octave
+
+Para calcular el rango de una matriz, utilizamos la función `rank()`:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+rank(A)
+rank(B)
+```
+
+
+## Determinante, rango e inversa en Octave
+
+Para calcular la inversa de una matriz, hacemos uso de la función `inv()`
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+inv(A)
+inv(A)*A
+```
+
+## Determinante, rango e inversa en Octave
+
+Ocurrirá lo mismo que en Python: por mucho que la matriz no sea invertible, Octave nos calculará la inversa numéricamente. En cambio, en este caso, nos devolverá un «warning» indicando que la matriz es singular.
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+det(M)
+inv(M)
+```
+

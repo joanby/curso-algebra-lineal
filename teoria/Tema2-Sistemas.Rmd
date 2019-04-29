@@ -1,22 +1,106 @@
 ---
-title: Tema 2 - Sistemas
+title: Tema 2 - Ecuaciones y Sistemas Lineales
 author: Juan Gabriel Gomila & María Santos
 date: 
 output: 
   ioslides_presentation:
     widescreen: true
-    css: JBMS_style.css
-    logo: Images/Loguito.png
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
-# Ecuaciones y sistemas lineales
+# Ecuaciones matriciales
 
 ## Ecuaciones matriciales
+
+<l class = "definition"> Ecuación matricial.</l> Ecuación donde la incógnita es una matriz.
+
+Se resuelven transformando la ecuación inicial en otra equivalente utilizando las propiedades y definiciones vistas en el tema anterior.
+
+Para hallar la incógnita necesitamos la matriz inversa
+
+## Ecuaciones matriciales
+
+<l class = "prop">Método de resolución</l>
+
+Dada la ecuación matricial $$XP = Q-R$$
+
+donde $X\in\mathcal{M}_{n}(\mathbb{K})$ es nuestra incógnita y $P,Q,R\in\mathcal{M}_{n}(\mathbb{K})$ son matrices cuadradas conocidas.
+
+Multiplicamos por la derecha en ambos miembros de la igualdad por $P^{-1}$
+
+$$XPP^{-1}=(Q-R)P^{-1}$$
+
+## Ecuaciones matriciales
+
+<l class = "prop">Método de resolución (Continuación)</l>
+
+Como $P^{-1}$ es la inversa de $P$, se cumple que $PP^{-1}=I_n$, donde $I_n$ es la matriz identidad de orden $n$. Entonces,
+
+$$XI_n=(Q-R)P^{-1}$$
+
+con lo cual $X=(Q-R)P^{-1}$
+
+
+## Ecuaciones matriciales{.example}
+
+**Ejemplo**
+
+Resolver la ecuación matricial $P+QX=RS-TX$. ¿Qué condiciones tienen que cumplirse para poder hallar $X$?
+
+En primer lugar, intentemos aislar $X$:
+
+$$P+QX=RS-TX$$
+$$QX+TX=RS-P$$
+
+Ahora, podemos sacar factor común $X$,
+
+$$(Q+T)X = RS-P$$
+
+Con lo cuál, para poder hallar $X$, necesitamos que la matriz $(Q+T)$ sea invertible y así poder continuar multiplicando a la izquierda de cada miembro de la igualdad por $(Q+T)^{-1}$,
+
+$$(Q+T)^{-1}(Q+T)X = (Q+T)^{-1}(RS-P)$$
+$$X = (Q+T)^{-1}(RS-P)$$
+
+# Sistemas de ecuaciones lineales
+
 ## Sistemas de ecuaciones lineales
+
+<l class = "definition">Sistema de $m$ ecuaciones con $n$ incógnitas.</l> Es de la forma
+
+$$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
+\vdots & \  & \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
+
+donde $a_{ij},b_i\in\mathbb{K},\ i=1,2,\dots,m$ y $j=1,2,\dots,n$
+
+<l class = "definition">Solució de un sistema de $m$ ecuaciones con $n$ incógnitas.</l> Conjunto de $n$ valores $\alpha_i\in\mathbb{K},\ i=1,2,\dots,n$ tales que al sutituir cada $x_i=\alpha_i$, cada una de las $m$ ecuaciones se convierten en identidades
+
+## Sistemas de ecuaciones lineales
+
+<l class = "definition">Forma matricial de un sistema de ecuaciones lineales.</l> $AX = B$ donde
+
+$$A = \begin{pmatrix}a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & \cdots & a_{mn}\\
+\end{pmatrix}\quad X = \begin{pmatrix}x_1\\x_2\\\vdots\\x_m\end{pmatrix}\quad B = \begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}$$
+
+<l class = "definition">Matriz de coeficientes.</l> $A$
+
+<l class = "definition">Matriz de términos independientes.</l> $B$
+
+<l class = "definition">Matriz de incógnitas.</l> $X$
+
+## Sistemas de ecuaciones lineales
+
+<l class = "definition">Matriz ampliada.</l>
+
 ## El método de Gauss
 
 # Determinantes
