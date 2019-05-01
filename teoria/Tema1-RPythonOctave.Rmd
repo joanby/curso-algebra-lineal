@@ -356,6 +356,12 @@ for row in M:
   print(row[0]) #Primera columna
 ```
 
+No obstante, hay una forma más sencilla: 
+
+```{python}
+M[:,0]
+```
+
 
 ## Matrices con Python
 

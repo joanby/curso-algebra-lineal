@@ -1,0 +1,83 @@
+---
+title: "Tarea"
+subtitle: "Ecuaciones y Sistemas Lineales"
+author: "María Santos"
+date: "1/5/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Ejercicio 1
+
+Resolved el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}
+x_1 &-& 2x_2 &+& x_3 &-& x_4 &=& 3\\
+2x_1 &-& 3x_2 &+& 2x_3 &-& x_4 &=& -1\\
+3x_1 &-& 5x_2 &+& 3x_3 &-& 4x_4 &=& 3\\
+-x_1 &+& x_2 &-& x_3 &+& 2x_4 &=& 5
+\end{matrix}\right.$$
+
+## Ejercicio 2
+
+Resolved la siguiente ecuación matricial: $$AX+B = CX-X+D$$
+
+donde
+
+### Apartado (a)
+
+$$A = \begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix},\quad B = \begin{pmatrix}
+1 & 3\\
+2 & 0
+\end{pmatrix},\quad C = \begin{pmatrix}
+4 & -2\\
+-3 & -5
+\end{pmatrix},\quad D = \begin{pmatrix}
+1 & 3\\
+4 & -2
+\end{pmatrix}$$
+
+```{r, echo = FALSE}
+A = rbind(c(1,0),c(0,-1))
+B = rbind(c(1,3),c(2,0))
+C = rbind(c(4,-2),c(-3,-5))
+D = rbind(c(1,3),c(4,-2))
+I = diag(1,ncol = 2, nrow = 2)
+X = solve(A-C+I)%*%(D-B)
+```
+
+
+### Apartado (b)
+
+$$A = \begin{pmatrix}
+1&2&1\\
+0&-3&1\\
+1&1&1
+\end{pmatrix},\quad B = \begin{pmatrix}
+1&3&0\\
+0&2&0\\
+-1&0&1
+\end{pmatrix},\quad C = \begin{pmatrix}
+3&0&2\\
+-2&1&-1\\
+-1&1&2
+\end{pmatrix},\quad D = \begin{pmatrix}
+1&3&5\\
+4&0&-2\\
+0&0&1
+\end{pmatrix},\quad $$
+
+```{r, echo = FALSE}
+A = rbind(c(1,2,1),c(0,-3,1),c(1,1,1))
+B = rbind(c(1,3,0),c(0,2,0),c(-1,0,1))
+C = rbind(c(3,0,2),c(-2,1,-1),c(-1,1,2))
+D = rbind(c(1,3,5),c(4,0,-2),c(0,0,1))
+I = diag(1,ncol = 3, nrow = 3)
+X = solve(A-C+I)%*%(D-B)
+```

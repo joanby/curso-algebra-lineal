@@ -168,7 +168,7 @@
 
 </article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-1">
 
-<p><l class = "definition">Sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Es de la forma</p>
+<p><l class = "definition">Sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Es un sistema de la forma</p>
 
 <p>\[\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n &amp; = &amp; b_1\\
 a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n &amp; = &amp; b_2\\
@@ -177,9 +177,17 @@ a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n &amp; = &amp; b_m\\\end{matrix}\right.\]</p
 
 <p>donde \(a_{ij},b_i\in\mathbb{K},\ i=1,2,\dots,m\) y \(j=1,2,\dots,n\)</p>
 
-<p><l class = "definition">Solució de un sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Conjunto de \(n\) valores \(\alpha_i\in\mathbb{K},\ i=1,2,\dots,n\) tales que al sutituir cada \(x_i=\alpha_i\), cada una de las \(m\) ecuaciones se convierten en identidades</p>
+<p><l class = "definition">Incógnitas.</l> \(x_1,x_2,\dots,x_n\)</p>
+
+<p><l class = "definition">Coeficientes del sistema.</l> \(a_{ij}\in\mathbb{K}\), \(i=1,2,\dots,m\), \(j=1,2,\dots,n\)</p>
+
+<p><l class = "definition">Términos independientes.</l> \(b_i\), \(i = 1,2,\dots,m\)</p>
 
 </article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-2">
+
+<p><l class = "definition">Sistema homogéneo. </l> Sistema de ecuaciones lineales donde \(b_i=0\), \(\forall i=1,2,\dots,m\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-3">
 
 <p><l class = "definition">Forma matricial de un sistema de ecuaciones lineales.</l> \(AX = B\) donde</p>
 
@@ -189,15 +197,15 @@ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
 a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\\
 \end{pmatrix}\quad X = \begin{pmatrix}x_1\\x_2\\\vdots\\x_m\end{pmatrix}\quad B = \begin{pmatrix}b_1\\b_2\\\vdots\\b_m\end{pmatrix}\]</p>
 
-<p><l class = "definition">Matriz de coeficientes.</l> \(A\)</p>
+<p><l class = "definition">Matriz de coeficientes (del sistema).</l> \(A\)</p>
 
 <p><l class = "definition">Matriz de términos independientes.</l> \(B\)</p>
 
 <p><l class = "definition">Matriz de incógnitas.</l> \(X\)</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-3">
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-4">
 
-<p><l class = "definition">Matriz ampliada.</l> Dado el sistema matricial \(AX = B\), se define la matriz ampliada como \((A|B)\)</p>
+<p><l class = "definition">Matriz ampliada del sistema.</l> Dado el sistema matricial \(AX = B\), se define la matriz ampliada del sistema como \((A|B)\)</p>
 
 <p>\[A = \begin{pmatrix}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n} &amp; | &amp; b_1\\
 a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
@@ -205,15 +213,15 @@ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n} &amp; | &amp; b_2\\
 a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m\\
 \end{pmatrix}\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-4">
-
-<p>Si resulta que \(m = n\), entonces el sistema de ecuaciones lineales se puede resolver fácilmente (siempre que la inversa de \(A\), \(A^{-1}\), exista)</p>
-
-<p>\[AX=B\] \[A^{-1}AX=A^{-1}B\] \[X=A^{-1}B\]</p>
+<p>Cada fila representa la ecuación correspondiente del sistema.</p>
 
 </article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-5">
 
-<p>Dado un sistema de \(m\) ecuaciones lineales con \(n\) incógnitas \(AX=B\), diremos que es</p>
+<p><l class = "definition">Solució de un sistema de \(m\) ecuaciones con \(n\) incógnitas.</l> Conjunto de \(n\) valores \(s_i\in\mathbb{K},\ i=1,2,\dots,n\) tales que al sutituir cada \(x_i=s_i\), cada una de las \(m\) ecuaciones se convierten en identidades</p>
+
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-6">
+
+<p>Dado un sistema de \(m\) ecuaciones lineales con \(n\) incógnitas \(AX=B\), podemos clasificar los sistemas según tengan o no solución y, en caso de tener, según cuántas tienen:</p>
 
 <p><l class = "definition">Sistema compatible.</l> Si tiene al menos una solución</p>
 
@@ -224,8 +232,42 @@ a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn} &amp; | &amp; b_m\\
 
 <p><l class = "definition">Sistema incompatible.</l> Si no tiene solución</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-6" class="example">
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-7">
 
+<p><l class = "observ">Observación. </l> Notemos que un sistema homogéneo, \(AX=0\),</p>
+
+<p>\[\begin{pmatrix}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1n}\\
+a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2n}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+a_{m1} &amp; a_{m2} &amp; \cdots &amp; a_{mn}\\
+\end{pmatrix}\cdot \begin{pmatrix}x_1\\x_2\\\vdots\\x_m\end{pmatrix} = \begin{pmatrix}0\\0\\\vdots\\0\end{pmatrix}\]</p>
+
+<p>siempre tiene, al menos, la <l class = "definition">solución trivial</l>. Es decir, la solución \((0,0,\dots,0)\).</p>
+
+<p>Con lo cual, el sistema homogéneo siempre es compatible.</p>
+
+</article></slide><slide class=""><hgroup><h2>Sistema de ecuaciones lineales</h2></hgroup><article  id="sistema-de-ecuaciones-lineales">
+
+<p><l class = "prop">Teorema de Rouché-Frobenius.</l> Un sistema de \(m\) ecuaciones lineales y \(n\) incógnitas, \(AX=B\), es compatible si, y solo si, rg\((A)=\)rg\((A|B)=r\) y, en este caso:</p>
+
+<ul>
+<li>Si \(r=n\), el sistema es determinado</li>
+<li>Si \(r&lt;n\), el sistema es indeterminado</li>
+</ul>
+
+<p>Si rg\((A)&lt;\)rg\((A|B)\), entonces el sistema es indeterminado</p>
+
+</article></slide><slide class=""><hgroup><h2>Sistema de ecuaciones lineales</h2></hgroup><article  id="sistema-de-ecuaciones-lineales-1">
+
+<p><l class = "definition">Sistemas equivalentes.</l> Los sistemas \(AX=B\) y \(A&#39;X=B&#39;\) son equivalentes si tienen exactamente el mismo conjunto de soluciones.</p>
+
+<p>De este modo, para resolver sistemas de la forma \(AX=B\), empezaremos comparando los rangos de las matrices \(A\) y \((A|B)\). A continuación, en caso de que ambos rangos sean iguales, procederemos a encontrar una matriz descalonada por filas de \((A|B)\) mediante operaciones elementales.</p>
+
+<p>Este último paso lo realizamos ya que una matriz escalonada (o escalonada reducida) tiene solución inmediata</p>
+
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-8">
+
+<div class="example">
 <p><strong>Ejemplo</strong></p>
 
 <p>Resolvamos el sistema lineal siguiente:</p>
@@ -235,45 +277,69 @@ x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
 2x_1 &amp;+&amp; 4x_2 &amp;-&amp; 3x_3 &amp;=&amp; 1\\
 3x_1 &amp;+&amp; 6x_2 &amp;-&amp; 5x_3 &amp;=&amp; 0\end{matrix}\right.\]</p>
 
-<p>Procederemos del siguiente modo: obtendremos una serie de sistemas lineales equivalentes</p>
+<p>En primer lugar, calculemos rg\((A)\) y rg\((A|B)\):</p>
+
+<p>\[A = \begin{pmatrix}
+1&amp;1&amp;2\\
+2&amp;4&amp;-3\\
+3&amp;6&amp;-5
+\end{pmatrix},\qquad(A|B) = \begin{pmatrix}
+1&amp;1&amp;2 &amp;|&amp; 9\\
+2&amp;4&amp;-3 &amp;|&amp; 1\\
+3&amp;6&amp;-5 &amp;|&amp; 0
+\end{pmatrix}\]</p>
+
+<p>Tenemos que rg\((A)=\)rg\((A|B)=3=n\). Por lo tanto, por el Teorema de Rouché-Frobenius, concluimos que el sistema es compatible determinado</p></div>
+
+<div class="exercise">
+<strong>Ejercicio.</strong> Comprobad que rg\((A)=\)rg\((A|B)=3=n\)</div>
+
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-9" class="example">
+
+<p>Una vez sabemos que hay solución, y en este caso hemos concluido que es única, procedemos a encontrar sistemas equivalentes mediante operaciones elementales para acabar obteniendo una matriz escalonada por filas de la matriz ampliada del sistema:</p>
+
+<p>1.Eliminamos los coeficientes correspondientes a las variables \(x_1\) de las dos últimas filas:</p>
 
 <ul>
-<li>Primero haremos desaparecer las incógnitas \(x_1\) de las dos últimas ecuaciones</li>
-<li>Después eliminaremos la incógnita \(x_2\) de la última ecuación</li>
+<li>A la segunda fila le sumamos la primera multiplicada por -2</li>
+<li>A la última fila le sumamos la primera multiplicada por -3</li>
 </ul>
-
-<p>1.Eliminamos las variables \(x_1\) de las dos últimas ecuaciones:</p>
-
-<ul>
-<li>A la segunda ecuación le sumamos la primera multiplicada por -2</li>
-<li>A la última ecuación le sumamos la primera multiplicada por -3</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-7" class="example">
 
 <p>Realizando las operaciones anteriores, obtenemos el sistema equivalente:</p>
 
-<p>\[\left\{\begin{matrix}
-x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
-\  &amp;&amp; 2x_2 &amp;-&amp; 7x_3 &amp;=&amp; -17\\
-\  &amp;&amp; 3x_2 &amp;-&amp; 11x_3 &amp;=&amp; -27\end{matrix}\right.\]</p>
+<p>\[\begin{pmatrix}
+1&amp;1&amp;2 &amp;|&amp; 9\\
+0&amp;2&amp;-7 &amp;|&amp; -17\\
+0&amp;3&amp;-11 &amp;|&amp; -27
+\end{pmatrix}\]</p>
 
-<p>2.Eliminamos la variable \(x_2\) de la última ecuación:</p>
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-10" class="example">
+
+<p>2.Eliminamos los coeficientes respectivos a la variable \(x_2\) de la última fila:</p>
 
 <ul>
-<li>A la última ecuación del sistema que acabamos de obtener, le sumamos la segunda multiplicada por \(-\frac{3}{2}\)</li>
+<li>A la última fila de la matriz que acabamos de obtener, le sumamos la segunda multiplicada por \(-\frac{3}{2}\)</li>
 </ul>
 
-<p>Así, obtenemos el sistema equivalente:</p>
+<p>Así, obtenemos:</p>
 
-<p>\[\left\{\begin{matrix}
-x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
-\  &amp;&amp; 2x_2 &amp;-&amp; 7x_3 &amp;=&amp; -17\\
-\  &amp;&amp;  &amp;&amp; -\frac{1}{2}x_3 &amp;=&amp; -\frac{3}{2}\end{matrix}\right.\]</p>
+<p>\[\begin{pmatrix}
+1&amp;1&amp;2 &amp;|&amp; 9\\
+0&amp;2&amp;-7 &amp;|&amp; -17\\
+0&amp;0&amp;-\frac{1}{2} &amp;|&amp; -\frac{3}{2}
+\end{pmatrix}\]</p>
 
-<p>Este último sistema que acabamos de obtener es equivalente al sistema de ecuaciones lineales inicial y, lo más interesante de todo, se puede resolver de forma inmediata:</p>
+<p>Esta última matriz ampliada que acabamos de obtener es equivalente a la matriz ampliada del sistema de ecuaciones lineales inicial y, lo más interesante de todo, se puede resolver de forma inmediata.</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-8" class="example">
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-11" class="example">
+
+<p>El sistema equivalente que acabamos de obtener es</p>
+
+<p>\[\begin{matrix}
+x_1&amp;+&amp;x_2&amp;+&amp;2x_3 &amp;=&amp; 9\\
+&amp;&amp;2x_2&amp;-&amp;7x_3 &amp;=&amp; -17\\
+&amp;&amp;&amp;-&amp;\frac{1}{2}x_3 &amp;=&amp; -\frac{3}{2}
+\end{matrix}\]</p>
 
 <p>De la última ecuación podemos aislar \(x_3\) y obtenemos:</p>
 
@@ -287,9 +353,126 @@ x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
 
 <p>\[x_1+2+6 = 9\] \[x_1 = 1\]</p>
 
+</article></slide><slide class=""><hgroup><h2>Sistemas de ecuaciones lineales</h2></hgroup><article  id="sistemas-de-ecuaciones-lineales-12" class="example">
+
+<p>Con lo cual, la única solución del sistema</p>
+
+<p>\[\left\{\begin{matrix}
+x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
+2x_1 &amp;+&amp; 4x_2 &amp;-&amp; 3x_3 &amp;=&amp; 1\\
+3x_1 &amp;+&amp; 6x_2 &amp;-&amp; 5x_3 &amp;=&amp; 0\end{matrix}\right.\]</p>
+
+<p>es \(s = (1,2,3)\)</p>
+
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss">
 
-</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-1"></article></slide>
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-1">
+
+<p><l class = "definition">Sistema escalonado.</l> Dado el sistema \(AX=B\), se dice que es escalonado si la matriz ampliada \((A|B)\) es escalonada</p>
+
+<p><l class = "definition">Variables dependientes.</l> Variables que se corresponden con los pivotes</p>
+
+<p><l class = "definition">Variables independientes.</l> Variables no dependientes</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-2">
+
+<p>En el Tema 1 vimos cómo utilizar el método de Gauss para obtener matrices escalonadas, escalonadas reducidas y calcular el rango de una matriz.</p>
+
+<p>En este tema, veremos como aplicar dicho método para encontrar las soluciones de los sistemas de ecuaciones lineales.</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-3">
+
+<ol>
+<li>Se selecciona la fila que tenga el pivote lo más a la izquierda posible para colocarla como la primera fila</li>
+<li>Con el pivote de la primera fila se reducen a 0 todos los elementos que se encuentran por debajo de él</li>
+<li>Se repiten los pasos 1 y 2 con la submatriz formada por todas las filas, a excepción de la primera. La nueva matriz que se obtiene tendrá 0s por debajo del pivote de la fila 2.</li>
+<li>Se repite el proceso hasta obtener una matriz escalonada.</li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-4" class="example">
+
+<p><strong>Ejemplo</strong></p>
+
+<p>Queremos resolver el sistema</p>
+
+<p>\[\left\{\begin{matrix}x_1&amp;+&amp;x_2&amp;&amp;&amp;=&amp;3\\
+&amp;&amp;x_2&amp;+&amp;x_3&amp;=&amp;5\\
+x_1&amp;&amp;&amp;+&amp;x_3&amp;=&amp;4\\
+5x_1&amp;-&amp;x_2&amp;+&amp;x_3&amp;=&amp;6
+\end{matrix}\right.\]</p>
+
+<p>Primero, construimos las matrices de coeficientes y de términos independientes:</p>
+
+<p>\[\begin{pmatrix}1 &amp; 1 &amp; 0\\
+0 &amp; 1 &amp; 1\\
+1 &amp; 0 &amp; 1\\
+5 &amp; -1 &amp; 1\end{pmatrix}\qquad B = \begin{pmatrix}3\\
+5\\
+4\\
+6\end{pmatrix}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-5" class="example">
+
+<p>Entonces, la matriz ampliada del sistema es</p>
+
+<p>\[(A|B) = \begin{pmatrix}1 &amp; 1 &amp; 0 &amp; | &amp; 3\\
+0 &amp; 1 &amp; 1 &amp; | &amp; 5\\
+1 &amp; 0 &amp; 1 &amp; | &amp; 4\\
+5 &amp; -1 &amp; 1 &amp; | &amp; 6\end{pmatrix}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-6" class="example">
+
+<p>Ahora, realizando las operaciones:</p>
+
+<ul>
+<li>\(f_3\sim f_3-f_1\)</li>
+<li>\(f_4\sim f_4-5f_1\)</li>
+</ul>
+
+<p>obtenemos la matriz ampliada equivalente</p>
+
+<p>\[\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; | &amp; 3\\
+0 &amp; 1 &amp; 1 &amp; | &amp; 5\\
+0 &amp; -1 &amp; 1 &amp; | &amp; 1\\
+0 &amp; -6 &amp; 1 &amp; | &amp; -9\end{pmatrix}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-7" class="example">
+
+<p>A continuación, realizamos las operaciones</p>
+
+<ul>
+<li>\(f_3 \sim f_3+f_2\)</li>
+<li>\(f_4 \sim f_4+6f_2\)</li>
+</ul>
+
+<p>Y así obtenemos la siguiente matriz ampliada equivalente a las anteriores:</p>
+
+<p>\[\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; | &amp; 3\\
+0 &amp; 1 &amp; 1 &amp; | &amp; 5\\
+0 &amp; 0 &amp; 2 &amp; | &amp; 6\\
+0 &amp; 0 &amp; 7 &amp; | &amp; 21\end{pmatrix}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>El método de Gauss</h2></hgroup><article  id="el-metodo-de-gauss-8" class="example">
+
+<p>Finalmente, realizmos la operación</p>
+
+<ul>
+<li>\(f_4\sim f_4-\frac{7}{2}f_3\)</li>
+</ul>
+
+<p>para así obtener</p>
+
+<p>\[\begin{pmatrix}
+1 &amp; 1 &amp; 0 &amp; | &amp; 3\\
+0 &amp; 1 &amp; 1 &amp; | &amp; 5\\
+0 &amp; 0 &amp; 2 &amp; | &amp; 6\\
+0 &amp; 0 &amp; 0 &amp; | &amp; 0\end{pmatrix}\]</p>
+
+<p>A partir de esta última matriz ampliada escalonada, aplicando sustitución regresiva, se obtiene</p>
+
+<p>\[x_1 = 1\] \[x_2 = 2\] \[x_3 = 3\]</p></article></slide>
 
 
   <slide class="backdrop"></slide>
