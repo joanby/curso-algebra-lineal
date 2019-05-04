@@ -156,27 +156,21 @@ Con lo cual, el sistema homogéneo siempre es compatible.
 
 Si rg$(A)<$rg$(A|B)$, entonces el sistema es indeterminado
 
-## Sistema de ecuaciones lineales
-
-<l class = "definition">Sistemas equivalentes.</l> Los sistemas $AX=B$ y $A'X=B'$ son equivalentes si tienen exactamente el mismo conjunto de soluciones.
-
-De este modo, para resolver sistemas de la forma $AX=B$, empezaremos comparando los rangos de las matrices $A$ y $(A|B)$. A continuación, en caso de que ambos rangos sean iguales, procederemos a encontrar una matriz descalonada por filas de $(A|B)$ mediante operaciones elementales.
-
-Este último paso lo realizamos ya que una matriz escalonada (o escalonada reducida) tiene solución inmediata
-
 ## Sistemas de ecuaciones lineales
 
 <div class = "example">
 **Ejemplo**
 
-Resolvamos el sistema lineal siguiente:
+Comprobemos si el siguiente sistema lineal tiene solución:
 
 $$\left\{\begin{matrix}
 x_1 &+& x_2 &+& 2x_3 &=& 9\\
 2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
 3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
 
-En primer lugar, calculemos rg$(A)$ y rg$(A|B)$:
+Observemos que se trata de un sistema $m=$3 de ecuaciones y $n=$3 incógnitas.
+
+Para averiguar de qué tipo de sistema se trata, calculemos rg$(A)$ y rg$(A|B)$, donde
 
 $$A = \begin{pmatrix}
 1&1&2\\
@@ -188,15 +182,71 @@ $$A = \begin{pmatrix}
 3&6&-5 &|& 0
 \end{pmatrix}$$
 
-Tenemos que rg$(A)=$rg$(A|B)=3=n$. Por lo tanto, por el Teorema de Rouché-Frobenius, concluimos que el sistema es compatible determinado
+Tenemos que rg$(A)=$rg$(A|B)=3$. Por lo tanto, por el Teorema de Rouché-Frobenius, concluimos que el sistema es compatible determinado
 
 </div>
 
-<div class = "exercise">**Ejercicio.** Comprobad que rg$(A)=$rg$(A|B)=3=n$</div>
+<div class = "exercise">**Ejercicio.** Comprobad que, utilizando lo aprendido en el Tema 1, rg$(A)=$rg$(A|B)=3$</div>
+
+## Sistema de ecuaciones lineales
+
+<l class = "definition">Sistemas equivalentes.</l> Los sistemas $AX=B$ y $A'X=B'$ son equivalentes si tienen exactamente el mismo conjunto de soluciones.
+
+De este modo, para resolver sistemas de la forma $AX=B$, empezaremos comparando los rangos de las matrices $A$ y $(A|B)$. A continuación, en caso de que ambos rangos sean iguales, procederemos a encontrar una solución utilizando el <l class = "definition">método de Gauss</l>.
+
+
+# El método de Gauss
+
+## El método de Gauss
+
+En el Tema 1 vimos cómo utilizar el método de Gauss para obtener matrices escalonadas, escalonadas reducidas y calcular el rango de una matriz. 
+
+En este tema, veremos como aplicar dicho método para encontrar las soluciones de los sistemas de ecuaciones lineales.
+
+## El método de Gauss
+
+<l class = "definition">Sistema escalonado.</l> Dado el sistema $AX=B$, se dice que es escalonado si la matriz ampliada $(A|B)$ es escalonada
+
+<l class = "definition">Variables dependientes.</l> Variables que se corresponden con los pivotes
+
+<l class = "definition">Variables independientes.</l> Variables no dependientes
+
+
+## El método de Gauss
+
+Los pasos para hallar la solución de un sistema compatible son:
+
+1. Se selecciona la fila que tenga el pivote lo más a la izquierda posible para colocarla como la primera fila
+2. Con el pivote de la primera fila se reducen a 0 todos los elementos que se encuentran por debajo de él
+3. Se repiten los pasos 1 y 2 con la submatriz formada por todas las filas, a excepción de la primera. La nueva matriz que se obtiene tendrá 0's por debajo del pivote de la fila 2.
+4. Se repite el proceso hasta obtener una matriz escalonada.
+
+El objetivo de alcanzar una matriz escalonada por filas equivalente es debido a que una matriz escalonada tiene solución inmediata. 
 
 ## Sistemas de ecuaciones lineales{.example}
 
-Una vez sabemos que hay solución, y en este caso hemos concluido que es única, procedemos a encontrar sistemas equivalentes mediante operaciones elementales para acabar obteniendo una matriz escalonada por filas de la matriz ampliada del sistema:
+**Ejemplo**
+
+Recordemos el sistema del ejemplo anterior: 
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+Habíamos concluido que era un sistema compatible determinado. Por tanto, ahora nos interesa calcular su solución, la cual sabemos que es única.
+
+Por otro lado, tenemos que la matriz ampliada del sistema es:
+
+$$(A|B) = \begin{pmatrix}
+1&1&2 &|& 9\\
+2&4&-3 &|& 1\\
+3&6&-5 &|& 0
+\end{pmatrix}$$
+
+## Sistemas de ecuaciones lineales{.example}
+
+Nuestro objetivo ahora es utilizar el método de Gauss para encontrar un sistema equivalente mucho más sencillo de resolver. Para ello, mediante operaciones elementales aplicadas a la matriz ampliada, obtendremos una matriz escalonada por filas de la matriz ampliada del sistema:
 
 1.Eliminamos los coeficientes correspondientes a las variables $x_1$ de las dos últimas filas:
 
@@ -263,35 +313,13 @@ x_1 &+& x_2 &+& 2x_3 &=& 9\\
 
 es $s = (1,2,3)$
 
-
-# El método de Gauss
-
 ## El método de Gauss
 
-<l class = "definition">Sistema escalonado.</l> Dado el sistema $AX=B$, se dice que es escalonado si la matriz ampliada $(A|B)$ es escalonada
+<div class = "exercise">
 
-<l class = "definition">Variables dependientes.</l> Variables que se corresponden con los pivotes
+**Ejercicio**
 
-<l class = "definition">Variables independientes.</l> Variables no dependientes
-
-## El método de Gauss
-
-En el Tema 1 vimos cómo utilizar el método de Gauss para obtener matrices escalonadas, escalonadas reducidas y calcular el rango de una matriz. 
-
-En este tema, veremos como aplicar dicho método para encontrar las soluciones de los sistemas de ecuaciones lineales.
-
-## El método de Gauss
-
-1. Se selecciona la fila que tenga el pivote lo más a la izquierda posible para colocarla como la primera fila
-2. Con el pivote de la primera fila se reducen a 0 todos los elementos que se encuentran por debajo de él
-3. Se repiten los pasos 1 y 2 con la submatriz formada por todas las filas, a excepción de la primera. La nueva matriz que se obtiene tendrá 0s por debajo del pivote de la fila 2.
-4. Se repite el proceso hasta obtener una matriz escalonada.
-
-## El método de Gauss{.example}
-
-**Ejemplo**
-
-Queremos resolver el sistema
+Resolved paso a paso el sistema
 
 $$\left\{\begin{matrix}x_1&+&x_2&&&=&3\\
 &&x_2&+&x_3&=&5\\
@@ -299,71 +327,171 @@ x_1&&&+&x_3&=&4\\
 5x_1&-&x_2&+&x_3&=&6
 \end{matrix}\right.$$
 
-Primero, construimos las matrices de coeficientes y de términos independientes:
+La solución es $s=(1,2,3)$
 
-$$\begin{pmatrix}1 & 1 & 0\\
-0 & 1 & 1\\
-1 & 0 & 1\\
-5 & -1 & 1\end{pmatrix}\qquad B = \begin{pmatrix}3\\
-5\\
-4\\
-6\end{pmatrix}$$
+</div>
+
+## El método de Gauss
+
+Con lo cual, podemos concluir que los sistemas 
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+$$\left\{\begin{matrix}x_1&+&x_2&&&=&3\\
+&&x_2&+&x_3&=&5\\
+x_1&&&+&x_3&=&4\\
+5x_1&-&x_2&+&x_3&=&6
+\end{matrix}\right.$$
+
+son equivalentes, ya que tienen el mismo conjunto de soluciones: $\{(1,2,3)\}$
+
+## El método de Gauss
+
+<div class = "example">
+
+**Ejemplo**
+
+Consideremos el sistema 
+$$\left\{\begin{matrix}
+x&+&2y&+&z&+&t&=&0\\
+&&y&+&z&+&t&=&1\\
+2x&+&2y&&&&&=&-2\\
+x&&&-&z&+&t&=&-1\\
+\end{matrix}\right.$$
+
+La matriz ampliada del sistema es:
+
+$$(A|B)=\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+2&2&0&0&|&-2\\
+1&0&-1&1&|&-1
+\end{pmatrix}$$
+</div>
+
+<div class = "exercise">
+**Ejercicio.** Comprobar que se trata de un sistema compatible indeterminado. Calculad rg$(A)$ y rg$(A|B)$ para luego aplicar el Teorema de Rouché-Frobenius
+</div>
 
 ## El método de Gauss{.example}
 
-Entonces, la matriz ampliada del sistema es
-
-$$(A|B) = \begin{pmatrix}1 & 1 & 0 & | & 3\\
-0 & 1 & 1 & | & 5\\
-1 & 0 & 1 & | & 4\\
-5 & -1 & 1 & | & 6\end{pmatrix}$$
-
-## El método de Gauss{.example}
-
-Ahora, realizando las operaciones:
-
-- $f_3\sim f_3-f_1$
-- $f_4\sim f_4-5f_1$
-
-obtenemos la matriz ampliada equivalente 
-
+$$(A|B)=\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+2&2&0&0&|&-2\\
+1&0&-1&1&|&-1
+\end{pmatrix}\sim f_3-2f_1\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+0&-2&-2&-2&|&-2\\
+1&0&-1&1&|&-1
+\end{pmatrix}\sim f_4-f_1$$
 $$\begin{pmatrix}
-1 & 1 & 0 & | & 3\\
-0 & 1 & 1 & | & 5\\
-0 & -1 & 1 & | & 1\\
-0 & -6 & 1 & | & -9\end{pmatrix}$$
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+0&-2&-2&-2&|&-2\\
+0&-2&-2&0&|&-1
+\end{pmatrix}\sim f_3+2f_2\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+0&0&0&0&|&0\\
+0&-2&-2&0&|&-1
+\end{pmatrix}\sim f_4+2f_2$$
+$$\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+0&0&0&0&|&0\\
+0&0&0&2&|&1
+\end{pmatrix}\sim f_3\to f_4\begin{pmatrix}
+1 & 2& 1 & 1& |&0\\
+0 & 1& 1& 1& |&1\\
+0&0&0&2&|&1\\
+0&0&0&0&|&0
+\end{pmatrix}$$
 
 ## El método de Gauss{.example}
 
-A continuación, realizamos las operaciones
+Hemos llegado a una matriz escalonada que se corresponde con el sistema
 
-- $f_3 \sim f_3+f_2$
-- $f_4 \sim f_4+6f_2$
+$$\left\{\begin{matrix}
+x &+& 2y&+& z &+& t& =&0\\
+ && y&+& z&+& t& =&1\\
+&&&&&&2t&=&1
+\end{matrix}\right.$$
 
-Y así obtenemos la siguiente matriz ampliada equivalente a las anteriores:
+Con lo cual 
 
-$$\begin{pmatrix}
-1 & 1 & 0 & | & 3\\
-0 & 1 & 1 & | & 5\\
-0 & 0 & 2 & | & 6\\
-0 & 0 & 7 & | & 21\end{pmatrix}$$
+$$t=\frac{1}{2}$$
+$$y+z+\frac{1}{2}=1\Rightarrow y=\frac{1}{2}-z$$
+
+$$x+2\left(\frac{1}{2}-z\right)+z+\frac{1}{2}=0$$
+$$\Rightarrow x-z+\frac{3}{2}=0\Rightarrow x=z-\frac{3}{2}$$
 
 ## El método de Gauss{.example}
 
-Finalmente, realizmos la operación
+En definitiva, las infinitas soluciones de este sistema compatible indeterminado son:
 
-- $f_4\sim f_4-\frac{7}{2}f_3$
+$$\left\{\begin{matrix}x = z-\frac{3}{2}\\
+y = \frac{1}{2}-z\\
+t=\frac{1}{2}\end{matrix}\right.$$
 
-para así obtener
+con $z\in\mathbb{R}$
 
-$$\begin{pmatrix}
-1 & 1 & 0 & | & 3\\
-0 & 1 & 1 & | & 5\\
-0 & 0 & 2 & | & 6\\
-0 & 0 & 0 & | & 0\end{pmatrix}$$
+Observad que las variables dependientes (las que se corresponden con los pivotes) son $x,y,t$; mientras que la única variable independiente es la $z$
 
-A partir de esta última matriz ampliada escalonada, aplicando sustitución regresiva, se obtiene
+## El método de Gauss{.example}
 
-$$x_1 = 1$$
-$$x_2 = 2$$
-$$x_3 = 3$$
+**Ejemplo**
+
+Consideremos el sistema
+
+$$\left\{\begin{matrix}
+x &+&2y&+&z&=&1\\
+ &&2y&+&3z&=&-5\\
+x &+&4y&+&4z&=&3
+\end{matrix}\right.$$
+
+Tenemos que $$A = \begin{pmatrix}
+1&2&1\\
+0&2&3\\
+1&4&4
+\end{pmatrix}$$
+
+la cual tiene rango 2:
+
+$$A = \begin{pmatrix}
+1&2&1\\
+0&2&3\\
+1&4&4
+\end{pmatrix}\sim f_3-f_1\begin{pmatrix}
+1&2&1\\
+0&2&3\\
+0&2&3
+\end{pmatrix}\sim f_3-f_2\begin{pmatrix}
+1&2&1\\
+0&2&3\\
+0&0&0
+\end{pmatrix}$$
+
+## El método de Gauss{.example}
+
+Mientras que la matriz ampliada del sistema tiene rango 3:
+
+$$(A|B) = \begin{pmatrix}
+1&2&1&|&1\\
+0&2&3&|&-5\\
+1&4&4&|&3
+\end{pmatrix}\sim f_3-f_1\begin{pmatrix}
+1&2&1&|&1\\
+0&2&3&|&-5\\
+0&2&3&|&2
+\end{pmatrix}\sim f_3-f_2\begin{pmatrix}
+1&2&1&|&1\\
+0&2&3&|&-5\\
+0&0&0&|&7
+\end{pmatrix}$$
+
+Con lo cual, por el teorema de Rouché-Frobenius, concluimos que el sistema es incompatible.
