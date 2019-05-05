@@ -1,0 +1,41 @@
+---
+title: "Tema 2- Sistemas con R, Python y Octave"
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+# Sistemas con `R`
+
+## Sistemas con `R`
+
+Dado el sistema de ecuaciones lineales
+
+$$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
+\vdots & \  & \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
+
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `solve(A,B)`
+
+## Sistemas con `R`
+
+Dado el sistema de ecuaciones lineales, calculemos su solución:
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+```{r}
+A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
+```
+
+
+# Sistemas con `Python`
+
+# Sistemas con `Octave`

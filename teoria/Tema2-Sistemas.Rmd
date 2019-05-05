@@ -89,6 +89,11 @@ donde $a_{ij},b_i\in\mathbb{K},\ i=1,2,\dots,m$ y $j=1,2,\dots,n$
 
 <l class = "definition">Sistema homogéneo. </l> Sistema de ecuaciones lineales donde $b_i=0$, $\forall i=1,2,\dots,m$ 
 
+$$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & 0\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & 0\\
+\vdots & \  & \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & 0\\\end{matrix}\right.$$
+
 ## Sistemas de ecuaciones lineales
 
 <l class = "definition">Forma matricial de un sistema de ecuaciones lineales.</l> $AX = B$ donde
