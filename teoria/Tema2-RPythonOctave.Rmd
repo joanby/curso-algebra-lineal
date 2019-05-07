@@ -9,6 +9,12 @@ output:
     logo: Images/matriz_mov.gif
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
+```
+
 # Sistemas con `R`
 
 ## Sistemas con `R`
@@ -33,9 +39,137 @@ x_1 &+& x_2 &+& 2x_3 &=& 9\\
 
 ```{r}
 A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
+B = c(9,1,0)
+AB = cbind(A,B)
 ```
 
+## Sistemas con `R`
+
+Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
+
+```{r}
+qr(A)$rank==qr(AB)$rank
+```
+
+Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado
+
+```{r}
+qr(A)$rank==3
+```
+
+## Sistemas con `R`
+
+Finalmente, resolvemos
+
+```{r}
+solve(A,B)
+```
 
 # Sistemas con `Python`
 
+## Sistemas con `Python`
+
+Dado el sistema de ecuaciones lineales
+
+$$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
+\vdots & \  & \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
+
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `numpy.linalg.solve(A,B)`
+
+## Sistemas con `Python` 
+
+Dado el sistema de ecuaciones lineales, calculemos su solución:
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+```{python}
+import numpy as np
+A = np.array([[1,1,2],[2,4,-3],[3,6,-5]])
+B = np.array([9,1,0])
+AB = np.array([[1,1,2,9],[2,4,-3,1],[3,6,-5,0]])
+```
+
+## Sistemas con `Python`
+
+Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
+
+```{python}
+np.linalg.matrix_rank(A) == np.linalg.matrix_rank(AB)
+```
+
+Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado
+
+```{python}
+np.linalg.matrix_rank(A) == 3
+```
+
+## Sistemas con `Python`
+
+Finalmente, resolvemos
+
+```{python}
+x = np.linalg.solve(A, B)
+x
+```
+
 # Sistemas con `Octave`
+
+## Sistemas con `Octave`
+
+Dado el sistema de ecuaciones lineales
+
+$$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & b_1\\
+a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
+\vdots & \  & \vdots\\
+a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
+
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `linsolve(A,B)`
+
+
+## Sistemas con `Octave`
+
+Dado el sistema de ecuaciones lineales, calculemos su solución:
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+```{octave}
+A = [1 1 2; 2 4 -3; 3 6 -5];
+B = [9; 1; 0];
+AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
+```
+
+## Sistemas con `R`
+
+Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
+
+```{octave}
+A = [1 1 2; 2 4 -3; 3 6 -5];
+AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
+rank(A)==rank(AB)
+```
+
+Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado
+
+```{octave}
+A = [1 1 2; 2 4 -3; 3 6 -5];
+AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
+rank(A) == 3
+```
+
+## Sistemas con `R`
+
+Finalmente, resolvemos
+
+```{octave}
+A = [1 1 2; 2 4 -3; 3 6 -5];
+B = [9; 1; 0];
+x = linsolve(A,B)
+```
