@@ -13,11 +13,14 @@ output:
 knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
   octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
 ))
+library(reticulate)
+library(matlib)
+use_python("/anaconda3/bin/python3")
 ```
 
-# Sistemas con `R`
+# Trabajando con `R`
 
-## Sistemas con `R`
+## Sistemas compatibles determinados con `R`
 
 Dado el sistema de ecuaciones lineales
 
@@ -26,9 +29,9 @@ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
 \vdots & \  & \vdots\\
 a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
 
-Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `solve(A,B)`
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `solve(A,B)`, siempre que se trate de un sistema compatible determinado.
 
-## Sistemas con `R`
+## Sistemas compatibles determinados con `R`
 
 Dado el sistema de ecuaciones lineales, calculemos su solución:
 
@@ -43,7 +46,17 @@ B = c(9,1,0)
 AB = cbind(A,B)
 ```
 
-## Sistemas con `R`
+## Sistemas compatibles determinados con `R`
+
+Podemos mostrar nuestro sistema con la función `showEqn` de la librería `matlib`
+
+```{r}
+showEqn(A, B)
+```
+
+<l class ="observ">Atención. </l> Para los usuarios de Mac, a la hora de utilizar `matlib`, tendréis que ir a [xquartz.org](https://www.xquartz.org) e instalar el paquete. Si no, no os funcionará todo lo relativo a esta librería
+
+## Sistemas compatibles determinados con `R`
 
 Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
 
@@ -57,7 +70,7 @@ Ahora, comprobamos si es igual al número de incógnitas, para ver si es compati
 qr(A)$rank==3
 ```
 
-## Sistemas con `R`
+## Sistemas compatibles determinados con `R`
 
 Finalmente, resolvemos
 
@@ -65,9 +78,70 @@ Finalmente, resolvemos
 solve(A,B)
 ```
 
-# Sistemas con `Python`
 
-## Sistemas con `Python`
+
+## Ecuaciones matriciales con `R`
+
+Dada una ecuación matricial, si la tenemos de la siguiente forma $AX = B$, donde $A,B$ son matrices, entonces la podemos resolver haciendo uso de la función `solve(A,B)`
+
+<div class = "example">
+**Ejemplo**
+
+Sea la ecuación matricial $$AX + 3B = (C+D)X+3D+10I_2$$ donde $$A =\begin{pmatrix}0 & 4\\2 & 1\end{pmatrix},\quad B =\begin{pmatrix}1 & -1\\ 2 & 3\end{pmatrix},\quad C =\begin{pmatrix}1 & 2\\ 3 & -2\end{pmatrix},\quad D =\begin{pmatrix}-2 & 1\\ -1 & 1\end{pmatrix},\quad I_2 =\begin{pmatrix}1 & 0\\ 0 & 1\end{pmatrix}$$
+
+Pasando los términos multiplicados por $X$ a la izquierda y los que no a la derecha, obtenemos
+
+$$AX-(C+D)X = 3D-3B+10I_2$$
+
+Sacando factor común $X$ por la derecha en el primer término y factor común 3 en el segundo término, tenemos
+
+$$(A-(C+D))X = 3(D-B)+10I_2$$
+</div>
+
+## Ecuaciones matriciales con `R`
+
+Nuestras matrices son:
+
+```{r}
+A = rbind(c(0,4),c(2,1))
+B = rbind(c(1,-1),c(2,3))
+C = rbind(c(1,2),c(3,-2))
+D = rbind(c(-2,1),c(-1,1))
+I = diag(1, nrow = 2, ncol = 2)
+```
+
+La matriz que multiplica a $X$, a la que llamaremos $M$, es
+
+```{r}
+M = A-(C+D)
+```
+
+mientras que la matriz del segundo miembro de la igualdad, $N$, es
+
+```{r}
+N = 3*(D-B)+10*I
+```
+
+## Ecuaciones matriciales con `R`
+
+Una vez calculadas $M$ y $N$, tenemos la ecuación matricial de la forma $MX = N$. Entonces, la podemos resolver realizando lo siguiente:
+
+```{r}
+X = solve(M,N)
+X
+```
+
+Comprobamos nuestro resultado:
+
+```{r}
+A%*%X + 3*B == (C+D)%*%X+3*D+10*I
+```
+
+
+
+# Trabajando con `Python`
+
+## Sistemas compatibles determinados con `Python`
 
 Dado el sistema de ecuaciones lineales
 
@@ -76,9 +150,9 @@ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
 \vdots & \  & \vdots\\
 a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
 
-Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `numpy.linalg.solve(A,B)`
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `numpy.linalg.solve(A,B)`, siempre que se trate de un sistema compatible determinado. cuadrada.
 
-## Sistemas con `Python` 
+## Sistemas compatibles determinados con `Python`
 
 Dado el sistema de ecuaciones lineales, calculemos su solución:
 
@@ -94,7 +168,7 @@ B = np.array([9,1,0])
 AB = np.array([[1,1,2,9],[2,4,-3,1],[3,6,-5,0]])
 ```
 
-## Sistemas con `Python`
+## Sistemas compatibles determinados con `Python`
 
 Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
 
@@ -108,7 +182,7 @@ Ahora, comprobamos si es igual al número de incógnitas, para ver si es compati
 np.linalg.matrix_rank(A) == 3
 ```
 
-## Sistemas con `Python`
+## Sistemas compatibles determinados con `Python`
 
 Finalmente, resolvemos
 
@@ -117,7 +191,53 @@ x = np.linalg.solve(A, B)
 x
 ```
 
-# Sistemas con `Octave`
+## Sistemas compatibles indeterminados con `Python`
+
+Si queremos resolver un sistema compatible indeterminado, lo podemos hacer con la ayuda de la librería `sympy`
+
+Además, lo podremos resolver de tres formas:
+
+- Introduciendo la lista de ecuaciones
+- Introduciendo la matriz ampliada
+- Introduciendo el sistema
+
+## Sistemas compatibles indeterminados con `Python`
+
+Dado el sistema $$\left\{\begin{matrix}x+y+z = -1\\ x + y + 2z = -3\end{matrix}\right.$$
+
+```{python}
+from sympy import *
+from sympy.solvers.solveset import linsolve
+x,y,z = symbols('x,y,z')
+```
+
+## Sistemas compatibles indeterminados con `Python`
+
+Si lo queremos resolver introduciendo la lista de ecuaciones:
+
+```{python}
+linsolve([x + y + z - 1, x + y + 2*z - 3 ], (x, y, z))
+```
+
+Si lo queremos resolver introduciendo la matriz ampliada, 
+
+```{python}
+linsolve(Matrix(([1, 1, 1, 1], [1, 1, 2, 3])), (x, y, z))
+```
+
+## Sistemas compatibles indeterminados con `Python`
+
+Si lo queremos hacer introduciendo el sistema,
+
+```{python}
+AB = Matrix(((1, 1, 1, 1), (1, 1, 2, 3))) #Matriz ampliada
+A = AB[:, :-1] #Todas las filas de todas las columnas menos la última
+B = AB[:, -1]#Todas las filas de la última columna
+system = A,B
+linsolve(system, x, y, z)
+```
+
+# Trabajando con `Octave`
 
 ## Sistemas con `Octave`
 
@@ -126,9 +246,9 @@ Dado el sistema de ecuaciones lineales
 $$\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n & = & b_1\\
 a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
 \vdots & \  & \vdots\\
-a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
+a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n & = & b_n\\\end{matrix}\right.$$
 
-Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `linsolve(A,B)`
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `linsolve(A,B)` siempre que se trate de un sistema compatible determinado.
 
 
 ## Sistemas con `Octave`
@@ -146,7 +266,7 @@ B = [9; 1; 0];
 AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
 ```
 
-## Sistemas con `R`
+## Sistemas con `Octave`
 
 Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
 
@@ -164,7 +284,7 @@ AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
 rank(A) == 3
 ```
 
-## Sistemas con `R`
+## Sistemas con `Octave`
 
 Finalmente, resolvemos
 

@@ -1,0 +1,67 @@
+---
+title: "Tema 3 - Producto por bloques y factorizaciones triangulares"
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Producto por bloques
+
+## Producto por bloques
+
+En el Tema 1 vimos como multiplicar matrices. Simplemente consistía en realizar el producto de filas por columnas.
+
+En caso de tener matrices (no necesariamente cuadradas) de órdenes elevados, cuyo producto pueda llevarse a cabo, los cálculos pueden resultar mucho más sencillos si dividimos las matrices en bloques y realizamos el producto por bloques.
+
+Para llevar esto a cabo, hay que dividir las dos matrices que queramos multiplicar, $A$ y $B$, en bloques o submatrices, de forma que cada fila de bloques de la primera matriz sea multiplicable por cada columna de bloques de la segunda.
+
+## Producto por bloques
+
+Es decir, sean $A$,$B$ matrices las cuales hemos dividido del siguiente modo:
+
+$$A = \begin{pmatrix}C & | & D\\ --&|&--\\E & | & F\end{pmatrix}\qquad B = \begin{pmatrix}G & | & H\\ --&|&--\\J & | & K\end{pmatrix}$$
+
+podremos multiplicar $A$ por $B$ por bloques de la siguiente forma, siempre que los productos de matrices indicados en la siguiente matriz puedan llevarse a cabo:
+
+$$AB = \begin{pmatrix}CG+DJ & | & CH+DK\\ -----&|&-----\\EG+FJ & | & EH+FK\end{pmatrix}$$
+
+## Producto por bloques
+
+<div class = "example">
+**Ejemplo**
+
+Supongamos que queremos multiplicar las matrices
+
+$$A = \begin{pmatrix}1 & -1 & 2 & 4\\ 
+-2 &0&5&5\\ 
+1 & 1 & 2 & -3\\
+2 & 3 & 4 & 0\end{pmatrix}\qquad B = \begin{pmatrix} 1 & 4 & 3\\
+2 & -1 & 0\\
+-3 & 2 & 1\\
+0 & 1 & 2\end{pmatrix}$$
+
+Como $A\in\mathcal{M}_{4}(\mathbb{R})$ y $B\in\mathcal{M}_{4\times 3}(\mathbb{R})$, sabemos que el producto puede llevarse a cabo.
+
+No obstante, en vez de multiplicar a lo bruto, dividamos las matrices en bloques del siguiente modo:
+
+$$A = \begin{pmatrix}
+1 & -1 &|& 2 & 4\\ 
+-2 &0&|&5&5\\ 
+-- & -- & | & -- & --\\
+1 & 1 &|& 2 & -3\\
+2 & 3 &|& 4 & 0\end{pmatrix}\qquad B = \begin{pmatrix} 
+1 & 4 &|& 3\\
+2 & -1  &|& 0\\
+-- & -- & | & -- \\
+-3 & 2 &|& 1\\
+0 & 1 &|& 2\end{pmatrix}$$
+
+</div>

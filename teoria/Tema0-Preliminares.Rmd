@@ -18,7 +18,6 @@ library(pracma)
 library(knitr)
 library(reticulate)
 use_python("/anaconda3/bin/python3")
-
 ```
 
 # Cuerpos

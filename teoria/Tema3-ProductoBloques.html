@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 2- Sistemas con R, Python y Octave</title>
+  <title>Tema 3 - Producto por bloques y factorizaciones triangulares</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 2- Sistemas con R, Python y Octave',
+                title: 'Tema 3 - Producto por bloques y factorizaciones triangulares',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -114,273 +114,56 @@
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Trabajando con <code>R</code></h2></hgroup><article  id="trabajando-con-r">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Producto por bloques</h2></hgroup><article  id="producto-por-bloques">
 
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>R</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-r">
+</article></slide><slide class=""><hgroup><h2>Producto por bloques</h2></hgroup><article  id="producto-por-bloques-1">
 
-<p>Dado el sistema de ecuaciones lineales</p>
+<p>En el Tema 1 vimos como multiplicar matrices. Simplemente consistía en realizar el producto de filas por columnas.</p>
 
-<p>\[\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n &amp; = &amp; b_1\\
-a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n &amp; = &amp; b_2\\
-\vdots &amp; \  &amp; \vdots\\
-a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n &amp; = &amp; b_m\\\end{matrix}\right.\]</p>
+<p>En caso de tener matrices (no necesariamente cuadradas) de órdenes elevados, cuyo producto pueda llevarse a cabo, los cálculos pueden resultar mucho más sencillos si dividimos las matrices en bloques y realizamos el producto por bloques.</p>
 
-<p>Si lo pasamos a su forma matricial, \(AX = B\), podremos resolverlo de forma sencilla con la función <code>solve(A,B)</code>, siempre que se trate de un sistema compatible determinado.</p>
+<p>Para llevar esto a cabo, hay que dividir las dos matrices que queramos multiplicar, \(A\) y \(B\), en bloques o submatrices, de forma que cada fila de bloques de la primera matriz sea multiplicable por cada columna de bloques de la segunda.</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>R</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-r-1">
+</article></slide><slide class=""><hgroup><h2>Producto por bloques</h2></hgroup><article  id="producto-por-bloques-2">
 
-<p>Dado el sistema de ecuaciones lineales, calculemos su solución:</p>
+<p>Es decir, sean \(A\),\(B\) matrices las cuales hemos dividido del siguiente modo:</p>
 
-<p>\[\left\{\begin{matrix}
-x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
-2x_1 &amp;+&amp; 4x_2 &amp;-&amp; 3x_3 &amp;=&amp; 1\\
-3x_1 &amp;+&amp; 6x_2 &amp;-&amp; 5x_3 &amp;=&amp; 0\end{matrix}\right.\]</p>
+<p>\[A = \begin{pmatrix}C &amp; | &amp; D\\ --&amp;|&amp;--\\E &amp; | &amp; F\end{pmatrix}\qquad B = \begin{pmatrix}G &amp; | &amp; H\\ --&amp;|&amp;--\\J &amp; | &amp; K\end{pmatrix}\]</p>
 
-<pre class = 'prettyprint lang-r'>A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
-B = c(9,1,0)
-AB = cbind(A,B)</pre>
+<p>podremos multiplicar \(A\) por \(B\) por bloques de la siguiente forma, siempre que los productos de matrices indicados en la siguiente matriz puedan llevarse a cabo:</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>R</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-r-2">
+<p>\[AB = \begin{pmatrix}CG+DJ &amp; | &amp; CH+DK\\ -----&amp;|&amp;-----\\EG+FJ &amp; | &amp; EH+FK\end{pmatrix}\]</p>
 
-<p>Podemos mostrar nuestro sistema con la función <code>showEqn</code> de la librería <code>matlib</code></p>
-
-<pre class = 'prettyprint lang-r'>showEqn(A, B)</pre>
-
-<pre >1*x1 + 1*x2 + 2*x3  =  9 
-2*x1 + 4*x2 - 3*x3  =  1 
-3*x1 + 6*x2 - 5*x3  =  0 </pre>
-
-<p><l class ="observ">Atención. </l> Para los usuarios de Mac, a la hora de utilizar <code>matlib</code>, tendréis que ir a <a href='https://www.xquartz.org' title=''>xquartz.org</a> e instalar el paquete. Si no, no os funcionará todo lo relativo a esta librería</p>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>R</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-r-3">
-
-<p>Comprobamos que el rango de \(A\) es igual al de la ampliada, para ver si el sistema es compatible</p>
-
-<pre class = 'prettyprint lang-r'>qr(A)$rank==qr(AB)$rank</pre>
-
-<pre >[1] TRUE</pre>
-
-<p>Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado</p>
-
-<pre class = 'prettyprint lang-r'>qr(A)$rank==3</pre>
-
-<pre >[1] TRUE</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>R</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-r-4">
-
-<p>Finalmente, resolvemos</p>
-
-<pre class = 'prettyprint lang-r'>solve(A,B)</pre>
-
-<pre >[1] 1 2 3</pre>
-
-</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales con <code>R</code></h2></hgroup><article  id="ecuaciones-matriciales-con-r">
-
-<p>Dada una ecuación matricial, si la tenemos de la siguiente forma \(AX = B\), donde \(A,B\) son matrices, entonces la podemos resolver haciendo uso de la función <code>solve(A,B)</code></p>
+</article></slide><slide class=""><hgroup><h2>Producto por bloques</h2></hgroup><article  id="producto-por-bloques-3">
 
 <div class="example">
 <p><strong>Ejemplo</strong></p>
 
-<p>Sea la ecuación matricial \[AX + 3B = (C+D)X+3D+10I_2\] donde \[A =\begin{pmatrix}0 &amp; 4\\2 &amp; 1\end{pmatrix},\quad B =\begin{pmatrix}1 &amp; -1\\ 2 &amp; 3\end{pmatrix},\quad C =\begin{pmatrix}1 &amp; 2\\ 3 &amp; -2\end{pmatrix},\quad D =\begin{pmatrix}-2 &amp; 1\\ -1 &amp; 1\end{pmatrix},\quad I_2 =\begin{pmatrix}1 &amp; 0\\ 0 &amp; 1\end{pmatrix}\]</p>
-
-<p>Pasando los términos multiplicados por \(X\) a la izquierda y los que no a la derecha, obtenemos</p>
-
-<p>\[AX-(C+D)X = 3D-3B+10I_2\]</p>
-
-<p>Sacando factor común \(X\) por la derecha en el primer término y factor común 3 en el segundo término, tenemos</p>
-
-<p>\[(A-(C+D))X = 3(D-B)+10I_2\]</p></div>
-
-</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales con <code>R</code></h2></hgroup><article  id="ecuaciones-matriciales-con-r-1">
-
-<p>Nuestras matrices son:</p>
-
-<pre class = 'prettyprint lang-r'>A = rbind(c(0,4),c(2,1))
-B = rbind(c(1,-1),c(2,3))
-C = rbind(c(1,2),c(3,-2))
-D = rbind(c(-2,1),c(-1,1))
-I = diag(1, nrow = 2, ncol = 2)</pre>
-
-<p>La matriz que multiplica a \(X\), a la que llamaremos \(M\), es</p>
-
-<pre class = 'prettyprint lang-r'>M = A-(C+D)</pre>
-
-<p>mientras que la matriz del segundo miembro de la igualdad, \(N\), es</p>
-
-<pre class = 'prettyprint lang-r'>N = 3*(D-B)+10*I</pre>
-
-</article></slide><slide class=""><hgroup><h2>Ecuaciones matriciales con <code>R</code></h2></hgroup><article  id="ecuaciones-matriciales-con-r-2">
-
-<p>Una vez calculadas \(M\) y \(N\), tenemos la ecuación matricial de la forma \(MX = N\). Entonces, la podemos resolver realizando lo siguiente:</p>
-
-<pre class = 'prettyprint lang-r'>X = solve(M,N)
-X</pre>
-
-<pre >     [,1] [,2]
-[1,]  5.5    4
-[2,] -4.5    2</pre>
-
-<p>Comprobamos nuestro resultado:</p>
-
-<pre class = 'prettyprint lang-r'>A%*%X + 3*B == (C+D)%*%X+3*D+10*I</pre>
-
-<pre >     [,1] [,2]
-[1,] TRUE TRUE
-[2,] TRUE TRUE</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Trabajando con <code>Python</code></h2></hgroup><article  id="trabajando-con-python">
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-python">
-
-<p>Dado el sistema de ecuaciones lineales</p>
-
-<p>\[\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n &amp; = &amp; b_1\\
-a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n &amp; = &amp; b_2\\
-\vdots &amp; \  &amp; \vdots\\
-a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n &amp; = &amp; b_m\\\end{matrix}\right.\]</p>
-
-<p>Si lo pasamos a su forma matricial, \(AX = B\), podremos resolverlo de forma sencilla con la función <code>numpy.linalg.solve(A,B)</code>, siempre que se trate de un sistema compatible determinado. cuadrada.</p>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-python-1">
-
-<p>Dado el sistema de ecuaciones lineales, calculemos su solución:</p>
-
-<p>\[\left\{\begin{matrix}
-x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
-2x_1 &amp;+&amp; 4x_2 &amp;-&amp; 3x_3 &amp;=&amp; 1\\
-3x_1 &amp;+&amp; 6x_2 &amp;-&amp; 5x_3 &amp;=&amp; 0\end{matrix}\right.\]</p>
-
-<pre class = 'prettyprint lang-python'>import numpy as np
-A = np.array([[1,1,2],[2,4,-3],[3,6,-5]])
-B = np.array([9,1,0])
-AB = np.array([[1,1,2,9],[2,4,-3,1],[3,6,-5,0]])</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-python-2">
-
-<p>Comprobamos que el rango de \(A\) es igual al de la ampliada, para ver si el sistema es compatible</p>
-
-<pre class = 'prettyprint lang-python'>np.linalg.matrix_rank(A) == np.linalg.matrix_rank(AB)</pre>
-
-<pre >True</pre>
-
-<p>Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado</p>
-
-<pre class = 'prettyprint lang-python'>np.linalg.matrix_rank(A) == 3</pre>
-
-<pre >True</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles determinados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-determinados-con-python-3">
-
-<p>Finalmente, resolvemos</p>
-
-<pre class = 'prettyprint lang-python'>x = np.linalg.solve(A, B)
-x</pre>
-
-<pre >array([1., 2., 3.])</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles indeterminados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-indeterminados-con-python">
-
-<p>Si queremos resolver un sistema compatible indeterminado, lo podemos hacer con la ayuda de la librería <code>sympy</code></p>
-
-<p>Además, lo podremos resolver de tres formas:</p>
-
-<ul>
-<li>Introduciendo la lista de ecuaciones</li>
-<li>Introduciendo la matriz ampliada</li>
-<li>Introduciendo el sistema</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles indeterminados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-indeterminados-con-python-1">
-
-<p>Dado el sistema \[\left\{\begin{matrix}x+y+z = -1\\ x + y + 2z = -3\end{matrix}\right.\]</p>
-
-<pre class = 'prettyprint lang-python'>from sympy import *
-from sympy.solvers.solveset import linsolve
-x,y,z = symbols(&#39;x,y,z&#39;)</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles indeterminados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-indeterminados-con-python-2">
-
-<p>Si lo queremos resolver introduciendo la lista de ecuaciones:</p>
-
-<pre class = 'prettyprint lang-python'>linsolve([x + y + z - 1, x + y + 2*z - 3 ], (x, y, z))</pre>
-
-<pre >{(-y - 1, y, 2)}</pre>
-
-<p>Si lo queremos resolver introduciendo la matriz ampliada,</p>
-
-<pre class = 'prettyprint lang-python'>linsolve(Matrix(([1, 1, 1, 1], [1, 1, 2, 3])), (x, y, z))</pre>
-
-<pre >{(-y - 1, y, 2)}</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas compatibles indeterminados con <code>Python</code></h2></hgroup><article  id="sistemas-compatibles-indeterminados-con-python-3">
-
-<p>Si lo queremos hacer introduciendo el sistema,</p>
-
-<pre class = 'prettyprint lang-python'>AB = Matrix(((1, 1, 1, 1), (1, 1, 2, 3))) #Matriz ampliada
-A = AB[:, :-1] #Todas las filas de todas las columnas menos la última
-B = AB[:, -1]#Todas las filas de la última columna
-system = A,B
-linsolve(system, x, y, z)</pre>
-
-<pre >{(-y - 1, y, 2)}</pre>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Trabajando con <code>Octave</code></h2></hgroup><article  id="trabajando-con-octave">
-
-</article></slide><slide class=""><hgroup><h2>Sistemas con <code>Octave</code></h2></hgroup><article  id="sistemas-con-octave">
-
-<p>Dado el sistema de ecuaciones lineales</p>
-
-<p>\[\left\{\begin{matrix}a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n &amp; = &amp; b_1\\
-a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n &amp; = &amp; b_2\\
-\vdots &amp; \  &amp; \vdots\\
-a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n &amp; = &amp; b_n\\\end{matrix}\right.\]</p>
-
-<p>Si lo pasamos a su forma matricial, \(AX = B\), podremos resolverlo de forma sencilla con la función <code>linsolve(A,B)</code> siempre que se trate de un sistema compatible determinado.</p>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas con <code>Octave</code></h2></hgroup><article  id="sistemas-con-octave-1">
-
-<p>Dado el sistema de ecuaciones lineales, calculemos su solución:</p>
-
-<p>\[\left\{\begin{matrix}
-x_1 &amp;+&amp; x_2 &amp;+&amp; 2x_3 &amp;=&amp; 9\\
-2x_1 &amp;+&amp; 4x_2 &amp;-&amp; 3x_3 &amp;=&amp; 1\\
-3x_1 &amp;+&amp; 6x_2 &amp;-&amp; 5x_3 &amp;=&amp; 0\end{matrix}\right.\]</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 1 2; 2 4 -3; 3 6 -5];
-B = [9; 1; 0];
-AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas con <code>Octave</code></h2></hgroup><article  id="sistemas-con-octave-2">
-
-<p>Comprobamos que el rango de \(A\) es igual al de la ampliada, para ver si el sistema es compatible</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 1 2; 2 4 -3; 3 6 -5];
-AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
-rank(A)==rank(AB)</pre>
-
-<pre >ans = 1</pre>
-
-<p>Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 1 2; 2 4 -3; 3 6 -5];
-AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
-rank(A) == 3</pre>
-
-<pre >ans = 1</pre>
-
-</article></slide><slide class=""><hgroup><h2>Sistemas con <code>Octave</code></h2></hgroup><article  id="sistemas-con-octave-3">
-
-<p>Finalmente, resolvemos</p>
-
-<pre class = 'prettyprint lang-octave'>A = [1 1 2; 2 4 -3; 3 6 -5];
-B = [9; 1; 0];
-x = linsolve(A,B)</pre>
-
-<pre >x =
-
-   1.00000
-   2.00000
-   3.00000</pre></article></slide>
+<p>Supongamos que queremos multiplicar las matrices</p>
+
+<p>\[A = \begin{pmatrix}1 &amp; -1 &amp; 2 &amp; 4\\ 
+-2 &amp;0&amp;5&amp;5\\ 
+1 &amp; 1 &amp; 2 &amp; -3\\
+2 &amp; 3 &amp; 4 &amp; 0\end{pmatrix}\qquad B = \begin{pmatrix} 1 &amp; 4 &amp; 3\\
+2 &amp; -1 &amp; 0\\
+-3 &amp; 2 &amp; 1\\
+0 &amp; 1 &amp; 2\end{pmatrix}\]</p>
+
+<p>Como \(A\in\mathcal{M}_{4}(\mathbb{R})\) y \(B\in\mathcal{M}_{4\times 3}(\mathbb{R})\), sabemos que el producto puede llevarse a cabo.</p>
+
+<p>No obstante, en vez de multiplicar a lo bruto, dividamos las matrices en bloques del siguiente modo:</p>
+
+<p>\[A = \begin{pmatrix}
+1 &amp; -1 &amp;|&amp; 2 &amp; 4\\ 
+-2 &amp;0&amp;|&amp;5&amp;5\\ 
+-- &amp; -- &amp; | &amp; -- &amp; --\\
+1 &amp; 1 &amp;|&amp; 2 &amp; -3\\
+2 &amp; 3 &amp;|&amp; 4 &amp; 0\end{pmatrix}\qquad B = \begin{pmatrix} 
+1 &amp; 4 &amp;|&amp; 3\\
+2 &amp; -1  &amp;|&amp; 0\\
+-- &amp; -- &amp; | &amp; -- \\
+-3 &amp; 2 &amp;|&amp; 1\\
+0 &amp; 1 &amp;|&amp; 2\end{pmatrix}\]</p></div></article></slide>
 
 
   <slide class="backdrop"></slide>
