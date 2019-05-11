@@ -29,42 +29,42 @@ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
 \vdots & \  & \vdots\\
 a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
 
-Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `solve(A,B)`, siempre que se trate de un sistema compatible determinado.
+Si lo pasamos a su forma matricial, $AX = b$, podremos resolverlo de forma sencilla con la función `solve(A,b)`, siempre que se trate de un sistema compatible determinado.
 
 ## Sistemas compatibles determinados con `R`
 
-Dado el sistema de ecuaciones lineales, calculemos su solución:
+<div class = "example">
+**Ejemplo**
+
+Dado el siguiente sistema de ecuaciones lineales, calculemos su solución:
 
 $$\left\{\begin{matrix}
 x_1 &+& x_2 &+& 2x_3 &=& 9\\
 2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
 3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+</div>
+
+Observemos que, en este caso, se trata de un sistema de 3 ecuaciones con 3 incógnitas
 
 ```{r}
 A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
-B = c(9,1,0)
-AB = cbind(A,B)
+b = c(9,1,0)
+AB = cbind(A,b)
 ```
 
 ## Sistemas compatibles determinados con `R`
 
-Podemos mostrar nuestro sistema con la función `showEqn` de la librería `matlib`
-
-```{r}
-showEqn(A, B)
-```
-
-<l class ="observ">Atención. </l> Para los usuarios de Mac, a la hora de utilizar `matlib`, tendréis que ir a [xquartz.org](https://www.xquartz.org) e instalar el paquete. Si no, no os funcionará todo lo relativo a esta librería
-
-## Sistemas compatibles determinados con `R`
 
 Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
+
 
 ```{r}
 qr(A)$rank==qr(AB)$rank
 ```
 
+
 Ahora, comprobamos si es igual al número de incógnitas, para ver si es compatible determinado
+
 
 ```{r}
 qr(A)$rank==3
@@ -72,12 +72,370 @@ qr(A)$rank==3
 
 ## Sistemas compatibles determinados con `R`
 
-Finalmente, resolvemos
+Finalmente, una vez visto que se trata de un sistema compatible determinado, resolvemos:
 
 ```{r}
-solve(A,B)
+solve(A,b)
 ```
 
+En definitiva, la solución de nuestro sistema es 
+$$x_1 = 1,\ x_2 = 2,\ x_3 = 3$$
+
+Si no os lo creéis, solamente tenéis que sustituir la solución obtenida en cada una de las ecuaciones y ver que se cumplen todas y cada una de las igualdades. Es una buena forma de comprobar que vuestra solución es la correcta.
+
+
+
+## Sistemas compatibles determinados con `R`
+
+Hay otra forma de resolver sistemas compatibles determinados. La librería `matlib` nos ofrece, aparte de la función `Solve`, muchas otras funciones que pueden sernos de utilidad a la hora de resolver sistemas de ecuaciones lineales. Sobre todo, los de 2 o 3 ecuaciones.
+
+<l class ="observ">Atención. </l> Para los usuarios de Mac, a la hora de utilizar `matlib`, tendréis que ir a [xquartz.org](https://www.xquartz.org) e instalar el paquete. Si no, no os funcionará todo lo relativo a esta librería
+
+## Sistemas compatibles determinados con `R`
+
+<div class = "example">
+**Ejemplo**
+
+Resolvamos esta vez un sistema de dos ecuaciones con dos incógnitas:
+
+$$\left\{\begin{matrix}
+2x_1 &+& 2x_2 =& 1\\
+-x_1 &+& x_2 &=& 2\end{matrix}\right.$$
+
+En este caso, vemos que se trata de un sistema de dos ecuaciones con dos incógnitas.
+
+Si lo expresamos en su forma matricial, obtenemos,
+</div>
+
+```{r}
+A = rbind(c(2,2),c(-1,1))
+b = c(1,2)
+AB = cbind(A,b)
+```
+
+## Sistemas compatibles determinados con `R`
+
+Una vez lo tenemos en forma matricial, podemos mostrarlo con la función `showEqn()`
+
+```{r}
+showEqn(A, b)
+```
+
+## Sistemas compatibles determinados con `R`
+
+La librería `matlib` también nos permite calcular el rango de una matriz con la función `R()`
+
+```{r}
+R(A)
+R(AB)
+```
+
+## Sistemas compatibles determinados con `R`
+
+Además, mediante la función `all.equal()`, podemos comprobar si el sistema es compatible. Es decir, si los rangos de $A$ y la matriz ampliada $AB$ son iguales: 
+
+```{r}
+all.equal(R(A),R(AB))
+```
+
+Como en este caso, el rango de la ampliada coincide con el número de incógnitas, por el Teorema de Rouché-Frobenius podemos concluir que se trata de un sistema compatible determinado.
+
+## Sistemas compatibles determinados con `R`
+
+Finalmente, una vez visto que se trata de un sistema compatible determinado, resolvemos:
+
+```{r}
+Solve(A, b, fractions = TRUE)
+```
+
+<l class = "observ">Observación.</l> El parámetro `fractions` nos permite mostrar las soluciones no enteras en forma de fracción, siempre que esta exista
+
+## Representación de sistemas con `R`
+
+Otra cosa interesante que nos proporciona la librería `matlib` es el poder dibujar las ecuaciones de un sistema mediante las funciones `plotEqn()` o `plotEqn3d()`, en función de si tenemos 2 o 3 incógnitas.
+
+## Representación de sistemas con `R`
+
+En caso de tener un sistema de dos ecuaciones con dos incógnitas, como por ejemplo el sistema resuelto anteriormente, recordemos
+
+```{r, echo = F}
+showEqn(A,b)
+```
+
+Su representación sería la que se muestra en la siguiente diapositiva
+
+## Representación de sistemas con `R`
+
+```{r, fig.height=4}
+plotEqn(A,b)
+```
+
+## Representación de sistemas con `R`
+
+La solución que anteriormente habíamos encontrado,
+
+$$\left\{\begin{matrix}x_1 = -\frac{3}{4}\\x_2 = \frac{5}{4}\end{matrix}\right.$$
+
+es el punto donde ambas rectas intersecan.
+
+## Representación de sistemas con `R`
+
+```{r, fig.height=3.5}
+plotEqn(A,b)
+points(-3/4,5/4, col = "turquoise1", pch = 19)
+```
+
+
+## Representación de sistemas con `R`
+
+En caso de tener un sistema de tres ecuaciones y dos variables, como por ejemplo:
+
+```{r}
+A = rbind(c(4,2),c(1,-2),c(3,4))
+b = c(3,2,1)
+showEqn(A,b)
+```
+
+Su representación gráfica se consigue, de nuevo, mediante la función `plotEqn()`, ya que volvemos a tener dos incógnitas.
+
+## Representación de sistemas con `R`
+
+```{r fig.height=3.5}
+plotEqn(A,b)
+```
+
+
+## Representación de sistemas con `R`
+
+Como de nuevo vuelve a haber intersección entre todas rectas, gráficamente podemos concluir que se trata de un sistema compatible determinado.
+
+<div class = "exercise">
+**Ejercicio**
+
+- Comprobad que, efectivamente, se trata de un sistema compatible determinado haciendo uso del Teorema de Rouché-Frobenius
+- Calculad su solución
+</div>
+
+## Representación de sistemas con `R`
+
+Si, en cambio, tenemos un sistema de 3 ecuaciones con 3 incógnitas, como por ejemplo el sistema 
+
+```{r}
+A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
+b = c(9,1,0)
+showEqn(A,b)
+```
+
+Su representación gráfica se consigue haciendo uso de la función `plotEqn3d`, tal y como se muestra en la siguiente diapositiva.
+
+## Representación de sistemas con `R`
+
+```{r, eval = F}
+plotEqn3d(A,B, xlim = c(-3,3), ylim = c(0,6))
+```
+
+<div class = "center">
+![](Images/3dplot.png)
+</div>
+
+<l class = "observ">Observación.</l> Esto solo es una imagen, pero el resultado de esta función es interactivo.
+
+## Método de Gauss con `R`
+
+La librería `matlib` también nos ofrece la oportunidad de utilizar el Método de Gauss para resolver sistemas de ecuaciones lineales.
+
+La función `echelon()` nos calucla la matriz escalonada reducida de cualquier matriz.
+
+Si reducimos la matriz ampliada a una matriz escalonada reducida equivalente, podremos deducir fácilmente la solución del sistema (suponiendo que la haya).
+
+## Método de Gauss con `R`
+
+<div class = "example">
+**Ejemplo**
+
+Recuperemos el sistema de 3 ecuaciones con 3 incógnitas:
+
+$$\left\{\begin{matrix}
+x_1 &+& x_2 &+& 2x_3 &=& 9\\
+2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
+3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+
+</div>
+
+```{r}
+A = rbind(c(1,1,2),c(2,4,-3),c(3,6,-5))
+b = c(9,1,0)
+AB = cbind(A,b)
+```
+
+## Método de Gauss con `R`
+
+Entonces, la función `echelon()` aplicada a la matriz ampliada del sistema nos devuelve
+
+```{r}
+echelon(AB)
+```
+
+De donde, claramente, podemos deducir que la solución es
+
+$x_1 = 1,\ x_2 = 2$ y $x_3=3$
+
+## Método de Gauss con `R`
+
+La función `echelon()` tiene el parámetro `verbose` que, igualado a `TRUE`, nos muestra las operaciones elementales llevadas a cabo para conseguir la matriz escalonada reducida. 
+
+Merece la pena que lo comprobéis vosotros mismos en la consola, ya que en estas diapositivas no cabe toda esa información.
+
+Además, la función `echelon()` también cuenta con el parámetro `fractions`, muy útil para no estar arrastrando decimales.
+
+## Método de Gauss con `R`
+
+```{r}
+echelon(AB, verbose = TRUE, fractions = TRUE)
+```
+
+## Sistemas compatibles indeterminados con `R`
+
+Con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema compatible indeterminado
+
+<div class = "example">
+**Ejemplo**
+
+Dado el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}x&+&y&-&z&=& 2\\x&-&y&+&z&=&1\\3x&+&y&-&z&=&5\end{matrix}\right.$$
+Vemos que se trata de un sistema de 3 ecuaciones con 3 incógnitas. Pasándolo a su forma matricial
+</div>
+
+```{r}
+A = matrix(c(1,1,-1,1,-1,1,3,1,-1), byrow = TRUE, nrow = 3, ncol = 3)
+b = c(2,1,5)
+AB = cbind(A,b)
+```
+
+## Sistemas compatibles indeterminados con `R`
+
+Si comprobamos los rangos de la matriz de coeficientes $A$ y la matriz ampliada del sistema, obtenemos
+
+```{r}
+c(R(A),R(AB))
+all.equal(R(A),R(AB))
+```
+
+
+Sin embargo, a pesar de que los rangos sean iguales, el número de incógnitas es 3. Por tanto, por el Teorema de Rouché-Frobenius, concluimos que se trata de un sistema compatible indeterminado.
+
+## Sistemas compatibles indeterminados con `R`
+
+La función `echelon()` puede también indicarnos que se trata de un sistema compatible indeterminado:
+
+```{r}
+echelon(AB)
+```
+
+En este caso, nos está indicando que la variable $x_3$ es libre. Es decir, puede tomar cualquier valor en $\mathbb{R}$
+
+## Sistemas compatibles indeterminados con `R`
+
+En caso de no verlo tan claro, la función `Solve()` lo muestra más claramente
+
+```{r}
+Solve(A,b, fractions = TRUE)
+```
+
+Vemos que $x_1 = \frac{3}{2}$, $x_3$ es libre y $x_2$ depende del valor que tome $x_3$.
+
+Es decir, nuestra solución es de la forma
+
+$$x_1 = \frac{3}{2},\ x_2 = \frac{1}{2}+x_3,\ x_3\in\mathbb{R}$$
+
+Con lo cual, nuestro conjunto de soluciones para este sistema es infinito.
+
+## Sistemas compatibles indeterminados con `R`
+
+Existe otra opción, que es dibujar las ecuaciones. 
+
+En este caso, al tener 3 variables, necesitamos utilizar `plotEqn3d()`
+
+```{r, eval = F}
+plotEqn3d(A,b, xlim = c(-10,10), ylim = c(-10,10), zlim = c(-10,10))
+```
+
+<div class = "center">
+![](Images/3dIndeterminado.png)
+</div>
+
+## Sistemas incompatibles con `R`
+
+Con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema incompatible
+
+<div class = "example">
+**Ejemplo**
+
+Supongamos que nos dan el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}x&+&y &=& 2\\x&-&y&=&1\\2x&+&y&=&3\end{matrix}\right.$$
+
+Tenemos un sistema de 3 ecuaciones con dos incógnitas, donde
+</div>
+
+```{r}
+A = cbind(c(1,1,2),c(1,-1,1))
+b = c(2,1,3)
+AB = cbind(A,b)
+```
+
+
+## Sistemas incompatibles con `R`
+
+Si comprobamos los rangos de la matriz de coeficientes $A$ y la matriz ampliada del sistema, obtenemos
+
+```{r}
+c(R(A),R(AB))
+all.equal(R(A),R(AB))
+```
+
+<div class = "example">
+Entonces, como los rangos son diferentes, por el Teorema de Rouché-Frobenius, concluimos que se trata de un sistema incompatible
+</div>
+
+## Sistemas incompatibles con `R`
+
+Mediante la función `echelon()`, también podemos ver fácilmente que se trata de un sistema incompatible
+
+```{r}
+echelon(AB)
+```
+
+Si no lo veis tan claro, `Solve()` lo muestra aún más explicitamente:
+
+```{r}
+Solve(A,b, fractions = TRUE)
+```
+
+## Sistemas incompatibles con `R`
+
+
+Tanto con `echelon()` como con `Solve()`, lo que obtenemos son igualdades como $$0 = 1\\ 0 = \frac{1}{3}$$
+
+las cuales claramente son falsas. Esto es lo que nos lleva a concluir que se trata de un sistema incompatible
+
+
+## Sistemas incompatibles con `R`
+
+Finalmente, si lo que queréis es una comprobación gráfica, la función `plotEqn()` es la que nos servirá en este caso:
+
+```{r, fig.height=3.2}
+plotEqn(A,b, xlim = c(0,2), ylim = c(0,1.5))
+```
+
+## Sistemas incompatibles con `R`
+
+En el plot anterior, podemos ver que cada par de rectas tiene solución. Es decir, las rectas intersecan 2 a 2. 
+
+No obstante, vemos que no existe punto en que las 3 rectas intersequen. 
+
+Este es el motivo por el cual gráficamente podemos concluir que se trata de un sistema incompatible.
 
 
 ## Ecuaciones matriciales con `R`
