@@ -20,6 +20,21 @@ use_python("/anaconda3/bin/python3")
 
 # Trabajando con `R`
 
+## Trabajando con `R`
+
+En esta sección veremos como
+
+- Trabajar con sistemas compatibles determinados
+- Representar ecuaciones de un sistema lineal
+- Utilizar el método de Gauss
+- Trabajar con sistemas compatibles indeterminados
+- Trabajar con sistemas incompatibles
+- Resolver ecuaciones matriciales
+
+y todas estas cosas con `R`.
+
+# Sistemas compatibles determinados con `R`
+
 ## Sistemas compatibles determinados con `R`
 
 Dado el sistema de ecuaciones lineales
@@ -72,7 +87,7 @@ qr(A)$rank==3
 
 ## Sistemas compatibles determinados con `R`
 
-Finalmente, una vez visto que se trata de un sistema compatible determinado, resolvemos:
+Finalmente, una vez visto que se trata de un sistema compatible determinado por el Teorema de Rouché-Frobenius, resolvemos:
 
 ```{r}
 solve(A,b)
@@ -83,6 +98,23 @@ $$x_1 = 1,\ x_2 = 2,\ x_3 = 3$$
 
 Si no os lo creéis, solamente tenéis que sustituir la solución obtenida en cada una de las ecuaciones y ver que se cumplen todas y cada una de las igualdades. Es una buena forma de comprobar que vuestra solución es la correcta.
 
+
+## Sistemas compatibles determinados con `R`
+
+Otra forma de comprobar que la solución obtenida es la correcta, es realizando el siguiente producto de matrices y ver que es igual al vector de términos independientes
+
+```{r}
+x = c(1,2,3)
+A%*%x
+```
+
+## Sistemas compatibles determinados con `R`
+
+```{r}
+A%*%x == b
+```
+
+Con lo cual, efectivamente $x=(1,2,3)$ es la solución de nuestros sistema. Además es la única, ya que recordemos que nuestro sistema era compatible determinado.
 
 
 ## Sistemas compatibles determinados con `R`
@@ -102,10 +134,9 @@ $$\left\{\begin{matrix}
 2x_1 &+& 2x_2 =& 1\\
 -x_1 &+& x_2 &=& 2\end{matrix}\right.$$
 
-En este caso, vemos que se trata de un sistema de dos ecuaciones con dos incógnitas.
+</div>
 
 Si lo expresamos en su forma matricial, obtenemos,
-</div>
 
 ```{r}
 A = rbind(c(2,2),c(-1,1))
@@ -148,7 +179,9 @@ Finalmente, una vez visto que se trata de un sistema compatible determinado, res
 Solve(A, b, fractions = TRUE)
 ```
 
-<l class = "observ">Observación.</l> El parámetro `fractions` nos permite mostrar las soluciones no enteras en forma de fracción, siempre que esta exista
+<l class = "observ">Observación.</l> El parámetro `fractions` nos permite mostrar las soluciones no enteras en forma de fracción, siempre que esta exista. Su valor por defecto es `FALSE`
+
+# Representación de sistemas con `R`
 
 ## Representación de sistemas con `R`
 
@@ -240,6 +273,8 @@ plotEqn3d(A,B, xlim = c(-3,3), ylim = c(0,6))
 
 <l class = "observ">Observación.</l> Esto solo es una imagen, pero el resultado de esta función es interactivo.
 
+# Método de Gauss con `R`
+
 ## Método de Gauss con `R`
 
 La librería `matlib` también nos ofrece la oportunidad de utilizar el Método de Gauss para resolver sistemas de ecuaciones lineales.
@@ -294,9 +329,15 @@ Además, la función `echelon()` también cuenta con el parámetro `fractions`, 
 echelon(AB, verbose = TRUE, fractions = TRUE)
 ```
 
+# Sistemas compatibles indeterminados con `R`
+
 ## Sistemas compatibles indeterminados con `R`
 
-Con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema compatible indeterminado
+En caso de tener sistemas compatibles indeterminados, no podemos aplicar directamente la función `solve()`, ya que ésta solamente está pensada para sistemas compatibles determinados.
+
+No obstante, con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema compatible indeterminado y, además, podemos resolverlo.
+
+## Sistemas compatibles indeterminados con `R`
 
 <div class = "example">
 **Ejemplo**
@@ -304,8 +345,9 @@ Con todas las funciones presentadas anteriormente, es fácil averiguar si el sis
 Dado el siguiente sistema de ecuaciones lineales:
 
 $$\left\{\begin{matrix}x&+&y&-&z&=& 2\\x&-&y&+&z&=&1\\3x&+&y&-&z&=&5\end{matrix}\right.$$
-Vemos que se trata de un sistema de 3 ecuaciones con 3 incógnitas. Pasándolo a su forma matricial
 </div>
+
+Vemos que se trata de un sistema de 3 ecuaciones con 3 incógnitas. Pasándolo a su forma matricial, obtenemos:
 
 ```{r}
 A = matrix(c(1,1,-1,1,-1,1,3,1,-1), byrow = TRUE, nrow = 3, ncol = 3)
@@ -322,7 +364,6 @@ c(R(A),R(AB))
 all.equal(R(A),R(AB))
 ```
 
-
 Sin embargo, a pesar de que los rangos sean iguales, el número de incógnitas es 3. Por tanto, por el Teorema de Rouché-Frobenius, concluimos que se trata de un sistema compatible indeterminado.
 
 ## Sistemas compatibles indeterminados con `R`
@@ -334,6 +375,7 @@ echelon(AB)
 ```
 
 En este caso, nos está indicando que la variable $x_3$ es libre. Es decir, puede tomar cualquier valor en $\mathbb{R}$
+
 
 ## Sistemas compatibles indeterminados con `R`
 
@@ -365,9 +407,19 @@ plotEqn3d(A,b, xlim = c(-10,10), ylim = c(-10,10), zlim = c(-10,10))
 ![](Images/3dIndeterminado.png)
 </div>
 
+## Sistemas compatibles indeterminados con `R`
+
+Gráficamente, podemos concluir que el conjunto de soluciones es infinito pues se trata de una recta: la interesección de los 3 planos.
+
+De hecho, podemos representar nuestro conjunto de soluciones por
+
+$$\{x\in \mathbb{R}^3 \ :\  x_1 = \frac{3}{2},\ x_2 = \frac{1}{2}+x_3,\ x_3\in\mathbb{R}\}$$
+
+# Sistemas incompatibles con `R`
+
 ## Sistemas incompatibles con `R`
 
-Con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema incompatible
+Con todas las funciones presentadas anteriormente, es fácil averiguar si el sistema con el que estamos trabajando es un sistema incompatible. 
 
 <div class = "example">
 **Ejemplo**
@@ -375,9 +427,9 @@ Con todas las funciones presentadas anteriormente, es fácil averiguar si el sis
 Supongamos que nos dan el siguiente sistema de ecuaciones lineales:
 
 $$\left\{\begin{matrix}x&+&y &=& 2\\x&-&y&=&1\\2x&+&y&=&3\end{matrix}\right.$$
+</div>
 
 Tenemos un sistema de 3 ecuaciones con dos incógnitas, donde
-</div>
 
 ```{r}
 A = cbind(c(1,1,2),c(1,-1,1))
@@ -395,9 +447,9 @@ c(R(A),R(AB))
 all.equal(R(A),R(AB))
 ```
 
-<div class = "example">
+
 Entonces, como los rangos son diferentes, por el Teorema de Rouché-Frobenius, concluimos que se trata de un sistema incompatible
-</div>
+
 
 ## Sistemas incompatibles con `R`
 
@@ -437,6 +489,7 @@ No obstante, vemos que no existe punto en que las 3 rectas intersequen.
 
 Este es el motivo por el cual gráficamente podemos concluir que se trata de un sistema incompatible.
 
+# Ecuaciones matriciales con `R`
 
 ## Ecuaciones matriciales con `R`
 
@@ -497,7 +550,40 @@ A%*%X + 3*B == (C+D)%*%X+3*D+10*I
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Trabajando con `Python`
+
+## Trabajando con `Python` (ACABAR)
+
+En esta sección veremos como
+
+- Trabajar con sistemas compatibles determinados
+- Representar ecuaciones de un sistema lineal
+- Utilizar el método de Gauss
+- Trabajar con sistemas compatibles indeterminados
+- Trabajar con sistemas incompatibles
+- Resolver ecuaciones matriciales
+
+y todas estas cosas con `Python`.
+
+# Sistemas compatibles determinados con `Python`
 
 ## Sistemas compatibles determinados con `Python`
 
@@ -508,16 +594,22 @@ a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n & = & b_2\\
 \vdots & \  & \vdots\\
 a_{m1}x_1+a_{m2}x_2+\cdots+a_{mn}x_n & = & b_m\\\end{matrix}\right.$$
 
-Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `numpy.linalg.solve(A,B)`, siempre que se trate de un sistema compatible determinado. cuadrada.
+Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `numpy.linalg.solve(A,B)`, siempre que se trate de un sistema compatible determinado.
 
 ## Sistemas compatibles determinados con `Python`
 
-Dado el sistema de ecuaciones lineales, calculemos su solución:
+<div class = "example">
+**Ejemplo**
+
+Dado el siguiente sistema de ecuaciones lineales, calculemos su solución:
 
 $$\left\{\begin{matrix}
 x_1 &+& x_2 &+& 2x_3 &=& 9\\
 2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
 3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
+</div>
+
+Se trata de un sistema de 3 ecuaciones con 3 incógnitas
 
 ```{python}
 import numpy as np
@@ -549,6 +641,82 @@ x = np.linalg.solve(A, B)
 x
 ```
 
+## Sistemas compatibles determinados con `Python`
+
+También podemos resolver sistemas compatibles determinados con la librería `sympy`
+
+Además, lo podremos resolver de tres formas:
+
+- Introduciendo la lista de ecuaciones
+- Introduciendo la matriz ampliada
+- Introduciendo el sistema
+
+## Sistemas compatibles determinados con `Python`
+
+<div class = "example">
+**Ejemplo**
+
+Resolvamos esta vez un sistema de dos ecuaciones con dos incógnitas:
+
+$$\left\{\begin{matrix}
+2x_1 &+& 2x_2 =& 1\\
+-x_1 &+& x_2 &=& 2\end{matrix}\right.$$
+
+</div>
+
+```{python}
+from sympy import *
+from sympy.solvers.solveset import linsolve
+x,y,z = symbols('x,y,z')
+```
+
+## Sistemas compatibles determinados con `Python`
+
+Si lo queremos resolver introduciendo la lista de ecuaciones:
+
+```{python}
+linsolve([2*x + 2*y - 1, -x + y - 2], (x, y))
+```
+
+## Sistemas compatibles determinados con `Python`
+
+Si lo queremos resolver introduciendo la matriz ampliada, 
+
+```{python}
+linsolve(Matrix(([2, 2, 1], [-1, 1, 2])), (x, y))
+```
+
+## Sistemas compatibles determinados con `Python`
+
+Si lo queremos hacer introduciendo el sistema,
+
+```{python}
+AB = Matrix(((2, 2, 1), (-1, 1, 2))) #Matriz ampliada
+A = AB[:, :-1] #Todas las filas de todas las columnas menos la última
+b = AB[:, -1]#Todas las filas de la última columna
+system = A,b
+linsolve(system, x, y)
+```
+
+# Representación de sistemas con `Python`
+
+## Representación de sistemas con `Python`
+
+Con la librería `matplotlib` podemos representar gráficamente nuestros sistemas de ecuaciones lineales tal cual hacíamos con `R`
+
+```{python}
+import matplotlib.pyplot as plt
+```
+
+## Representación de sistemas con `Python`
+
+Solamente mostraremos el código. Todo lo que se haga a continuación en esta sección conviene ejecutarlo en alguna plataforma como por ejemplo Jupyter.
+
+**VOY POR AQUÍ**
+
+#AUN NO
+
+
 ## Sistemas compatibles indeterminados con `Python`
 
 Si queremos resolver un sistema compatible indeterminado, lo podemos hacer con la ayuda de la librería `sympy`
@@ -561,26 +729,31 @@ Además, lo podremos resolver de tres formas:
 
 ## Sistemas compatibles indeterminados con `Python`
 
-Dado el sistema $$\left\{\begin{matrix}x+y+z = -1\\ x + y + 2z = -3\end{matrix}\right.$$
+<div class = "example">
+**Ejemplo**
 
-```{python}
-from sympy import *
-from sympy.solvers.solveset import linsolve
-x,y,z = symbols('x,y,z')
-```
+Dado el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}x&+&y&-&z&=& 2\\x&-&y&+&z&=&1\\3x&+&y&-&z&=&5\end{matrix}\right.$$
+</div>
+
+Se trata de un sistema de 3 ecuaciones con 3 incógnitas
+
 
 ## Sistemas compatibles indeterminados con `Python`
 
 Si lo queremos resolver introduciendo la lista de ecuaciones:
 
 ```{python}
-linsolve([x + y + z - 1, x + y + 2*z - 3 ], (x, y, z))
+linsolve([x + y - z - 2, x - y + z - 1, 3*x + y - z - 5], (x, y, z))
 ```
+
+## Sistemas compatibles indeterminados con `Python`
 
 Si lo queremos resolver introduciendo la matriz ampliada, 
 
 ```{python}
-linsolve(Matrix(([1, 1, 1, 1], [1, 1, 2, 3])), (x, y, z))
+linsolve(Matrix(([1, 1, -1, 2], [1, -1, 1, 1], [3, 1, -1, 5])), (x, y, z))
 ```
 
 ## Sistemas compatibles indeterminados con `Python`
@@ -588,16 +761,45 @@ linsolve(Matrix(([1, 1, 1, 1], [1, 1, 2, 3])), (x, y, z))
 Si lo queremos hacer introduciendo el sistema,
 
 ```{python}
-AB = Matrix(((1, 1, 1, 1), (1, 1, 2, 3))) #Matriz ampliada
+AB = Matrix(((1, 1, -1, 2), (1, -1, 1, 1), (3, 1, -1, 5))) #Matriz ampliada
 A = AB[:, :-1] #Todas las filas de todas las columnas menos la última
 B = AB[:, -1]#Todas las filas de la última columna
 system = A,B
 linsolve(system, x, y, z)
 ```
 
+## Sistemas compatibles indeterminados con `Python` {.exercise}
+
+**Ejercicio**
+
+- Comprobad haciendo uso del Teorema de Rouché-Frobenius que efectivamente se trata de un sistema compatible indeterminado.
+- Repetid el proceso anterior, demostrando primero el tipo de sistema del cual se trata, para el sistema de dos ecuaciones con 3 incógnitas siguiente:
+
+$$\left\{\begin{matrix}x+y+z = -1\\ x + y + 2z = -3\end{matrix}\right.$$
+
+## Sistemas incompatibles con `Python`
+
+<div class = "example">
+**Ejemplo**
+
+Supongamos que nos dan el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}x&+&y &=& 2\\x&-&y&=&1\\2x&+&y&=&3\end{matrix}\right.$$
+</div>
+
+```{python}
+linsolve(Matrix(([1, 1, 2], [1, -1, 1], [2, 1, 3])), (x, y))
+```
+Esto se debe a que el sistema es incompatible.
+
+<div class = "exercise">**Ejercicio.** Demostrar, utilizando el Teorema de Rouché-Frobenius y `Python`, que efectivamente se trata de un sistema incompatible</div>
+
+
+
+
 # Trabajando con `Octave`
 
-## Sistemas con `Octave`
+## Sistemas compatibles determinados con `Octave`
 
 Dado el sistema de ecuaciones lineales
 
@@ -609,7 +811,7 @@ a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n & = & b_n\\\end{matrix}\right.$$
 Si lo pasamos a su forma matricial, $AX = B$, podremos resolverlo de forma sencilla con la función `linsolve(A,B)` siempre que se trate de un sistema compatible determinado.
 
 
-## Sistemas con `Octave`
+## Sistemas compatibles determinados con `Octave`
 
 Dado el sistema de ecuaciones lineales, calculemos su solución:
 
@@ -620,11 +822,11 @@ x_1 &+& x_2 &+& 2x_3 &=& 9\\
 
 ```{octave}
 A = [1 1 2; 2 4 -3; 3 6 -5];
-B = [9; 1; 0];
+b = [9; 1; 0];
 AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
 ```
 
-## Sistemas con `Octave`
+## Sistemas compatibles determinados con `Octave`
 
 Comprobamos que el rango de $A$ es igual al de la ampliada, para ver si el sistema es compatible
 
@@ -642,12 +844,28 @@ AB = [1 1 2 9; 2 4 -3 1; 3 6 -5 0];
 rank(A) == 3
 ```
 
-## Sistemas con `Octave`
+## Sistemas compatibles determinados con `Octave`
 
 Finalmente, resolvemos
 
 ```{octave}
 A = [1 1 2; 2 4 -3; 3 6 -5];
-B = [9; 1; 0];
-x = linsolve(A,B)
+b = [9; 1; 0];
+x = linsolve(A,b)
 ```
+
+
+## Sistemas compatibles indeterminados con `Octave`
+
+<div class = "example">
+**Ejemplo**
+
+Dado el siguiente sistema de ecuaciones lineales:
+
+$$\left\{\begin{matrix}x&+&y&-&z&=& 2\\x&-&y&+&z&=&1\\3x&+&y&-&z&=&5\end{matrix}\right.$$
+</div>
+
+Se trata de un sistema de 3 ecuaciones con 3 incógnitas
+
+
+
