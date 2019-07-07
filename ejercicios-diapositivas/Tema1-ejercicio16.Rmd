@@ -1,0 +1,65 @@
+---
+title: "Tema 1 - Ejercicio 16"
+author: "María Santos"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Enunciado
+
+Considerad la matriz $A\in\mathcal{M}_{3\times 4}(\mathbb{R})$ dada por
+
+$$A=\begin{pmatrix}1&1&3&5\\2&4&3&-2\\-2&2&-1&3\end{pmatrix}$$
+Calculad su matriz escalonada y su escalonada reducida por filas.
+
+### Solución
+
+$$A\sim_{f_2-2f_1}\begin{pmatrix}
+1&1&3&5\\
+0&2&-3&-12\\
+-2&2&-1&3\end{pmatrix}\sim_{f_3+2f_1}\begin{pmatrix}
+1&1&3&5\\
+0&2&-3&-12\\
+0&4&5&13\end{pmatrix}$$
+
+$$\sim_{\frac{1}{2}f_2}\begin{pmatrix}
+1&1&3&5\\
+0&1&-\frac{3}{2}&-6\\
+0&4&5&13\end{pmatrix}\sim_{f_3-4f_2}\begin{pmatrix}
+1&1&3&5\\
+0&1&-\frac{3}{2}&-6\\
+0&0&11&37\end{pmatrix}$$
+
+Una matriz escalonada equivalente a $A$ es $$\begin{pmatrix}
+1&1&3&5\\
+0&1&-\frac{3}{2}&-6\\
+0&0&11&37\end{pmatrix}$$
+
+Para encontrar la matriz escalonada reducida, debemos seguir realizando operaciones elementales:
+
+$$\begin{pmatrix}
+1&1&3&5\\
+0&1&-\frac{3}{2}&-6\\
+0&0&11&37\end{pmatrix}\sim_{\frac{1}{11}f_3}\begin{pmatrix}
+1&1&3&5\\
+0&1&-\frac{3}{2}&-6\\
+0&0&1&\frac{37}{11}\end{pmatrix}\sim_{f_2+\frac{3}{2}f_3}\begin{pmatrix}
+1&1&3&5\\
+0&1&0&-\frac{21}{22}\\
+0&0&1&\frac{37}{11}\end{pmatrix}$$
+
+$$\sim_{f_1-3f_3}\begin{pmatrix}
+1&1&0&-\frac{56}{11}\\
+0&1&0&-\frac{21}{22}\\
+0&0&1&\frac{37}{11}\end{pmatrix}\sim{f_1-f_2}\begin{pmatrix}
+1&0&0&-\frac{91}{22}\\
+0&1&0&-\frac{21}{22}\\
+0&0&1&\frac{37}{11}\end{pmatrix}$$
+
+Con lo cual, la matriz reducida equivalente a $A$ es $$\begin{pmatrix}
+1&0&0&-\frac{91}{22}\\
+0&1&0&-\frac{21}{22}\\
+0&0&1&\frac{37}{11}\end{pmatrix}$$
