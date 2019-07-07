@@ -33,10 +33,10 @@ podremos multiplicar $A$ por $B$ por bloques de la siguiente forma, siempre que 
 
 $$AB = \begin{pmatrix}CG+DJ & | & CH+DK\\ -----&|&-----\\EG+FJ & | & EH+FK\end{pmatrix}$$
 
-## Producto por bloques
+## Ejemplo 1
 
 <div class = "example">
-**Ejemplo**
+**Ejemplo 1**
 
 Supongamos que queremos multiplicar las matrices
 
@@ -65,3 +65,483 @@ $$A = \begin{pmatrix}
 0 & 1 &|& 2\end{pmatrix}$$
 
 </div>
+
+## Ejemplo 1
+
+<div class = "example">
+Vemos que esta división es correcta ya que si nombramos a cada uno de los bloques tal y como se indica a continuación:
+
+$$A = \begin{pmatrix}C & | & D\\ --&|&--\\E & | & F\end{pmatrix}\qquad B = \begin{pmatrix}G & | & H\\ --&|&--\\J & | & K\end{pmatrix}$$
+
+tenemos que las submatrices $C,D,E,F,G,J\in\mathcal{M}_2(\mathbb{R})$ mientras que las submatrices $H,K\in\mathcal{M}_{2\times 1}(\mathbb{R})$.
+
+Una vez comprobado que todos los productos de matrices pueden llevarse a cabo, hay que hacer las siguientes operaciones para finalmente obtener
+
+$$AB = \begin{pmatrix}CG+DJ & | & CH+DK\\ -----&|&-----\\EG+FJ & | & EH+FK\end{pmatrix}$$
+</div>
+
+## Ejemplo 1
+
+<div class = "example">
+$$CG = \begin{pmatrix}1 & -1\\ 
+-2 &0\end{pmatrix}\begin{pmatrix}1 & 4\\
+2 & -1\end{pmatrix} = \begin{pmatrix}-1 & 5\\ -2 & -8\end{pmatrix}$$
+
+$$DJ = \begin{pmatrix}2 &4 \\ 
+ 5&5\end{pmatrix}\begin{pmatrix}-3 & 2\\
+0 &1 \end{pmatrix} = \begin{pmatrix}-6 & 8\\ -15 & 15\end{pmatrix}$$
+
+$$CH = \begin{pmatrix}1 & -1\\ 
+-2 &0\end{pmatrix}\begin{pmatrix}3 \\
+ 0\end{pmatrix} = \begin{pmatrix} 3\\ -6 \end{pmatrix}$$
+ 
+$$DK = \begin{pmatrix} 2& 4\\ 
+ 5&5\end{pmatrix}\begin{pmatrix}1 \\
+ 2 \end{pmatrix} = \begin{pmatrix} 10 \\ 15  \end{pmatrix}$$
+
+$$EG = \begin{pmatrix}1 & 1\\ 
+ 2&3\end{pmatrix}\begin{pmatrix} 1&4 \\
+ 2&-1 \end{pmatrix} = \begin{pmatrix} 3& 3\\ 8 & 5\end{pmatrix}$$
+ 
+$$FJ = \begin{pmatrix} 2&-3 \\ 
+4 &0\end{pmatrix}\begin{pmatrix} -3& 2\\
+ 0&1 \end{pmatrix} = \begin{pmatrix} -6& 1\\  -12& 8\end{pmatrix}$$
+</div>
+ 
+## Ejemplo 1
+
+<div class = "example">
+ 
+$$EH = \begin{pmatrix} 1&1 \\ 
+ 2&3\end{pmatrix}\begin{pmatrix}3 \\
+0 \end{pmatrix} = \begin{pmatrix} 3\\6 \end{pmatrix}$$
+ 
+$$FK = \begin{pmatrix} 2& -3\\ 
+ 4&0\end{pmatrix}\begin{pmatrix}1 \\
+2 \end{pmatrix} = \begin{pmatrix} -4\\ 4\end{pmatrix}$$
+
+$$CG+DJ = \begin{pmatrix}-1 & 5\\ -2 & -8\end{pmatrix}+\begin{pmatrix}-6 & 8\\ -15 & 15\end{pmatrix} = \begin{pmatrix}-7 & 13\\ -17 & 7\end{pmatrix}$$
+
+$$CH + DK = \begin{pmatrix} 3\\ -6 \end{pmatrix} + \begin{pmatrix} 10 \\ 15  \end{pmatrix} = \begin{pmatrix} 13 \\ 9  \end{pmatrix}$$
+
+$$EG + FJ = \begin{pmatrix} 3& 3\\ 8 & 5\end{pmatrix} + \begin{pmatrix} -6& 1\\  -12& 8\end{pmatrix} = \begin{pmatrix} -3& 4\\  -4& 13\end{pmatrix}$$
+
+$$EH + FK = \begin{pmatrix} 3\\6 \end{pmatrix} + \begin{pmatrix} -4\\ 4\end{pmatrix} = \begin{pmatrix} -1\\ 10\end{pmatrix}$$ 
+</div>
+
+## Ejemplo 1
+
+<div class = "example">
+Con lo cual,
+
+$$A\cdot B = \left(\begin{matrix}-7 & 13 & 13\\ -17 & 7 & 9\\ -3 & 4 & -1\\-4 & 13 & 10\end{matrix}\right)$$
+</div>
+
+## Ejemplo 2
+
+El producto por bloques resulta ser más interesante cuando alguna de las submatrices es muy sencilla con muchos 0's o bien es una matriz diagonal, una matriz identidad o directamente una matriz nula.
+
+<div class = "example">
+**Ejemplo 2**
+
+Supongamos que las matrices $A$ y $B$ son de la forma
+
+$$A = \begin{pmatrix}I_n &|& C\\ --&|&--\\ 0 &|& I_n\end{pmatrix}\qquad B = \begin{pmatrix}I_n &|& D\\ --&|&--\\0 &|& I_n\end{pmatrix}$$
+
+donde $C,D\in\mathcal{M}_n(\mathbb{R})$ e $I_n$ representa la matriz identidad de orden $n$. Entonces tenemos que 
+
+$$AB = \begin{pmatrix}I_n\cdot I_n+C\cdot0 &|& I_n\cdot D+C\cdot I_n\\ -------&|&-------\\ 0\cdot I_n + I_n\cdot 0&|&0\cdot D+I_n\cdot I_n\end{pmatrix} = \begin{pmatrix}I_n &|&D+C\\----&|&----\\ 0 &|&I_n\end{pmatrix}$$
+<div>
+
+## Ejemplo 2
+
+<div class = "example">
+
+Por otro lado,
+
+$$BA = \begin{pmatrix}I_n\cdot I_n+D\cdot0 &|& I_n\cdot C+D\cdot I_n\\ -------&|&-------\\ 0\cdot I_n + I_n\cdot 0&|&0\cdot C+I_n\cdot I_n\end{pmatrix} = \begin{pmatrix}I_n &|&C+D\\----&|&----\\ 0 &|&I_n\end{pmatrix}$$
+Con lo cual, en este caso el producto es conmutativo para cualesquiera matrices $C,D$.
+<div>
+
+## Producto por bloques
+
+A la hora de calcular matrices inversas, tenemos casos de matrices por bloques en los cuales el cálculo de la inversa se simplifica considerablemente:
+
+<l class = "prop">Proposición.</l> Sea $A$ una matriz cuadrada dividida en bloques del siguiente modo: $$A = \begin{pmatrix}B &|&C\\--&|&--\\0 & |& D\end{pmatrix}$$ donde $B\in\mathcal{M}_p(\mathbb{R}),\ C\in\mathcal{M}_{p\times q}(\mathbb{R}),\ D\in\mathcal{M}_q(\mathbb{R})$. Entonces, $A$ es invertible si, y solo si, lo son $B$ y $D$, y entonces $$A^{-1} = \begin{pmatrix}B^{-1} &|&-B^{-1}CD^{-1}\\--&|&------\\0 & |& D^{-1}\end{pmatrix}$$
+
+## Producto por bloques
+
+En particular, si $C = 0$, $A$ es invertible si, y solo si, lo son $B$ y $D$, y entonces:
+$$A^{-1} = \begin{pmatrix}B^{-1} &|&0\\--&|&--\\0 & |& D^{-1}\end{pmatrix}$$
+
+# Factorizaciones triangulares
+
+## Factorizaciones triangulares
+
+En este apartado nos proponemos estudiar cuando una matriz pude escribirse como producto de una matriz triangular inferior, a la que llamaremos $L$, y una matriz triangular superior a la que llamaremos $U$.
+
+Antes de empezar, repasemos las operaciones elementales
+
+## Factorizaciones triangulares
+
+<l class = "definition">Matriz Elemental (por filas).</l> Se obtiene a partir de la matriz identidad $I_m$ de la siguiente manera:
+
+- $F_{ij}:$ matriz elemental obtenida a partir de la matriz identidad $I_m$ a la que se le han intercambiado las filas $i,j$
+- $F_i(\alpha):$ matriz elemental obtenida a partir de la matriz identidad $I_m$ a la que se le ha multiplicado la fila $i$ por $\alpha\in\mathbb{K}$
+- $F_{ij}(\alpha):$ matriz elemental obtenida a partir de la matriz identidad $I_m$ a la cual se le ha sumado a la fila $i$ la fila $j$ multiplicada por $\alpha$
+
+## Factorizaciones triangulares
+
+<l class = "prop">Proposición.</l> Sea $A\in\mathcal{M}_{m \times n}(\mathbb{K})$ una matriz. Entonces, cada una de las transformaciones elementales por filas que se pueden realizar sobre $A$ corresponden a multiplicar la matriz $A$ por la izquierda por una matriz elemental de la siguiente manera:
+
+- Intercambiar las filas $i,j$ de $A$ se corresponde a realizar el producto $F_{ij}\cdot A$
+- Multiplicar la fila $i$ por $\alpha\in\mathbb{K}$ se corresponde a realizar el producto $F_{i}(\alpha)\cdot A$
+- Sumar a la fila $i$ de la matriz $A$, la fila $j$ multiplicada por un número $\alpha\in\mathbb{K}$ se corresponde a realizar el producto $F_{ij}(\alpha)\cdot A$
+
+## Ejemplo 3
+
+<div class = "example">
+**Ejemplo 3**
+
+Consideremos la matriz $$A = \begin{pmatrix}1 & 1& 0 & -3\\ 2 & 0 & 1 & -1\\ 0 & 0 & 3 & 4\end{pmatrix}$$
+
+Entonces, intercambiar las filas 1 y 3 corresponde a multiplicar $$F_{13}\cdot A = \begin{pmatrix}0 &0 &1 \\0 &1 &0 \\1&0&0\end{pmatrix}\begin{pmatrix}1 & 1& 0 & -3\\ 2 & 0 & 1 & -1\\ 0 & 0 & 3 & 4\end{pmatrix} = \begin{pmatrix}0 & 0 & 3 & 4\\ 2 & 0 & 1 & -1\\ 1 & 1& 0 & -3\end{pmatrix}$$
+
+Multiplicar la segunda fila de $A$ por -2 se corresponde con 
+
+$$F_2(-2)\cdot A = \begin{pmatrix}1 &0 &0 \\0 &-2 &0 \\0&0&1\end{pmatrix}\begin{pmatrix}1 & 1& 0 & -3\\ 2 & 0 & 1 & -1\\ 0 & 0 & 3 & 4\end{pmatrix} = \begin{pmatrix}1 & 1& 0 & -3\\ -4 & 0 & -2 & 2\\ 0 & 0 & 3 & 4\end{pmatrix}$$
+
+</div>
+
+## Ejemplo 3
+
+<div class = "example">
+
+Sumar a la tercera fila de $A$, la segunda multiplicada por $5$ corresponde a realizar el producto
+
+$$F_{32}(5)\cdot A = \begin{pmatrix}1&0&0\\0&1&0\\0&5&1\end{pmatrix}\begin{pmatrix}1 & 1& 0 & -3\\ 2 & 0 & 1 & -1\\ 0 & 0 & 3 & 4\end{pmatrix} = \begin{pmatrix}1 & 1& 0 & -3\\ 2 & 0 & 1 & -1\\ 10 & 0 & 8 & -1\end{pmatrix}$$
+</div>
+
+## Factorizaciones triangulares
+
+Es fácil comprobar que las transformaciones elementales por columnas corresponden igualmente a multiplicar, en este caso por la derecha, por matrices elementales similares obtenidas a partir de la matriz identidad operando por columnas: $C_{ij},\ C_i(\alpha),\ C_{ij}(\alpha)$
+
+## Factorizaciones triangulares
+
+<l class = "prop">Proposición.</l> Todas las matrices elementales son  invertibles y sus inversas vuelven a ser matrices elementales:
+
+- $F_{ij}^{-1} = F_{ij}$
+- $F_i(\alpha)^{-1}=F_i\left(\frac{1}{\alpha}\right)$
+- $F_{ij}(\alpha)^{-1} = F_{ij}(-\alpha)$
+
+<l class = "observ">Observación.</l> Las matrices $F_i(\alpha)$ son diagonales y las matrices $F_{ij}(\alpha)$ son triangulares inferiores si $i>j$ o triangulares superiores si $i<j$.
+
+## Factorizaciones triangulares
+
+Ahora ya estamos preparados para ver los teoremas relativos a las factorizaciones triangulares, también conocidas como <l class = "definition">Factorizaciones LU</l>.
+
+## Factorizaciones triangulares
+
+<l class = "prop">Teorema.</l> Sea $A\in\mathcal{M}_{m\times n}(\mathbb{K})$ y $U$ una matriz escalonada por filas equivalente con todos los pivotes 1 (la cual será triangular superior)
+
+- Si $U$ se puede obtener a partir de $A$ sin necesidad de hacer ninguna permutación entre sus filas, entonces existe una matriz triangular inferior $L$ de forma que $A = LU$. Además, si $A$ es invertible, entonces esta factorización es única.
+
+- Si para llegar a $U$ se requieren permutaciones de filas y $A$ es invertible, entonces existe una matriz $P$ tal que $PA = LU$ donde $P$ es simplemente un producto de matrices elementales de la forma $F_{ij}$. Para cada $P$ (ya que puede haber más de una) la factorización es única.
+
+## Factorizaciones triangulares
+
+Existe un algoritmo para encontrar una factorización $LU$ de una matriz cualquiera $A$. Y es el siguiente:
+
+<div class = "box">
+1. Encontrar matriz escalonada por filas con pivotes 1 equivalente a $A$, la que será nuestra $U$. 
+2. Para llegar a dicha matriz, habremos realizado una serie de transformaciones elementales correspondientes a matrices elementales de la forma $F_i(\alpha)$ y $F_{ij}(\alpha)$ con $i<j$. Así, $U=L_n\cdots L_1\cdot A$
+3. Entonces, $A = (L_n\cdots L_1)U = L_1^{-1}\cdots L_n^{-1}\cdot U = LU$, donde $L$ es triangular inferior porque todas las $L_i^{-1}$ lo son.
+</div>
+
+## Ejemplo 4
+
+<div class = "example">
+**Ejemplo 4**
+
+Encontremos la factorización LU de la siguiente matriz $$A = \begin{pmatrix}1 & 3 & 0 & -1\\
+2 & 1 & -1& 5\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix}$$
+
+Empecemos buscandosu forma escalonada reducida por filas:
+
+$$A\sim_{f_2-2f_1} \begin{pmatrix}1 & 3 & 0 & -1\\
+0 & -5 & -1& 7\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix}\sim_{f_4-f_1}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & -5 & -1& 7\\
+0 & -2& 3 & -1\\
+0 & -2 & 3 & 2\end{pmatrix}\sim_{-\frac{1}{5}f_2}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & -2& 3 & -1\\
+0 & -2 & 3 & 2\end{pmatrix}$$
+</div>
+
+## Ejemplo 4
+
+<div class = "example">
+$$\sim_{f_3+2f_2}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& \frac{17}{5} & -\frac{19}{5}\\
+0 & -2 & 3 & 2\end{pmatrix}\sim_{f_4+2f_2}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& \frac{17}{5} & -\frac{19}{5}\\
+0 & 0 & \frac{17}{5} & -\frac{4}{5}\end{pmatrix}\sim_{\frac{5}{17}f_3}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & \frac{17}{5} & -\frac{4}{5}\end{pmatrix}$$
+$$\sim_{f_4-\frac{17}{5}f_3}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & 0 & 3\end{pmatrix}\sim_{\frac{1}{3}f_4}\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & 0 & 1\end{pmatrix}$$
+
+Y con todo esto, ya tenemos a nuestra matriz $U$:
+
+$$U = \begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & 0 & 1\end{pmatrix}$$
+</div>
+
+## Ejemplo 4
+
+<div class = "example">
+Para obtener $U$ hemos llevado a cabo 8 operaciones elementales:
+
+$$U= L_8\cdot L_7\cdots L_1\cdot A$$ $$= F_{4} \left(\frac{1}{3}\right)\cdot F_{43}\left(-\frac{17}{5}\right)\cdot F_3\left(\frac{5}{17}\right)\cdot F_{42}(2)\cdot F_{32}(2)\cdot F_2\left(-\frac{1}{5}\right)\cdot F_{41}(-1)\cdot F_{21}(-2)\cdot A$$
+
+Multiplicando ahora por las inversas por la izquierda, lo que tenemos es
+
+$$A = L_1^{-1}\cdots L_8^{-1}\cdot U = F_{21}(2)\cdot F_{41}(1)\cdot F_2(-5)\cdot F_{32}(-2)\cdot F_{42}(-2)\cdot F_3\left(\frac{17}{5}\right)\cdot F_{43}\left(\frac{17}{5}\right)\cdot F_4(3)\cdot U$$
+
+$$=\begin{pmatrix}1 & 0 & 0 & 0\\ 
+2 & 1 & 0 & 0\\
+0 & 0 & 1& 0\\
+0 & 0 & 0 & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & 0 & 1& 0\\
+1 & 0 & 0 & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & -5 & 0 & 0\\
+0 & 0 & 1& 0\\
+0 & 0 & 0 & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & -2 & 1& 0\\
+0 & 0 & 0 & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & 0 & 1& 0\\
+0 & -2 & 0 & 1\end{pmatrix}$$
+$$\cdot\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & 0 & \frac{17}{5}& 0\\
+0 & 0 & 0 & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & 0 & 1& 0\\
+0 & 0 & \frac{17}{5} & 1\end{pmatrix}\cdot
+\begin{pmatrix}1 & 0 & 0 & 0\\ 
+0 & 1 & 0 & 0\\
+0 & 0 & 1& 0\\
+0 & 0 & 0 & 3\end{pmatrix}\cdot U
+$$ 
+
+</div>
+
+## Ejemplo 4
+
+<div class = "example">
+Entonces,
+
+$$L = \begin{pmatrix}1 & 0 & 0 & 0\\ 
+2 & -5 & 0 & 0\\
+0 & -2 & \frac{17}{5}& 0\\
+1 & -2 & \frac{17}{5} & 3\end{pmatrix}\qquad U = \begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & 0 & 1\end{pmatrix}$$
+
+Comprobemos que estas matrices obtenidas son las correctas:
+
+$$L\cdot U = \begin{pmatrix}1 & 0 & 0 & 0\\ 
+2 & -5 & 0 & 0\\
+0 & -2 & \frac{17}{5}& 0\\
+1 & -2 & \frac{17}{5} & 3\end{pmatrix}\cdot
+\begin{pmatrix}1 & 3 & 0 & -1\\
+0 & 1 & \frac{1}{5}& -\frac{7}{5}\\
+0 & 0& 1 & -\frac{19}{17}\\
+0 & 0 & 0 & 1\end{pmatrix} = \begin{pmatrix}1 & 3 & 0 & -1\\
+2 & 1 & -1& 5\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix} = A$$
+<div>
+
+## Ejemplo 5
+
+<div class = "example">
+**Ejemplo 5**
+
+Encontremos la factorización LU de la matriz 
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}$$
+
+Calculemos su matriz escalonada reducida equivalente:
+
+$$A\sim_{f_2\rightarrow f_1}\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+-3 & -2 & -1
+\end{pmatrix}\sim_{f_3+3f_1}\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+0 & 7 & -7
+\end{pmatrix}\sim_{f_3-7f_2}\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+0 & 0 & -28
+\end{pmatrix}\sim_{-\frac{1}{28}f_3}\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+0 & 0 & 1
+\end{pmatrix} = U$$
+
+En este caso hemos llevado a cabo una permutación de filas. Más concretamente, hemos cambiado la fila $f_1$ por la fila $f_2$. Esto corresponde a multiplicar la matriz $A$ ppr la matriz $F_{12}$ por la izquierda. Con lo cual:
+
+$$P = F_{12} = \begin{pmatrix}0 &1 & 0\\
+1 & 0& 0\\
+0 & 0 & 1
+\end{pmatrix}$$
+</div>
+
+## Ejemplo 5{.example}
+
+Con lo cual, lo que tenemos es que la matriz $PA$ admite una factorización $LU$.
+
+Las operaciones elementales llevadas a cabo sobre la matriz $$PA = \begin{pmatrix}1 & 3 & -2\\
+0 & 1& 3\\
+-3 & -2 & -1
+\end{pmatrix}$$ para obtener $U$ han sido
+
+$$U = F_3\left(-\frac{1}{28}\right)\cdot F_{32}(-7)\cdot F_{31}(3)\cdot PA$$
+
+Con lo cual, $$L = F_{31}(-3)\cdot F_{32}(7)\cdot F_3(-28) = \begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+-3 & 0 & 1
+\end{pmatrix}\cdot
+\begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+0 & 7 & 1
+\end{pmatrix}\cdot
+\begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+0 & 0 & -28
+\end{pmatrix} = \begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+-3 & 7 & -28
+\end{pmatrix}$$
+
+
+## Ejemplo5{.example}
+
+Comprobemos que todo está bien:
+
+$$L\cdot U = \begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+-3 & 7 & -28
+\end{pmatrix}\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+0 & 0 & 1
+\end{pmatrix} = \begin{pmatrix}1 & 3 & -2\\
+0 & 1& 3\\
+-3 & -2 & -1
+\end{pmatrix} = PA$$
+
+## Factorizaciones triangulares
+
+Una de las aplicaciones que tienen las factorizaciones triangulares (o factorizaciones LU) se ve en la resolución de sistemas de ecuaciones lineales.
+
+Con las factorizaciones $A = LU$ o $PA = LU$ tendremos que hacer los cálculos solamente una vez y finalmente, resolver los sistemas triviales para cada término independiente.
+
+En primer lugar, tendremos el sistema $AX = b$, el cual es equivalente a $LUX = b$.
+
+Ahora, consideremos el sistema $Y = UX$, de forma que $LY = b$. Este sistema tiene solución inmediata, pues $L$ es triangular inferior.
+
+Por último, resolvemos $UX = Y$, que también tendrá solución inmediata ya que $U$ es triangular superior.
+
+## Factorizaciones triangulares
+
+En caso de que el sistema admita factorización $PA = LU$ es exactamente igual ya que $AX = b$ es equivalente a $PAX = Pb$, puesto que solamente hemos permutado filas.
+
+## Ejemplo 6{.example}
+
+Consideremos el sistema 
+
+$$\left\{\begin{matrix}
+&&x_2&+&3x_3&=&1\\
+x_1&+&3x_2&-&2x_3 &=& 3\\
+-3x_1&-&2x_2&-&x_3&=&-2
+\end{matrix}\right.$$
+
+Podemos escribir el sistema en su forma matricial, $AX=b$
+
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}\qquad b = \begin{pmatrix}1\\3\\-2\end{pmatrix}$$
+
+Observad que la matriz $A$ es la del `Ejemplo 5`, la cual sabemos que admite factorización $PA = LU$.
+
+Evidentemente, los sistemas $AX = b$ y $PAX = Pb$ tendrán las mismas soluciones ya que de un sistema a otro solamente hemos permutado filas.
+
+## Ejemplo 6{.example}
+
+Dicho esto, sabemos que $PAX = Pb$ es equivalente a $LUX = Pb$.
+
+Consideremos $Y = UX$. Con lo cual, buscamos $Y$ tal que 
+
+$$LY = Pb \Leftrightarrow \begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+-3 & 7 & -28
+\end{pmatrix}\begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} = \begin{pmatrix}0 &1 & 0\\
+1 & 0& 0\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}1\\3\\-2\end{pmatrix}\Leftrightarrow
+\begin{pmatrix}1 &0 & 0\\
+0 & 1& 0\\
+-3 & 7 & -28
+\end{pmatrix}\begin{pmatrix}y_1\\y_2\\y_3\end{pmatrix} = \begin{pmatrix}3\\1\\-2\end{pmatrix}$$
+
+sistema que tiene solución inmediata $y_1 = 3,\ y_2 = 1,\ y_3=\frac{-3y_1+7y_2+2}{28} = 0$
+
+Ahora ya solo nos queda resolver el sistema $UX = Y$. Es decir
+
+$$\begin{pmatrix}1 &3 & -2\\
+0 & 1& 3\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix} = \begin{pmatrix}3\\1\\0\end{pmatrix}$$
+
+que vuelve a tener solución inmediata $x_3 = 0, x_2 = 1-x_3 = 1,\ x_1 = 3-3x_2+2x_3 = 0$
+
+## Ejemplo 6
+
+<div class = "example">
+Con lo cual, la solución a nuestro sistema inicial
+
+$$\left\{\begin{matrix}
+&&x_2&+&3x_3&=&1\\
+x_1&+&3x_2&-&2x_3 &=& 3\\
+-3x_1&-&2x_2&-&x_3&=&-2
+\end{matrix}\right.$$
+
+es $X = \begin{pmatrix}0\\1\\0\end{pmatrix}$
+</div>
+
+<l class = "observ">Observación.</l> Observad que por mucho que cambiemos los términos independientes, ello no afecta a la factorización LU, ya que ésta seguirá siendo la misma puesto que la matriz de coeficientes $A$ no está siendo modificada.

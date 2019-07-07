@@ -173,7 +173,7 @@ x_1 &+& x_2 &+& 2x_3 &=& 9\\
 2x_1 &+& 4x_2 &-& 3x_3 &=& 1\\
 3x_1 &+& 6x_2 &-& 5x_3 &=& 0\end{matrix}\right.$$
 
-Observemos que se trata de un sistema $m=$3 de ecuaciones y $n=$3 incógnitas.
+Observemos que se trata de un sistema $m = 3$ de ecuaciones y $n = 3$ incógnitas.
 
 Para averiguar de qué tipo de sistema se trata, calculemos rg$(A)$ y rg$(A|B)$, donde
 

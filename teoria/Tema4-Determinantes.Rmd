@@ -1,0 +1,16 @@
+---
+title: "Tema 4 - Determinantes"
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Determinante de una matriz cuadrada
