@@ -1,7 +1,6 @@
 ---
 title: Tema 2 - Ecuaciones y Sistemas Lineales
 author: Juan Gabriel Gomila & María Santos
-date: 
 output: 
   ioslides_presentation:
     widescreen: true

@@ -1,0 +1,433 @@
+---
+title: "Tema 6 - Espacios vectoriales"
+author: Juan Gabriel Gomila & María Santos
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Conjuntos libres y ligados
+
+## Combinaciones lineales
+
+Recordemos la definición de Combinación Lineal (CL)
+
+<l class = "definition">Combinación lineal.</l> Dados $p$ vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$ y los escalares $\alpha_1,\alpha_2,\dots,\alpha_p\in\mathbb{K}$, una combinación lineal de esos $p$ vectores es un vector dado por una expresión de la forma
+
+$$\alpha_1\vec{u}_1+\alpha_2\vec{u}_2+\cdots+\alpha_p\vec{u}_p\in\mathbb{K}^n$$
+
+## Combinaciones lineales{.example}
+
+**Ejemplo 1**
+
+Expresar el vector $(2,-4)$ como combinación lineal de los vectores $(1,1)$ y $(-2,0)$
+
+Necesitamos $\alpha,\beta\in\mathbb{R}$ tales que
+
+$$(2,-4) = \alpha(1,1)+\beta(-2,0)$$
+
+Con lo cual, se trata de resolver el sistema $$\left\{\begin{matrix}
+\alpha &-&2\beta &=& 2\\
+&& \alpha&=& -4\end{matrix}\right.$$
+
+Así pues, ya tenemos que $\alpha = -4$. Con lo cual, $$2\beta = \alpha-2 = -6\Rightarrow\beta = -3$$
+
+Entonces, la combinación lineal que buscábamos es
+
+$$(2,-4) = (-4)(1,1)+(-3)(-2,0)$$
+
+## Dependencia lineal
+
+<l class = "definition">Dependencia lineal.</l> Dados los vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$, diremos que son linealmente dependientes (LD) si alguno de ellos se puede expresar como una combinación lineal del resto:
+
+$$\exists1\le i\le p:\ \sum_{k\ne i}\alpha_k\vec{u}_k = \vec{u}_i$$
+
+## Dependencia lineal
+
+<l class = "definition">Dependencia lineal.</l> Dados los vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$, diremos que son linealmente dependientes (LD) si la ecuación vectorial
+
+$$\sum_{i = 1}^p\alpha_i\vec{u}_i = \vec{0}$$
+
+tiene infinitas soluciones y por tanto los escalares $\alpha_i\in\mathbb{K}$ pueden tomar valores no nulos
+
+## Independencia lineal
+
+<l class = "definition">Independencia lineal.</l> Dados los vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$, diremos que son linealmente independientes (LI) si no es posible expresarlos como una combinación lineal del resto.
+
+$$\not\exists1\le i\le p:\ \sum_{k\ne i }\alpha_k\vec{u}_k  = \vec{u}_i$$
+
+## Independencia lineal
+
+<l class = "definition">Independencia lineal.</l> Dados los vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$, diremos que son linealmente independientes (LI) si la ecuación vectorial
+
+$$\sum_{i = 1}^p\alpha_i\vec{u}_i = \vec{0}$$
+
+tiene como única solución la solución trivial. Es decir, $\alpha_i = 0\ \forall i=1,2,\dots,p$
+
+## Rango de un conjunto de vectores
+
+<l class = "definition">Rango de un conjunto de vectores.</l> Dados $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n$, se dice que tiene rango $r\le p$ si existe como mínimo un subconjunto de $r$ vectores LI entre ellos y no existe ninguno de $r+1$ que sea LI.
+
+En otras palabras, es el número máximo de vectores LI que pueden extraerse del conjunto.
+
+## Rango de un conjunto de vectores
+
+Un método para calcular el rango de un conjunto de vectores consiste en construir una matriz utilizando los vectores como columnas (o filas) y definir el rango de la matriz como el rango de uss vectores columna (o fila). 
+
+<l class = "prop">Proposición.</l> El rango de una matriz $A$ coincide con el número de vectores fila o columna LI.
+
+
+# Espacios vectoriales de dimensión finita
+
+## Espacios vectoriales
+
+<l class = "definition">Espacio vectorial.</l> Un espacio vectorial sobre un cuerpo $\mathbb{K}$ es un conjunto $E$ no vacío y cerrado con las siguientes operaciones definidas:
+
+- Ley de composición interna
+$$\forall\vec{x},\vec{y}\in E\Rightarrow \vec{x}+\vec{y}\in E$$
+- Ley de composición externa$$\forall\vec{x}\in E,\alpha\in\mathbb{K}\Rightarrow\alpha\vec{x}\in E$$
+
+que cumplen las siguientes condiciones
+
+## Espacios vectoriales
+
+<l class = "prop">Condiciones de la ley de composición interna.</l>
+
+- Propiedad conmutativa: $$\vec{x}+\vec{y} = \vec{y}+\vec{x}\quad \forall\vec{x},\vec{y}\in E$$
+- Propiedad asociativa: $$\vec{x}+(\vec{y}+\vec{z}) = (\vec{x}+\vec{y})+\vec{z}\quad \forall\vec{x},\vec{y},\vec{z}\in E$$
+- Elemento neutro de la suma: $\exists\vec{0}\in E:\ \vec{x}+\vec{0}= \vec{x}\quad \forall\vec{x}\in E$
+- Existencia del opuesto: $\forall\vec{x}\in E,\ \exists-\vec{x}\in E:\ \vec{x}+(-\vec{x}) = (-\vec{x})+\vec{x} = \vec{0}$
+
+## Espacios vectoriales
+
+<l class = "prop">Condiciones de la ley de composición externa.</l>
+
+- Propiedad asociativa: $$\alpha(\beta\vec{x}) = (\alpha\beta)\vec{x}\quad \forall\vec{x}\in E,\alpha,\beta\in\mathbb{K}$$
+- Elemento neutro del producto: $\exists1\in\mathbb{K}:\ 1\vec{x} = \vec{x}\quad \forall\vec{x}\in E$
+- Propiedad distributiva del producto respecto de la suma de vectores:$$\alpha(\vec{x}+\vec{y}) = \alpha\vec{x}+\alpha\vec{y}\quad \forall\vec{x},\vec{y}\in E,\alpha\in\mathbb{K}$$
+- Propiedad distributiva del producto respecto de la suma de escalares:$$(\alpha+\beta)\vec{x} = \alpha\vec{x}+\beta\vec{x}\quad \forall\vec{x}\in E,\alpha,\beta\in\mathbb{K}$$
+
+
+## Espacios vectoriales{.example}
+
+**Ejemplo 2**
+
+A continuación se muestran ejemplos de espacios vectoriales
+
+- $\mathbb{R}^n$ formado por los vectores de $n$ componentes $(x_1,x_2,\dots,x_n)$
+- El conjunto $P_n(\mathbb{K}) = \{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0:\ a_i\in\mathbb{K},\ \forall0\le i\le n\}$
+- El espacio $\mathcal{M}_2(\mathbb{K})$ de las matrices de orden 2 con coeficientes sobre $\mathbb{K}$
+- El conjunto de las funciones continuas definidas sobre un cuerpo $\mathbb{K}$
+
+## Espacios vectoriales
+
+<div class = "example">
+**Ejemplo 3**
+
+No son espacios vectoriales:
+
+- El conjunto de matrices $\mathcal{M}_{m\times n}(\mathbb{Z})$
+- El conjunto de polinomios de grado exactamente igual a 3 con coeficientes reales
+
+</div>
+
+<div class = "exercise">
+**Ejercicio 1**
+
+¿Por qué los conjuntos anteriores no son espacios vectoriales?
+
+</div>
+
+## Sistema generador
+
+<l class = "definition">Sistema generador.</l> Dado un conjunto de vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E$, se dice que forman un sistema generador del espacio vectorial $E$ si cualquier vector $\vec{u}\in E$ se puede expresar como una combinación lineal de ellos. Es decir
+
+$$\forall\vec{u}\in E,\ \exists\alpha_1,\alpha_2,\dots,\alpha_n\in\mathbb{K}:\ \vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i$$
+
+## Base de un espacio vectorial
+
+<l class = "definition">Base de $E$.</l> Un conjunto de vectores $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E$ son una base de $E$ si 
+
+- $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n$ es un sistema generador de $E$
+- $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n$ son linealmente independientes
+
+## Base de un espacio vectorial
+
+<l class = "prop">Teorema.</l> Si  $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E$ es una base del espacio vectorial $E$, entonces cualquier vector $\vec{u}\in E$ se puede expresar como una combinación lineal de $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n$ de manera única
+
+$$\forall\vec{u}\in E,\ \exists!\alpha_1,\alpha_2,\dots,\alpha_n\in\mathbb{K}:\ \vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i$$
+## Base de un espacio vectorial
+
+<l class = "prop">Corolario.</l> Todas las bases de un mismo espacio vectorial tienen el mismo número de vectores
+
+## Base de un espacio vectorial
+
+Un espacio vectorial tiene infinitas bases. En cada espacio vectorial, hay una que tiene características especiales. Esta no es otra que la <l class = "definition">base canónica</l>.
+
+<div class = "example">
+
+**Ejemplo 4. Base canónica**
+
+- En $\mathbb{R}^2$, la base canónica es $\{\vec{e}_1,\vec{e}_2\}$ donde $$\vec{e}_1 = (1,0)\qquad \vec{e}_2 = (0,1)$$
+- En $\mathbb{R}^3$, la base canónica es $\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$ donde $$\vec{e}_1 = (1,0,0)\qquad \vec{e}_2 = (0,1,0)\qquad \vec{e}_3= (0,0,1)$$
+- En $\mathbb{R}^n$, la base canónica es $\{\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n\}$ donde $\vec{e}_i = (0,\dots,0,1,0,\dots,0)\quad \forall i = 1,2,\dots,n$. Es decir, todas las componentes del vector son 0 a excepción de la $i-$ésima que vale 1.
+
+</div>
+
+## Dimensión y coordenadas de una base
+
+Como el número de elementos de una base de un espacio vectorial $E$ dado es único, tiene sentido definir la dimensión de $E$.
+
+<l class = "definition">Dimensión de $E$.</l> Número de vectores que conforman cualquiera de sus bases. Lo denotamos $\dim(E)$
+
+## Dimensión y coordenadas de una base
+
+<l class = "definition">Coordenadas de una base.</l> Dado un espacio vectorial $E$ con una base $B = \{\vec{u}_1,\dots,\vec{u}_n\}$ y un vector $\vec{u}\in E$, se sabe que existen unos únicos escalares $\alpha_1,\dots,\alpha_n\in\mathbb{K}$ tales que:
+
+$$\vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i$$
+
+Estos escalares se denominan coordenadas del vector $\vec{u}$ en la base $B$.
+
+$$\vec{u} = (\alpha_1,\dots,\alpha_n)_B$$
+
+## Dimensión y coordenadas de una base
+
+Cada vector tiene coordenadas únicas en cada base del espacio al que pertenece, pero como hay infinitas bases, tendrá infinitos conjuntos de coordenadas asociadas.
+
+## Dimensión y coordenadas de una base
+
+Si se nos facilitan las coordenadas de un vector sin especificar la base, se sobreentiende que se trata de la base canónica. 
+
+También reciben el nombre de <l class = "definition">coordenadas cartesianas</l> y son las que en temas anteriores hemos definido como las componentes de un vector.
+
+# Cambio de base
+
+## Cambio de base
+
+Sabemos que las coordenadas de un vector son únicas en cada base, pero distintas cuando cambian de base.
+
+Partiendo de este punto, el problema que se nos plantea es el de calcular las coordenadas de un vector en cierta base $B'$ dadas las coordenadas del mismo en otra base $B$.
+
+Se necesitará pues conocer la relación entre ambas bases.
+
+## Cambio de base
+
+Dadas las bases $B_u = \{\vec{u}_1,\dots,\vec{u}_n\}$ y $B_v = \{\vec{v}_1,\dots,\vec{v}_n\}$ de un espacio vectorial $E$, si queremos calcular las coordenadas de los vectores de $B_u$ en la base $B_v$, se han de expresar los vectores $\vec{u}_i$ como combinación lineal de los vectores de $\vec{v}_i$
+
+## Ejemplo 5{.example}
+
+**Ejemplo 5**
+
+Dado el vector $\vec{u}\in\mathbb{R}^3$ de coordenadas $(-2,3,5)_B$ en la base
+$$B = \{(2,4,0),(1,0,1),(-1,2,0)\}$$
+Calculemos sus coordenadas en la base canónica $C$.
+
+En primer lugar, tenemos que expresar los vectores de la base $B = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}$ en la base canónica $C = \{\vec{e}_1,\vec{e}_2,\vec{e}_3\}$:
+
+$$(2,4,0) = 2(1,0,0)+4(0,1,0)+0(0,0,1)$$
+$$(1,0,1) = 1(1,0,0)+0(0,1,0)+1(0,0,1)$$
+$$(-1,2,0) = -1(1,0,0)+2(0,1,0)+0(0,0,1)$$
+
+A continuación, lo que buscamos son 3 escalares $\alpha,\beta,\gamma\in\mathbb{R}$ tales que
+
+$$\vec{u} = (\alpha,\beta,\gamma)_C = \alpha\vec{e}_1+\beta\vec{e}_2+\gamma\vec{e}_3$$
+
+## Ejemplo 5{.example}
+
+Pero lo que nosotros sabemos es que,  
+
+$$\vec{u} = (-2,3,5)_B = -2\vec{u}_1+3\vec{u}_2+5\vec{u}_3$$
+$$ = -2(2\vec{e}_1+4\vec{e}_2)+3(\vec{e}_1+\vec{e}_3)+5(-\vec{e}_1+2\vec{e}_2) = (-4+3-5)\vec{e}_1 + (-8+10)\vec{e}_2+3\vec{e}_3 = -6\vec{e}_1+2\vec{e}_2+3\vec{e}_3$$
+
+Así pues, $\vec{u} = (-6,2,3)_C$
+
+## Cambio de base
+
+<div class = "exercise">
+**Ejercicio 2**
+
+Dadas las bases $B_u = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}$ y $B_v=\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}$ de un espacio vectorial de dimensión 3 y sabiéndose que 
+
+$$\left\{\begin{matrix}
+\vec{v}_1 &=& 2\vec{u}_1&-&\vec{u}_2&+&\vec{u}_3\\
+\vec{v}_2 &=& &-&\vec{u}_2&+&2\vec{u}_3\\
+\vec{v}_3 &=& -\vec{u}_1&+&\vec{u}_2&-&3\vec{u}_3
+\end{matrix}\right.$$
+
+Considerad el vector $\vec{u} = (2,0,-1)_{B_u}$ y calculad sus coordenadas en la base $B_v$
+</div>
+
+## Cambio de base
+
+Si se conocen las coordenadas de un vector en una base se pueden emplear las operaciones matriciales ya conocidas para pasar de una base a otra sin mayor complicación
+
+## Ejemplo 6{.example}
+
+**Ejemplo 6**
+
+Dadas las bases $B_u = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}$ y $B_v=\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}$ de un espacio vectorial de dimensión 3 y sabiéndose que 
+
+$$\left\{\begin{matrix}
+\vec{v}_1 &=& 2\vec{u}_1&-&\vec{u}_2&+&\vec{u}_3\\
+\vec{v}_2 &=& &-&\vec{u}_2&+&2\vec{u}_3\\
+\vec{v}_3 &=& -\vec{u}_1&+&\vec{u}_2&-&3\vec{u}_3
+\end{matrix}\right.$$
+
+Considerad el vector $\vec{u} = (2,0,-1)_{B_u}$ y calculad sus coordenadas en la base $B_v$ haciendo uso de matrices
+
+Expresando el anterior sistema en su forma matricial,
+
+$$\begin{pmatrix}2 & -1 & 1\\
+0 & -1 & 2\\
+-1 & 1 & -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix}= \begin{pmatrix}\vec{v}_1\\
+\vec{v}_2\\
+\vec{v}_3\end{pmatrix}$$
+
+o bien
+
+$$\begin{pmatrix}\vec{u}_1 & \vec{u}_2 & \vec{u}_3\end{pmatrix}\begin{pmatrix}2 & 0 & -1\\
+-1 & -1 & 1\\
+1 & 2 & -3\end{pmatrix}= \begin{pmatrix}\vec{v}_1 & 
+\vec{v}_2 & 
+\vec{v}_3\end{pmatrix}$$
+
+## Ejemplo 6{.example}
+
+En la primera forma, las filas de la matriz son las coordenadas de los vectores $\vec{v}_1,\vec{v}_2,\vec{v}_3$ mientras que en el segundo caso, las columnas son las coordenadas de dichos vectores en la base $B_u$
+
+Por otro lado, se puede expresar el vector $\vec{u}$ en ambas bases de la siguiente manera:
+
+$$\vec{u} = 2\vec{u}_1-\vec{u}_3 = \begin{pmatrix}\vec{u}_1 & \vec{u}_2 & \vec{u}_3\end{pmatrix}\begin{pmatrix}2\\
+0\\
+-1\end{pmatrix} = \begin{pmatrix}2 & 0 & -1\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix}$$
+
+$$\vec{u} = \alpha\vec{v}_1+\beta\vec{v}_2+\gamma\vec{v}_3 = \begin{pmatrix}\vec{v}_1 & \vec{v}_2 & \vec{v}_3\end{pmatrix}\begin{pmatrix}\alpha\\
+\beta\\
+\gamma\end{pmatrix} = \begin{pmatrix}\alpha &\beta & \gamma\end{pmatrix}\begin{pmatrix}\vec{v}_1\\
+\vec{v}_2\\
+\vec{v}_3\end{pmatrix}$$
+
+Con lo cual, tenemos la siguiente igualdad
+
+$$\begin{pmatrix}2 & 0 & -1\end{pmatrix}_{B_u}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix} = \begin{pmatrix}\alpha &\beta & \gamma\end{pmatrix}_{B_v}\begin{pmatrix}\vec{v}_1\\
+\vec{v}_2\\
+\vec{v}_3\end{pmatrix}$$
+
+## Ejemplo 6{.example}
+
+Si ahora sustituimos en la igualdad anterior  $$\begin{pmatrix}\vec{v}_1\\
+\vec{v}_2\\
+\vec{v}_3\end{pmatrix} = \begin{pmatrix}2 & -1 & 1\\
+0 & -1 & 2\\
+-1 & 1 & -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix}$$
+
+Lo que tenemos es
+
+$$\begin{pmatrix}2 & 0 & -1\end{pmatrix}_{B_u}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix} = \begin{pmatrix}\alpha &\beta & \gamma\end{pmatrix}_{B_v}\begin{pmatrix}2 & -1 & 1\\
+0 & -1 & 2\\
+-1 & 1 & -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix}$$ $$= \begin{pmatrix}2\alpha-\gamma &-\alpha-\beta +\gamma& \alpha+2\beta-3\gamma\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
+\vec{u}_2\\
+\vec{u}_3\end{pmatrix}$$
+
+Ahora ya solo falta resolver el sistema
+
+$$\left\{\begin{matrix}2\alpha &&&-&\gamma &=& 2\\
+-\alpha & -&\beta&+&\gamma &=&0\\
+\alpha&+&2\beta&-&3\gamma &=&-1\end{matrix}\right.$$
+
+## Ejemplo 6{.example}
+
+Cuya única solución es $(1,-1,0)$
+
+Así pues, 
+
+$$\begin{pmatrix}2 & 0 & -1\\
+-1 & -1 & 1\\
+1 & 2 & -3\end{pmatrix}\begin{pmatrix}
+1\\
+-1\\
+0\end{pmatrix}_{B_v} = \begin{pmatrix}
+2\\
+0\\
+-1
+\end{pmatrix}_{B_u}$$
+
+## Matriz de cambio de base
+
+En general, dado un vector $\vec{x}$ de coordenadas $X_v$ en la base $B_v$ y las coordenadas $X_u$ en la base $B_u$, entonces se puede escribir
+
+$$\vec{x} = B_vX_v = B_uX_u$$
+
+Si la relación entre las bases dadas por $B_uP = B_v$ se sustituyen en la expresión del vector $\vec{x}$, entonces
+
+$$\vec{x} = (B_uP)X_v = B_uX_u$$
+
+Con lo cual,
+
+$$X_u = PX_v$$
+
+donde la matriz $P$ anterior se denomina matriz de cambio de base.
+
+## Matriz de cambio de base
+
+<l class = "definition">Matriz de cambio de base.</l> Dado un espacio vectorial de dimensión $n$ y dos bases diferentes $B_u$ y $B_v$. Se denomina matriz de cambio de base de $B_v$ a $B_u$ a la matriz $P$ las columnas de la cual son las coordenadas de la base $B_v$ en la base $B_u.$
+
+
+
+# Subespacios vectoriales
+
+## Subespacio vectorial
+
+
+<l class = "definition">Subespacio vectorial.</l> Sea $F\subseteq E$ un subconjunto no vacío del espacio vectorial $E$ sobre un cuerpo $\mathbb{K}$. Dícese que $F$ es un subespacio vectorial $E$ si, y solo si, se verifica
+
+- La suma de dos elementos de $F$ es otro elemento de $F$: $$\forall\vec{x},\vec{y}\in F\Rightarrow\vec{x}+\vec{y}\in F$$
+- El producto de un escalar por un elemento $F$ es otro elemento de $F$: $$\forall\vec{x}\in F,\ \alpha\in\mathbb{K}\Rightarrow\alpha\vec{x}\in F$$
+
+## Subespacio vectorial
+
+<l class = "definition">Subespacios triviales.</l> Si $E$ es un $\mathbb{K}-$espacio vectorial, se verifica siempre que $E$ y $\{0\}$ son subespacios vectoriales de $E$. Estos se denominan subespacios vectoriales triviales de $E$ o impropios.
+
+## Subespacio vectorial
+
+<l class = "prop">Corolario.</l> Si $S$ es un subespacio vectorial de $E$, entonces $\vec{0}\in S$
+
+La utilidad de este corolario es que si se comprueba que $\vec{0}\not\in S$, entonces este conjunto no puede ser nunca un espacio vectorial.
+
+## Subespacio vectorial
+
+<l class = "prop">Ecuaciones de un subespacio vectorial.</l> Un subespacio vectorial $F$ de $E$ queda identificado si:
+
+- Se conoce una base de $F$
+- Se conoce un sistema generador de $F$
+- A partir de sus ecuaciones paramétricas
+- A partir de las ecuaciones cartesianas o implícitas
+
+## Subespacio vectorial
+
+<div class = "dem">
+**Obtener una base de un subespacio vectorial** 
+
+
+</div>
+
+
+# Bases ortogonales y ortonormales

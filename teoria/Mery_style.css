@@ -30,8 +30,7 @@
   border-radius: 10px 10px 10px 10px;
   -moz-border-radius: 10px 10px 10px 10px;
   -webkit-border-radius: 10px 10px 10px 10px;
-  border: 2px solid blue;
-  opacity: 0.5;
+  border: 2px solid gray;
 }
 
 .dem {
