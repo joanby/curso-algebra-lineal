@@ -426,8 +426,97 @@ La utilidad de este corolario es que si se comprueba que $\vec{0}\not\in S$, ent
 <div class = "dem">
 **Obtener una base de un subespacio vectorial** 
 
+- Se parte de las ecuaciones paramétricas del subespacio
+- Se expresa el vector genérico como combinación lineal de vectores
+    
+    - En primer lugar se consiguen tantos sumandos como parámetros tenga el subespacio y se separan en vectores diferentes
+    - Se extrae un escalar de cada uno de los vectores y se deja expresado como combinación lineal
+- Los vectores que aparecen en la combinación lineal son un sistema generador del subespacio
+- Se extrae del conjunto de vectores un subconjunto linealmente independiente con tantos vectores como indique el rango.
+
+Se obtiene así una base del subespacio.
+
 
 </div>
 
 
 # Bases ortogonales y ortonormales
+
+## Bases ortogonales y ortonormales
+
+<l class = "definition">Base ortogonal.</l> Dada una base $B = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}$ de un espacio vectorial $E$, se dice que se trata de una base ortogonal si sus elementos son ortogonales dos a dos:
+
+$$\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j$$
+
+## Bases ortogonales y ortonormales
+
+<l class = "definition">Base ortonormal.</l> Dada una base $B = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}$ de un espacio vectorial $E$, se dice que se trata de una base ortonormal si es ortogonal y todos sus elementos son unitarios:
+
+$$\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j$$
+$$||\vec{u}_i|| = 1\quad\forall i$$
+
+## Método de diagonalización Gram-Schmidt
+
+<l class = "definition">Método de diagonalización Gram-Schmidt.</l> Permite construir una base ortogonal a partir de una base cualquiera del espacio vectorial.
+
+## Método de diagonalización Gram-Schmidt
+
+<div class = "dem">
+**Método de diagonalización Gram-Schmidt**
+
+Sea $B= \{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_n\}$ una base cualquiera de un espacio vectorial $E$ de $\dim(E) = n$.
+
+A partir de los vectores de la base $B$, se construirá una nueva base $B_o = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}$ que será ortogonal y del mismo espacio.
+
+1. Se toma $\vec{u}_1 =\vec{v}_1$ como primer vetor de la base nueva.
+2. El segundo vector será una combinación lineal de $\vec{v}_1$ y $\vec{v}_2$ de la forma $\vec{u}_2 = \vec{v}_2-\alpha\vec{u}_1$, al cual se le impondrá la condición de que debe ser perpendicular a $\vec{u}_1$. Es decir, $\vec{u}_1\perp\vec{u}_2$. De este modo obtendremos $$\alpha = \frac{\langle\vec{u}_1,\vec{v}_2\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\Rightarrow \vec{u}_2 = \vec{v}_2-\frac{\langle\vec{u}_1,\vec{v}_2\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\vec{v_1}$$
+3. Para calcular el tercer vector, se procede del mismo modo: el tercer vector será una combinación lineal de $\vec{v}_1,\vec{v}_2,\vec{v}_3$ de la forma $\vec{u}_3= \vec{v}_3-\alpha_1\vec{u_1}-\alpha_2\vec{u}_2$ a la cual se impondrán las condiciones $\vec{u}_1\perp\vec{u}_3$ y $\vec{u}_2\perp\vec{u}_3$. Operando se obtniene:$$\alpha_1 = \frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle};\quad\alpha_2 = \frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}$$ $$\vec{u}_3 = \vec{v}_3-\frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\vec{u}_1-\frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}\vec{u}_2$$
+</div>
+
+## Método de diagonalización Gram-Schmidt
+
+<div class = "dem">
+<ol start = 4>
+<li> Y operamos de forma análoga hasta llegar a $$\vec{u}_n = \vec{v}_n-\sum_{i=1}^n\frac{\langle\vec{u}_i,\vec{v}_n\rangle}{\langle\vec{u}_i,\vec{u}_i\rangle}\vec{u}_i$$
+<li> Finalmente, si lo que se quiere es una base ortonormal, bastará con dividir cada vector por su norma para así normalizar todos los elementos de la base
+</ol>
+</div>
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "definition">Vector ortogonal a un subespacio.</l> Un vector $\vec{u}\in E$ es ortogonal a un subespacio vectorial $S\subseteq E$ si, y solo si, $$\langle\vec{u},\vec{x}\rangle = 0\quad\forall\vec{x}\in S$$
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "prop">Teorema.</l> Un vector $\vec{u}\in E$ es ortogonal a un subespacio vectorial $S\subseteq E$ si, y solo si, es ortogonal a todos los vectores de una base de $S$.
+
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "prop">Teorema.</l> Dos subespacio $V$ y $W$ de $E$ son ortogonales si:
+
+$$\forall\vec{x}\in V,\ \forall\vec{y}\in W\Rightarrow \langle\vec{x},\vec{y}\rangle$$
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "prop">Teorema.</l> Para que dos subespacios $V$ y $W$ sean ortogonales, es suficiente con que los vectores de una base de $V$ sean ortogonales a los vectores de una base de $W$
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+Recordemos...
+
+<l class = "definition">Proyección ortogonal.</l> La proyección ortogonal de un vector $\vec{u}$ sobre otro $\vec{v}$, se expresa como
+
+$$P_{\vec{u}}(\vec{v}) = \frac{\langle\vec{u},\vec{v}\rangle}{\langle\vec{v},\vec{v}\rangle}\vec{v} = \frac{\langle\vec{u},\vec{v}\rangle}{||\vec{v}||^2}\vec{v} = $$
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Dado $S$ un subespacio vectorial de un espacio vectorial $E$, todo vector $\vec{u}\in E$ se descompone de manera única en:
+
+$$\vec{u} = \vec{u}_S+\vec{u}_0$$
+
+Con $\vec{u}_S\in S$ y $\vec{u}_0\in S^{\perp}$. En particular, el vector $\vec{u}_S\in S$ se denomina <l class = "definition">vector proyección ortogonal</l> de $\vec{u}$ sobre $S$.
+
+## Proyección ortogonal de un vector sobre un subespacio
+
+<l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Si se toma en $S$ una base ortogonal $\{\vec{s}_1,\vec{s}_2,\dots,\vec{s}_r\}$, la proyección de $\vec{u}$ sobre $S$ viene dada por $$P_{\vec{u}}(\vec{v}) = \vec{u}_S = \sum_{i = 1}^r\frac{\langle\vec{u},\vec{s}_i\rangle}{||\vec{s}_i||^2}\vec{s}_i$$

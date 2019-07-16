@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 6 - Espacios vectoriales</title>
+  <title>Tema 9 - Espacio Dual</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 6 - Espacios vectoriales',
+                title: 'Tema 9 - Espacio Dual',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -114,520 +114,567 @@
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Conjuntos libres y ligados</h2></hgroup><article  id="conjuntos-libres-y-ligados">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades">
 
-</article></slide><slide class=""><hgroup><h2>Combinaciones lineales</h2></hgroup><article  id="combinaciones-lineales">
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-1">
 
-<p>Recordemos la definición de Combinación Lineal (CL)</p>
+<p>Para empezar este tema, recordaremos rápidamente el concepto de espacio vectorial</p>
 
-<p><l class = "definition">Combinación lineal.</l> Dados \(p\) vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\) y los escalares \(\alpha_1,\alpha_2,\dots,\alpha_p\in\mathbb{K}\), una combinación lineal de esos \(p\) vectores es un vector dado por una expresión de la forma</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-2">
 
-<p>\[\alpha_1\vec{u}_1+\alpha_2\vec{u}_2+\cdots+\alpha_p\vec{u}_p\in\mathbb{K}^n\]</p>
+<p><l class = "definition">Espacio vectorial.</l> Un espacio vectorial sobre un cuerpo \(\mathbb{K}\) es un conjunto no vacío \(E\) sobre el que están definidas dos operaciones:</p>
 
-</article></slide><slide class=""><hgroup><h2>Combinaciones lineales</h2></hgroup><article  id="combinaciones-lineales-1" class="example">
+<ul>
+<li><p>Una ley interna que llamaremos <l class = "definition">suma</l>: \[\begin{matrix}+: &amp; E\times E  &amp; \longrightarrow &amp; E\\ &amp; (u,v) &amp; \mapsto &amp; u+v\end{matrix}\] que verifica las siguientes propiedades:</p>
 
+<ul>
+<li>Conmutativa: \(u+v = v+u\quad \forall u,v\in E\)</li>
+<li>Asociativa: \(u+(v+w) = (u+v)+w\quad \forall u,v,w\in E\)</li>
+<li>Elemento neutro: \(\exists 0\in E:\ u+0 = 0+u = u\quad\forall u\in E\)</li>
+<li>Elemento opuesto: \(\forall u\in E,\ \exists -u\in E:\ u+(-u) = (-u)+u = 0\)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-3">
+
+<ul>
+<li><p>Una ley externa que llamaremos <l class = "definition">producto por escalar</l> \[\begin{matrix}\cdot: &amp; \mathbb{K}\times E  &amp; \longrightarrow &amp; E\\ &amp; (\lambda,u) &amp; \mapsto &amp; \lambda\cdot u\end{matrix}\] que verifica las siguientes propiedades:</p>
+
+<ul>
+<li>\(1\cdot u = u\quad \forall u\in E\)</li>
+<li>Asociatividad mixta: \(\alpha(\beta u) = (\alpha\beta)u\quad \forall \alpha,\beta\in\mathbb{K},\ \forall u\in E\)</li>
+<li>Distributiva repecto de la suma de \(\mathbb{K}\): \((\alpha+\beta)u = \alpha u +\beta u\quad \forall \alpha,\beta\in\mathbb{K},\ \forall u\in E\)</li>
+<li>Distributiva respecto de la suma de \(E\): \(\alpha(u+v) = \alpha u+\alpha v\quad \forall \alpha,\in\mathbb{K},\ \forall u,v\in E\)</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-4">
+
+<p>Recordemos también que:</p>
+
+<p><l class = "definition">Vectores.</l> Son los elementos del espacio vectorial \(E\)</p>
+
+<p><l class = "definition">Escalares.</l> Son los elementos de \(\mathbb{K}\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-5">
+
+<p><l class = "observ">Observación.</l> Démonos cuenta que no utilizamos símbolos distintos para las dos adiciones (de \(E\) y de \(\mathbb{K}\)), ni tampoco para las multiplicaciones (interna de \(\mathbb{K}\) y externa sobre \(E\))</p>
+
+<p>Tampoco remarcaremos la diferencia entre los neutros: en la expresión \(0+u = u\), estamos refiriéndonos al vector 0 mientras que en \(0+\alpha = 0\), nos referimos al escalar \(0\).</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-6">
+
+<p><l class = "definition">Espacio dual.</l> Sea \(E\) un \(\mathbb{K}-\)espacio vectorial (\(\mathbb{K}-\)e.v.) Llamamos espacio dual de \(E\), al cual denotamos por \(E^*\) al \(\mathbb{K}-\)e.v. \[E^*= \{f:\ E\longrightarrow \mathbb{K}\text{ tal que } f\text{ es una aplicación lineal}\}\]</p>
+
+<p>Por lo tanto, los elemeentos de \(E^*\) son las formas lineales sobre \(E\), es decir, \(E^* = L(E,\mathbb{K})\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-7">
+
+<div class="example">
 <p><strong>Ejemplo 1</strong></p>
 
-<p>Expresar el vector \((2,-4)\) como combinación lineal de los vectores \((1,1)\) y \((-2,0)\)</p>
+<p>Si consideramos \(E = \mathbb{R}^2\), entonces \(E^* = \{f: \mathbb{R}^2\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}\)</p>
 
-<p>Necesitamos \(\alpha,\beta\in\mathbb{R}\) tales que</p>
+<p>Es decir, los elementos de \(E^*\) son las formas lineales de \(\mathbb{R}^2\), que son de la forma \(f(x,y) = ax+by\) con \(a,b\in\mathbb{R}\)</p></div>
 
-<p>\[(2,-4) = \alpha(1,1)+\beta(-2,0)\]</p>
-
-<p>Con lo cual, se trata de resolver el sistema \[\left\{\begin{matrix}
-\alpha &amp;-&amp;2\beta &amp;=&amp; 2\\
-&amp;&amp; \alpha&amp;=&amp; -4\end{matrix}\right.\]</p>
-
-<p>Así pues, ya tenemos que \(\alpha = -4\). Con lo cual, \[2\beta = \alpha-2 = -6\Rightarrow\beta = -3\]</p>
-
-<p>Entonces, la combinación lineal que buscábamos es</p>
-
-<p>\[(2,-4) = (-4)(1,1)+(-3)(-2,0)\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Dependencia lineal</h2></hgroup><article  id="dependencia-lineal">
-
-<p><l class = "definition">Dependencia lineal.</l> Dados los vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\), diremos que son linealmente dependientes (LD) si alguno de ellos se puede expresar como una combinación lineal del resto:</p>
-
-<p>\[\exists1\le i\le p:\ \sum_{k\ne i}\alpha_k\vec{u}_k = \vec{u}_i\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Dependencia lineal</h2></hgroup><article  id="dependencia-lineal-1">
-
-<p><l class = "definition">Dependencia lineal.</l> Dados los vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\), diremos que son linealmente dependientes (LD) si la ecuación vectorial</p>
-
-<p>\[\sum_{i = 1}^p\alpha_i\vec{u}_i = \vec{0}\]</p>
-
-<p>tiene infinitas soluciones y por tanto los escalares \(\alpha_i\in\mathbb{K}\) pueden tomar valores no nulos</p>
-
-</article></slide><slide class=""><hgroup><h2>Independencia lineal</h2></hgroup><article  id="independencia-lineal">
-
-<p><l class = "definition">Independencia lineal.</l> Dados los vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\), diremos que son linealmente independientes (LI) si no es posible expresarlos como una combinación lineal del resto.</p>
-
-<p>\[\not\exists1\le i\le p:\ \sum_{k\ne i }\alpha_k\vec{u}_k  = \vec{u}_i\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Independencia lineal</h2></hgroup><article  id="independencia-lineal-1">
-
-<p><l class = "definition">Independencia lineal.</l> Dados los vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\), diremos que son linealmente independientes (LI) si la ecuación vectorial</p>
-
-<p>\[\sum_{i = 1}^p\alpha_i\vec{u}_i = \vec{0}\]</p>
-
-<p>tiene como única solución la solución trivial. Es decir, \(\alpha_i = 0\ \forall i=1,2,\dots,p\)</p>
-
-</article></slide><slide class=""><hgroup><h2>Rango de un conjunto de vectores</h2></hgroup><article  id="rango-de-un-conjunto-de-vectores">
-
-<p><l class = "definition">Rango de un conjunto de vectores.</l> Dados \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_p\in\mathbb{K}^n\), se dice que tiene rango \(r\le p\) si existe como mínimo un subconjunto de \(r\) vectores LI entre ellos y no existe ninguno de \(r+1\) que sea LI.</p>
-
-<p>En otras palabras, es el número máximo de vectores LI que pueden extraerse del conjunto.</p>
-
-</article></slide><slide class=""><hgroup><h2>Rango de un conjunto de vectores</h2></hgroup><article  id="rango-de-un-conjunto-de-vectores-1">
-
-<p>Un método para calcular el rango de un conjunto de vectores consiste en construir una matriz utilizando los vectores como columnas (o filas) y definir el rango de la matriz como el rango de uss vectores columna (o fila).</p>
-
-<p><l class = "prop">Proposición.</l> El rango de una matriz \(A\) coincide con el número de vectores fila o columna LI.</p>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Espacios vectoriales de dimensión finita</h2></hgroup><article  id="espacios-vectoriales-de-dimension-finita">
-
-</article></slide><slide class=""><hgroup><h2>Espacios vectoriales</h2></hgroup><article  id="espacios-vectoriales">
-
-<p><l class = "definition">Espacio vectorial.</l> Un espacio vectorial sobre un cuerpo \(\mathbb{K}\) es un conjunto \(E\) no vacío y cerrado con las siguientes operaciones definidas:</p>
-
-<ul>
-<li>Ley de composición interna \[\forall\vec{x},\vec{y}\in E\Rightarrow \vec{x}+\vec{y}\in E\]</li>
-<li>Ley de composición externa\[\forall\vec{x}\in E,\alpha\in\mathbb{K}\Rightarrow\alpha\vec{x}\in E\]</li>
-</ul>
-
-<p>que cumplen las siguientes condiciones</p>
-
-</article></slide><slide class=""><hgroup><h2>Espacios vectoriales</h2></hgroup><article  id="espacios-vectoriales-1">
-
-<p><l class = "prop">Condiciones de la ley de composición interna.</l></p>
-
-<ul>
-<li>Propiedad conmutativa: \[\vec{x}+\vec{y} = \vec{y}+\vec{x}\quad \forall\vec{x},\vec{y}\in E\]</li>
-<li>Propiedad asociativa: \[\vec{x}+(\vec{y}+\vec{z}) = (\vec{x}+\vec{y})+\vec{z}\quad \forall\vec{x},\vec{y},\vec{z}\in E\]</li>
-<li>Elemento neutro de la suma: \(\exists\vec{0}\in E:\ \vec{x}+\vec{0}= \vec{x}\quad \forall\vec{x}\in E\)</li>
-<li>Existencia del opuesto: \(\forall\vec{x}\in E,\ \exists-\vec{x}\in E:\ \vec{x}+(-\vec{x}) = (-\vec{x})+\vec{x} = \vec{0}\)</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Espacios vectoriales</h2></hgroup><article  id="espacios-vectoriales-2">
-
-<p><l class = "prop">Condiciones de la ley de composición externa.</l></p>
-
-<ul>
-<li>Propiedad asociativa: \[\alpha(\beta\vec{x}) = (\alpha\beta)\vec{x}\quad \forall\vec{x}\in E,\alpha,\beta\in\mathbb{K}\]</li>
-<li>Elemento neutro del producto: \(\exists1\in\mathbb{K}:\ 1\vec{x} = \vec{x}\quad \forall\vec{x}\in E\)</li>
-<li>Propiedad distributiva del producto respecto de la suma de vectores:\[\alpha(\vec{x}+\vec{y}) = \alpha\vec{x}+\alpha\vec{y}\quad \forall\vec{x},\vec{y}\in E,\alpha\in\mathbb{K}\]</li>
-<li>Propiedad distributiva del producto respecto de la suma de escalares:\[(\alpha+\beta)\vec{x} = \alpha\vec{x}+\beta\vec{x}\quad \forall\vec{x}\in E,\alpha,\beta\in\mathbb{K}\]</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Espacios vectoriales</h2></hgroup><article  id="espacios-vectoriales-3" class="example">
-
+<div class="example">
 <p><strong>Ejemplo 2</strong></p>
 
-<p>A continuación se muestran ejemplos de espacios vectoriales</p>
+<p>Si consideramos \(E = \mathbb{R}^3\), entonces \(E^* = \{f: \mathbb{R}^3\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}\)</p>
 
-<ul>
-<li>\(\mathbb{R}^n\) formado por los vectores de \(n\) componentes \((x_1,x_2,\dots,x_n)\)</li>
-<li>El conjunto \(P_n(\mathbb{K}) = \{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0:\ a_i\in\mathbb{K},\ \forall0\le i\le n\}\)</li>
-<li>El espacio \(\mathcal{M}_2(\mathbb{K})\) de las matrices de orden 2 con coeficientes sobre \(\mathbb{K}\)</li>
-<li>El conjunto de las funciones continuas definidas sobre un cuerpo \(\mathbb{K}\)</li>
-</ul>
-
-</article></slide><slide class=""><hgroup><h2>Espacios vectoriales</h2></hgroup><article  id="espacios-vectoriales-4">
+<p>Es decir, los elementos de \(E^*\) son las formas lineales de \(\mathbb{R}^3\), que son de la forma \(f(x,y,z) = ax+by+cz\) con \(a,b,c\in\mathbb{R}\)</p></div>
 
 <div class="example">
 <p><strong>Ejemplo 3</strong></p>
 
-<p>No son espacios vectoriales:</p>
+<p>Si consideramos \(E = \mathbb{R}^n\), entonces \(E^* = \{f: \mathbb{R}^n\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}\)</p>
 
-<ul>
-<li>El conjunto de matrices \(\mathcal{M}_{m\times n}(\mathbb{Z})\)</li>
-<li>El conjunto de polinomios de grado exactamente igual a 3 con coeficientes reales</li>
-</ul></div>
+<p>Es decir, los elementos de \(E^*\) son las formas lineales de \(\mathbb{R}^n\), que son de la forma \(f(x_1,x_2,\dots,x_n) = a_1x_1+a_2x_2+\cdots+a_nx_n\) con \(a_1,\dots,a_n\in\mathbb{R}\)</p></div>
 
-<div class="exercise">
-<p><strong>Ejercicio 1</strong></p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-8">
 
-<p>¿Por qué los conjuntos anteriores no son espacios vectoriales?</p></div>
+<p><l class = "prop">Proposición.</l> Si \(\{e_1,\dots,e_n\}\) es una base de \(E\), podemos construir a partir de ella una base de \(E^*\), que llamaremos <l class = "definition">base dual</l> de \(\{e_1,\dots,e_n\}\) y representaremos por \(\{e_1^*,\dots,e_n^*\}\) de la siguiente forma:</p>
 
-</article></slide><slide class=""><hgroup><h2>Sistema generador</h2></hgroup><article  id="sistema-generador">
+<p>\[e_i^*(e_j) = \left\{\begin{matrix}1\qquad \text{si }i = j\\ 0\qquad \text{si }i\ne j\end{matrix}\right.\quad i=1,2,\dots,n\]</p>
 
-<p><l class = "definition">Sistema generador.</l> Dado un conjunto de vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E\), se dice que forman un sistema generador del espacio vectorial \(E\) si cualquier vector \(\vec{u}\in E\) se puede expresar como una combinación lineal de ellos. Es decir</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-9" class="dem">
 
-<p>\[\forall\vec{u}\in E,\ \exists\alpha_1,\alpha_2,\dots,\alpha_n\in\mathbb{K}:\ \vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i\]</p>
+<p><strong>Demostración</strong></p>
 
-</article></slide><slide class=""><hgroup><h2>Base de un espacio vectorial</h2></hgroup><article  id="base-de-un-espacio-vectorial">
+<p>Es fácil ver que \(\{e_1^*,\dots,e_n^*\}\) es una base de \(E^*\).</p>
 
-<p><l class = "definition">Base de \(E\).</l> Un conjunto de vectores \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E\) son una base de \(E\) si</p>
+<p>Veamos primero que son formas lineales LI. Para ello, consideremos</p>
 
-<ul>
-<li>\(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\) es un sistema generador de \(E\)</li>
-<li>\(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\) son linealmente independientes</li>
-</ul>
+<p>\[a_1e_1^*+\cdots+a_ne_n^* =0\] y veamos que solamente podrá ocurrir si \(a_i = 0\quad\forall i=1,\dots,n\).</p>
 
-</article></slide><slide class=""><hgroup><h2>Base de un espacio vectorial</h2></hgroup><article  id="base-de-un-espacio-vectorial-1">
+<p>Lo anterior quiere decir que \[(a_1e_1^*+\cdots+a_ne_n^*)(x) =0\quad \forall x\in E\]</p>
 
-<p><l class = "prop">Teorema.</l> Si \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\in E\) es una base del espacio vectorial \(E\), entonces cualquier vector \(\vec{u}\in E\) se puede expresar como una combinación lineal de \(\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\) de manera única</p>
+<p>En particular, si \(x = e_i,\ i = 1,\dots,n\) tenemos que</p>
 
-<p>\[\forall\vec{u}\in E,\ \exists!\alpha_1,\alpha_2,\dots,\alpha_n\in\mathbb{K}:\ \vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i\] ## Base de un espacio vectorial</p>
+<p>\[(a_1e_1^*+\cdots+a_ne_n^*)(e_i) = 0\quad \forall i=1,\dots,n\]</p>
 
-<p><l class = "prop">Corolario.</l> Todas las bases de un mismo espacio vectorial tienen el mismo número de vectores</p>
+<p>y, por tanto, \[a_1e_1^*(e_i)+\cdots+a_ne_n^*(e_i) = 0\quad \forall i=1,\dots,n\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Base de un espacio vectorial</h2></hgroup><article  id="base-de-un-espacio-vectorial-2">
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-10" class="dem">
 
-<p>Un espacio vectorial tiene infinitas bases. En cada espacio vectorial, hay una que tiene características especiales. Esta no es otra que la <l class = "definition">base canónica</l>.</p>
+<p>Tomando ahora la forma de los vectores \(e_i^*\), la igualdad anterior pasará a ser</p>
+
+<p>\[a_ie_i^*(e_i) = 0\]</p>
+
+<p>Pero \(e_i^*(e_i) = 1\), con lo cual</p>
+
+<p>\[a_ie_i^*(e_i) =a_i = 0\]</p>
+
+<p>O sea, \(a_i=0\) para todo \(i=1,\dots,n\). Con esto queda probado que los vectores \(e_1^*,\dots,e_n^*\) son LI.</p>
+
+<p>Para demostrar que el conjunto \(\{e_1^*,\dots,e_n^*\}\) genera el espacio vectorial \(E^*\), consideremos \(\omega\in E^*\) una forma lineal sobre \(E\) cualquiera y veamos que existen escalares \(a_1,\dots,a_n\) tales que \(\omega = a_1e_1^*+\cdots+a_ne_n^*\).</p>
+
+<p>En efecto, bastará con considerar \[a_i = \omega(e_i)\quad \forall i=1,\dots,n\]</p>
+
+<p>ya que en este caso, lo que tendremos será</p>
+
+<p>\[\omega(e_j) = (a_1e_1^*+\cdots+a_ne_n^*)(e_j) = a_j\quad \forall j = 1,\dots,n\]</p>
+
+<p>y por tanto, \(\omega = a_1e_1^*+\cdots+a_ne_n^*\), con lo cual \(\omega\) estará generado por los vectores \(\{e_1^*,\dots,e_n^*\}\).</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-11">
+
+<p><l class = "prop">Corolario.</l> Si \(E\) es un e.v. de dimensión finita, entonces su dimensión coincide con la dimensión del dual:</p>
+
+<p>\[\dim(E) = \dim(E^*)\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Ejemplo 4</h2></hgroup><article  id="ejemplo-4">
 
 <div class="example">
-<p><strong>Ejemplo 4. Base canónica</strong></p>
+<p><strong>Ejemplo 4</strong></p>
 
-<ul>
-<li>En \(\mathbb{R}^2\), la base canónica es \(\{\vec{e}_1,\vec{e}_2\}\) donde \[\vec{e}_1 = (1,0)\qquad \vec{e}_2 = (0,1)\]</li>
-<li>En \(\mathbb{R}^3\), la base canónica es \(\{\vec{e}_1,\vec{e}_2,\vec{e}_3\}\) donde \[\vec{e}_1 = (1,0,0)\qquad \vec{e}_2 = (0,1,0)\qquad \vec{e}_3= (0,0,1)\]</li>
-<li>En \(\mathbb{R}^n\), la base canónica es \(\{\vec{e}_1,\vec{e}_2,\dots,\vec{e}_n\}\) donde \(\vec{e}_i = (0,\dots,0,1,0,\dots,0)\quad \forall i = 1,2,\dots,n\). Es decir, todas las componentes del vector son 0 a excepción de la \(i-\)ésima que vale 1.</li>
-</ul></div>
+<p>Consideremos en \(\mathbb{R}^2\) la base \(B = \{(-1,1),(3,0)\}\). Encontremos su base dual \(B^* = \{\varphi_1,\varphi_2\}\)</p>
 
-</article></slide><slide class=""><hgroup><h2>Dimensión y coordenadas de una base</h2></hgroup><article  id="dimension-y-coordenadas-de-una-base">
+<p>Como que \(\varphi_1,\varphi_2\) son dos aplicaciones lineales de \(\mathbb{R}^2\) en \(\mathbb{R}\), entonces sus expresiones deben ser \[\varphi_1(x,y) = ax+by\] \[\varphi_2(x,y) = cx+dy\]</p>
 
-<p>Como el número de elementos de una base de un espacio vectorial \(E\) dado es único, tiene sentido definir la dimensión de \(E\).</p>
+<p>Utilizando ahora que \(B^* = \{\varphi_1,\varphi_2\}\) debe ser la base dual de \(B\), tenemos las siguientes ecuaciones que deben verificar las dos aplicaciones lineales:</p>
 
-<p><l class = "definition">Dimensión de \(E\).</l> Número de vectores que conforman cualquiera de sus bases. Lo denotamos \(\dim(E)\)</p>
+<p>\[\left\{\begin{matrix}
+\varphi_1(-1,1) &amp;=&amp; 1\\
+\varphi_1(3,0) &amp;=&amp;0
+\end{matrix}\right.\Rightarrow\left\{\begin{matrix}
+-a+b &amp;=&amp; 1\\
+3a &amp;=&amp; 0
+\end{matrix}\right.\qquad \left\{\begin{matrix}
+\varphi_2(-1,1) &amp;=&amp; 0\\
+\varphi_2(3,0) &amp;=&amp; 1\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
+-c+d &amp;=&amp; 0\\
+3c &amp;=&amp; 1
+\end{matrix}\right.\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Dimensión y coordenadas de una base</h2></hgroup><article  id="dimension-y-coordenadas-de-una-base-1">
+<p>En definitiva, resolviendo ambos sistemas acabamos obteniendo</p>
 
-<p><l class = "definition">Coordenadas de una base.</l> Dado un espacio vectorial \(E\) con una base \(B = \{\vec{u}_1,\dots,\vec{u}_n\}\) y un vector \(\vec{u}\in E\), se sabe que existen unos únicos escalares \(\alpha_1,\dots,\alpha_n\in\mathbb{K}\) tales que:</p>
+<p>\[a = 0;\qquad b=1;\qquad c=\frac{1}{3};\qquad d=\frac{1}{3}\]</p></div>
 
-<p>\[\vec{u} = \sum_{i = 1}^n\alpha_i\vec{u}_i\]</p>
+</article></slide><slide class=""><hgroup><h2>Ejemplo 4</h2></hgroup><article  id="ejemplo-4-1" class="example">
 
-<p>Estos escalares se denominan coordenadas del vector \(\vec{u}\) en la base \(B\).</p>
+<p>De este modo,</p>
 
-<p>\[\vec{u} = (\alpha_1,\dots,\alpha_n)_B\]</p>
+<p>\[\varphi_1(x,y) = y\] \[\varphi_2(x,y) = \frac{1}{3}(x+y)\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Dimensión y coordenadas de una base</h2></hgroup><article  id="dimension-y-coordenadas-de-una-base-2">
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-12">
 
-<p>Cada vector tiene coordenadas únicas en cada base del espacio al que pertenece, pero como hay infinitas bases, tendrá infinitos conjuntos de coordenadas asociadas.</p>
-
-</article></slide><slide class=""><hgroup><h2>Dimensión y coordenadas de una base</h2></hgroup><article  id="dimension-y-coordenadas-de-una-base-3">
-
-<p>Si se nos facilitan las coordenadas de un vector sin especificar la base, se sobreentiende que se trata de la base canónica.</p>
-
-<p>También reciben el nombre de <l class = "definition">coordenadas cartesianas</l> y son las que en temas anteriores hemos definido como las componentes de un vector.</p>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Cambio de base</h2></hgroup><article  id="cambio-de-base">
-
-</article></slide><slide class=""><hgroup><h2>Cambio de base</h2></hgroup><article  id="cambio-de-base-1">
-
-<p>Sabemos que las coordenadas de un vector son únicas en cada base, pero distintas cuando cambian de base.</p>
-
-<p>Partiendo de este punto, el problema que se nos plantea es el de calcular las coordenadas de un vector en cierta base \(B&#39;\) dadas las coordenadas del mismo en otra base \(B\).</p>
-
-<p>Se necesitará pues conocer la relación entre ambas bases.</p>
-
-</article></slide><slide class=""><hgroup><h2>Cambio de base</h2></hgroup><article  id="cambio-de-base-2">
-
-<p>Dadas las bases \(B_u = \{\vec{u}_1,\dots,\vec{u}_n\}\) y \(B_v = \{\vec{v}_1,\dots,\vec{v}_n\}\) de un espacio vectorial \(E\), si queremos calcular las coordenadas de los vectores de \(B_u\) en la base \(B_v\), se han de expresar los vectores \(\vec{u}_i\) como combinación lineal de los vectores de \(\vec{v}_i\)</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 5</h2></hgroup><article  id="ejemplo-5" class="example">
-
+<div class="example">
 <p><strong>Ejemplo 5</strong></p>
 
-<p>Dado el vector \(\vec{u}\in\mathbb{R}^3\) de coordenadas \((-2,3,5)_B\) en la base \[B = \{(2,4,0),(1,0,1),(-1,2,0)\}\] Calculemos sus coordenadas en la base canónica \(C\).</p>
+<p>Si consideramos el espacio vectorial \(\mathbb{R}^3\) con la base canónica \(B_C\), entonces su base dual es el conjunto \(\{e_1^*,e_2^*,e_3^*\}\) tales que \(e_i^*(x_1,x_2,x_3) = x_i\) para \(i = 1,2,3\)</p>
 
-<p>En primer lugar, tenemos que expresar los vectores de la base \(B = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}\) en la base canónica \(C = \{\vec{e}_1,\vec{e}_2,\vec{e}_3\}\):</p>
+<p>Efecitivamente, para que se trate de la base del dual, \((\mathbb{R}^3)^*\), debe verificar la condición de la proposición anterior. Es decir,</p>
 
-<p>\[(2,4,0) = 2(1,0,0)+4(0,1,0)+0(0,0,1)\] \[(1,0,1) = 1(1,0,0)+0(0,1,0)+1(0,0,1)\] \[(-1,2,0) = -1(1,0,0)+2(0,1,0)+0(0,0,1)\]</p>
+<p>\[e_1^*(e_1) = e_1^*(1,0,0) = 1\quad e_1^*(e_2) = e_1^*(0,1,0) = 0\quad e_1^*(e_3) = e_1^*(0,0,1) = 0\] \[e_2^*(e_1) = e_2^*(1,0,0) = 0\quad e_2^*(e_2) = e_2^*(0,1,0) = 1\quad e_2^*(e_3) = e_2^*(0,0,1) = 0\] \[e_3^*(e_1) = e_3^*(1,0,0) = 0\quad e_3^*(e_2) = e_3^*(0,1,0) = 0\quad e_3^*(e_3) = e_3^*(0,0,1) = 1\]</p></div>
 
-<p>A continuación, lo que buscamos son 3 escalares \(\alpha,\beta,\gamma\in\mathbb{R}\) tales que</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-13">
 
-<p>\[\vec{u} = (\alpha,\beta,\gamma)_C = \alpha\vec{e}_1+\beta\vec{e}_2+\gamma\vec{e}_3\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 5</h2></hgroup><article  id="ejemplo-5-1" class="example">
-
-<p>Pero lo que nosotros sabemos es que,</p>
-
-<p>\[\vec{u} = (-2,3,5)_B = -2\vec{u}_1+3\vec{u}_2+5\vec{u}_3\] \[ = -2(2\vec{e}_1+4\vec{e}_2)+3(\vec{e}_1+\vec{e}_3)+5(-\vec{e}_1+2\vec{e}_2) = (-4+3-5)\vec{e}_1 + (-8+10)\vec{e}_2+3\vec{e}_3 = -6\vec{e}_1+2\vec{e}_2+3\vec{e}_3\]</p>
-
-<p>Así pues, \(\vec{u} = (-6,2,3)_C\)</p>
-
-</article></slide><slide class=""><hgroup><h2>Cambio de base</h2></hgroup><article  id="cambio-de-base-3">
-
-<div class="exercise">
-<p><strong>Ejercicio 2</strong></p>
-
-<p>Dadas las bases \(B_u = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}\) y \(B_v=\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) de un espacio vectorial de dimensión 3 y sabiéndose que</p>
-
-<p>\[\left\{\begin{matrix}
-\vec{v}_1 &amp;=&amp; 2\vec{u}_1&amp;-&amp;\vec{u}_2&amp;+&amp;\vec{u}_3\\
-\vec{v}_2 &amp;=&amp; &amp;-&amp;\vec{u}_2&amp;+&amp;2\vec{u}_3\\
-\vec{v}_3 &amp;=&amp; -\vec{u}_1&amp;+&amp;\vec{u}_2&amp;-&amp;3\vec{u}_3
-\end{matrix}\right.\]</p>
-
-<p>Considerad el vector \(\vec{u} = (2,0,-1)_{B_u}\) y calculad sus coordenadas en la base \(B_v\)</p></div>
-
-</article></slide><slide class=""><hgroup><h2>Cambio de base</h2></hgroup><article  id="cambio-de-base-4">
-
-<p>Si se conocen las coordenadas de un vector en una base se pueden emplear las operaciones matriciales ya conocidas para pasar de una base a otra sin mayor complicación</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 6</h2></hgroup><article  id="ejemplo-6" class="example">
-
-<p><strong>Ejemplo 6</strong></p>
-
-<p>Dadas las bases \(B_u = \{\vec{u}_1,\vec{u}_2,\vec{u}_3\}\) y \(B_v=\{\vec{v}_1,\vec{v}_2,\vec{v}_3\}\) de un espacio vectorial de dimensión 3 y sabiéndose que</p>
-
-<p>\[\left\{\begin{matrix}
-\vec{v}_1 &amp;=&amp; 2\vec{u}_1&amp;-&amp;\vec{u}_2&amp;+&amp;\vec{u}_3\\
-\vec{v}_2 &amp;=&amp; &amp;-&amp;\vec{u}_2&amp;+&amp;2\vec{u}_3\\
-\vec{v}_3 &amp;=&amp; -\vec{u}_1&amp;+&amp;\vec{u}_2&amp;-&amp;3\vec{u}_3
-\end{matrix}\right.\]</p>
-
-<p>Considerad el vector \(\vec{u} = (2,0,-1)_{B_u}\) y calculad sus coordenadas en la base \(B_v\) haciendo uso de matrices</p>
-
-<p>Expresando el anterior sistema en su forma matricial,</p>
-
-<p>\[\begin{pmatrix}2 &amp; -1 &amp; 1\\
-0 &amp; -1 &amp; 2\\
--1 &amp; 1 &amp; -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix}= \begin{pmatrix}\vec{v}_1\\
-\vec{v}_2\\
-\vec{v}_3\end{pmatrix}\]</p>
-
-<p>o bien</p>
-
-<p>\[\begin{pmatrix}\vec{u}_1 &amp; \vec{u}_2 &amp; \vec{u}_3\end{pmatrix}\begin{pmatrix}2 &amp; 0 &amp; -1\\
--1 &amp; -1 &amp; 1\\
-1 &amp; 2 &amp; -3\end{pmatrix}= \begin{pmatrix}\vec{v}_1 &amp; 
-\vec{v}_2 &amp; 
-\vec{v}_3\end{pmatrix}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 6</h2></hgroup><article  id="ejemplo-6-1" class="example">
-
-<p>En la primera forma, las filas de la matriz son las coordenadas de los vectores \(\vec{v}_1,\vec{v}_2,\vec{v}_3\) mientras que en el segundo caso, las columnas son las coordenadas de dichos vectores en la base \(B_u\)</p>
-
-<p>Por otro lado, se puede expresar el vector \(\vec{u}\) en ambas bases de la siguiente manera:</p>
-
-<p>\[\vec{u} = 2\vec{u}_1-\vec{u}_3 = \begin{pmatrix}\vec{u}_1 &amp; \vec{u}_2 &amp; \vec{u}_3\end{pmatrix}\begin{pmatrix}2\\
-0\\
--1\end{pmatrix} = \begin{pmatrix}2 &amp; 0 &amp; -1\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix}\]</p>
-
-<p>\[\vec{u} = \alpha\vec{v}_1+\beta\vec{v}_2+\gamma\vec{v}_3 = \begin{pmatrix}\vec{v}_1 &amp; \vec{v}_2 &amp; \vec{v}_3\end{pmatrix}\begin{pmatrix}\alpha\\
-\beta\\
-\gamma\end{pmatrix} = \begin{pmatrix}\alpha &amp;\beta &amp; \gamma\end{pmatrix}\begin{pmatrix}\vec{v}_1\\
-\vec{v}_2\\
-\vec{v}_3\end{pmatrix}\]</p>
-
-<p>Con lo cual, tenemos la siguiente igualdad</p>
-
-<p>\[\begin{pmatrix}2 &amp; 0 &amp; -1\end{pmatrix}_{B_u}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix} = \begin{pmatrix}\alpha &amp;\beta &amp; \gamma\end{pmatrix}_{B_v}\begin{pmatrix}\vec{v}_1\\
-\vec{v}_2\\
-\vec{v}_3\end{pmatrix}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 6</h2></hgroup><article  id="ejemplo-6-2" class="example">
-
-<p>Si ahora sustituimos en la igualdad anterior \[\begin{pmatrix}\vec{v}_1\\
-\vec{v}_2\\
-\vec{v}_3\end{pmatrix} = \begin{pmatrix}2 &amp; -1 &amp; 1\\
-0 &amp; -1 &amp; 2\\
--1 &amp; 1 &amp; -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix}\]</p>
-
-<p>Lo que tenemos es</p>
-
-<p>\[\begin{pmatrix}2 &amp; 0 &amp; -1\end{pmatrix}_{B_u}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix} = \begin{pmatrix}\alpha &amp;\beta &amp; \gamma\end{pmatrix}_{B_v}\begin{pmatrix}2 &amp; -1 &amp; 1\\
-0 &amp; -1 &amp; 2\\
--1 &amp; 1 &amp; -3\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix}\] \[= \begin{pmatrix}2\alpha-\gamma &amp;-\alpha-\beta +\gamma&amp; \alpha+2\beta-3\gamma\end{pmatrix}\begin{pmatrix}\vec{u}_1\\
-\vec{u}_2\\
-\vec{u}_3\end{pmatrix}\]</p>
-
-<p>Ahora ya solo falta resolver el sistema</p>
-
-<p>\[\left\{\begin{matrix}2\alpha &amp;&amp;&amp;-&amp;\gamma &amp;=&amp; 2\\
--\alpha &amp; -&amp;\beta&amp;+&amp;\gamma &amp;=&amp;0\\
-\alpha&amp;+&amp;2\beta&amp;-&amp;3\gamma &amp;=&amp;-1\end{matrix}\right.\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 6</h2></hgroup><article  id="ejemplo-6-3" class="example">
-
-<p>Cuya única solución es \((1,-1,0)\)</p>
-
-<p>Así pues,</p>
-
-<p>\[\begin{pmatrix}2 &amp; 0 &amp; -1\\
--1 &amp; -1 &amp; 1\\
-1 &amp; 2 &amp; -3\end{pmatrix}\begin{pmatrix}
-1\\
--1\\
-0\end{pmatrix}_{B_v} = \begin{pmatrix}
-2\\
-0\\
--1
-\end{pmatrix}_{B_u}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Matriz de cambio de base</h2></hgroup><article  id="matriz-de-cambio-de-base">
-
-<p>En general, dado un vector \(\vec{x}\) de coordenadas \(X_v\) en la base \(B_v\) y las coordenadas \(X_u\) en la base \(B_u\), entonces se puede escribir</p>
-
-<p>\[\vec{x} = B_vX_v = B_uX_u\]</p>
-
-<p>Si la relación entre las bases dadas por \(B_uP = B_v\) se sustituyen en la expresión del vector \(\vec{x}\), entonces</p>
-
-<p>\[\vec{x} = (B_uP)X_v = B_uX_u\]</p>
-
-<p>Con lo cual,</p>
-
-<p>\[X_u = PX_v\]</p>
-
-<p>donde la matriz \(P\) anterior se denomina matriz de cambio de base.</p>
-
-</article></slide><slide class=""><hgroup><h2>Matriz de cambio de base</h2></hgroup><article  id="matriz-de-cambio-de-base-1">
-
-<p><l class = "definition">Matriz de cambio de base.</l> Dado un espacio vectorial de dimensión \(n\) y dos bases diferentes \(B_u\) y \(B_v\). Se denomina matriz de cambio de base de \(B_v\) a \(B_u\) a la matriz \(P\) las columnas de la cual son las coordenadas de la base \(B_v\) en la base \(B_u.\)</p>
-
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Subespacios vectoriales</h2></hgroup><article  id="subespacios-vectoriales">
-
-</article></slide><slide class=""><hgroup><h2>Subespacio vectorial</h2></hgroup><article  id="subespacio-vectorial">
-
-<p><l class = "definition">Subespacio vectorial.</l> Sea \(F\subseteq E\) un subconjunto no vacío del espacio vectorial \(E\) sobre un cuerpo \(\mathbb{K}\). Dícese que \(F\) es un subespacio vectorial \(E\) si, y solo si, se verifica</p>
+<p><l class = "observ">Observación.</l> Sea \(B = \{u_1,\dots,u_n\}\) una base del e.v. \(E\) de dimensión finita \(n\) y sea \(B^* = \{\varphi_1,\dots,\varphi_n\}\) su base dual.</p>
 
 <ul>
-<li>La suma de dos elementos de \(F\) es otro elemento de \(F\): \[\forall\vec{x},\vec{y}\in F\Rightarrow\vec{x}+\vec{y}\in F\]</li>
-<li>El producto de un escalar por un elemento \(F\) es otro elemento de \(F\): \[\forall\vec{x}\in F,\ \alpha\in\mathbb{K}\Rightarrow\alpha\vec{x}\in F\]</li>
+<li>Dado \(u\in E\), este vector lo podemos escribir como combinación lineal de los vectores de la base, \(u = \sum_{i = 1}^na_iu_i\) con \(a_i\in\mathbb{K}\). Entonces, para cada \(j\in\{1,\dots,n\}\) \[\varphi_j(u) = \varphi_j\left(\sum_{i = 1}^na_iu_i\right) = a_j\] Entonces, las coordenadas del vector \(u\) en la base \(B\) son sus imágenes para la base dual. Es decir \[(u)_B = (\varphi_1(u),\dots,\varphi_n(u))\]</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Subespacio vectorial</h2></hgroup><article  id="subespacio-vectorial-1">
-
-<p><l class = "definition">Subespacios triviales.</l> Si \(E\) es un \(\mathbb{K}-\)espacio vectorial, se verifica siempre que \(E\) y \(\{0\}\) son subespacios vectoriales de \(E\). Estos se denominan subespacios vectoriales triviales de \(E\) o impropios.</p>
-
-</article></slide><slide class=""><hgroup><h2>Subespacio vectorial</h2></hgroup><article  id="subespacio-vectorial-2">
-
-<p><l class = "prop">Corolario.</l> Si \(S\) es un subespacio vectorial de \(E\), entonces \(\vec{0}\in S\)</p>
-
-<p>La utilidad de este corolario es que si se comprueba que \(\vec{0}\not\in S\), entonces este conjunto no puede ser nunca un espacio vectorial.</p>
-
-</article></slide><slide class=""><hgroup><h2>Subespacio vectorial</h2></hgroup><article  id="subespacio-vectorial-3">
-
-<p><l class = "prop">Ecuaciones de un subespacio vectorial.</l> Un subespacio vectorial \(F\) de \(E\) queda identificado si:</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-14">
 
 <ul>
-<li>Se conoce una base de \(F\)</li>
-<li>Se conoce un sistema generador de \(F\)</li>
-<li>A partir de sus ecuaciones paramétricas</li>
-<li>A partir de las ecuaciones cartesianas o implícitas</li>
+<li>Dado ahora \(\varphi\in E^*\), podemos expresarlo como combinación lineal de los vectores de la base dual, \(\varphi = \sum_{i = 1}^nb_i\varphi_i\). Entonces, para cada \(j\in\{1,\dots,n\}\) se tiene \[\varphi(u_j) = \left(\sum_{i = 1}^nb_i\varphi_i\right)(u_j) = b_j\] Así pues, las coordenadas de \(\varphi\) en base \(B^*\) son iguales a las imágenes de la base \(B\) para \(\varphi\). Es decir \[(\varphi)_{B^*} = (\varphi(v_1),\dots,\varphi(v_n))\]</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Subespacio vectorial</h2></hgroup><article  id="subespacio-vectorial-4">
+</article></slide><slide class=""><hgroup><h2>Ejemplo 4</h2></hgroup><article  id="ejemplo-4-2" class="example">
 
-<div class="dem">
-<p><strong>Obtener una base de un subespacio vectorial</strong></p>
+<p>Recuperando el <code>Ejemplo 4</code>, dadas \(B = \{(-1,1),(3,0)\}\) base de \(\mathbb{R}^2\) y \(B^* = \{\varphi_1,\varphi_2\}\) su base dual.</p>
+
+<p>Recordemos que</p>
+
+<p>\[\varphi_1(x,y) = y\] \[\varphi_2(x,y) = \frac{1}{3}(x+y)\]</p>
+
+<p>Si queremos encontrar las coordenadas del vector \(u = (1,2)_{B_C}\) en la base \(B\), teniendo en cuenta el resultado anterior, resulta que</p>
+
+<p>\[(1,2)_{B_C} = (\varphi_1(1,2),\varphi_2(1,2)) = (2,1)_B\]</p>
+
+<p>Por otro lado, si consideramos la forma lineal \(\varphi\in(\mathbb{R}^2)^*\), dada por \(\varphi(x,y) = 2x+3y\) y queremos encontrar sus coordenadas en la base \(B^*\), siguiendo la observación anterior se tiene que</p>
+
+<p>\[(\varphi)_{B^*} = (\varphi(-1,1),\varphi(3,0)) = (1,1)_{B^*}\]</p>
+
+<p>Con lo cual, en la base \(B^*\), tenemos que \[\varphi(x,y) = x+y\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-15">
+
+<p><l class = "definition">Ortogonal de \(X\).</l> Sea \(E\) un \(\mathbb{K}-\)e.v. y \(E^*\) su dual. Si \(X\subset E\), \(X\ne 0\), definimos el ortogonal de \(X\) como</p>
+
+<p>\[X^{\perp} = \{\omega \in E^*:\ \omega(x) = 0\quad\forall x\in X\}\]</p>
+
+<p><l class = "observ">Observación.</l> Al espacio ortogonal de \(X\) se lo llama también espacio anulador de \(X\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-16">
+
+<p><l class = "prop">Proposición.</l> \(X^{\perp}\) es un subespacio vectorial de \(E^*\)</p>
+
+<p><l class = "observ">Observación.</l> Los casos particulares extremos de ortogonales son:</p>
 
 <ul>
-<li>Se parte de las ecuaciones paramétricas del subespacio</li>
-<li><p>Se expresa el vector genérico como combinación lineal de vectores</p>
-
-<ul>
-<li>En primer lugar se consiguen tantos sumandos como parámetros tenga el subespacio y se separan en vectores diferentes</li>
-<li>Se extrae un escalar de cada uno de los vectores y se deja expresado como combinación lineal</li>
-</ul></li>
-<li>Los vectores que aparecen en la combinación lineal son un sistema generador del subespacio</li>
-<li><p>Se extrae del conjunto de vectores un subconjunto linealmente independiente con tantos vectores como indique el rango.</p></li>
+<li>\(\{0\}^{\perp} = E^*\)</li>
+<li>\((E^*)^{\perp} = \{0\}\)</li>
 </ul>
 
-<p>Se obtiene así una base del subespacio.</p></div>
+<p><l class = "observ">Observación.</l> Si \(X\subset Y\), entonces \(Y^{\perp}\subset X^{\perp}\)</p>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Bases ortogonales y ortonormales</h2></hgroup><article  id="bases-ortogonales-y-ortonormales">
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-17">
 
-</article></slide><slide class=""><hgroup><h2>Bases ortogonales y ortonormales</h2></hgroup><article  id="bases-ortogonales-y-ortonormales-1">
+<p><l class = "prop">Proposición.</l> Si \(E\) es u n \(\mathbb{K}-\)e.v. es de dimensión finita, \(\dim(E) = n\), y si \(X\subset E\) es un subespacio vectorial de \(E\), entonces \[\dim(X^{\perp}) = n-\dim(X)\]</p>
 
-<p><l class = "definition">Base ortogonal.</l> Dada una base \(B = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}\) de un espacio vectorial \(E\), se dice que se trata de una base ortogonal si sus elementos son ortogonales dos a dos:</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-18" class="dem">
 
-<p>\[\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j\]</p>
+<p><strong>Demostración</strong></p>
 
-</article></slide><slide class=""><hgroup><h2>Bases ortogonales y ortonormales</h2></hgroup><article  id="bases-ortogonales-y-ortonormales-2">
+<p>Sea \(\{e_1,\dots,e_r\}\) una base de \(X\) y sea \(B = \{e_1,\dots,e_r,e_{r+1},\dots,e_n\}\) una ampliación a una base de \(E\).</p>
 
-<p><l class = "definition">Base ortonormal.</l> Dada una base \(B = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}\) de un espacio vectorial \(E\), se dice que se trata de una base ortonormal si es ortogonal y todos sus elementos son unitarios:</p>
+<p>Sea \(B^* = \{e_1^*,\dots,e_r^*,e_{r+1}^*,\dots,e_n^*\}\) la base dual de \(B\). Lo que vamos a ver es que \(\{e_{r+1}^*,\dots,e_n^*\}\) es una base de \(X^{\perp}\)</p>
 
-<p>\[\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j\] \[||\vec{u}_i|| = 1\quad\forall i\]</p>
+<p>La independencia lineal de estas \(n-r\) formas lineales, \(e_{r+1}^*,\dots,e_n^*\), es clara ya que son elementos de la base \(B^*\).</p>
 
-</article></slide><slide class=""><hgroup><h2>Método de diagonalización Gram-Schmidt</h2></hgroup><article  id="metodo-de-diagonalizacion-gram-schmidt">
+<p>Ahora, de lo que se trata es de ver que estas formas lineales generan \(X^{\perp}\). Para ello, consideremos \(\omega\in X^{\perp}\). Como que \(B^*\) es una base de \(E^*\) y como \(\omega\in X^{\perp}\subset E^*\) (ya que recordemos, por la proposición anterior, \(X^{\perp}\) es un sub-e.v. de \(E^*\)), entonces sabemos que existen \(a_1,\dots,a_n\in\mathbb{K}\) tales que</p>
 
-<p><l class = "definition">Método de diagonalización Gram-Schmidt.</l> Permite construir una base ortogonal a partir de una base cualquiera del espacio vectorial.</p>
+<p>\[\omega = \sum_{i=1}^na_ie_i^*\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Método de diagonalización Gram-Schmidt</h2></hgroup><article  id="metodo-de-diagonalizacion-gram-schmidt-1">
+<p>Ahora bien, como \(e_i\in X\), \(i = 1,\dots,r\), \(\omega\in X^{\perp}\) y los \(e_i^*\) son de la base dual, resulta que \(\omega(e_i) = a_i = 0\) para todo \(i = 1,\dots,r\). De aquí es de donde obtenemos</p>
 
-<div class="dem">
-<p><strong>Método de diagonalización Gram-Schmidt</strong></p>
+<p>\[\omega = a_{r+1}e_{r+1}^*+\cdots+a_ne_n^*\]</p>
 
-<p>Sea \(B= \{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_n\}\) una base cualquiera de un espacio vectorial \(E\) de \(\dim(E) = n\).</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-19" class="dem">
 
-<p>A partir de los vectores de la base \(B\), se construirá una nueva base \(B_o = \{\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n\}\) que será ortogonal y del mismo espacio.</p>
+<p>Así, lo que acabamos de demostrar es que \(\{e_{r+1}^*,\dots,e_n^*\}\) es una base de \(X^{\perp}\).</p>
+
+<p>Además, al ser esa una base de \(n-r\) vectores mientras que \(\{e_1,\dots,e_r\}\) era una base de \(r\) vectores, tenemos que, en efecto,</p>
+
+<p>\[\dim(X^{\perp}) = n-\dim(X)\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-20">
+
+<p><l class = "definition">\(W^{\perp}\).</l> Lo definimos del siguiente modo: \[W^{\perp} = \{x\in E:\ \omega(x) = 0\quad\forall\omega\in W\}\]</p>
+
+<p>Igual que antes, se puede probar que \(W^{\perp}\) es un subespacio vectorial de \(E\)</p>
+
+<p>De nuevo tenemos los casos extremos:</p>
+
+<ul>
+<li>\(\{0\}^{\perp} = E\)</li>
+<li>\(E^{\perp} = \{0\}\)</li>
+</ul>
+
+<p>Finalmente, si \(W\) es un sub-e.v. de \(E\) y \(\dim(E) = n\), entonces \[\dim(W^{\perp}) = n-\dim(W)\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-21">
+
+<p><l class = "prop">Proposición.</l> Si \(X\subset E\), entonces \(X\subset (X^{\perp})^{\perp}\).</p>
+
+<p>En caso de dimensión finita, \(\dim(E) = n\) y \(X\subset E\), se verifica \[X = (X^{\perp})^{\perp}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-22" class="dem">
+
+<p><strong>Demostración</strong></p>
+
+<p>Sea \(u\in X\), lo que queremos es ver que \(u\in (X^{\perp})^{\perp}\)</p>
+
+<p>Sabemos que \(X^{\perp} = \{\omega \in E^*:\ \omega(x) = 0\quad\forall x\in X\}\)</p>
+
+<p>Por lo tanto, por definición, \[(X^{\perp})^{\perp} = \{x\in E:\ \omega(x) = 0\quad\forall\omega\in X^{\perp}\}\]</p>
+
+<p>Como \(u\in X\), nosotros sabemos que \(\omega(u) = 0\), para todo \(\omega\in X^{\perp}\)</p>
+
+<p>Con lo cual, lo anterior implica que \(u\in (X^{\perp})^{\perp}\), ya que satisface la definición.</p>
+
+<p>Una vez vista la primera inclusión, demostraremos la segunda parte.</p>
+
+<p>Como que \(X\subset (X^{\perp})^{\perp}\) por lo visto anteriormente y, además</p>
+
+<p>\[\dim((X^{\perp})^{\perp}) = n-\dim(X^{\perp}) = n-(n-\dim(X)) = \dim(X)\]</p>
+
+<p>Entonces, ello nos lleva a concluir que \((X^{\perp})^{\perp} = X\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-23">
+
+<p><l class = "observ">Observación.</l> Si \(X = \langle u_1,\dots,u_r\rangle\), entonces \(X^{\perp} = \{\omega\in E^*:\ \omega(u_i)=0\quad\forall i = 1,\dots,r\}\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-24">
+
+<p>Veamos ahora como se comporta el ortogonal con la suma y la intersección de subespacios:</p>
+
+<p><l class = "prop">Proposición.</l> Sea \(E\) un e.v. y \(F,G\) subespacios vectoriales de \(E\). Entonces</p>
 
 <ol>
-<li>Se toma \(\vec{u}_1 =\vec{v}_1\) como primer vetor de la base nueva.</li>
-<li>El segundo vector será una combinación lineal de \(\vec{v}_1\) y \(\vec{v}_2\) de la forma \(\vec{u}_2 = \vec{v}_2-\alpha\vec{u}_1\), al cual se le impondrá la condición de que debe ser perpendicular a \(\vec{u}_1\). Es decir, \(\vec{u}_1\perp\vec{u}_2\). De este modo obtendremos \[\alpha = \frac{\langle\vec{u}_1,\vec{v}_2\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\Rightarrow \vec{u}_2 = \vec{v}_2-\frac{\langle\vec{u}_1,\vec{v}_2\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\vec{v_1}\]</li>
-<li>Para calcular el tercer vector, se procede del mismo modo: el tercer vector será una combinación lineal de \(\vec{v}_1,\vec{v}_2,\vec{v}_3\) de la forma \(\vec{u}_3= \vec{v}_3-\alpha_1\vec{u_1}-\alpha_2\vec{u}_2\) a la cual se impondrán las condiciones \(\vec{u}_1\perp\vec{u}_3\) y \(\vec{u}_2\perp\vec{u}_3\). Operando se obtniene:\[\alpha_1 = \frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle};\quad\alpha_2 = \frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}\] \[\vec{u}_3 = \vec{v}_3-\frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\vec{u}_1-\frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}\vec{u}_2\]</li>
-</ol></div>
-
-</article></slide><slide class=""><hgroup><h2>Método de diagonalización Gram-Schmidt</h2></hgroup><article  id="metodo-de-diagonalizacion-gram-schmidt-2">
-
-<div class = "dem">
-
-<ol start = 4>
-
-<li>
-
-Y operamos de forma análoga hasta llegar a \[\vec{u}_n = \vec{v}_n-\sum_{i=1}^n\frac{\langle\vec{u}_i,\vec{v}_n\rangle}{\langle\vec{u}_i,\vec{u}_i\rangle}\vec{u}_i\]
-
-<li>
-
-Finalmente, si lo que se quiere es una base ortonormal, bastará con dividir cada vector por su norma para así normalizar todos los elementos de la base
-
+<li>\((F+G)^{\perp} = F^{\perp}\cap G^{\perp}\)</li>
+<li>\((F\cap G)^{\perp} = F^{\perp}+ G^{\perp}\)</li>
 </ol>
 
-</div>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-25" class="dem">
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio">
+<p><strong>Demostración 1</strong></p>
 
-<p><l class = "definition">Vector ortogonal a un subespacio.</l> Un vector \(\vec{u}\in E\) es ortogonal a un subespacio vectorial \(S\subseteq E\) si, y solo si, \[\langle\vec{u},\vec{x}\rangle = 0\quad\forall\vec{x}\in S\]</p>
+<p>Sea \(\varphi\in E^*\). Se tiene que</p>
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-1">
+<p>\[\varphi\in(F+G)^{\perp}\Leftrightarrow \varphi(f+g) = 0\quad\forall f\in F,\ g\in G\]</p>
 
-<p><l class = "prop">Teorema.</l> Un vector \(\vec{u}\in E\) es ortogonal a un subespacio vectorial \(S\subseteq E\) si, y solo si, es ortogonal a todos los vectores de una base de \(S\).</p>
+<p>\[\Leftrightarrow \varphi(f) = 0\quad \forall f\in F\quad\text{ y }\quad \varphi(g) = 0\quad\forall g\in G\]</p>
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-2">
+<p>\[\Leftrightarrow \varphi\in F^{\perp}\cap G^{\perp}\]</p>
 
-<p><l class = "prop">Teorema.</l> Dos subespacio \(V\) y \(W\) de \(E\) son ortogonales si:</p>
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-26" class="dem">
 
-<p>\[\forall\vec{x}\in V,\ \forall\vec{y}\in W\Rightarrow \langle\vec{x},\vec{y}\rangle\]</p>
+<p><strong>Demostración 2</strong></p>
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-3">
+<p>Sea \(\varphi\in F^{\perp}+ G^{\perp}\). Entonces, \(\varphi = \varphi_F+\varphi_G\) con \(\varphi_F\in F\) y \(\varphi_G\in G\).</p>
 
-<p><l class = "prop">Teorema.</l> Para que dos subespacios \(V\) y \(W\) sean ortogonales, es suficiente con que los vectores de una base de \(V\) sean ortogonales a los vectores de una base de \(W\)</p>
+<p>Para cada \(x\in F\cap G\) se tiene que \(\varphi(x) = \varphi_F(x) + \varphi_G(x) = 0+0 = 0\). Entonces, \(\varphi\in(F\cap G)^{\perp}\), con lo cual ya tenemos una inclusión.</p>
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-4">
+<p>Observemos ahora que</p>
+
+<p>\[\dim(F^{\perp}+ G^{\perp}) = \dim(F^{\perp})+\dim(G^{\perp})-\dim(F^{\perp}\cap G^{\perp}) = \dim(F^{\perp})+\dim(G^{\perp})-\dim((F+G)^{\perp})\] \[= (n-\dim(F))+(n-\dim(G))-(n-\dim(F+G)) = n-(\dim(F)+\dim(G)-\dim(F+G))\] \[= n-\dim(F\cap G)= \dim((F\cap G)^{\perp})\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-27">
+
+<p><l class = "prop">Proposición.</l> Si \(E = F\oplus G\), entonces \[E^* = F^{\perp}\oplus G^{\perp}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Definiciones y propiedades</h2></hgroup><article  id="definiciones-y-propiedades-28" class="dem">
+
+<p>Si \(E = F\oplus G\), entonces \(E = F+G\) y además \(F\cap G = \{0\}\)</p>
+
+<p>Como que \[\{0\} = E^{\perp} = (F+G)^{\perp} = F^{\perp}\cap G^{\perp}\] y por otro lado \[E^* = \{0\}^{\perp} = (F\cap G)^{\perp} = F^{\perp}+G^{\perp}\]</p>
+
+<p>Entonces tenemos que \[E^* = F^{\perp}\oplus G^{\perp}\]</p>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad">
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-1">
+
+<p>Observemos que, fijada una aplicación lineal \(f: E\longrightarrow F\), cada elemento \(\omega\in F^*\) nos da un elemento \(\omega \circ f\in E^*\), siguiendo el siguiente diagrama</p>
+
+<p>\[\begin{matrix}
+E &amp; \xrightarrow{f} &amp; F\\
+ &amp; \searrow &amp; \downarrow \omega\\
+  &amp; \omega\circ f &amp; \mathbb{K}
+\end{matrix}\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-2">
+
+<p><l class = "definition">Aplicación dual.</l> Si \(f: E\longrightarrow F\) es lineal, entonces podemos definir una aplicación \(f^*: F^*\longrightarrow E^*\) de la siguiente forma:</p>
+
+<p>\[f^*(\omega) = \omega\circ f\]</p>
+
+<p>para todo \(\omega\in F^*\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-3">
+
+<p><l class = "prop">Proposición.</l> \(f^*\) es una aplicación lineal.</p>
+
+<div class="dem">
+<p><strong>Demostración</strong></p>
+
+<p>Veamos en primer lugar que \(f^*\) satisface \[f^*(\omega+\omega&#39;) = f^*(\omega)+f^*(\omega&#39;)\]</p>
+
+<p>Se trata de ver que \(\forall x\in E\)</p>
+
+<p>\[[f^*(\omega+\omega&#39;)](x) = [(\omega+\omega&#39;)\circ f](x) = (\omega+\omega&#39;)(f(x)) = \omega(f(x))+\omega&#39;(f(x)) \]</p>
+
+<p>\[=(\omega\circ f)(x)+(\omega&#39;\circ f)(x) = f^*(\omega)(x)+f^*(\omega&#39;)(x) = [f^*(\omega)+f^*(\omega&#39;)](x)\]</p>
+
+<p>Ahora, veamos que se cumple también \[f^*(\lambda\omega) = \lambda(f^*(\omega))\] De nuevo, se trata de ver que \(\forall x\in E\) \[[f^*(\lambda\omega)](x) = ((\lambda\omega)\circ f)(x) = (\lambda\omega)(f(x)) = \lambda[\omega(f(x))] = \lambda[(\omega\circ f)(x)] = \lambda[ f^*(\omega)(x)]\]</p>
+
+<p>que era lo que queríamos</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-4">
+
+<p><l class = "prop">Proposición.</l> La dual de una aplicación lineal verifica las siguientes propiedades</p>
+
+<ol>
+<li>\((\text{id}_E)^* = \text{id}_{E^*}\)</li>
+<li>\((g\circ f)^* = f^*\circ g^*\)</li>
+<li><p>Supongamos que \(E\) y \(F\) son de dimensiones finitas. Sea \(f: E\longrightarrow F\) lineal y \(f^*: F^*\longrightarrow E^*\) su aplicación dual. Se verifican las siguientes igualdades:</p>
+
+<ul>
+<li>\((\text{Im}(f))^{\perp} = \ker(f^*)\)</li>
+<li>\((\ker(f))^{\perp} = \text{Im}(f^*)\)</li>
+</ul></li>
+</ol>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-5" class="dem">
+
+<p><strong>Demostración 1</strong></p>
+
+<p>\[(\text{id}_E)^*(\omega) = \omega\circ \text{id}_E = \omega\quad \forall\omega\in E^*\]</p>
+
+<p>Esto prueba que \((\text{id}_E)^* = \text{id}_{E^*}\)</p>
+
+<p><strong>Demostración 2</strong></p>
+
+<p>\[(g\circ f)^*(\omega) = \omega\circ(g\circ f) = (\omega\circ g)\circ f = f^*(\omega\circ g) = f^*(g^*(\omega)) = (f^*\circ g^*)(\omega)\]</p>
+
+<p>Y como esto se cumple \(\forall\omega \in E^*\), tenemos automáticamente que \((g\circ f)^* = f^*\circ g^*\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-6" class="dem">
+
+<p><strong>Demostración 3</strong></p>
+
+<p>Para demostrar la primera igualdad, primero veremos que \((\text{Im}(f))^{\perp}\subseteq \ker(f^*)\)</p>
+
+<p>Para ello, sea \(\omega \in (\text{Im}(f))^{\perp}\), entonces tenemos que \(\omega(y) = 0\quad \forall y\in \text{Im}(f)\).</p>
+
+<p>Por tanto, tendremos que \[\omega(f(x)) = 0\quad\forall x\in E\] de donde concluimos que \(f^*(\omega) = 0\). En otras palabras, que \(\omega\in \ker(f^*)\)</p>
+
+<p>Para ver ahora la otra inclusión, \(\ker(f^*)\subseteq(\text{Im}(f))^{\perp}\), consideremos \(\omega\in \ker(f^*)\). Con esto, lo que tenemos es que</p>
+
+<p>\[f^*(\omega) = 0\Rightarrow \omega(f(x)) = 0\quad \forall x\in E\]</p>
+
+<p>o lo que es lo mismo, \[\omega(y) = 0\quad\forall y\in\text{Im}(f)\]</p>
+
+<p>Y esto no es otra cosa que la definición de que \(\omega \in (\text{Im}(f))^{\perp}\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-7" class="dem">
+
+<p>Ahora demostraremos la segunda igualdad con un razonamiento similar al anterior.</p>
+
+<p>Si \(\omega\in\text{Im}(f^*)\), entonces existe \(\omega&#39;\in F^*\) tal que \(f^*(\omega&#39;) = \omega\). Por lo tanto, tenemos que \[\omega = \omega&#39;\circ f\]</p>
+
+<p>donde \[\omega(x) = (\omega&#39;\circ f)(x) = \omega&#39;(f(x)) = \omega&#39;(0) = 0\quad\forall x\in\ker(f)\]</p>
+
+<p>De este modo, acabamos de probar la inclusión \((\text{Im}(f^*))\subseteq (\ker(f))^{\perp}\)</p>
+
+<p>Falta ver la otra inclusión, \((\ker(f))^{\perp} \subseteq \text{Im}(f^*)\). Esta vez lo haremos por dimensiones: veremos que \[\dim(\text{Im}(f^*)) = \dim((\ker(f))^{\perp})\]</p>
+
+<p>Nosotros sabemos que, por la fórmula de Grassmann, \(\dim(\ker(f^*))+\dim(\text{Im}(f^*)) = \dim(F^*)\), con lo cual</p>
+
+<p>\[\dim(\text{Im}(f^*)) = \dim(F^*)-\dim(\ker(f^*))\]</p>
+
+<p>Por la propiedad demostrada anteriormente, \(\ker(f^*) = (\text{Im}(f))^{\perp}\). Además, como \(F\) es de dimensión finita por hipótesis, se tiene \(\dim(F) = \dim(F^*)\). Sustituyendo esto en la igualdad anterior, se obtiene</p>
+
+<p>\[\dim(F^*)-\dim(\ker(f^*)) = \dim(F)-\dim((\text{Im}(f))^{\perp})\]</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-8" class="dem">
+
+<p>También vimos anteriormente que \(\dim((\text{Im}(f))^{\perp}) = \dim(F)-\dim(\text{Im}(f))\)</p>
+
+<p>Entonces, sustituyendo esto en lo obtenido, nos queda lo siguiente</p>
+
+<p>\[\dim(F)-\dim((\text{Im}(f))^{\perp}) = \dim(F)-(\dim(F)-\dim(\text{Im}(f))) = \dim(\text{Im}(f))\]</p>
+
+<p>Aplicando de nuevo la fórmula de Grassmann y la fórmula de obtención de la dimensión del ortogonal, esta vez obtenemos</p>
+
+<p>\[\dim(\text{Im}(f)) = \dim(E)-\dim(\ker(f)) = \dim((\ker(f))^{\perp})\]</p>
+
+<p>tal y como queríamos demostrar.</p>
+
+<p>Por lo tanto, con la inclusión demostrada y visto que las dimensiónes de ambos conjuntos son iguales, tenemos la igualdad.</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-9">
+
+<p><l class = "prop">Proposición.</l> \(\text{rg}(f) = \text{rg}(f^*)\)</p>
+
+<div class="dem">
+<p><strong>Demostración</strong></p>
+
+<p>\[\text{rg}(f^*) = \dim(\text{Im}(f^*)) = \dim((\ker(f))^{\perp}) = \dim(E)-\dim(\ker(f)) = \dim(\text{Im}(f)) = \text{rg}(f)\]</p>
+
+<p>Lo que hemos hecho ha sido aplicar que \(\text{rg}(f) = \dim(\text{Im}(f))\), la propiedad 3(b) anterior y la fórmula de Grassman</p></div>
+
+<div class="exercise">
+<p><strong>Ejercicio 1.</strong> Probad a realizar esta misma demostración haciendo uso de la propiedad 3(a) anterior</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-10">
 
 <p>Recordemos&#8230;</p>
 
-<p><l class = "definition">Proyección ortogonal.</l> La proyección ortogonal de un vector \(\vec{u}\) sobre otro \(\vec{v}\), se expresa como</p>
+<p><l class = "definition">Matriz transpuesta.</l> Si \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\), llamamos transpuesta de \(A\), \(A^t\), a la matriz que tiene por filas las columnas de \(A\): \(A^t = (b_{ij})\) donde \(b_{ij} = a_{ji}\) \(i = 1,\dots,n\) y \(j = 1,\dots,m\)</p>
 
-<p>\[P_{\vec{u}}(\vec{v}) = \frac{\langle\vec{u},\vec{v}\rangle}{\langle\vec{v},\vec{v}\rangle}\vec{v} = \frac{\langle\vec{u},\vec{v}\rangle}{||\vec{v}||^2}\vec{v} = \]</p>
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-11">
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-5">
+<p><l class = "prop">Proposición.</l></p>
 
-<p><l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Dado \(S\) un subespacio vectorial de un espacio vectorial \(E\), todo vector \(\vec{u}\in E\) se descompone de manera única en:</p>
+<ol>
+<li>La aplicación transpuesta es biyectiva</li>
+<li>Es <l class = "definition">involutiva</l>: \((A^t)^t = A\)</li>
+<li>\((A+B)^t = A^t+B^t\)</li>
+<li>\((\lambda A)^t = \lambda A^t\)</li>
+</ol>
 
-<p>\[\vec{u} = \vec{u}_S+\vec{u}_0\]</p>
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-12">
 
-<p>Con \(\vec{u}_S\in S\) y \(\vec{u}_0\in S^{\perp}\). En particular, el vector \(\vec{u}_S\in S\) se denomina <l class = "definition">vector proyección ortogonal</l> de \(\vec{u}\) sobre \(S\).</p>
+<p><l class = "definition">Matriz ortogonal.</l> Una matriz \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\), diremos que es ortogonal si verifica \(A^t = A^{-1}\)</p>
 
-</article></slide><slide class=""><hgroup><h2>Proyección ortogonal de un vector sobre un subespacio</h2></hgroup><article  id="proyeccion-ortogonal-de-un-vector-sobre-un-subespacio-6">
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-13">
 
-<p><l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Si se toma en \(S\) una base ortogonal \(\{\vec{s}_1,\vec{s}_2,\dots,\vec{s}_r\}\), la proyección de \(\vec{u}\) sobre \(S\) viene dada por \[P_{\vec{u}}(\vec{v}) = \vec{u}_S = \sum_{i = 1}^r\frac{\langle\vec{u},\vec{s}_i\rangle}{||\vec{s}_i||^2}\vec{s}_i\]</p></article></slide>
+<p><l class = "prop">Proposición.</l> El conjunto de las matrices ortogonales \(\mathcal{MO}_n(\mathbb{K})\), junto con la operación de multiplicación es un grupo, al que llamamos grupo ortogonal.</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-14">
+
+<p>Sea \(f:E\longrightarrow F\) una aplicación lineal y \(A\) su matriz de orden \(m\times n\) sobre \(\mathbb{K}\) respecto de unas bases \(B_E = \{e_1,\dots, e_n\}\) y \(B_F = \{v_1,\dots,v_m\}\) de \(E\) y \(F\) respectivamente. Por otro lado, sea \(f^*: F^*\longrightarrow E^*\) la aplicación dual de \(f\), podemos demostrar el siguiente resultado</p>
+
+<p><l class = "prop">Proposición.</l> La matriz de \(f^*\) con respecto a las bases duales de \(B_F = \{v_1,\dots,v_m\}\) y \(B_E = \{e_1,\dots, e_n\}\) es \(A^t\). Es decir, la transpuesta de la matriz de \(f\) con respecto a las bases \(B_E = \{e_1,\dots, e_n\}\) y \(B_F = \{v_1,\dots,v_m\}\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-15" class="dem">
+
+<p><strong>Demostración</strong></p>
+
+<p>Sea \(A = (a_{ij})\) la matriz de \(f\) con respecto a las bases \(B_E = \{e_1,\dots, e_n\}\) y \(B_F = \{v_1,\dots,v_m\}\) y sea \(B = (b_{ij})\) la matriz de \(f^*\) con respecto a las bases duales de \(B_{F^*}= \{v_1^*,\dots,v_m^*\}\) y \(B_{E^*} = \{e_1^*,\dots, e_n^*\}\)</p>
+
+<p>Sea \(f^*(v_k^*)=\sum b_{rk}e_r^*\) para un \(k\) cualquiera tal que \(k\in\{1,\dots,m\}\). Si ahora lo aplicamos a \(e_j\) tendremos</p>
+
+<p>\[[f^*(v_k^*)](e_j) = \left(\sum b_{rk}e_r^*\right)(e_j) = b_{jk}\]</p>
+
+<p>Por otro lado,</p>
+
+<p>\[[f^*(v_k^*)](e_j) = (v_k^*\circ f)(e_j) = v_k^*(f(e_j)) = v_k^*\left(\sum a_{ij}v_i\right) = a_{kj}\]</p>
+
+<p>Por tanto, se tiene que \[a_{kj} = b_{jk}\quad \forall j\in{1,\dots,n}\]</p>
+
+<p>Con lo cual, se tiene que, efectivamente \(B = A^t\)</p>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-16">
+
+<p><l class = "prop">Proposición.</l></p>
+
+<ol>
+<li>Una aplicación lineal \(f: E\longrightarrow F\) y su dual \(f^*: F^*\longrightarrow E^*\) tienen el mismo rango</li>
+<li>Si \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\) y \(B\in\mathcal{M}_{n\times r}(\mathbb{K})\), entonces \((AB)^t = B^tA^t\)</li>
+</ol>
+
+<div class="dem">
+<p><strong>Demostración 1</strong></p>
+
+<p>Sabemos que si \(A\) es la matriz de la aplicación lineal \(f\), entonces \(\text{rg}(f) = \text{rg}(A)\). Por otra parte, \[\text{rg}(f) = \text{rg}(A) = \text{rg}(A^t) = \text{rg}(f^*)\]</p>
+
+<p>ya que recordemos, \(A^t\) era la matriz asociada a \(f^*\), la aplicación dual de \(f\)</p></div>
+
+</article></slide><slide class=""><hgroup><h2>Aplicaciones lineales y dualidad</h2></hgroup><article  id="aplicaciones-lineales-y-dualidad-17" class="dem">
+
+<p><strong>Demostración 2</strong></p>
+
+<p>Si consideramos que \(A\) es la matriz asociada a la aplicación lineal \(f\) y \(B\) lo es de la aplicación lineal \(g\), entonces lo que tratamos de demostrar es que la matriz asociada a \((g\circ f)^*\) es \(A^tB^t\).</p>
+
+<p>Sabemos que la matriz asociada a \(g\circ f\) es \(BA\) y también hemos visto anteriormente que \((g\circ f)^* = f^*\circ g^*\)</p>
+
+<p>Con lo cual, efectivamente, \[(BA)^t = A^tB^t\] tal y como queríamos demostrar</p></article></slide>
 
 
   <slide class="backdrop"></slide>

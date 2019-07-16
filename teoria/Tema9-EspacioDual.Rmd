@@ -1,0 +1,577 @@
+---
+title: "Tema 9 - Espacio Dual"
+author: Juan Gabriel Gomila & María Santos
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+# Definiciones y propiedades
+
+## Definiciones y propiedades
+
+Para empezar este tema, recordaremos rápidamente el concepto de espacio vectorial
+
+## Definiciones y propiedades
+
+<l class = "definition">Espacio vectorial.</l> Un espacio vectorial sobre un cuerpo $\mathbb{K}$ es un conjunto no vacío $E$ sobre el que están definidas dos operaciones:
+
+- Una ley interna que llamaremos <l class = "definition">suma</l>: $$\begin{matrix}+: & E\times E  & \longrightarrow & E\\ & (u,v) & \mapsto & u+v\end{matrix}$$ que verifica las siguientes propiedades:
+
+    - Conmutativa: $u+v = v+u\quad \forall u,v\in E$
+    - Asociativa: $u+(v+w) = (u+v)+w\quad \forall u,v,w\in E$
+    - Elemento neutro: $\exists 0\in E:\ u+0 = 0+u = u\quad\forall u\in E$
+    - Elemento opuesto: $\forall u\in E,\ \exists -u\in E:\ u+(-u) = (-u)+u = 0$
+    
+## Definiciones y propiedades
+
+- Una ley externa que llamaremos <l class = "definition">producto por escalar</l> $$\begin{matrix}\cdot: & \mathbb{K}\times E  & \longrightarrow & E\\ & (\lambda,u) & \mapsto & \lambda\cdot u\end{matrix}$$ que verifica las siguientes propiedades:
+
+
+
+    - $1\cdot u = u\quad \forall u\in E$
+    - Asociatividad mixta: $\alpha(\beta u) = (\alpha\beta)u\quad \forall \alpha,\beta\in\mathbb{K},\ \forall u\in E$
+    - Distributiva repecto de la suma de $\mathbb{K}$: $(\alpha+\beta)u = \alpha u +\beta u\quad \forall \alpha,\beta\in\mathbb{K},\ \forall u\in E$
+    - Distributiva respecto de la suma de $E$: $\alpha(u+v) = \alpha u+\alpha v\quad \forall \alpha,\in\mathbb{K},\ \forall u,v\in E$
+
+## Definiciones y propiedades
+
+Recordemos también que:
+
+<l class = "definition">Vectores.</l> Son los elementos del espacio vectorial $E$
+
+<l class = "definition">Escalares.</l> Son los elementos de $\mathbb{K}$
+
+## Definiciones y propiedades
+
+<l class = "observ">Observación.</l> Démonos cuenta que no utilizamos símbolos distintos para las dos adiciones (de $E$ y de $\mathbb{K}$), ni tampoco para las multiplicaciones (interna de $\mathbb{K}$ y externa sobre $E$)
+
+Tampoco remarcaremos la diferencia entre los neutros: en la expresión $0+u = u$, estamos refiriéndonos al vector 0 mientras que en $0+\alpha = 0$, nos referimos al escalar $0$.
+
+## Definiciones y propiedades
+
+<l class = "definition">Espacio dual.</l> Sea $E$ un $\mathbb{K}-$espacio vectorial ($\mathbb{K}-$e.v.) Llamamos espacio dual de $E$, al cual denotamos por $E^*$ al $\mathbb{K}-$e.v. $$E^*= \{f:\ E\longrightarrow \mathbb{K}\text{ tal que } f\text{ es una aplicación lineal}\}$$
+
+Por lo tanto, los elemeentos de $E^*$ son las formas lineales sobre $E$, es decir, $E^* = L(E,\mathbb{K})$
+
+## Definiciones y propiedades
+
+<div class = "example">
+**Ejemplo 1**
+
+Si consideramos $E = \mathbb{R}^2$, entonces $E^* = \{f: \mathbb{R}^2\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}$
+
+Es decir, los elementos de $E^*$ son las formas lineales de $\mathbb{R}^2$, que son de la forma $f(x,y) = ax+by$ con $a,b\in\mathbb{R}$
+</div>
+
+<div class = "example">
+**Ejemplo 2**
+
+Si consideramos $E = \mathbb{R}^3$, entonces $E^* = \{f: \mathbb{R}^3\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}$
+
+Es decir, los elementos de $E^*$ son las formas lineales de $\mathbb{R}^3$, que son de la forma $f(x,y,z) = ax+by+cz$ con $a,b,c\in\mathbb{R}$
+</div>
+
+<div class = "example">
+**Ejemplo 3**
+
+Si consideramos $E = \mathbb{R}^n$, entonces $E^* = \{f: \mathbb{R}^n\longrightarrow \mathbb{R}\ |\ f\text{ es lineal}\}$
+
+Es decir, los elementos de $E^*$ son las formas lineales de $\mathbb{R}^n$, que son de la forma $f(x_1,x_2,\dots,x_n) = a_1x_1+a_2x_2+\cdots+a_nx_n$ con $a_1,\dots,a_n\in\mathbb{R}$
+</div>
+
+## Definiciones y propiedades
+
+<l class = "prop">Proposición.</l> Si $\{e_1,\dots,e_n\}$ es una base de $E$, podemos construir a partir de ella una base de $E^*$, que llamaremos <l class = "definition">base dual</l> de $\{e_1,\dots,e_n\}$ y representaremos por $\{e_1^*,\dots,e_n^*\}$ de la siguiente forma:
+
+$$e_i^*(e_j) = \left\{\begin{matrix}1\qquad \text{si }i = j\\ 0\qquad \text{si }i\ne j\end{matrix}\right.\quad i=1,2,\dots,n$$
+
+## Definiciones y propiedades{.dem}
+
+**Demostración**
+
+Es fácil ver que $\{e_1^*,\dots,e_n^*\}$ es una base de $E^*$.
+
+Veamos primero que son formas lineales LI. Para ello, consideremos
+
+$$a_1e_1^*+\cdots+a_ne_n^* =0$$ y veamos que solamente podrá ocurrir si $a_i = 0\quad\forall i=1,\dots,n$.
+
+Lo anterior quiere decir que $$(a_1e_1^*+\cdots+a_ne_n^*)(x) =0\quad \forall x\in E$$
+
+En particular, si $x = e_i,\ i = 1,\dots,n$ tenemos que
+
+$$(a_1e_1^*+\cdots+a_ne_n^*)(e_i) = 0\quad \forall i=1,\dots,n$$
+
+y, por tanto, $$a_1e_1^*(e_i)+\cdots+a_ne_n^*(e_i) = 0\quad \forall i=1,\dots,n$$
+
+## Definiciones y propiedades{.dem}
+
+Tomando ahora la forma de los vectores $e_i^*$, la igualdad anterior pasará a ser
+
+$$a_ie_i^*(e_i) = 0$$
+
+Pero $e_i^*(e_i) = 1$, con lo cual
+
+$$a_ie_i^*(e_i) =a_i = 0$$
+
+O sea, $a_i=0$ para todo $i=1,\dots,n$. Con esto queda probado que los vectores $e_1^*,\dots,e_n^*$ son LI.
+
+Para demostrar que el conjunto $\{e_1^*,\dots,e_n^*\}$ genera el espacio vectorial $E^*$, consideremos $\omega\in E^*$ una forma lineal sobre $E$ cualquiera y veamos que existen escalares $a_1,\dots,a_n$ tales que $\omega = a_1e_1^*+\cdots+a_ne_n^*$.
+
+En efecto, bastará con considerar $$a_i = \omega(e_i)\quad \forall i=1,\dots,n$$
+
+ya que en este caso, lo que tendremos será
+
+$$\omega(e_j) = (a_1e_1^*+\cdots+a_ne_n^*)(e_j) = a_j\quad \forall j = 1,\dots,n$$
+
+y por tanto, $\omega = a_1e_1^*+\cdots+a_ne_n^*$, con lo cual $\omega$ estará generado por los vectores $\{e_1^*,\dots,e_n^*\}$.
+
+## Definiciones y propiedades
+
+<l class = "prop">Corolario.</l> Si $E$ es un e.v. de dimensión finita, entonces su dimensión coincide con la dimensión del dual:
+
+$$\dim(E) = \dim(E^*)$$
+
+
+## Ejemplo 4
+
+<div class = "example">
+**Ejemplo 4**
+
+Consideremos en $\mathbb{R}^2$ la base $B = \{(-1,1),(3,0)\}$. Encontremos su base dual $B^* = \{\varphi_1,\varphi_2\}$
+
+Como que $\varphi_1,\varphi_2$ son dos aplicaciones lineales de $\mathbb{R}^2$ en $\mathbb{R}$, entonces sus expresiones deben ser 
+$$\varphi_1(x,y) = ax+by$$
+$$\varphi_2(x,y) = cx+dy$$
+
+Utilizando ahora que $B^* = \{\varphi_1,\varphi_2\}$ debe ser la base dual de $B$, tenemos las siguientes ecuaciones que deben verificar las dos aplicaciones lineales:
+
+$$\left\{\begin{matrix}
+\varphi_1(-1,1) &=& 1\\
+\varphi_1(3,0) &=&0
+\end{matrix}\right.\Rightarrow\left\{\begin{matrix}
+-a+b &=& 1\\
+3a &=& 0
+\end{matrix}\right.\qquad \left\{\begin{matrix}
+\varphi_2(-1,1) &=& 0\\
+\varphi_2(3,0) &=& 1\end{matrix}\right.\Rightarrow \left\{\begin{matrix}
+-c+d &=& 0\\
+3c &=& 1
+\end{matrix}\right.$$
+
+En definitiva, resolviendo ambos sistemas acabamos obteniendo
+
+$$a = 0;\qquad b=1;\qquad c=\frac{1}{3};\qquad d=\frac{1}{3}$$
+</div>
+
+## Ejemplo 4{.example}
+
+De este modo,
+
+$$\varphi_1(x,y) = y$$
+$$\varphi_2(x,y) = \frac{1}{3}(x+y)$$
+
+## Definiciones y propiedades
+
+<div class = "example">
+
+**Ejemplo 5**
+
+Si consideramos el espacio vectorial $\mathbb{R}^3$ con la base canónica $B_C$, entonces su base dual es el conjunto $\{e_1^*,e_2^*,e_3^*\}$ tales que $e_i^*(x_1,x_2,x_3) = x_i$ para $i = 1,2,3$
+
+Efecitivamente, para que se trate de la base del dual, $(\mathbb{R}^3)^*$, debe verificar la condición de la proposición anterior. Es decir,
+
+$$e_1^*(e_1) = e_1^*(1,0,0) = 1\quad e_1^*(e_2) = e_1^*(0,1,0) = 0\quad e_1^*(e_3) = e_1^*(0,0,1) = 0$$
+$$e_2^*(e_1) = e_2^*(1,0,0) = 0\quad e_2^*(e_2) = e_2^*(0,1,0) = 1\quad e_2^*(e_3) = e_2^*(0,0,1) = 0$$
+$$e_3^*(e_1) = e_3^*(1,0,0) = 0\quad e_3^*(e_2) = e_3^*(0,1,0) = 0\quad e_3^*(e_3) = e_3^*(0,0,1) = 1$$
+</div>
+
+## Definiciones y propiedades
+
+<l class = "observ">Observación.</l> Sea $B = \{u_1,\dots,u_n\}$ una base del e.v. $E$ de dimensión finita $n$ y sea $B^* = \{\varphi_1,\dots,\varphi_n\}$ su base dual.
+
+- Dado $u\in E$, este vector lo podemos escribir como combinación lineal de los vectores de la base, $u = \sum_{i = 1}^na_iu_i$ con $a_i\in\mathbb{K}$. Entonces, para cada $j\in\{1,\dots,n\}$ $$\varphi_j(u) = \varphi_j\left(\sum_{i = 1}^na_iu_i\right) = a_j$$ Entonces, las coordenadas del vector $u$ en la base $B$ son sus imágenes para la base dual. Es decir $$(u)_B = (\varphi_1(u),\dots,\varphi_n(u))$$
+
+## Definiciones y propiedades
+
+- Dado ahora $\varphi\in E^*$, podemos expresarlo como combinación lineal de los vectores de la base dual, $\varphi = \sum_{i = 1}^nb_i\varphi_i$. Entonces, para cada $j\in\{1,\dots,n\}$ se tiene $$\varphi(u_j) = \left(\sum_{i = 1}^nb_i\varphi_i\right)(u_j) = b_j$$ Así pues, las coordenadas de $\varphi$ en base $B^*$ son iguales a las imágenes de la base $B$ para $\varphi$. Es decir $$(\varphi)_{B^*} = (\varphi(v_1),\dots,\varphi(v_n))$$
+
+## Ejemplo 4{.example}
+
+Recuperando el `Ejemplo 4`, dadas $B = \{(-1,1),(3,0)\}$ base de $\mathbb{R}^2$ y $B^* = \{\varphi_1,\varphi_2\}$ su base dual.
+
+Recordemos que 
+
+$$\varphi_1(x,y) = y$$
+$$\varphi_2(x,y) = \frac{1}{3}(x+y)$$
+
+Si queremos encontrar las coordenadas del vector $u = (1,2)_{B_C}$ en la base $B$, teniendo en cuenta el resultado anterior, resulta que
+
+$$(1,2)_{B_C} = (\varphi_1(1,2),\varphi_2(1,2)) = (2,1)_B$$
+
+Por otro lado, si consideramos la forma lineal $\varphi\in(\mathbb{R}^2)^*$, dada por $\varphi(x,y) = 2x+3y$ y queremos encontrar sus coordenadas en la base $B^*$, siguiendo la observación anterior se tiene que
+
+$$(\varphi)_{B^*} = (\varphi(-1,1),\varphi(3,0)) = (1,1)_{B^*}$$
+
+Con lo cual, en la base $B^*$, tenemos que $$\varphi(x,y) = x+y$$
+
+## Definiciones y propiedades
+
+<l class = "definition">Ortogonal de $X$.</l> Sea $E$ un $\mathbb{K}-$e.v. y $E^*$ su dual. Si $X\subset E$, $X\ne 0$, definimos el ortogonal de $X$ como
+
+$$X^{\perp} = \{\omega \in E^*:\ \omega(x) = 0\quad\forall x\in X\}$$
+
+<l class = "observ">Observación.</l> Al espacio ortogonal de $X$ se lo llama también espacio anulador de $X$
+
+## Definiciones y propiedades
+
+<l class = "prop">Proposición.</l> $X^{\perp}$ es un subespacio vectorial de $E^*$
+
+<l class = "observ">Observación.</l> Los casos particulares extremos de ortogonales son:
+
+- $\{0\}^{\perp} = E^*$
+- $(E^*)^{\perp} = \{0\}$
+
+<l class = "observ">Observación.</l> Si $X\subset Y$, entonces $Y^{\perp}\subset X^{\perp}$
+
+## Definiciones y propiedades
+
+<l class = "prop">Proposición.</l> Si $E$ es u n $\mathbb{K}-$e.v. es de dimensión finita, $\dim(E) = n$, y si $X\subset E$ es un subespacio vectorial de $E$, entonces $$\dim(X^{\perp}) = n-\dim(X)$$
+
+## Definiciones y propiedades{.dem}
+
+**Demostración**
+
+Sea $\{e_1,\dots,e_r\}$ una base de $X$ y sea $B = \{e_1,\dots,e_r,e_{r+1},\dots,e_n\}$ una ampliación a una base de $E$.
+
+Sea $B^* = \{e_1^*,\dots,e_r^*,e_{r+1}^*,\dots,e_n^*\}$ la base dual de $B$. Lo que vamos a ver es que $\{e_{r+1}^*,\dots,e_n^*\}$ es una base de $X^{\perp}$
+
+La independencia lineal de estas $n-r$ formas lineales, $e_{r+1}^*,\dots,e_n^*$, es clara ya que son elementos de la base $B^*$.
+
+Ahora, de lo que se trata es de ver que estas formas lineales generan $X^{\perp}$. Para ello, consideremos $\omega\in X^{\perp}$. Como que $B^*$ es una base de $E^*$ y como $\omega\in X^{\perp}\subset E^*$ (ya que recordemos, por la proposición anterior, $X^{\perp}$ es un sub-e.v. de $E^*$), entonces sabemos que existen $a_1,\dots,a_n\in\mathbb{K}$ tales que
+
+$$\omega = \sum_{i=1}^na_ie_i^*$$
+
+Ahora bien, como $e_i\in X$, $i = 1,\dots,r$, $\omega\in X^{\perp}$ y los $e_i^*$ son de la base dual, resulta que $\omega(e_i) = a_i = 0$ para todo $i = 1,\dots,r$. De aquí es de donde obtenemos 
+
+$$\omega = a_{r+1}e_{r+1}^*+\cdots+a_ne_n^*$$
+
+## Definiciones y propiedades{.dem}
+
+Así, lo que acabamos de demostrar es que $\{e_{r+1}^*,\dots,e_n^*\}$ es una base de $X^{\perp}$.
+
+Además, al ser esa una base de $n-r$ vectores mientras que $\{e_1,\dots,e_r\}$ era una base de $r$ vectores, tenemos que, en efecto, 
+
+$$\dim(X^{\perp}) = n-\dim(X)$$
+
+## Definiciones y propiedades
+
+<l class = "definition">$W^{\perp}$.</l> Lo definimos del siguiente modo: $$W^{\perp} = \{x\in E:\ \omega(x) = 0\quad\forall\omega\in W\}$$
+
+
+Igual que antes, se puede probar que $W^{\perp}$ es un subespacio vectorial de $E$
+
+De nuevo tenemos los casos extremos:
+
+- $\{0\}^{\perp} = E$
+- $E^{\perp} = \{0\}$
+
+Finalmente, si $W$ es un sub-e.v. de $E$ y $\dim(E) = n$, entonces $$\dim(W^{\perp}) = n-\dim(W)$$
+
+## Definiciones y propiedades
+
+<l class = "prop">Proposición.</l> Si $X\subset E$, entonces $X\subset (X^{\perp})^{\perp}$. 
+
+En caso de dimensión finita, $\dim(E) = n$ y $X\subset E$, se verifica $$X = (X^{\perp})^{\perp}$$
+
+## Definiciones y propiedades{.dem}
+
+**Demostración**
+
+Sea $u\in X$, lo que queremos es ver que $u\in (X^{\perp})^{\perp}$
+
+Sabemos que $X^{\perp} = \{\omega \in E^*:\ \omega(x) = 0\quad\forall x\in X\}$
+
+Por lo tanto, por definición, $$(X^{\perp})^{\perp} = \{x\in E:\ \omega(x) = 0\quad\forall\omega\in X^{\perp}\}$$
+
+Como $u\in X$, nosotros sabemos que $\omega(u) = 0$, para todo $\omega\in X^{\perp}$
+
+Con lo cual, lo anterior implica que $u\in (X^{\perp})^{\perp}$, ya que satisface la definición.
+
+Una vez vista la primera inclusión, demostraremos la segunda parte.
+
+Como que $X\subset (X^{\perp})^{\perp}$ por lo visto anteriormente y, además
+
+$$\dim((X^{\perp})^{\perp}) = n-\dim(X^{\perp}) = n-(n-\dim(X)) = \dim(X)$$
+
+Entonces, ello nos lleva a concluir que $(X^{\perp})^{\perp} = X$
+
+## Definiciones y propiedades
+
+<l class = "observ">Observación.</l> Si $X = \langle u_1,\dots,u_r\rangle$, entonces $X^{\perp} = \{\omega\in E^*:\ \omega(u_i)=0\quad\forall i = 1,\dots,r\}$
+
+## Definiciones y propiedades
+
+Veamos ahora como se comporta el ortogonal con la suma y la intersección de subespacios:
+
+<l class = "prop">Proposición.</l> Sea $E$ un e.v. y $F,G$ subespacios vectoriales de $E$. Entonces
+
+1. $(F+G)^{\perp} = F^{\perp}\cap G^{\perp}$
+2. $(F\cap G)^{\perp} = F^{\perp}+ G^{\perp}$
+
+## Definiciones y propiedades{.dem}
+
+**Demostración 1**
+
+Sea $\varphi\in E^*$. Se tiene que
+
+$$\varphi\in(F+G)^{\perp}\Leftrightarrow \varphi(f+g) = 0\quad\forall f\in F,\ g\in G$$
+
+$$\Leftrightarrow \varphi(f) = 0\quad \forall f\in F\quad\text{ y }\quad \varphi(g) = 0\quad\forall g\in G$$
+
+$$\Leftrightarrow \varphi\in F^{\perp}\cap G^{\perp}$$
+
+## Definiciones y propiedades{.dem}
+
+**Demostración 2**
+
+Sea $\varphi\in F^{\perp}+ G^{\perp}$. Entonces, $\varphi = \varphi_F+\varphi_G$ con $\varphi_F\in F$ y $\varphi_G\in G$. 
+
+Para cada $x\in F\cap G$ se tiene que $\varphi(x) = \varphi_F(x) + \varphi_G(x) = 0+0 = 0$. Entonces, $\varphi\in(F\cap G)^{\perp}$, con lo cual ya tenemos una inclusión.
+
+Observemos ahora que
+
+$$\dim(F^{\perp}+ G^{\perp}) = \dim(F^{\perp})+\dim(G^{\perp})-\dim(F^{\perp}\cap G^{\perp}) = \dim(F^{\perp})+\dim(G^{\perp})-\dim((F+G)^{\perp})$$
+$$= (n-\dim(F))+(n-\dim(G))-(n-\dim(F+G)) = n-(\dim(F)+\dim(G)-\dim(F+G))$$
+$$= n-\dim(F\cap G)= \dim((F\cap G)^{\perp})$$
+
+## Definiciones y propiedades
+
+<l class = "prop">Proposición.</l> Si $E = F\oplus G$, entonces $$E^* = F^{\perp}\oplus G^{\perp}$$
+
+## Definiciones y propiedades{.dem}
+
+Si $E = F\oplus G$, entonces $E = F+G$ y además $F\cap G =  \{0\}$
+
+Como que $$\{0\} = E^{\perp} = (F+G)^{\perp} = F^{\perp}\cap G^{\perp}$$ y por otro lado $$E^* = \{0\}^{\perp} = (F\cap G)^{\perp} = F^{\perp}+G^{\perp}$$
+
+Entonces tenemos que $$E^* = F^{\perp}\oplus G^{\perp}$$
+
+# Aplicaciones lineales y dualidad
+
+## Aplicaciones lineales y dualidad
+
+Observemos que, fijada una aplicación lineal $f: E\longrightarrow F$, cada elemento $\omega\in F^*$ nos da un elemento $\omega \circ f\in E^*$, siguiendo el siguiente diagrama
+
+$$\begin{matrix}
+E & \xrightarrow{f} & F\\
+ & \searrow & \downarrow \omega\\
+  & \omega\circ f & \mathbb{K}
+\end{matrix}$$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "definition">Aplicación dual.</l> Si $f: E\longrightarrow F$ es lineal, entonces podemos definir una aplicación $f^*: F^*\longrightarrow E^*$ de la siguiente forma:
+
+$$f^*(\omega) = \omega\circ f$$
+
+para todo $\omega\in F^*$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l> $f^*$ es una aplicación lineal.
+
+<div class = "dem">
+**Demostración**
+
+Veamos en primer lugar que $f^*$ satisface $$f^*(\omega+\omega') = f^*(\omega)+f^*(\omega')$$
+
+Se trata de ver que $\forall x\in E$
+
+$$[f^*(\omega+\omega')](x) = [(\omega+\omega')\circ f](x) = (\omega+\omega')(f(x)) = \omega(f(x))+\omega'(f(x)) $$
+
+$$=(\omega\circ f)(x)+(\omega'\circ f)(x) = f^*(\omega)(x)+f^*(\omega')(x) = [f^*(\omega)+f^*(\omega')](x)$$
+
+Ahora, veamos que se cumple también $$f^*(\lambda\omega) = \lambda(f^*(\omega))$$ De nuevo, se trata de ver que $\forall x\in E$ $$[f^*(\lambda\omega)](x) = ((\lambda\omega)\circ f)(x) = (\lambda\omega)(f(x)) = \lambda[\omega(f(x))] = \lambda[(\omega\circ f)(x)] = \lambda[ f^*(\omega)(x)]$$
+
+que era lo que queríamos
+</div>
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l> La dual de una aplicación lineal verifica las siguientes propiedades
+
+1. $(\text{id}_E)^* = \text{id}_{E^*}$
+2. $(g\circ f)^* = f^*\circ g^*$
+3. Supongamos que $E$ y $F$ son de dimensiones finitas. Sea $f: E\longrightarrow F$ lineal y $f^*: F^*\longrightarrow E^*$ su aplicación dual. Se verifican las siguientes igualdades:
+
+    - $(\text{Im}(f))^{\perp} = \ker(f^*)$
+    - $(\ker(f))^{\perp} = \text{Im}(f^*)$
+    
+## Aplicaciones lineales y dualidad{.dem}
+
+**Demostración 1**
+
+$$(\text{id}_E)^*(\omega) = \omega\circ \text{id}_E = \omega\quad \forall\omega\in E^*$$
+
+Esto prueba que $(\text{id}_E)^* = \text{id}_{E^*}$
+
+**Demostración 2**
+
+$$(g\circ f)^*(\omega) = \omega\circ(g\circ f) = (\omega\circ g)\circ f = f^*(\omega\circ g) = f^*(g^*(\omega)) = (f^*\circ g^*)(\omega)$$
+
+Y como esto se cumple $\forall\omega \in E^*$, tenemos automáticamente que $(g\circ f)^* = f^*\circ g^*$
+
+## Aplicaciones lineales y dualidad{.dem}
+
+**Demostración 3**
+
+Para demostrar la primera igualdad, primero veremos que $(\text{Im}(f))^{\perp}\subseteq \ker(f^*)$
+
+Para ello, sea $\omega \in (\text{Im}(f))^{\perp}$, entonces tenemos que $\omega(y) = 0\quad \forall y\in \text{Im}(f)$.
+
+Por tanto, tendremos que $$\omega(f(x)) = 0\quad\forall x\in E$$ de donde concluimos que $f^*(\omega) = 0$. En otras palabras, que $\omega\in \ker(f^*)$
+
+Para ver ahora la otra inclusión, $\ker(f^*)\subseteq(\text{Im}(f))^{\perp}$, consideremos $\omega\in \ker(f^*)$. Con esto, lo que tenemos es que
+
+$$f^*(\omega) = 0\Rightarrow \omega(f(x)) = 0\quad \forall x\in E$$
+
+o lo que es lo mismo, $$\omega(y) = 0\quad\forall y\in\text{Im}(f)$$
+
+Y esto no es otra cosa que la definición de que $\omega \in (\text{Im}(f))^{\perp}$
+
+## Aplicaciones lineales y dualidad{.dem}
+
+Ahora demostraremos la segunda igualdad con un razonamiento similar al anterior.
+
+Si $\omega\in\text{Im}(f^*)$, entonces existe $\omega'\in F^*$ tal que $f^*(\omega') = \omega$. Por lo tanto, tenemos que 
+$$\omega = \omega'\circ f$$
+
+donde $$\omega(x) = (\omega'\circ f)(x) = \omega'(f(x)) = \omega'(0) = 0\quad\forall x\in\ker(f)$$
+
+De este modo, acabamos de probar la inclusión $(\text{Im}(f^*))\subseteq (\ker(f))^{\perp}$
+
+Falta ver la otra inclusión, $(\ker(f))^{\perp} \subseteq \text{Im}(f^*)$. Esta vez lo haremos por dimensiones: veremos que $$\dim(\text{Im}(f^*)) = \dim((\ker(f))^{\perp})$$
+
+Nosotros sabemos que, por la fórmula de Grassmann, $\dim(\ker(f^*))+\dim(\text{Im}(f^*)) = \dim(F^*)$, con lo cual
+
+$$\dim(\text{Im}(f^*)) = \dim(F^*)-\dim(\ker(f^*))$$
+
+
+
+Por la propiedad demostrada anteriormente, $\ker(f^*) = (\text{Im}(f))^{\perp}$. Además, como $F$ es de dimensión finita por hipótesis, se tiene $\dim(F) = \dim(F^*)$. Sustituyendo esto en la igualdad anterior, se obtiene
+
+$$\dim(F^*)-\dim(\ker(f^*)) = \dim(F)-\dim((\text{Im}(f))^{\perp})$$
+
+## Aplicaciones lineales y dualidad{.dem}
+
+También vimos anteriormente que $\dim((\text{Im}(f))^{\perp}) = \dim(F)-\dim(\text{Im}(f))$
+
+Entonces, sustituyendo esto en lo obtenido, nos queda lo siguiente
+
+$$\dim(F)-\dim((\text{Im}(f))^{\perp}) = \dim(F)-(\dim(F)-\dim(\text{Im}(f))) = \dim(\text{Im}(f))$$
+
+Aplicando de nuevo la fórmula de Grassmann y la fórmula de obtención de la dimensión del ortogonal, esta vez obtenemos
+
+$$\dim(\text{Im}(f)) = \dim(E)-\dim(\ker(f)) = \dim((\ker(f))^{\perp})$$
+
+tal y como queríamos demostrar.
+
+Por lo tanto, con la inclusión demostrada y visto que las dimensiónes de ambos conjuntos son iguales, tenemos la igualdad.
+
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l> $\text{rg}(f) = \text{rg}(f^*)$
+
+<div class = "dem">
+**Demostración**
+
+$$\text{rg}(f^*) = \dim(\text{Im}(f^*)) = \dim((\ker(f))^{\perp}) = \dim(E)-\dim(\ker(f)) = \dim(\text{Im}(f)) = \text{rg}(f)$$
+
+Lo que hemos hecho ha sido aplicar que $\text{rg}(f) = \dim(\text{Im}(f))$, la propiedad 3(b) anterior y la fórmula de Grassman
+</div>
+
+<div class = "exercise">
+**Ejercicio 1.** Probad a realizar esta misma demostración haciendo uso de la propiedad 3(a) anterior
+</div>
+
+
+## Aplicaciones lineales y dualidad
+
+Recordemos...
+
+<l class = "definition">Matriz transpuesta.</l> Si $A\in\mathcal{M}_{m\times n}(\mathbb{K})$, llamamos transpuesta de $A$, $A^t$, a la matriz que tiene por filas las columnas de $A$: $A^t = (b_{ij})$ donde $b_{ij} = a_{ji}$ $i = 1,\dots,n$ y $j = 1,\dots,m$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l>
+
+1. La aplicación transpuesta es biyectiva
+2. Es <l class = "definition">involutiva</l>: $(A^t)^t = A$
+3. $(A+B)^t = A^t+B^t$
+4. $(\lambda A)^t = \lambda A^t$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "definition">Matriz ortogonal.</l> Una matriz $A\in\mathcal{M}_{m\times n}(\mathbb{K})$, diremos que es ortogonal si verifica $A^t = A^{-1}$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l> El conjunto de las matrices ortogonales $\mathcal{MO}_n(\mathbb{K})$, junto con la operación de multiplicación es un grupo, al que llamamos grupo ortogonal.
+
+## Aplicaciones lineales y dualidad
+
+Sea $f:E\longrightarrow F$ una aplicación lineal y $A$ su matriz de orden $m\times n$ sobre $\mathbb{K}$ respecto de unas bases $B_E = \{e_1,\dots, e_n\}$ y $B_F = \{v_1,\dots,v_m\}$ de $E$ y $F$ respectivamente. Por otro lado, sea $f^*: F^*\longrightarrow E^*$ la aplicación dual de $f$, podemos demostrar el siguiente resultado
+
+<l class = "prop">Proposición.</l> La matriz de $f^*$ con respecto a las bases duales de $B_F = \{v_1,\dots,v_m\}$ y $B_E = \{e_1,\dots, e_n\}$ es $A^t$. Es decir, la transpuesta de la matriz de $f$ con respecto a las bases $B_E = \{e_1,\dots, e_n\}$ y $B_F = \{v_1,\dots,v_m\}$
+
+## Aplicaciones lineales y dualidad{.dem}
+
+**Demostración**
+
+Sea $A = (a_{ij})$ la matriz de $f$ con respecto a las bases $B_E = \{e_1,\dots, e_n\}$ y $B_F = \{v_1,\dots,v_m\}$ y sea $B = (b_{ij})$ la matriz de $f^*$ con respecto a las bases duales de $B_{F^*}= \{v_1^*,\dots,v_m^*\}$ y $B_{E^*} = \{e_1^*,\dots, e_n^*\}$
+
+Sea $f^*(v_k^*)=\sum b_{rk}e_r^*$ para un $k$ cualquiera tal que $k\in\{1,\dots,m\}$. Si ahora lo aplicamos a $e_j$ tendremos
+
+$$[f^*(v_k^*)](e_j) = \left(\sum b_{rk}e_r^*\right)(e_j) = b_{jk}$$
+
+Por otro lado,
+
+$$[f^*(v_k^*)](e_j) = (v_k^*\circ f)(e_j) = v_k^*(f(e_j)) = v_k^*\left(\sum a_{ij}v_i\right) = a_{kj}$$
+
+Por tanto, se tiene que $$a_{kj} = b_{jk}\quad \forall j\in{1,\dots,n}$$
+
+Con lo cual, se tiene que, efectivamente $B = A^t$
+
+## Aplicaciones lineales y dualidad
+
+<l class = "prop">Proposición.</l>
+
+1. Una aplicación lineal $f: E\longrightarrow F$ y su dual $f^*: F^*\longrightarrow E^*$ tienen el mismo rango
+2. Si $A\in\mathcal{M}_{m\times n}(\mathbb{K})$ y $B\in\mathcal{M}_{n\times r}(\mathbb{K})$, entonces $(AB)^t = B^tA^t$
+
+<div class = "dem">
+**Demostración 1**
+
+Sabemos que si $A$ es la matriz de la aplicación lineal $f$, entonces $\text{rg}(f) = \text{rg}(A)$. Por otra parte, $$\text{rg}(f) = \text{rg}(A) = \text{rg}(A^t) = \text{rg}(f^*)$$
+
+ya que recordemos, $A^t$ era la matriz asociada a $f^*$, la aplicación dual de $f$
+
+</div>
+
+## Aplicaciones lineales y dualidad{.dem}
+
+**Demostración 2**
+
+Si consideramos que $A$ es la matriz asociada a la aplicación lineal $f$ y $B$ lo es de la aplicación lineal $g$, entonces lo que tratamos de demostrar es que la matriz asociada a $(g\circ f)^*$ es $A^tB^t$.
+
+Sabemos que la matriz asociada a $g\circ f$ es $BA$ y también hemos visto anteriormente que $(g\circ f)^* = f^*\circ g^*$
+
+Con lo cual, efectivamente, $$(BA)^t = A^tB^t$$ tal y como queríamos demostrar
