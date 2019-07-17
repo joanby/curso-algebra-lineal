@@ -12,3 +12,157 @@ output:
 knitr::opts_chunk$set(echo = TRUE, comment = NA)
 ```
 
+# Introducción
+
+## Introducción
+
+En este tema trataremos más detalladamente la noción de producto escalar que ya conocemos.
+
+En el tema de espacios vectoriales definimos sobre $E\times E$ la operación suma, y sobre $\mathbb{K}\times E$ la operación producto por un escalar.
+
+En este tema definiremos una nueva operación sobre $E\times E$, a la que denominamos producto escalar de dos vectores, donde el resultado será perteneciente al cuerpo $\mathbb{K}$
+
+# Productos escalares sobre espacios relaes y complejos
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Forma bilineal.</l> Sea $E$ un $\mathbb{R}-$e.v. Diremos que una aplicación $f: E\times E\longrightarrow \mathbb{R}$ es una forma bilineal si es lineal en cada variable
+
+<l class = "definition">Forma bilineal simétrica.</l> Diremos que la forma bilineal $f$ es simétrica si cumple $$f(x,y) = f(y,x)\quad \forall x,y\in E$$
+
+## Productos escalares sobre espacios relaes y complejos
+
+Si además tenemos que $\dim(E)= n\ge 1$ y $\{e_1,\dots,e_n\}$ es una base, podemos considerar la aplicación $f$ que hace corresponder cada forma bilineal $f$ con la matriz real $G = (g_{ij})$ con $g_{ij} = f(e_i,e_j)$ con $i,j = 1,\dots,n$
+
+Se trata de un isomorfismo entre el espacio vectorial de las formas bilineales sobre $E$ y el espacio vectorial de las matrices cuadradas de orden $n$ sobre $\mathbb{R}$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "observ">Observación.</l> Si $E$ es un espacio vectorial de dimensión finita, entonces el espacio vectorial de las formas bilineales sobre $E$ tiene dimensión $n^2$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Propiedad. </l>En esta correspondencia, $f$ es simétrica si, y solo si, $G$ es simétrica
+
+Donde diremos que $G$ es la matriz de $f$ con respecto a la base $\{e_1,\dots,e_n\}$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Proposición.</l> Sea $f$ una forma bilineal sobre $E$ y $\{e_1,\dots,e_n\}$ una base de $E$. Si $x,y\in E$ y $X,Y$ sob las matrices columna de coordenadas de $x,y$ respectivamente en la base dada, entonces se verifica que $$f(x,y) = X^tGY$$ donde $G$ es la matriz de $f$ en la base 
+
+<div class = "dem">
+**Demostración**
+
+Expresando $x,y$ como combinaciones lineales de los vectores de la base, se tiene $$f(x,y) = f\left(\sum_{i=1}^nx_ie_i,\sum_{j=1}^ny_je_j\right)$$
+
+</div>
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+Ahora, aplicando las condiciones de forma bilineal,
+
+$$f\left(\sum_{i=1}^nx_ie_i,\sum_{j=1}^ny_je_j\right) = \sum_{i = 1}^nx_i\left(f\left(e_i,\sum_{j = 1}^ny_je_j\right)\right) = \sum_{i = 1}^nx_i\left(\sum_{j = 1}^ny_jf(e_i,e_j)\right)$$
+
+
+Recordemos que $f(e_i,e_j) = g_{ij}$, entonces
+
+$$= \sum_{i,j = 1}^nx_ig_{ij}y_j = X^tGY$$
+</div>
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "observ">Observación.</l> Evidentemente, si cambiamos la base del espacio, la matriz de la forma bilineal cambia también.
+
+Veamos la relación que hay entre dos matrices de la misma forma bilineal:
+
+<l class = "prop">Proposición.</l> Sea $f$ una forma bilineal sobre $E$ y $B = \{e_1,\dots,e_n\}$, $B' = \{e'_1,\dots,e'_n\}$ bases de E. Si $G$ es la matriz de $f$ en la base $B$ y $G'$ la matriz de $f$ en la base $B'$, se verifica que $$G' = P^tGP$$ donde $P$ es la matriz de cambio de base (recordemos, la matriz de coordenadas de $B'$ en la base $B$)
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+**Demostración**
+
+Si $P$ es la matriz de cambio de base, tenemos las siguientes relaciones
+
+$$X = PX'\qquad Y = PY'$$
+
+Con lo cual
+
+$$f(x,y) = X^tGY = (PX')^tG(PY') = (X')^tP^tGPY' = (X')^tG'Y'$$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "observ">Observación.</l> Esta relación es ligeramente diferente a la que aparece en el caso de matrices que representan endomorfismos, ya que aquí se trata de la transpuesta de $P$, mientras que en el otro caso aparece la inversa de la matriz $P$
+
+## Productos escalares sobre espacios relaes y complejos
+
+En caso de que $E$ sea un $\mathbb{C}-$e.v., es decir, un espacio vectorial sobre los complejos, las definiciones anteriores cambian ligeramente:
+
+<l class = "definition">Forma sesquilineal.</l> Dada la aplicación $f: E\times E\longrightarrow \mathbb{C}$, diremos que es una forma sesquilineal si cumple, $\forall x_1,x_2,y_1,y_2\in E$ y $\forall \lambda\in \mathbb{C}$
+
+- $f(x_1+x_2,y_1) = f(x_1,y_1)+f(x_2,y_1)$
+- $f(\lambda x_1,y_1) = \lambda f(x_1,y_1)$
+- $f(x_1,y_1+y_2) = f(x_1,y_1)+f(x_1,y_2)$
+- $f(x_1,\lambda y_1) = \bar{\lambda} f(x_1,y_1)$
+
+donde $\bar{\lambda}$ representa el conjugado de $\lambda$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Forma sesquilineal hermítica. </l> Una forma sesquilineal es hermítica si $$f(x,y) = \bar{f(y,x)}\quad \forall x,y\in E$$
+
+## Productos escalares sobre espacios relaes y complejos
+
+De forma análoga al caso real, podemos decir que si $\dim(E)  = n\ge 1$ y $\{e_1,\dots,e_n\}$ es una base de $E$, podemos considerar la aplicación que hace corresponder cada forma sesquilineal $f$ con la matriz compleja $G = (g_{ij})$ con $g_{ij} = f(e_i,e_j)$ $i,j = 1,\dots,n$
+
+Se trata de un isomorfismo entre el espacio vectorial de las formas sesquilineales sobre $E$ y el espacio vectorial de las matrices cuadradas de orden $n$ sobre $\mathbb{C}$.
+
+## Productos escalares sobre espacios relaes y complejos
+
+De nuevo,
+
+<l class = "prop">Propiedad. </l> En esta correspondencia, $f$ es hermítica si, y solo si, $G$ es hermítica.
+
+<l class = "definition">Matriz hermítica.</l> Matriz $A\in\mathcal{M}_n(\mathbb{C})$ tal que $A^t = \bar{A}$
+
+Diremos que $G$ es la matriz de $f$ con respecto a la base $\{e_1,\dots,e_n\}$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Proposición.</l> Sea $f$ una forma sesquilineal sobre $E$ y $\{e_1,\dots,e_n\}$ una base de $E$. Si $x,y\in E$ y $X,Y$ son las matrices columna de coordenadas de $x,y$ respectivamente en la base dada, entonces se verifica $$f(x,y) = X^tG\bar{Y}$$ donde $G$ es la matriz de $f$ en la base dada e $\bar{Y}$ es la matriz que tiene por elmentos los conjugados de la matriz $Y$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Proposición.</l> Sea $f$ una forma sesquilineal sobre $E$ y $B = \{e_1,\dots,e_n\}$, $B' = \{e'_1,\dots,e'_n\}$ bases de $E$. Si $G$ es la matriz de $f$ en la base $B$ y $G'$ es la matriz de $f$ en la base $B'$, se verifica $$G' = P^tG\bar{P}$$ donde $P$ es la matriz de cambio de base de $B$ a $B'$ (matriz de coordenadas de $B'$ en la base $B$)
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Producto escalar.</l> Un producto escalar sobre $E$ ($\mathbb{R}$ o $\mathbb{C}$ espacio vectorial) es una forma bilineal simétrica o sesquilineal hermítica, respectivamente, que cumple
+
+- $f(x,x)\ge 0\quad \forall x\in E$
+- $f(x,x) = 0\Rightarrow x=0$
+
+Se suele decir que un producto escalar es una forma bilineal simétrica o sesquilineal hermítica definida positiva
+
+## Productos escalares sobre espacios relaes y complejos
+
+En general, utilizaremos la notación $\langle x,y\rangle$, pero también se suele denotar el producto escalar de los vectores $x,y\in E$ como $x.y$ o $f(x,y)$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Espacio vectorial Euclidiano.</l> $\mathbb{R}-$e.v. con un producto escalar definidio sobre él
+
+<l class = "definition">Espacio vectorial Unitario.</l> $\mathbb{C}-$e.v. con un producto escalar definidio sobre él
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Vectores ortogonales.</l> Sea $(E;\langle,\rangle)$ un e.v. euclidiano o unitario. Diremos que $x,y\in E$ son ortogonales si $\langle x,y\rangle = 0$
+
+
+<l class = "definition">Vector unitario.</l> Un vector $x\in E$ es unitario si $\langle x,x\rangle = 1$
+
+# Productos escalares y bases ortonormales
+
+## Productos escalares y bases ortonormales
+
+<l class = "definition"></l>
+
