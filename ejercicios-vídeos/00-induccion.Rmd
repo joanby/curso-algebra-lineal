@@ -1,0 +1,38 @@
+---
+title: "Ejercicios"
+subtitle: "Inducción"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Demostrar por inducción que si $x\in\mathbb{R}$, $x>0$ y $n\in\mathbb{N}$, $n\ge 2$, entonces $$(1+x)^n>1+nx$$
+
+## Pregunta 2
+
+Demostrar por inducción que la suma de los $n$ primeros números naturales es $$\frac{n(n+1)}{2}$$ Es decir, que $$1+2+3+\cdots+n =\frac{n(n+1)}{2} $$
+
+## Pregunta 3
+
+Demostrar por inducción que $$1^2+2^2+3^2+\cdots+n =\frac{n(n+1)(2n+1)}{6} $$
+
+## Pregunta 4
+
+Determinar si la suma de 3 enteros consecutivos es siempre divisible por 6
+
+## Pregunta 5
+
+Probar que si $$x_1 =0;\quad x_2 = 1,\quad x_n = 2x_{n-2}-x_{n-1}$$
+
+entonces el término general de esta sucesión vale
+
+$$x_n = \frac{2+(-2)^n}{6}\quad n=1,2,...$$
+
+## Pregunta 6
+
+Sean $a_1$ ,$a_2,\dots,a_n \in(-1,0]$. Probar que $$(1+a_1 )(1+ a_2)\dots (1+a_n)\ge1+a_1 + a_2 +\cdots+a_n$$

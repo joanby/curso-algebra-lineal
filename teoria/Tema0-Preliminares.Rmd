@@ -26,7 +26,7 @@ use_python("/anaconda3/bin/python3")
 
 <l class="definition">
 Cuerpo.
-</l> Sea $\mathbb{K}$ un conjunto dotado de dos operaciones, adición ($+$) y multiplicación ($\cdot$). Diremos que $\mathbb{K}$ es un cuerpo si se cumplen las condiciones siguientes:
+</l> Sea $\mathbb{K}$ un conjunto dotado de dos operaciones, adición ($+$) y multiplicación ($\cdot$). Diremos que $\mathbb{K}$ es un cuerpo si para todo $a,b\in\mathbb{K}$ se cumplen las condiciones siguientes:
 
 - $+$ y $\cdot$ son operaciones internas sobre $\mathbb{K}$: $a+b\in\mathbb{K}$ y $a\cdot b\in\mathbb{K}$
 - $+$ y $\cdot$ son operaciones conmutativas: $a+b=b+a$ y $a\cdot b=b\cdot a$
@@ -37,7 +37,7 @@ Cuerpo.
 ## La estructura de cuerpo
 
 - Elemento opuesto: $\forall a\in\mathbb{K}$ hay otro elemento $-a\in\mathbb{K}$ tal que $a+(-a)=(-a)+a=0$
-- Elemento inverso: $\forall a\in\mathbb{K}$ hay otro elemento $a^{-1}\in\mathbb{K}$ tal que $a\cdot a^{-1}=a^{-1}\cdot a=1$
+- Elemento inverso: $\forall a\in\mathbb{K},\ a\ne 0$ hay otro elemento $a^{-1}\in\mathbb{K}$ tal que $a\cdot a^{-1}=a^{-1}\cdot a=1$
 - La operación $\cdot$ es distributiva respecto $+$: $a\cdot(b+c)=a\cdot b+a\cdot c$
 
 <l class = "observ">Observación. </l>Cuando no pueda haber confusión quitaremos el signo $\cdot$ para denotar la operación de multiplicación. Es decir, denotaremos $a\cdot b$ como $ab$.
@@ -51,14 +51,16 @@ Propiedades de los cuerpos.
 - Propiedad de simplificación para la suma: $a+b=a+c\Rightarrow\ b=c$
 - Los neutros (0 y 1) son únicos
 - Cada elemento tienen un único opuesto
-- Cada elemento $\ne 0$ tiene un único inverso
+- Cada elemento diferente de 0 tiene un único inverso
 - 0 es absorbente para la multiplicación: $a\cdot 0 = 0\quad \forall a\in\mathbb{K}$
 - $\mathbb{K}$ no tiene divisores de 0: $ab=0\Rightarrow a=0$ o $b=0$
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github o bien como material de esta clase.
 
 ## Cuerpos conocidos 
 
 <div class = "example">
-**Ejemplo**
+**Ejemplo 1**
 
 Algunos de los cuerpos más conocidos son:
 
@@ -73,7 +75,7 @@ Algunos de los cuerpos más conocidos son:
 </div>
 
 <div class = "example">
-**Ejemplo**
+**Ejemplo 2**
 
 Los números naturales, $\mathbb{N}:=\{0,1,2,...\}$, no son un cuerpo. No hay elementos opuestos para ningún elemento del conjunto.
 </div>
@@ -101,6 +103,8 @@ Entremos un poquito más en detalle en este cuerpo tan interesante:
 
   - suma: $(a,b)+(c,d) = (a+c,b+d)$ $\qquad a,b,c,d\in\mathbb{R}$
   - producto: $(a,b)\cdot(c,d) = (ac-bd,ad+bc)$ $\qquad a,b,c,d\in\mathbb{R}$
+  
+## Números complejos
 
 <l class = "definition">Forma Binómica</l>. Si $z\in\mathbb{C}$ tal que $z=(a,b)$, su forma binómica es $z=a+bi$
 
@@ -142,6 +146,8 @@ Los números complejos se suelen representar en un plano, denominado <l class = 
 <div class = "center">
 ![](Images/comlpex2.png)
 </div>
+
+# Números complejos con `R`
     
 ## Números complejos con `R`
 
@@ -155,6 +161,12 @@ z2
 z3 = complex(modulus = 2, argument = pi) #Definimos mediante módulo y argumento
 z3
 ```
+
+## Números complejos con `R`
+
+<l class = "observ">¡Observación!</l> Si queremos escribir los números complejos $a+i$ o $a-i$ en `R`, donde $a$ puede ser cualquier número real, lo tenemos que hacer del siguiente modo: `a+1i` o `a-1i`, ya que si no la consola nos devolverá error.
+
+
 
 ## Números complejos con `R`
 
@@ -196,7 +208,7 @@ Para obtener el módulo y el argumento (principal) de cualquier número complejo
 #Módulo
 Mod(z2)
 
-#Argumento
+#Argumento principal
 Arg(z3)
 ```
 
@@ -212,8 +224,9 @@ z1+z2 #Suma de números complejos
 z2*z3 #Producto de números complejos
 ```
 
+# Trabajando con `Python` en Markdown
 
-## Trabajando con Python en Markdown
+## Trabajando con `Python` en Markdown
 
 En primer lugar, tendréis que instalar el paquete de `R` llamado `reticulate` del siguiente modo: 
 
@@ -221,13 +234,24 @@ En primer lugar, tendréis que instalar el paquete de `R` llamado `reticulate` d
 `install.packages("reticulate")`
 </div>
 
-Si en algúm momento necesitáis instalar una librería de Python en Rstudio, se debe ejecutar la siguiente función:
+Si en algúm momento necesitáis instalar una librería de `Python` en `Rstudio`, se debe ejecutar la siguiente función:
 
 <div class = "center">
 `py_install("NombreDelPaquete")`
 </div>
 
-## Números complejos con Python
+## Trabajando con `Python` en Markdown
+
+Para poder utilizar `Python` en un Markdown, en el chunk de ajustes deberéis añadir las instrucciones que se muestran a continuación
+
+- `library(reticulate)`
+- `use_python("/anaconda3/bin/python3")`
+
+La primera para cargar la librería `reticulate` y la segunda para ubicar donde está `Python` en nuestro ordenador
+
+# Números complejos con `Python`
+
+## Números complejos con `Python`
 
 Podemos definir números complejos de diferentes formas:
 
@@ -238,7 +262,11 @@ z2 = complex(1,7)
 z2
 ```
 
-## Números complejos con Python
+## Números complejos con `Python`
+
+<l class = "observ">¡Observación!</l> Si queremos escribir los números complejos $a+i$ o $a-i$ en `Python`, donde $a$ puede ser cualquier número real, lo tenemos que hacer del siguiente modo: `a+ji` o `a-ji`, ya que si no la consola nos devolverá error.
+
+## Números complejos con `Python`
 
 La función `type()` es útil a la hora de comprobar el tipo de dato con el que estamos trabajando:
 
@@ -247,7 +275,7 @@ type(z1)
 type(z2)
 ```
 
-## Números complejos con Python
+## Números complejos con `Python`
 
 Para obtener la parte real y la parte imaginaria de cualquier número complejo, utilizamos, `.real` y `.imag`
 
@@ -256,7 +284,7 @@ z1.real #Parte real
 z2.imag #Parte imaginaria
 ```
 
-## Números complejos con Python
+## Números complejos con `Python`
 
 El conjugado de un número complejo se obtiene mediante `.conjugate()`:
 
@@ -265,7 +293,7 @@ z1.conjugate()
 z2.conjugate()
 ```
 
-## Números complejos con Python
+## Números complejos con `Python`
 
 Para obtener el módulo y el argumento (principal) de cualquier número complejo, utilizamos, respectivamente, las funciones `abs()` y `cmath.phase()`:
 
@@ -275,7 +303,7 @@ abs(z1)
 cmath.phase(z2)
 ```
 
-## Números complejos con Python
+## Números complejos con `Python`
 
 Las operaciones básicas con números complejos se realizan del siguiente modo:
 
@@ -285,7 +313,21 @@ z1+z2 #Suma de numeros complejos
 z1*z2 #Producto de numeros complejos
 ```
 
-## Números complejos con Octave
+# Trabajando con `Octave` en Markdown
+
+## Trabajando con `Octave` en Markdown
+
+Para poder utilizar `Octave` en Markdown deberéis introducir en el chunk de ajustes el siguiente código:
+
+`knitr::opts_chunk$set(echo = TRUE, engine.path = list( octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'))`
+
+Lo que está entre comillas es la dirección donde se encuentra el lenguaje `Octave` en nuestro ordenador
+
+<l class = "important">¡Ojo!</l> A la hora de utilizar chunks de `Octave`, tendréis que introducir las variables cada vez. Es decir, no se guarda la información de un chunk a otro
+
+# Números complejos con `Octave` 
+
+## Números complejos con `Octave` 
 
 Podemos definir números complejos de diferentes formas:
 
@@ -298,7 +340,7 @@ tipoDato2 = class(z2)
 
 La función `class()` es útil a la hora de comprobar el tipo de dato con el que estamos trabajando.
 
-## Números complejos con Octave
+## Números complejos con `Octave` 
 
 Para obtener la parte real y la parte imaginaria de cualquier número complejo, utilizamos, respectivamente, las funciones `real()` e `imag()`
 
@@ -310,9 +352,9 @@ real(z1)
 imag(z2)
 ```
 
-Observad que para trabajar con los números complejos anteriormente definidos, hemos tenido que crearlos de nuevo porque Octave trata cada chunk por separado.
+<l class = "observ">Observación.</l> Para trabajar con los números complejos anteriormente definidos, hemos tenido que crearlos de nuevo porque `Octave` trata cada chunk por separado.
 
-## Números complejos con Octave
+## Números complejos con `Octave` 
 
 El conjugado de un número complejo se obtiene mediante la función `conj()`:
 
@@ -328,7 +370,7 @@ angle(z2)
 
 Para obtener el módulo y el argumento (principal) de cualquier número complejo, utilizamos, respectivamente, las funciones `abs()` y `arg()` o `angle()`.
 
-## Números complejos con Octave
+## Números complejos con `Octave` 
 
 Las operaciones básicas con números complejos se realizan del siguiente modo:
 
@@ -363,10 +405,10 @@ Polinomio iguales.
 
 <l class="definition">
 Grado de un polinomio.
-</l> Si $a_n\ne 0$, se dice que el grado del polinomio es $n$.
+</l> Si $a_n\ne 0$ y $a_j = 0\ \forall j=n+1,n+2,\dots$, se dice que el grado del polinomio es $n$.
 
 <div class="example">
-**Ejemplo**
+**Ejemplo 3**
 
 - $p(x)=x^2+5x+1$ es un polinomio de segundo grado (grado 2)
 - $q(x)=x^4-5$ es un polinomio de grado 4
@@ -381,7 +423,7 @@ Polinomio constante.
 </l> Polinomio de grado 0 
 
 <div class="example">
-**Ejemplo**
+**Ejemplo 4**
 
 $p(x)=5$ es un polinomio constante
 </div>
@@ -398,7 +440,7 @@ Conjunto de polinomios en una variable.
 ## Polinomios
 
 <div class = "example">
-**Ejemplo**
+**Ejemplo 5**
 
 Sean $p(x) = x+1$ y $q(x) = x-1$. Entonces,
 
@@ -412,7 +454,7 @@ Con estas operaciones el conjunto $\mathbb{K}[x]$ presenta una serie de propieda
 
 <l class = "definition">División de polinomios.</l> Dado un polinomio $p(x)\in\mathbb{K}[x]$, la división de $p(x)$ entre otro polinomio $s(x)\in\mathbb{K}[x]$ de grado menor o igual al de  $p(x)$, consiste en hallar 2 polinomios $q(x),r(x)\in\mathbb{K}[x]$ tales que $$p(x) = s(x)q(x)+r(x)$$
 
-Véamoslo más claramente con un ejemplo
+
 
 
 ## Polinomios
@@ -421,11 +463,11 @@ Polinomio irreducible.
 </l>Si es un polinomio con coeficientes en un cuerpo, no es constante y no se puede descomponer en producto de otros polinomios sin que esta descomposición sea trivial.
 
 <div class="example">
-**Ejemplo**
+**Ejemplo 6**
 
-$p(x) = 1+x^2\in\mathbb{R}[x]$ es primo ya que no puede escribirse de forma $r(x)s(x)$ con $r(x),s(x)\in\mathbb{R}[x]$, $r(x),s(x)\ne p(x)$ y $r(x),s(x)\ne 1$.
+$p(x) = 1+x^2\in\mathbb{R}[x]$ es irreducible ya que no puede escribirse de forma $r(x)s(x)$ con $r(x),s(x)\in\mathbb{R}[x]$, $r(x),s(x)\ne p(x)$ y $r(x),s(x)\ne 1$.
 
-En cambio, $q(x)=1-x^2$ no es primo ya que $q(x)=(1-x)(1+x)$
+En cambio, $q(x)=1-x^2$ no es irreducible, ya que $q(x)=(1-x)(1+x)$
 </div>
 
 ## Polinomios
@@ -445,8 +487,13 @@ Raíz de un polinomio.
 Proposición.
 </l> $\alpha\in\mathbb{K}$ es raíz de $p(x)$ $\Leftrightarrow$ $p(x)=(x-\alpha)q(x)$ con $q(x)\in\mathbb{K}[x]$.
 
-De aquí deducimos que si un polinomio de $\mathbb{K}[x]$ de grado mayor que 1 tiene una raíz (en $\mathbb{K}$) entonces no es primo. El recíproco no es cierto.
+De aquí deducimos que si un polinomio de $\mathbb{K}[x]$ de grado mayor que 1 tiene una raíz (en $\mathbb{K}$) entonces no es irreducible. El recíproco no es cierto.
 
+## Polinomios{.dem}
+
+**Demostración**
+
+# Polinomios con `R`
 
 ## Polinomios con `R`
 
@@ -531,10 +578,11 @@ polyroot(c(-4,0,1))
 
 Fijaos que `R` nos devuelve un vector de números complejos a pesar de que las soluciones en ambos casos son dos números reales
 
+# Polinomios con `Python`
 
-## Polinomios en Python
+## Polinomios con `Python`
 
-Para definir un polinomio en Python, lo haremos mediante las funciones `sympy.symbols()` para indicar con qué variable trabajamos y `sympy.Poly()` introduciendo el polinomio por parámetro:
+Para definir un polinomio en `Python`, lo haremos mediante las funciones `sympy.symbols()` para indicar con qué variable trabajamos y `sympy.Poly()` introduciendo el polinomio por parámetro:
 
 ```{python}
 import sympy 
@@ -545,7 +593,7 @@ q = sympy.Poly(1+x+x**3)
 q
 ```
 
-## Polinomios en Python
+## Polinomios con `Python`
 
 O bien, otra forma de definir polinomios es mediante la librería `numpy`, introduciendo como parámetro el vector de coeficientes en orden descendente
 
@@ -558,7 +606,7 @@ print(s)
 ```
 
 
-## Polinomios en Python
+## Polinomios con `Python`
 
 Para comprobar si dos polinomios son iguales, utilizamos el operador lógico `==`
 
@@ -567,18 +615,22 @@ p == q
 r == s
 ```
 
-Claramente son diferentes, porque, tal y como los hemos definido anteriormente, ni siquiera tienen el mismo grado. Además, fijaos que no podemos comparar los polinomios creados utilizando librerías diferentes, ya que da error. 
+Claramente son diferentes, porque, tal y como los hemos definido anteriormente, ni siquiera tienen el mismo grado. 
 
-## Polinomios en Python
+## Polinomios con `Python`
 
-Para calcular el grado de cualquier polinomio en Python, lo haremos utilizando `Polynomial.degree()`
+<l class = "observ">Observación. </l>Fijaos que no podemos comparar los polinomios creados con librerías diferentes, ya que da error al ser diferentes tipos de objeto. 
+
+## Polinomios con `Python`
+
+Para calcular el grado de cualquier polinomio en `Python`, lo haremos utilizando `Polynomial.degree()`
 
 ```{python}
 p.degree()
 q.degree()
 ```
 
-## Polinomios en Python
+## Polinomios con `Python`
 
 o, si estamos trabajando con la librería `numpy`, lo hacemos mediante la función `Polynomial.order`
 
@@ -589,9 +641,9 @@ r.order
 s.order
 ```
 
-Fijaos que hemos tenido que volver a definir los polinomios. De no estar, la consola nos devolvería error.
+<l class = "important">¡Ojo!</l> Fijaos que hemos tenido que volver a definir los polinomios. De no estar, la consola nos devolvería error.
 
-## Polinomios en Python
+## Polinomios con `Python`
 
 Las operaciones suma y producto de polinomios, se llevan a cabo del siguiente modo:
 
@@ -600,7 +652,7 @@ p+q
 p*q 
 ```
 
-## Polinomios en Python
+## Polinomios con `Python`
 
 y, con la librería `numpy`, la suma y el producto de polinomios se realizan del siguiente modo:
 
@@ -611,7 +663,7 @@ r+s
 r*s
 ```
 
-## Polinomios con Python
+## Polinomios con `Python`
 
 La división de polinomios la obtenemos tal y como se muestra a continuación (solo utilizando la librería `numpy`):
 
@@ -624,7 +676,7 @@ r*numpy.poly1d([1,0,2])+3 == s
 
 Observad que primero se devuelve el cociente y, a continuación, el resto de la división
 
-## Polinomios con Python
+## Polinomios con `Python`
 
 Para evaluar polinomios, haciendo uso de la librería `numpy`, lo hacemos del siguiente modo:
 
@@ -635,7 +687,7 @@ r(0)
 s(2)
 ```
 
-## Polinomios con Python
+## Polinomios con `Python`
 
 Para encontrar las raíces de polinomios, haciendo uso de la librería `numpy`, lo hacemos utilizando `Polynomial.r`:
 
@@ -646,9 +698,11 @@ r.r
 s.r
 ```
 
-## Polinomios con Octave
+# Polinomios con `Octave` 
 
-Para definir un polinomio en Octave, lo haremos mediante vectores. Para mostrarlos simbólicamente, utilizaremos la función `polyout(vector,'variable')`, donde las entradas del vector son los coeficientes en orden descendente.
+## Polinomios con `Octave` 
+
+Para definir un polinomio en `Octave`, lo haremos mediante vectores. Para mostrarlos simbólicamente, utilizaremos la función `polyout(vector,'variable')`, donde las entradas del vector son los coeficientes en orden descendente.
 
 ```{octave}
 p = [1,2,3,4,5]; 
@@ -657,9 +711,9 @@ q = [1,0,0,1];
 polyout(q,'x')
 ```
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
-Una forma de calcular el grado de un polinomio en Octave es mediante la función `length()` aplicada al vector de coeficientes. Eso sí, teniendo en cuenta que, tal y como hemos definido los polinomios, $p(x)=a_0+\cdots+a_nx^n$, estos empiezan en 0. Con lo cual, para obtener el grado exacto del polinomio, habrá que restar una unidad al resultado que nos devuelva `length()`:
+Una forma de calcular el grado de un polinomio en `Octave` es mediante la función `length()` aplicada al vector de coeficientes. Eso sí, teniendo en cuenta que, tal y como hemos definido los polinomios, $p(x)=a_0+\cdots+a_nx^n$, estos empiezan en 0. Con lo cual, para obtener el grado exacto del polinomio, habrá que restar una unidad al resultado que nos devuelva `length()`:
 
 ```{octave}
 p = [1,2,3,4,5]; 
@@ -669,13 +723,13 @@ gradoQ = length(q)-1
 ```
 
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
-Como, en Octave, los polinomios vienen representados por vectores, sumar polinomios no es una operación directa en Octave, ya que la mayoría de veces nos encontraremos con vectores de diferente longitud. En esos casos, se nos devolverá error por consola.
+Como, en `Octave`, los polinomios vienen representados por vectores, sumar polinomios no es una operación directa en `Octave`, ya que la mayoría de veces nos encontraremos con vectores de diferente longitud. En esos casos, se nos devolverá error por consola.
 
 Lo mismo ocurre si quisiésemos comprobar que dos polinomios de diferente grado son iguales
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 Una solución a este problema es rellenar con 0 el vector de coeficientes hasta alcanzar la máxima longitud de los vectores que tengamos. Esto lo podemos conseguir mediante la función `zeros()`:
 
@@ -684,7 +738,7 @@ p = [1,2,3,4,5]; q = [1,0,0,1]; gradoP = length(p)-1; gradoQ = length(q)-1;
 p = [zeros(1, gradoQ-gradoP), p], q = [zeros(1, gradoP-gradoQ), q], suma = p+q
 ```
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 Lo que sí podemos hacer es multiplicar polinomios mediante la función `conv`
 
@@ -695,7 +749,7 @@ producto = conv(p,q);
 polyout(producto,'x')
 ```
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 La división de polinomios se consigue mediante la función `deconv(numerador,denominador)`. Esta función devuelve los vecotres de coeficientes del cociente y el resto de la división polinómica, en orden descendente:
 
@@ -705,7 +759,7 @@ q = [1,0,0,1];
 [cociente, resto] = deconv(p,q)
 ```
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 Fijaos que el vector de coeficientes del resto tiene la misma longitud que el dividendo, con lo cual podemos realizar la comprobación de la división:
 
@@ -719,7 +773,7 @@ p == conv(q,cociente) + resto
 
 donde los unos representan el valor lógico `True`
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 Para evaluar polinomios, utilizamos la función `polyval(polinomio,x0)`:
 
@@ -730,7 +784,7 @@ polyval(p,0)
 polyval(q,3)
 ```
 
-## Polinomios con Octave
+## Polinomios con `Octave` 
 
 Para hallar las raíces de un polinomio, hacemos uso de la función `roots()`:
 
@@ -740,4 +794,46 @@ q = [1,0,1];
 roots(p)
 roots(q)
 ```
+
+# El principio de inducción
+
+## El principio de inducción
+
+<l class = "prop">Principio de Inducción.</l> El principio de inducción afirma que si $P(n)$ es una propiedad sobre $n\in\mathbb{N}$ y se cumple que 
+
+- $P(1)$ es cierta (Caso base)
+- Si $P(n)$ es cierta, entonces $P(n+1)$ es cierta (Caso inductivo)
+
+entonces $P(n)$ es cierta para todo $n\in\mathbb{N}$
+
+## El principio de inducción
+
+El principio de Inducción también es válido si $n\in\mathbb{Z}$ del siguiente modo:
+
+Si $P(n)$ es una propiedad sobre $n\in\mathbb{Z}$, con $n_0\in\mathbb{Z}$ y se cumple que 
+
+- $P(n_0)$ es cierta
+- Si $P(n)$ es cierta, entonces $P(n+1)$ es cierta
+
+entonces $P(n)$ es cierta para todo $n\in\mathbb{Z},\ n\ge n_0$
+
+## El principio de inducción
+
+<l class = "prop">Principio de Inducción completa.</l> Si $P(n)$ es una propiedad sobre $n\in\mathbb{N}$ y se cumple que 
+
+- $P(1)$ es cierta (Caso base)
+- Si $P(n)$ es cierta para $1,2,\dots, n$, entonces $P(n+1)$ es cierta (Caso inductivo)
+
+entonces $P(n)$ es cierta para todo $n\in\mathbb{N}$
+
+## El principio de inducción
+
+El principio de Inducción completa también es válido si $n\in\mathbb{Z}$ del siguiente modo: 
+
+Si $P(n)$ es una propiedad sobre $n\in\mathbb{Z}$, $n_0\in\mathbb{Z}$ y se cumple que 
+
+- $P(n_0)$ es cierta
+- Si $P(n)$ es cierta para $n_0\le n$, entonces $P(n+1)$ es cierta
+
+entonces $P(n)$ es cierta para todo $n\in\mathbb{Z}\ n\ge n_0$
 

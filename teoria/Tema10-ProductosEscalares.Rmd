@@ -160,9 +160,583 @@ En general, utilizaremos la notación $\langle x,y\rangle$, pero también se sue
 
 <l class = "definition">Vector unitario.</l> Un vector $x\in E$ es unitario si $\langle x,x\rangle = 1$
 
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Proposición.</l> Si $(E;\langle,\rangle)$ un e.v. euclidiano o unitario. Se verifican:
+
+1. $\langle 0,x\rangle = 0\quad \forall x\in E$
+2. $\langle x,y\rangle = 0\quad \forall y\in E\Rightarrow x = 0$
+3. Si $x_1,\dots,x_k$ son no nulos y ortogonales dos a dos, entonces son LI
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+**Demostración 1**
+
+$$\langle 0,x\rangle = \langle x+(-x),x\rangle = \langle x,x\rangle+\langle -x,x\rangle = \langle x,x\rangle-\langle x,x\rangle = 0$$
+
+y esto se da para cualquier $x\in E$
+
+
+**Demostración 2**
+
+Nosotros sabemos que $\langle x,y\rangle = 0$ $\forall y\in E$. En particular, tomando $y = \lambda x$, con $\lambda \ne 0$ tenemos
+
+$$\langle x,y\rangle = \langle x,\lambda x\rangle = \lambda\langle x,x\rangle = 0\Rightarrow x = 0$$
+
+ya que $\lambda\ne 0$ y por la propiedad 2 de la definición de producto escalar.
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+**Demostración 3**
+
+Consideremos $$\sum_{i = 1}^k\alpha_ix_i = 0$$
+
+Recordemos que para probar que $x_1,\dots,x_k$ son LI, habrá que ver que esa igualdad solamente se da cuando $\alpha_1 = \cdots = \alpha_k = 0$ donde $\alpha_i\in\mathbb{K} = \mathbb{R},\mathbb{C}$ con $i = 1,\dots,k$
+
+Entonces, multipliquemos escalarmente la combinación lineal anterior por el vector $x_j$:
+
+$$0 = \left\langle \sum_{i = 1}^k\alpha_ix_i,x_j\right\rangle = \sum_{i = 1}^k\alpha_i\langle x_i,x_j\rangle = \alpha_j\langle x_j,x_j\rangle$$
+
+y como los $x_j$ eran no nulos, entonces $\alpha_j = 0\quad\forall j\in\{1,\dots,k\}$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Norma.</l> Sea $E$ un e.v. sobre $\mathbb{K} = \mathbb{R},\mathbb{C}$. Diremos que una aplicación $||\cdot||: E\longrightarrow \mathbb{R}$ es una norma si $\forall x,y\in E$, $\forall\lambda\in \mathbb{K}$
+
+1. $||x||\ge 0$
+2. $||x|| = 0$ si, y solo si, $x = 0$
+3. $||\lambda x|| = |\lambda|\cdot ||x||$
+4. Desigualdad triangular: $||x+y||\le ||x||+||y||$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Espacio vectorial normado.</l> Un espacio vectorial normado es un espacio vectorial sobre $\mathbb{R}$ o sobre $\mathbb{C}$ con una norma definida sobre él.
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Vector unitario.</l> Si $(E;||\cdot||)$ es un e.v. normado, diremos que un vector $x\in E$ es unitario si $$||x|| = 1$$
+
+<l class = "observ">Observación.</l> Si $x\in E$ es tal que $x\ne 0$, entonces podremos normalizarlo realizando lo siguiente: $$\frac{x}{||x||}$$
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "prop">Proposición.</l> Si $(E;\langle,\rangle)$ es un e.v. euclidiano o unitario, entonces la aplicación definida por $$||x|| = \sqrt{\langle x,x\rangle}$$ es una norma. Además, se verifican las siguientes propiedades:
+
+1. Desigualdad de Cauchy-Schwarz: $|\langle x,y\rangle|\le ||x||\cdot||y||$
+2. $|\langle x,y \rangle| = ||x||\cdot||y||\Leftrightarrow x,y$ son linealmente dependientes
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+**Demostración**
+
+En primer lugar, para demostrar que $||x|| = \sqrt{\langle x,x\rangle}$ es una norma, debemos probar que se cumplen
+
+1. $||x||\ge 0$
+2. $||x|| = 0$ si, y solo si, $x = 0$
+3. $||\lambda x|| = |\lambda|\cdot ||x||$
+4. Desigualdad triangular: $||x+y||\le ||x||+||y||$
+
+Empecemos por la primera: 
+
+$$||x|| = \sqrt{\langle x,x\rangle}\ge 0$$
+
+ya que por definición de producto escalar, $\langle x,x\rangle\ge 0$
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+En segundo lugar, probaremos primero la implicación $||x|| = 0\Rightarrow x =0$:
+
+$$||x|| = 0\Rightarrow \sqrt{\langle x,x\rangle} = 0\Rightarrow \langle x,x\rangle =0\Rightarrow x=0$$
+
+Y la última de las implicaciones anteriores nos viene dada nuevamente por la definición de producto escalar
+
+Ahora nos toca probar la implicación $x = 0\Rightarrow ||x|| =0$. Y esto es inmediato ya que si $x =0$, entonces
+
+$$\langle x,x\rangle = \langle0,0\rangle = 0\Rightarrow \sqrt{\langle x,x\rangle} = \sqrt{0} = 0\Rightarrow ||x|| = ||0|| =0$$
+
+Con ambas implicaciones, queda demostrado el si, y solo si.
+
+Pasemos ahora a demostrar la tercera propiedad: $||\lambda x|| = |\lambda|\cdot ||x||$. Nosotros tenemos que
+
+$$||\lambda x|| = \sqrt{\langle\lambda x,\lambda x\rangle} = \sqrt{\lambda^2\langle x,x\rangle} = |\lambda|\sqrt{\langle x,x\rangle} = |\lambda|\cdot||x||$$
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+Finalmente, la cuarta y última propiedad es la Desigualdad triangular. Pero antes, demostraremos la Desigualdad de Cauchy-Schwarz:
+
+**Demostración Cauchy-Schwarz**
+
+Queremos demostrar que $|\langle x,y\rangle|\le ||x||\cdot||y||$
+
+Si $y = 0$, la desigualdad es trivialmente cierta ya que
+
+$$\langle x,0\rangle = 0\le 0 = ||x||\cdot ||0||$$
+
+Supongamos pues que $y\ne 0$ y consideremos $\lambda = \frac{\langle x,y\rangle}{\langle y,y\rangle}$. Entonces,
+
+$$0\le \langle x-\lambda y,x-\lambda y\rangle = \langle x,x\rangle -\lambda\langle y,x\rangle -\bar{\lambda}\langle x,y\rangle +\lambda\bar{\lambda}\langle y,y\rangle$$
+
+$$ = \langle x,x\rangle-\frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle-\frac{\overline{\langle x,y\rangle}}{\langle y,y\rangle}\langle x,y\rangle+\frac{\langle x,y\rangle\overline{\langle x,y\rangle}}{\langle y,y\rangle} = \langle x,x\rangle-\frac{\langle x,y\rangle}{\langle y,y\rangle}\langle y,x\rangle$$
+
+$$\langle x,x\rangle-\frac{\langle x,y\rangle\overline{\langle x,y\rangle}}{\langle y,y\rangle} = \langle x,x\rangle- \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}$$
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+Con lo cual,
+
+$$0\le \langle x,x\rangle- \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}\Leftrightarrow \frac{|\langle x,y\rangle|^2}{\langle y,y\rangle}\le \langle x,x\rangle\Leftrightarrow |\langle x,y\rangle|^2\le \langle x,x\rangle\langle y,y\rangle\Leftrightarrow |\langle x,y\rangle|\le \sqrt{\langle x,x\rangle}\sqrt{\langle y,y\rangle}$$
+
+Y, en definitiva
+
+$$|\langle x,y\rangle|\le ||x||\cdot||y||$$
+
+**Demostración Desigualdad Triangular**
+
+Ahora, volvamos a la desigualdad triangular: lo que queremos es demostrar $$||x+y||\le ||x||\cdot ||y||$$
+
+Para probarla, consideremos
+
+$$\langle x+y,x+y\rangle = \langle x,x\rangle+ \langle x,y\rangle + \langle y,x\rangle + \langle y,y\rangle = \langle x,x\rangle+\langle y,y\rangle+ (\langle x,y\rangle+\overline{\langle x,y\rangle})\le$$
+
+$$\le \langle x,x\rangle+\langle y,y\rangle+ 2|\langle x,y\rangle|\le \langle x,x\rangle+\langle y,y\rangle+ 2(\sqrt{\langle x,x\rangle}+\sqrt{\langle y,y\rangle}) = (\sqrt{\langle x,x\rangle}+ \sqrt{\langle y,y\rangle})^2$$
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+donde hemos utilizado $$|\langle x,y\rangle|\le||x||||y||$$ y que $$(a+b)^2 = a^2+2ab+b^2$$
+
+**Demostración propiedad 2**
+
+Finalmente nos queda por demostrar $$|\langle x,y \rangle| = ||x||\cdot||y||\Leftrightarrow x,y\text{  son linealmente dependientes}$$
+
+Empecemos con la primera implicación $|\langle x,y \rangle| = ||x||\cdot||y||\Rightarrow x,y\text{ son LI}$
+
+$$|\langle x,y \rangle| = ||x||\cdot||y||\Leftrightarrow |\langle x,y\rangle|^2 = \langle x,x\rangle\langle y,y\rangle$$
+
+## Productos escalares sobre espacios relaes y complejos{.dem}
+
+Ahora bien, recuperando la demostración de la desigualdad Cauchy-Schwarz, tenemos que 
+
+$$|\langle x,y\rangle|^2 = \langle x,x\rangle\langle y,y\rangle\Leftrightarrow 0 =\langle x+y,x+y\rangle$$
+
+lo cual implica, por definción de producto escalar, que $x+y = 0$. En definitiva, que $x = -y$ y por tanto, que $x,y$ son linealmente dependientes.
+
+Nos queda demostrar la implicación $$x,y\text{ son linealmente dependientes}\Rightarrow |\langle x,y \rangle| = ||x||\cdot||y||$$
+
+Que $x,y$ sean linealmente dependientes implica que existe $\lambda\in\mathbb{K}$ tal que $x = \lambda y$. Con lo cual
+
+$$|\langle x,\lambda x\rangle| = |\lambda||\langle x,x\rangle|$$
+
+mientras que $$||x||\cdot ||\lambda x|| = |\lambda|\cdot||x||^2 = |\lambda|(\sqrt{\langle x,x\rangle})^2 = |\lambda||\langle x,x\rangle|$$
+
+Y con esto, queda demostrado el si, y solo si.
+
+## Productos escalares sobre espacios relaes y complejos
+
+<l class = "definition">Norma asociada al producto escalar.</l> Norma definida en la proposición anterior $$||x|| = \sqrt{\langle x,x\rangle}$$
+
+<l class = "observ">Observación.</l> Hay normas que no derivan de ningún producto escalar. Un ejemplo de este tipo de normas es la definida en $\mathbb{R}^2$
+
+$$||(x,y)|| = |x|+|y|$$
+
+
+
 # Productos escalares y bases ortonormales
 
 ## Productos escalares y bases ortonormales
 
-<l class = "definition"></l>
+<l class = "definition">Base ortonormal.</l> Sea $(E;\langle,\rangle)$ es un e.v. euclidiano o unitario. Diremos que $\{e_1,\dots,e_n\}$ es una base ortonormal si los vectores son unitarios y ortogonales dos a dos.
 
+## Productos escalares y bases ortonormales
+
+
+<l class = "observ">Observación.</l> La base $\{e_1,\dots,e_n\}$ es ortonormal si, y solo si, la matriz del producto escalar en dicha base es la matriz identidad
+
+En el caso real, la matriz del cambio de base $P$ de una base ortonormal a otra base ortonormal verifica $$P^tP = I$$ En otras palabras, se verifica que $P$ es ortogonal
+
+En el caso complejo, se verifica que $P$ es unitaria $$\bar{P}^tP = I$$
+
+## Productos escalares y bases ortonormales
+
+<l class = "prop">Proposición. Método de Ortonormalización de Gram-Schmidt.</l> En un e.v. euclidiano o unitario de dimensión finita hay bases ortonormales
+
+<div class = "dem">
+**Demostración**
+
+Sea $\{e_1,\dots,e_n\}$ una base cualquiera del e.v. $E$. Consideremos los subespacios vectoriales
+
+$$E_1 = \langle e_1\rangle\subset E_2 = \langle e_1,e_2\rangle\subset \cdots E_n = \langle e_1,\dots,e_n\rangle = E$$
+El espacio $E_1$ tiene una base ortonormal que es $u_1=\frac{e_1}{||e_1||}$
+
+Supongamos ahora que $u_1,\dots,u_r$ es una base ortonormal de $E_r$ y veamos como podemos construir una base ortonormal de $E_{r+1} = \langle e_1,\dots,e_{r+1}\rangle = \langle u_1,\dots,u_r,e_{r+1}\rangle$
+
+Sea $u'_{r+1} = e_{r+1}-(k_1u_1+\cdots+k_ru_r)$ e impongamos que ea ortogonal en cada $u_i$ con $i=1,\dots,r$. Si queremos que se cumpla esta condición, obtendremos que $$k_i = \langle e_{r+1},u_i\rangle$$
+
+Por otro lado, $u_1,\dots,u_r,u'_{r+1}$ son LI y son por tanto una base de $E_{r+1}$
+
+</div>
+
+## Productos escalares y bases ortonormales{.dem}
+
+Finalmente, normalizamos el vector $u'_{r+1}$ y obtenemos así $$u_{r+1} = \frac{u'_{r+1}}{||u'_{r+1}||}$$
+
+Así los vectores $u_1,\dots,u_r,u_{r+1}$ forman una base ortonormal de $E_{r+1}$
+
+Siguiendo este mismo razonamiento, por inducción tenemos que $E_n = E$ tiene una base ortonormal
+
+## Productos escalares y bases ortonormales
+
+<l class = "prop">Proposición.</l> Si una forma bilineal (sesquilineal) sobre un e.v. real (complejo) de dimensión finita tiene matriz identidad en una base, esta forma es un producto escalar
+
+<div class = "dem">
+Sea $f$ con matriz $I$ en una base $\{e_1,\dots,e_n\}$ y sean $$x = \sum_{i = 1}^nx_ie_i\qquad y = \sum_{i= 1}^ny_ie_i$$ dos vectores pertenecientes a $E$. Entonces,
+
+$$f(x,y) = \sum_{i = 1}^nx_iy_i\quad \text{ en el caso real}$$
+$$f(x,y) = \sum_{i = 1}^nx_i\bar{y_i}\quad \text{ en el caso complejo}$$
+
+</div>
+
+## Productos escalares y bases ortonormales{.dem}
+
+Además, en cualquiera de los dos casos tenemos $$f(x,x)\ge 0\forall x\in E$$ $$f(x,x) = 0\Rightarrow x = 0$$ 
+
+## Productos escalares y bases ortonormales
+
+<l class = "prop">Proposición.</l> Sea $f$ una forma bilineal (sesquilineal) con matriz $G$ en una base $\{e_1,\dots,e_n\}$. Sean $G_r$ los menores principales de orden $r$ (las submatrices de $G$ formadas por las primeras $r$ filas y las primeras $r$ columnas con $r = 1,\dots,n$). Entonces, $f$ es un producto escalar si, y solo si $G$ es simétrica (hermítica) y $\det(G_r)>0$ $\forall r = 1,\dots,n$
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición esta disponible en pdf, adjunta en esta misma clase, debido a su larga extensión. También está disponible en la carpeta `demostraciones` del Github.
+
+# Producto escalar y espacio dual
+
+## Producto escalar y espacio dual
+
+Sea $(E;\langle,\rangle)$ un e.v. euclidiano o unitario con $\dim(E) = n$.
+
+Recordemos que el espacio dual de $E$ lo definimos como $E^* = L(E,\mathbb{R})$ o $E^* = L(E,\mathbb{C})$
+
+## Producto escalar y espacio dual
+
+Para cada $x\in E$ consideremos la forma lineal $\omega_x:E\longrightarrow \mathbb{K} = \mathbb{R},\mathbb{C}$ definida como $\omega_x(y) = \langle y,x\rangle$ $\forall y\in E$. Entonces
+
+<l class = "prop">Proposición.</l> La aplicación $\sigma: E\longrightarrow E^*$ definida por $\sigma(x) = \omega_x$ tiene las siguientes propidades:
+
+1. Es inyectiva
+2. Es exhaustiva
+3. Conserva la suma: $\omega(x+y) = \omega(x)+\omega(y)$ $\forall x,y\in E$
+4. $\sigma(\lambda x) = \bar{\lambda}\sigma(x)$ $\forall x\in E,\ \lambda\in\mathbb{K}$
+
+## Producto escalar y espacio dual{.dem}
+
+**Demostración 1**
+
+Sean $x,y\in E$ tales que $\sigma (x) = \sigma(y)$. Veamos que $x=y$.
+
+Tenemos pues que 
+
+$$\sigma (x) = \sigma(y) \Leftrightarrow \omega_x(z) = \omega_y(z)\Leftrightarrow \langle z,x\rangle = \langle z,y\rangle\quad\forall z\in E$$
+
+Es decir, $$\langle z,x\rangle = \langle z,y\rangle\Leftrightarrow \langle z,x\rangle -\langle z,y\rangle = 0\Leftrightarrow \langle z, x-y\rangle = 0\quad \forall z\in E$$
+
+Con lo cual, por una de las propiedades del producto escalar, tenemos que $x-y = 0$, lo que implica que $x = y$ tal y como queríamos demostrar
+
+## Producto escalar y espacio dual{.dem}
+
+**Demostración 2**
+
+Dada $\omega\in E^*$ consideremos una base ortonormal $u_1,\dots,u_n$ de $E$ y el vector $$u = \overline{\omega(u_1)u_1}+\cdots+\overline{\omega(u_n)u_n}$$
+
+Este vector es una anti-imagen de $\omega$ ya que $$[\sigma(u)](u_i) = \omega_u(u_i) = \langle u_i,u\rangle = \omega(u_i)$$ por ortonormalidad de la base $u_1,\dots,u_n$
+
+Esto prueba que todo elemento de $E^*$ tiene anti-imagen para $\sigma$ en E, que no es otra cosa que decir que $\sigma$ es exhaustiva
+
+## Producto escalar y espacio dual{.dem}
+
+**Demostración 3**
+
+$$[\sigma(x+y)](z) = \langle z,x+y\rangle = \langle z,x\rangle+\langle z,y\rangle = [\sigma(x)](z)+[\sigma(y)](z)$$
+
+**Demostración 4**
+
+$$[\sigma(\lambda x)](z) = \langle z,(\lambda x)\rangle = \bar{\lambda}\langle z,x\rangle = \bar{\lambda}[\sigma(x)](z) $$
+
+
+## Producto escalar y espacio dual
+
+<l class = "observ">Observación.</l> En caso de que $\lambda\in\mathbb{R}$, tenemos que $$\bar{\lambda} = \lambda$$
+
+<l class = "observ">Observación.</l> Acabamos de ver que $\sigma$ es un isomorfismo que no depende de bases. Diremos que se trata de un <l class = "definition">isomorfismo canónico</l>. Por otro lado, observemos también que si $\{e_1,\dots,e_n\}$ es una base ortonormal de $E$, entonces la base imagen $\{\sigma(e_1),\dots,\sigma(e_n)\}$ es la base dual de $\{e_1,\dots,e_n\}$
+
+# Subespacios ortogonales
+
+## Subespacios ortogonales
+
+<l class = "definition">Complemento ortogonal de $S$.</l> Si $S$ es un subconjunto no vacío de $E$, definimos el complemento ortogonal de $S$ como el conjunto $$S^{\perp} = \{x\in E:\ \langle y,x\rangle = 0\quad\forall y\in S\}$$
+
+## Subespacios ortogonales
+
+<l class = "prop">Proposición.</l> Se verifican las siguientes propiedades:
+
+1. $S^{\perp}$ es un subespacio vectorial de $E$
+2. $S\subset T\Rightarrow T^{\perp}\subset S^{\perp}$
+3. $S^{\perp} = \langle S\rangle^{\perp}$
+4. $\langle S\rangle\cap S^{\perp} = \{0\}$
+5. $\langle S\rangle\subset (S^{\perp})^{\perp}$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 1**
+
+Sea $x,y\in S^{\perp}$. Entonces, $x+y\in S^{\perp}$ ya que $$\langle z,x+y\rangle = \langle z,x\rangle +\langle z,y\rangle = 0+0 = 0$$
+
+**Demostración 2**
+
+Sea $x\in T^{\perp}$. Entonces, $$\langle y,x\rangle = 0\quad\forall y\in T$$ En particular, $$\langle y,x\rangle = 0\quad \forall y\in S\subset T\Rightarrow x\in S^{\perp}$$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 3**
+
+Domo que $S\subset \langle S\rangle$, ya tenemos la primera inclusión, $\langle S\rangle^{\perp}\subset S^{\perp}$ gracias al apartado anterior.
+
+Falta ahora ver la otra inclusión, $S^{\perp}\subset \langle S\rangle ^{\perp}$.
+
+Sean $x\in S^{\perp},\ y\in\langle S\rangle$ y $\{x_1,\dots,x_n\}$ una base ortogonal de $\langle S\rangle$. Entonces, $$y = \alpha_1x_1+\cdots+\alpha_nx_n$$ para ciertos $\alpha_1,\dots,\alpha_n\in\mathbb{K}$. Entonces,
+
+$$\langle y,x\rangle = \langle \alpha_1x_1+\cdots+\alpha_nx_n,x\rangle = \sum_{i = 1}^n\bar{\alpha_i}\langle x_i,x\rangle = 0+\cdots+0 = 0 $$
+
+Con lo cual, $x\in \langle S\rangle^{\perp}$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 4**
+
+Sean $x\in\langle S\rangle\cap S^{\perp}$ y $\{x_1,\dots,x_n\}$ una base ortogonal de $\langle S\rangle$. Entonces, por un lado $$x = \alpha_1x_1+\cdots +\alpha_nx_n$$ y por otro lado,
+$$\langle y,x\rangle = 0\quad\forall y\in S$$
+
+Sea $y = x_k,\ k=1,\dots,n$. Sabemos que $$0 = \langle x_k,x\rangle = \bar{\alpha_k}\quad\forall k\in\{1,\dots,n\}\Rightarrow x = 0$$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 5**
+
+Sea $x\in \langle S\rangle$ y, por lo tanto, $$x = \alpha_1x_1+\cdots+\alpha_nx_n$$ siendo $\{x_1,\dots,x_n\}$ una base ortogonal de $\langle S\rangle$. Lo que tenemos que ver es que $\langle s,x\rangle = 0\quad\forall s\in S^{\perp}$
+
+$$\langle s,x\rangle = \langle s,\alpha_1x_1+\cdots+\alpha_nx_n\rangle = \sum_{i = 1}^n\bar{\alpha_i}\langle s,x_i\rangle = 0+\cdots +0 = 0$$
+
+ya que como $s\in S^{\perp}$, entonces $\langle s,x_k\rangle = 0\quad\forall k\in\{1,\dots,n\}$
+
+## Subespacios ortogonales
+
+<l class = "prop">Proposición.</l> Si $F$ es un sub-e.v. de $E$, entonces
+
+1. $\dim(F^{\perp}) = \dim(E)-\dim(F)$
+2. $E = F\oplus F^{\perp}$
+3. Si $E$ tiene dimensión finita, entonces $(F^{\perp})^{\perp} = F$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 1**
+
+Sea $\{u_1,\dots,u_r\}$ una base ortonormal de $F$. La ampliamos a una base de $E$ utilizando el `Teorema de Steinitz`: $$\{u_1,\dots,u_r,e_{r+1},\dots,e_n\}$$ Ortonormalizamos dicha base y obtenemos una base ortonormal de $E$: $$\{u_1,\dots,u_r,u_{r+1},\dots,u_n\}$$
+
+Finalmente, tenemos que $u_{r+1},\dots,u_n$ es una base ortonormal de $F^{\perp}$.
+
+De este modo, $$\dim(F^{\perp}) = \dim(E)-\dim(F)$$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 2**
+
+De la construcción de la base ortonormal anterior podemos deducir que, para todo $x\in E$
+
+
+$$x = (x_1u_1+\cdots x_ru_r)+(x_{r+1}u_{r+1}+\cdots +x_nu_n)\in F+F^{\perp}$$
+
+Y como que $F\cap F^{\perp} = \{0\}$, tenemos que $$E = F\oplus F^{\perp}$$
+
+## Subespacios ortogonales{.dem}
+
+**Demostración 3**
+
+Veamos que $F\subset (F^{\perp})^{\perp}$. Para cada $y\in F^{\perp}$ se tiene que $$\langle x,y\rangle = \overline{\langle y,x\rangle} = 0$$ de donde deducimos que $x\in (F^{\perp})^{\perp}$, consiguiendo así la primera inclusión.
+
+Por el otro lado, sabemos que $$\dim(F) = \dim(E) - \dim(F^{\perp}) = \dim(E)-(\dim(E)-\dim((F^{\perp})^{\perp}))=  \dim(F^{\perp})^{\perp} $$
+
+Y con esto último obtenemos la igualdad entre ambos conjuntos
+
+## Subespacios ortogonales
+
+<l class = "definition">Proyección ortogonal de $E$ sobre $F$.</l> Si $F$ es un sub-e.v. de $E$, la aplicación $p_F: E\longrightarrow F$ definida por $$p_F(x) = x'$$ donde $x = x'+x''$ es la descomposición en suma de un vector de $F$ y otro de $F^{\perp}$ es la proyección ortogonal de $E$ sobre $F$
+
+## Subespacios ortogonales
+
+<l class = "prop">Proposición.</l> 
+
+1. La aplicación $p_F$ es lineal y verifica que su núcleo es $F^{\perp}$ y su imagen es $F$. Además, la aplicación $p_F$ es idempotente: $$(p_F)^2 = p_F$$
+2. Si $\{e_1,\dots,e_r\}$ es una base ortonormal de $F$, entonces para todo $x\in E$
+ se tiene $$p_F(x) = \langle x,e_1\rangle e_1+\cdots+\langle x,e_r\rangle e_r$$
+ 
+# Aplicaciones adjuntas y autoadjuntas
+
+## Aplicaciones adjuntas y autoadjuntas
+
+Sean $E$ y $F$ e.v. euclidianos (unitarios) con $\dim(E) = n,\ \dim(F) = m$, $E^* = L(E,\mathbb{K})$ y $F^* = L(F,\mathbb{K})$, $\mathbb{K} = \mathbb{R},\mathbb{C}$, los espacios duales de $E$ y $F$ respectivamente.
+
+Consideremos también la aplicación $\sigma: E\longrightarrow E^*$ definida por $$\sigma(x) = \omega_x$$ donde $\omega_x (y) = \langle y,x\rangle\quad\forall y\in E$. 
+Análogamente, considremos $\tau:F\longrightarrow F^*$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "definition">Aplicación adjunta.</l> Si $f:E\longrightarrow F$ es lineal, diremos que $\tilde{f} = \sigma^{-1} f^*\tau$ es la adjunta de $f$
+
+Recordemos que $f^*$ denota la aplicación dual de $f$, es decir $f^*(\omega) = \omega\circ f,\ \omega\in E^*$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "prop">Proposición.</l> La adjunta de $f$ definida anteriormente es una aplicación lineal entre $F$ y $E$ que cumple $\langle x,\tilde{f}(y)\rangle = \langle f(x),y\rangle$ para todos $x\in E,\ y\in F$. 
+
+La aplicación $\tilde{f}$ es la única aplicación lineal entre $F$ y $E$ que cumple la igualdad anterior
+
+## Aplicaciones adjuntas y autoadjuntas{.dem}
+
+La linealidad de $\tilde{f}$ se debe a la linealidad de $\sigma,\tau$ y $f^*$
+
+Por otro lado,
+
+$$\tilde{f}(y) = \sigma^{-1}f^*\tau (y) = \sigma^{-1}f^*(\omega_y) = \sigma^{-1}(\omega_y f) = z$$
+
+donde $$[\sigma (z)](t) = \langle t,z\rangle = [\omega_y f](t) = \langle f(t),y\rangle$$ para todo $t\in F$
+
+Así, podemos escribir $\langle x,\tilde{f}(y)\rangle = \langle x,z\rangle = \langle f(x),y\rangle$
+
+La unicidad viene dada porque, supongamos dos endomorfismos $g$ y $h$ de $E$ que cumplen $$\langle x,g(y)\rangle = \langle f(x),y\rangle = \langle x,h(y)\rangle$$ para todos $x,y\in E$. Así tenemos que $$\langle x,g(y)\rangle = \langle x,h(y)\rangle$$ para todos $x,y\in E$ y, por tanto, que $g(y) = h(y)\quad\forall y\in E$. De este modo $$g = h$$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "observ">Observación.</l> Si $\tilde{f}$ es la adjunta de $f$, entonces $f$ es la adjunta de $\tilde{f}$
+
+<l class = "observ">Observación.</l>  Si $f$ es un endomorfismo de $E$, entonces podemos definir la aplicación adjunta de $f$ como la única aplicación lineal $f^*: E\longrightarrow E$ tal que $\langle f(x),y\rangle = \langle x,f^*(y)\rangle$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "definition">Endomorfismo autoadjunto.</l> Un endomorfismo $f$ de $E$ es autoadjunto si $f = \tilde{f}$. Es decir, si cumple $$\langle x,f(y)\rangle = \langle f(x),y\rangle\quad\forall x,y\in E$$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "prop">Proposición.</l> Si $\tilde{f}$ es la aplicación adjunta de $f$, entonces $$\ker({\tilde{f}}) = (\text{Im}(f))^{\perp}$$  $$\text{Im}(\tilde{f}) = (\ker(f))^{\perp}$$
+
+## Aplicaciones adjuntas y autoadjuntas{.dem}
+
+**Demostración**
+
+$$\ker{\tilde{f}} = \{x\in E:\ \tilde{f}(x) = 0\} = \{x\in E:\ \langle y,\tilde{f}(x)\rangle = 0\quad\forall y\in E\}$$ $$=\{x\in E:\ \langle f(y),x\rangle = 0\quad\forall y\in E\} = (\text{Im}(f))^{\perp}$$
+
+Tomando ortogonales en la igualdad anterior obtenemos $\text{Im}(f) = (\ker(\tilde{f}))^{\perp}$ y como que $f$ es la adjunta de $\tilde{f}$, entonces $\text{Im}(\tilde{f}) = (\ker{f})^{\perp}$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "prop">Proposición.</l> Sea $A$ la matriz de una aplicación lineal $f$ de $E$ a $F$ en una bases ortonormales $\{e_1,\dots,e_n\}$ y $\{u_1,\dots,u_m\}$. La matriz  de la adjunta $\tilde{f}$ de $f$ en las bases $\{v_1,\dots,v_m\}$ y $\{e_1,\dots,e_n\}$ es $A^t$ el el caso real y $\bar{A}^t$ en el caso complejo
+
+## Aplicaciones adjuntas y autoadjuntas{.dem}
+
+**Demostración**
+
+Sean $A = (a_{ij})$ y $B = (b_{ij})$ las matrices de $f$ y $\tilde{f}$ respectivamente en las bases ortonormales dadas.
+
+En el caso complejo tenemos que 
+
+$$\tilde{f}(e_i) = \sum_{i = 1}^n b_{ij}e_j$$ de donde $\langle\tilde{f}(e_i), e_j\rangle = b_{ij}$ por un lado. Y por otro $$\langle \tilde{f}(e_i),e_j\rangle = \langle e_i,f(e_j)\rangle = \left\langle e_i,\sum_{k = 1}^m a_{jk}e_k\right\rangle = \bar{a_{ij}}$$
+
+En el caso real solamente cambiamos $\bar{a_{ij}}$ por $a_{ij}$
+
+## Aplicaciones adjuntas y autoadjuntas
+
+<l class = "prop">Proposición.</l> Si $A$ es la matriz de un endomorfismo $f$ en una base ortonormal, $f$ es autoadjunta si, y solo si, $A^t = A$ ($A$ es simétrica) en el caso real o $\bar{A}^t = A$ ($A$ es hermítica) en el caso complejo.
+
+# Diagonalización de matrices simétricas y hermíticas
+
+## Diagonalización de matrices simétricas y hermíticas
+
+Observemos que el problema de diagonalizar una matriz simétrica real o hermítica compleja equivale a encontrar una base de vectores propios de una aplicación lineal autoadjunta.
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposición.</l> Sea $E$ un e.v. euclidiano o unitario y sea $f: E\longrightarrow E$ lineal y autoadjunta. Si $u,v$ son veps asociados a vaps reales diferentes, entonces $$\langle u,v\rangle = 0$$
+
+<div class = "dem">
+**Demostración**
+
+Supongamos que $\lambda,\mu\in\mathbb{R}$ son vaps diferentes.
+
+Sean $u,v$ los veps asociados a $\lambda,\mu$ respectivamente. Es decir
+
+$$f(u) = \lambda u\qquad f(v) = \mu v$$
+
+Sabemos que $\langle u,f(v)\rangle = \langle f(u),v\rangle$. Dicho de otro modo, que $\langle u,\mu v\rangle = \langle \lambda u,v\rangle$. Por tanto, $$\mu \langle u,v\rangle = \lambda\langle u,v\rangle$$ y esto solamente se puede dar si $\langle u,v\rangle = 0$, ya que $\lambda\ne \mu$
+</div>
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposición.</l> Si $E$ es un e.v. unitario y $f:E\longrightarrow E$ una aplicación lineal y autoadjunta, entonces existe una base de veps.
+
+<div class = "dem">
+**Demostración**
+
+Haremos la prueba por inducción sobre la dimensión de $E$, $\dim(E) = n$.
+
+- Si $n = 1$, todo vector no nulo es propio y no hay nada que demostrar.
+- Si $\dim(E) = n>1$, el polinomio  característico de $f$, $c(x) = \det(f-xI)\in\mathbb{C}[x]$ tiene siempre una raíz $\gamma\in\mathbb{C}$.
+
+Sea $u$ un vep unitario del vap $\gamma$, $f(u) = \gamma y$. Consideremos el complemento ortogonal $F$ de $\langle u\rangle$:
+
+$$F^{\perp} =\langle u\rangle^{\perp} =\{ v\in E:\ \langle u,v\rangle = 0\}$$
+
+$F$ es invariante para $f$. Es decir, si $v\in F$, entonces $\langle f(v),u\rangle = \langle v,f(u)\rangle = \langle v,\gamma u\rangle = \gamma\langle u,v\rangle = 0$
+
+</div>
+
+## Diagonalización de matrices simétricas y hermíticas{.dem}
+
+Aplicando la hipótesis  de inducción a la restricción de $f$ a $F$, podemos decir que existe una base ortonormal de $F$, $\{u_2,\dots,u_n\}$ formada por los veps de $f$. 
+
+Finalmente, $\{u,u_2,\dots,u_n\}$ es una base ortonormal de $E$ formada por veps de $f$
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposcición.</l> Sea $E$ un e.v. unitario. Si $f: E\longrightarrow E$ es lineal y autoadjunta, entonces sus veps son reales.
+
+<div class = "dem">
+Sea $\lambda$ un vap de $f$. Sea $u\ne 0$ tal que $f(u) = \lambda u$. Podremos escribir $$\langle u,f(u)\rangle = \langle u, \lambda u\rangle = \bar{\lambda}\langle u,u\rangle$$
+
+pero $$\langle u,f(u)\rangle = \langle f(u),u\rangle = \lambda \langle u,u\rangle$$
+
+y de aquí es de donde obtenemos $\lambda = \bar{\lambda}\Rightarrow \lambda \in\mathbb{R}$
+</div>
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposcición.</l> Sea $E$ un e.v. unitario y sea $f: E\longrightarrow E$ lineal y autoadjunta. Entonces, el polinomio característico de $f$ es de la forma $$c(x) = \pm(x-\lambda_1)\cdot(x-\lambda_n)$$ donde $\lambda_i\in\mathbb{R},\ i = 1,\dots,n$
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposcición.</l> Sea $E$ un e.v. euclidiano y $f: E\longrightarrow E$ lineal y autoadjunta. Entonces $f$ tiene $n$ vaps (contando la multiplicidad algebraica)
+
+<div class = "dem">
+**Demostración**
+
+Fijemos una base ortonormal del espacio $E$ y sea $A$ la matriz (simétrica correspondiente) a $f$.
+
+Esta matriz $A$ también es hermítica ($A^t = A = \bar{A}^t$) y le corresponden una aplicación lineal autoadjunta $$f': E'\longrightarrow E'$$ donde $E'$ es un cierto espacio vectorial unitario (de dimensión $n$).
+
+Los polinomios característicos de $f$ y $f'$ son iguales (tienen matrices iguales) y, por lo tanto, aplicando la proposición anterior, tenemos demostrada esta proposición.
+
+</div>
+
+## Diagonalización de matrices simétricas y hermíticas
+
+<l class = "prop">Proposcición.</l> Si $E$ es un e.v. euclidiano y $f: E\longrightarrow E$ es autoadjunta, existe una base ortonormal de veps.
+
+<div class = "dem">
+**Demostración**
+
+La demostración es igual que para el caso complejo teniendo en cuenta que el polinomio característico $$c(x) = \det(f-xI)\in\mathbb{R}[x]$$ tiene las raíces en $\mathbb{R}$ según la proposición anterior.
+</div>

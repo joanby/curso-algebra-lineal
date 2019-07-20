@@ -1,0 +1,63 @@
+---
+title: "Ejercicios"
+subtitle: "Polinomios"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+¿Son las siguientes expresiones algebraicas polinomios en $\mathbb{R}[x]$? En caso afirmativo, ¿qué grado tienen?
+
+- $1+x+x^2+x^3+x^4+\cdots+x^n$
+- $1+\frac{1}{x}+x^2+\frac{1}{x^3}$
+- $1-x^{-2}$
+- $\sqrt{x}+3$
+- $x+x^2i$
+- $(x+1)^2$
+- $x+x^5+x^{10001}$
+
+## Pregunta 2
+
+Hallar $\alpha$ y $\beta$ para que $x^5-\alpha x+\beta$ sea divisible por $x^2-4$
+
+## Pregunta 3
+
+Hallar $\alpha$ y $\beta$ para que $x^3-\alpha x^2+\beta x+3$ sea divisible por $x^2+x+1$
+
+## Pregunta 4
+
+Encontrar el valor de $\alpha$ para que al dividir $2x^3-2x^2-\alpha x+4$ entre $x-2$ dé resto 2
+
+## Pregunta 5
+
+Determinar el valor de $\alpha$ para que  $2x^3-2x^2-\alpha x+4$ admita $x = 2$ como una de sus raíces
+
+## Pregunta 6
+
+Dados los polinomios $$p(x) = x^4-6x+1\qquad q(x) = 3x^3-5x\qquad x^4-x^2+2$$
+
+Realizar las siguientes operaciones
+
+- $p(x)+3q(x)+r(x)$
+- $p(x)-[q(x)+5r(x)]$
+- $p(x)+q(x)*r(x)$
+- $[4p(x)+q(x)]*r(x)$
+- $p(x)/q(x)-r(x)$
+- $[p(x)/r(x)]*2q(x)$
+
+Finalmente, en cada uno de los polinomios resultantes, evaluar en $0,-2$ y $2$
+
+## Pregunta 7
+
+Dividir 
+
+- $x^7-x^5+x^2-3$ entre $x^4+x^3+x^2+x$
+- $x^8+x^7-3x^6+x^5+2x^4+-3x^3+x^2-x-10$ entre $x^4+x^3-x^2+x+1$
+- $x^6-x^5+x^4-x^3+x^2-x+1$ entre $x+1$
+
+Finalmente, en cada uno de los polinomios resultantes, evaluar en $1,2$ y $3$

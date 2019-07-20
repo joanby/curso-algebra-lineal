@@ -1,0 +1,31 @@
+---
+title: "Ejercicios"
+subtitle: "Números Complejos"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Resolved la ecuación $1+z+z^2=0$ para $z=(x,y)$ escribiendo $$(1,0)+(x,y)+(x,y)(x,y) = (0,0)$$
+
+## Pregunta 2
+
+Calcular el valor del argumento principal $\text{Arg}(z)$ en los siguientes casos
+
+- $z = 2+2i$
+- $z = (\sqrt{3}+i)^6$
+- $z = \frac{1+3i}{2}$
+- $z = -\frac{2}{1+\sqrt{3}i}$
+
+## Pregunta 3
+
+Expresando los factores individuales de la izquierda en forma polar, efectuar las operaciones requeridas y finalmente, cambiar a coordenadas rectangulares (forma binómica) para obtener el miembro de la derecha y probar así las siguientes igualdades:
+
+- $i(1-\sqrt{3}i)(\sqrt{3}+i) = 2(1+\sqrt{3}i)$
+- $(-1+i)^7 = -8(1+i)$
+- $(1-\sqrt(3)i)^{-10} = 2^{-11}(-1+\sqrt{3}i)$

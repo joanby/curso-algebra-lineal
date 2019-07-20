@@ -1,0 +1,21 @@
+---
+title: "Tema 0 - Demostraciones"
+author: "María Santos"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+**Propiedades de los cuerpos.** En un cuerpo $\mathbb{K}$ se verifican las siguientes propiedades:
+
+- Propiedad de simplificación para la suma: $a+b=a+c\Rightarrow\ b=c$
+- Los neutros (0 y 1) son únicos
+- Cada elemento tienen un único opuesto
+- Cada elemento diferente de 0 tiene un único inverso
+- 0 es absorbente para la multiplicación: $a\cdot 0 = 0\quad \forall a\in\mathbb{K}$
+- $\mathbb{K}$ no tiene divisores de 0: $ab=0\Rightarrow a=0$ o $b=0$
+
+**Demostración**
+
