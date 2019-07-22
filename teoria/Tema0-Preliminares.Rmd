@@ -454,7 +454,7 @@ Con estas operaciones el conjunto $\mathbb{K}[x]$ presenta una serie de propieda
 
 <l class = "definition">División de polinomios.</l> Dado un polinomio $p(x)\in\mathbb{K}[x]$, la división de $p(x)$ entre otro polinomio $s(x)\in\mathbb{K}[x]$ de grado menor o igual al de  $p(x)$, consiste en hallar 2 polinomios $q(x),r(x)\in\mathbb{K}[x]$ tales que $$p(x) = s(x)q(x)+r(x)$$
 
-
+donde el grado de $r(x)$ es siempre menor que el del divisor $s(x)$ 
 
 
 ## Polinomios
@@ -492,6 +492,25 @@ De aquí deducimos que si un polinomio de $\mathbb{K}[x]$ de grado mayor que 1 t
 ## Polinomios{.dem}
 
 **Demostración**
+
+Primero probaremos la implicación hacia la izquierda, $p(x)=(x-\alpha)q(x)$ con $q(x)\in\mathbb{K}[x]\Rightarrow$$\alpha\in\mathbb{K}$ es raíz de $p(x)$ 
+
+Evaluando $p(x)$ en $\alpha$ tenemos que $$p(\alpha)=(\alpha-\alpha)q(\alpha) = 0$$ lo que, por definición, implica que $\alpha$ es raíz de $p(x)$
+
+Ahora nos queda demostrar la implicación a la derecha $\alpha\in\mathbb{K}$ es raíz de $p(x)$ $\Rightarrow$ $p(x)=(x-\alpha)q(x)$ con $q(x)\in\mathbb{K}[x]$
+
+Si dividimos $p(x)$ entre $x-\alpha$, obtenemos $$p(x) = (x-\alpha)q(x)+r(x)$$
+
+Ahora, por hipótesis tenemos que $$p(\alpha) = (\alpha-\alpha)q(\alpha)+r(\alpha) = 0 +r(\alpha) = 0$$
+
+## Polinomios{.dem}
+
+
+Con lo cual $r(\alpha) = 0$
+
+Ahora bien, el grado de $r(x)$ debe ser estrictamente menor al del divisor, $x-\alpha$, que es 1. Por tanto, $r(x)$ es un polinomio constante. Además, como $r(\alpha) =0$, tenemos que $$r(x)\equiv 0$$
+
+Así pues, acabamos de demostrar que $p(x) = (x-\alpha)q(x)$
 
 # Polinomios con `R`
 

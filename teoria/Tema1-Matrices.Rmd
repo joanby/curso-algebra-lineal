@@ -52,7 +52,7 @@ Conjunto de matrices.
 
 Una matriz cualquiera de $\mathcal{M}_{m\times n}(\mathbb{K})$ se denotará indistintamente por $A$, $(a_{ij})_{m\times n}$ o $(a_{ij})$.
 
-Cuando $m=n$, el conjunto de todas las matrices de orden $m \times n$, $\mathcal{M}_{m\times n}(\mathbb{K})$, se denota simplemente por $\mathcal{M}_{n}(\mathbb{K})$. Las matrices pertenecientes a este conjunto se dice que son de orden $n$ en vez de $n\times n$. 
+Cuando $m=n$, el conjunto de todas las matrices de orden $n \times n$, $\mathcal{M}_{n\times n}(\mathbb{K})$, se denota simplemente por $\mathcal{M}_{n}(\mathbb{K})$. Las matrices pertenecientes a este conjunto se dice que son de orden $n$ en vez de $n\times n$. 
 
 ## ¿Cuándo dos matrices son iguales?
 
@@ -103,6 +103,14 @@ $$A =\begin{pmatrix}1\\0\\2\end{pmatrix}\in\mathcal{M}_{3\times 1}(\mathbb{R})$$
 es una matriz columna
 </div>
 
+## Tipos de matrices
+
+<l class="definition">
+Matriz nula.
+</l> Se denota como $O$ a la matriz nula, matriz con todos sus coeficientes nulos
+
+$$O = \begin{pmatrix}0&0&\cdots&0\\0&0&\cdots&0\\\ \vdots & \vdots & \ddots& \vdots\\0&0&\cdots&0\end{pmatrix}\in\mathcal{M}_{m\times n}(\mathbb{K})$$
+
 
 ## Tipos de matrices
 
@@ -126,7 +134,7 @@ Dentro del ámbito de las matrices cuadradas caben las siguientes definiciones y
 
 <l class="definition">
 Diagonal principal.
-</l> Se denomina diagonal (principal) de una matriz cuadrada $A$ a los elementos $a_{ii}$ con $i = 1,\dots, n$.
+</l> Se denomina diagonal principal de una matriz cuadrada $A$ a los elementos $a_{ii}$ con $i = 1,\dots, n$.
 
 $$A = \begin{pmatrix}\bf{a_{11}}&a_{12}&\cdots&a_{1n}\\a_{21}&\bf{a_{22}}&\cdots&a_{2n}\\\ \vdots & \vdots & \ddots& \vdots\\a_{n1}&a_{n2}&\cdots&\bf{a_{nn}}\end{pmatrix}\in\mathcal{M}_n(\mathbb{K})$$
 
@@ -175,13 +183,7 @@ $$I_2=\begin{pmatrix}1&0\\0&1\end{pmatrix}\qquad I_3 = \begin{pmatrix}1&0&0\\0&1
 son las matrices identidad de orden 2 y 3, respectivamente
 </div>
 
-## Matrices cuadradas
 
-<l class="definition">
-Matriz nula.
-</l> Se denota como $O$ a la matriz nula, matriz con todos sus coeficientes nulos
-
-$$O = \begin{pmatrix}0&0&\cdots&0\\0&0&\cdots&0\\\ \vdots & \vdots & \ddots& \vdots\\0&0&\cdots&0\end{pmatrix}\in\mathcal{M}_n(\mathbb{K})$$
 
 
 ## Matrices cuadradas
