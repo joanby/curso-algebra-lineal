@@ -55,7 +55,7 @@ Propiedades de los cuerpos.
 - 0 es absorbente para la multiplicación: $a\cdot 0 = 0\quad \forall a\in\mathbb{K}$
 - $\mathbb{K}$ no tiene divisores de 0: $ab=0\Rightarrow a=0$ o $b=0$
 
-<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github o bien como material de esta clase.
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
 
 ## Cuerpos conocidos 
 

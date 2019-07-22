@@ -324,6 +324,20 @@ $$A = \begin{pmatrix}2&3&5\\3&2&-1\end{pmatrix}\qquad B=\begin{pmatrix}1&0&-2\\-
 $$A+B = \begin{pmatrix}3&3&3\\2&5&5\end{pmatrix} = B+A$$
 <div>
 
+## Propiedades características{.dem}
+
+**Demostración**
+
+Dadas dos matrices $A,B\in\mathcal{M}_{m\times n}$, con $A = (a_{ij})$, $B=(b_{ij})$, queremos demostrar que $$A+B = B+A$$
+
+Por un lado, $A+B = C$ donde $C = (c_{ij})$ con $c_{ij} = a_{ij}+b_{ij}\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Por otro lado, $B+A = D$ donde $D = (d_{ij})$ con $d_{ij} = b_{ij}+a_{ij}\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Pero $a_{ij}+b_{ij} = b_{ij}+a_{ij}$ ya que $a_{ij},b_{ij}\in\mathbb{K}$ con $\mathbb{K}$ un cuerpo.
+
+Por lo tanto, $$c_{ij} = d_{ij}\quad\forall i=1,\dots,m,\ j=1,\dots,n\Leftrightarrow C = D $$
+
 ## Propiedades características
 
 <l class="prop">
@@ -337,6 +351,22 @@ $$A = \begin{pmatrix}2&3\\3&2\\-1&0\end{pmatrix}\qquad B=\begin{pmatrix}1&0\\3&6
 
 $$(A+B)+C = \begin{pmatrix}3&3\\6&8\\2&-2\end{pmatrix}+ \begin{pmatrix}-2&4\\0&5\\7&2\end{pmatrix}= \begin{pmatrix}1&7\\6&13\\9&0\end{pmatrix}=\begin{pmatrix}2&3\\3&2\\-1&0\end{pmatrix}+\begin{pmatrix}-1&4\\3&11\\10&0\end{pmatrix} = A+(B+C)$$
 </div>
+
+## Propiedades características{.dem}
+
+**Demostración**
+
+Dadas las matrices $A,B,C\in\mathcal{M}_{m\times n}$, con $A = (a_{ij})$, $B=(b_{ij})$, $C = (c_{ij})$ queremos demostrar que $$(A+B) + C = A+(B+C)$$
+
+Por un lado, $(A+B) + C = D$ donde $D = (d_{ij})$ con $d_{ij} =( a_{ij}+b_{ij}) +c_{ij}\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Por otro lado, $A+(B+C) = E$ donde $E = (e_{ij})$ con $e_{ij} = a_{ij}+(b_{ij}+c_{ij})\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Pero $(a_{ij}+b_{ij})+c_{ij} = a_{ij}+(b_{ij}+c_{ij})$ ya que $a_{ij},b_{ij},c_{ij}\in\mathbb{K}$ con $\mathbb{K}$ un cuerpo.
+
+Por lo tanto, $$d_{ij} = e_{ij}\quad\forall i=1,\dots,m,\ j=1,\dots,n\Leftrightarrow D= E $$
+
+
 
 ## Propiedades características
 
@@ -352,6 +382,18 @@ $$A = \begin{pmatrix}2&3&-1\\-1&0&4\\1&-3&7\end{pmatrix}$$
 $$A+O = \begin{pmatrix}2&3&-1\\-1&0&4\\1&-3&7\end{pmatrix}+\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}=\begin{pmatrix}2&3&-1\\-1&0&4\\1&-3&7\end{pmatrix}=A$$
 $$O+A = \begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}+\begin{pmatrix}2&3&-1\\-1&0&4\\1&-3&7\end{pmatrix}=\begin{pmatrix}2&3&-1\\-1&0&4\\1&-3&7\end{pmatrix}=A$$
 </div>
+
+## Propiedades características{.dem}
+
+**Demostración**
+
+Dadas las matrices $A,O\in\mathcal{M}_{m\times n}$, con $A = (a_{ij})$ y $O$ la matriz nula, queremos demostrar que $$A+O = A$$
+
+Sabemos que, $A+0 = B$ donde $B = (b_{ij})$ con $b_{ij} = a_{ij}+0\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Pero $a_{ij} + 0 = a_{ij}$ ya que $a_{ij}\in\mathbb{K}$ con $\mathbb{K}$ un cuerpo y 0 es el elemento neutro para la suma.
+
+Por lo tanto, $$ A+O= A $$
 
 ## Propiedades características
 
@@ -369,6 +411,18 @@ $$A = \begin{pmatrix}2&3&-1&2\\3&2&5&0\\-1&7&0&4\\-4&1&-3&7\end{pmatrix}\Rightar
 **Ejercicio 2.** Comprobad que efectivamente se cumple
 $$A+(-A)=(-A)+A = O$$
 </div>
+
+## Propiedades características{.dem}
+
+**Demostración**
+
+Dadas las matrices $A,-A\in\mathcal{M}_{m\times n}$, con $A = (a_{ij}),\ -A = (-a_{ij})$, queremos demostrar que $$A+(-A) = 0$$
+
+Sabemos que, $A+(-A) = B$ donde $B = (b_{ij})$ con $b_{ij} = a_{ij}+(-a_{ij})\quad\forall i=1,\dots,m,\ j=1,\dots,n$
+
+Pero $a_{ij} + (-a_{ij}) = 0$ ya que $a_{ij}\in\mathbb{K}$ con $\mathbb{K}$ un cuerpo y $-a_{ij}$ es el elemento opuesto de $a_{ij}$
+
+Por lo tanto, $$ A+(-A)= 0 $$
 
 ## Propiedades características
 
@@ -401,7 +455,9 @@ $$A(BC)=\begin{pmatrix}2&3\\5&2\end{pmatrix}\begin{pmatrix}2&-3\\1&9\end{pmatrix
 
 
 
-## Propiedades características{.exercise}
+## Propiedades características
+
+<div class = "exercise">
 **Ejercicio 3**
 
 Se consideran las matrices con coeficientes en $\mathbb{R}$
@@ -409,6 +465,10 @@ Se consideran las matrices con coeficientes en $\mathbb{R}$
 $$A = \begin{pmatrix}1&2\\3&4\end{pmatrix}\quad B = \begin{pmatrix}1&0&1\\0&1&0\end{pmatrix}\quad C = \begin{pmatrix}1&-1\\0&1\\-1&0\end{pmatrix}$$
 
 Probar que $(AB)C = A(BC)$
+
+</div>
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
 
 ## Propiedades características
 
@@ -424,6 +484,9 @@ $$A(B+C) = \begin{pmatrix}2&3\\5&2\end{pmatrix}\begin{pmatrix}3&0&2\\1&1&5\end{p
 
 $$AB+AC = \begin{pmatrix}8&9&13\\9&6&5\end{pmatrix}+\begin{pmatrix}1&-6&6\\8&-4&15\end{pmatrix} = \begin{pmatrix}9&3&19\\17&2&20\end{pmatrix}$$
 </div>
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
 
 ## Propiedades características
 
@@ -453,26 +516,9 @@ $$I_3B = \begin{pmatrix}1&0&0\\0&1&0\\0&0&1\end{pmatrix}\begin{pmatrix}1&0&3&-1&
 </div>
 
 
-
-
-
-
-
-
 ## Propiedades características
 
-
-Nótese que, en particular, para matrices cuadradas $A\in\mathcal{M}_n(\mathbb{K})$, $I_n$ es un elemento neutro del producto, es decir: $AI_n=I_nA=A$ para toda matriz cuadrada $A$ de orden $n$.
-
-<div class="example">
-**Ejemplo 21**
-
-$$AI_2 = \begin{pmatrix}2&3\\-1&0\end{pmatrix}\begin{pmatrix}1&0\\0&1\end{pmatrix} = \begin{pmatrix}2&3\\-1&0\end{pmatrix} =\begin{pmatrix}1&0\\0&1\end{pmatrix}\begin{pmatrix}2&3\\-1&0\end{pmatrix}=I_2A$$
-</div>
-
-
-
-## Propiedades características{.exercise}
+<div class = "exercise">
 
 **Ejercicio 4**
 
@@ -485,7 +531,21 @@ Probar que:
 $$AI_3 = A$$
 $$I_3B=B$$
 
+</div>
 
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
+## Propiedades características
+
+<l class = "observ">Observación.</l>Nótese que, en particular, para matrices cuadradas $A\in\mathcal{M}_n(\mathbb{K})$, $I_n$ es un elemento neutro del producto, es decir: $AI_n=I_nA=A$ para toda matriz cuadrada $A$ de orden $n$.
+
+<div class="example">
+**Ejemplo 21**
+
+$$AI_2 = \begin{pmatrix}2&3\\-1&0\end{pmatrix}\begin{pmatrix}1&0\\0&1\end{pmatrix} = \begin{pmatrix}2&3\\-1&0\end{pmatrix} =\begin{pmatrix}1&0\\0&1\end{pmatrix}\begin{pmatrix}2&3\\-1&0\end{pmatrix}=I_2A$$
+</div>
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
 
 
 ## Propiedades características
@@ -493,6 +553,10 @@ $$I_3B=B$$
 <l class="prop">
 Propiedad distributiva del producto por escalares respecto de la suma.
 </l> $$\lambda(A+B) = \lambda A+\lambda B,\ \lambda\in\mathbb{K}$$
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
+## Propiedades características
 
 <div class="example">
 **Ejemplo 22**
@@ -518,6 +582,16 @@ $$A = \begin{pmatrix}3&-5&2&0&1\\7&4&1&-3&-2\\6&9&-5&1&0\end{pmatrix}$$
 $$1A = \begin{pmatrix}1\cdot3&1\cdot(-5)&1\cdot2&1\cdot0&1\cdot1\\1\cdot7&1\cdot4&1\cdot1&1\cdot(-3)&1\cdot(-2)\\1\cdot6&1\cdot9&1\cdot(-5)&1\cdot1&1\cdot0\end{pmatrix}=\begin{pmatrix}3&-5&2&0&1\\7&4&1&-3&-2\\6&9&-5&1&0\end{pmatrix}=A$$
 </div>
 
+## Propiedades características{.dem}
+
+**Demostración**
+
+Por definición, $$1A = (1\cdot a_{ij}) = (a_{ij}) = A$$
+
+ya que $a_{ij}\in\mathbb{K}$ y $1$ es el elemento neutro para el producto
+
+
+
 ## Propiedades características
 
 <l class="prop">
@@ -525,6 +599,11 @@ Propiedades distributiva del producto por matrices respecto de la suma de escala
 </l>
 
 $$(\lambda +\mu)A = \lambda A+\mu A,\ \lambda,\mu\in\mathbb{K}$$
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
+
+## Propiedades características
 
 <div class="example">
 **Ejemplo 24**
@@ -540,6 +619,11 @@ $$\lambda A+\mu A=5A+(-7)A=\begin{pmatrix}5&-5\\0&5\end{pmatrix}+\begin{pmatrix}
 <l class="prop">
 Propiedad asociativa del producto de escalares por una matriz.
 </l> $$(\lambda\mu)A = \lambda(\mu A), \ \lambda,\mu\in\mathbb{K}$$
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
+
+## Propiedades características
 
 <div class="example">
 **Ejemplo 25**
@@ -561,6 +645,9 @@ $$A = \begin{pmatrix}2&3\\5&2\end{pmatrix}\qquad B=\begin{pmatrix}1&0&-1\\2&3&5\
 $$(\lambda A)B=\begin{pmatrix}6&9\\15&6\end{pmatrix}\begin{pmatrix}1&0&-1\\2&3&5\end{pmatrix}=\begin{pmatrix}24&27&39\\27&18&15\end{pmatrix}$$
 $$\lambda(AB)=3\cdot\begin{pmatrix}8&9&13\\9&6&5\end{pmatrix}=\begin{pmatrix}24&27&39\\27&18&15\end{pmatrix}$$
 </div>
+
+<l class = "important">¡Atención!</l> La demostración de esta proposición se encuentra en pdf. Este pdf lo podréis encontrar en el Github, en la carpeta demostraciones, o bien como material de esta clase.
+
 
 ## Excepciones
 
@@ -609,7 +696,7 @@ $$A = \begin{pmatrix}0&3\\0&0\end{pmatrix},\ B=\begin{pmatrix}0&2\\0&0\end{pmatr
 pero en cambio $$AB=O=\begin{pmatrix}0&0\\0&0\end{pmatrix}$$
 </div>
 
-## Matrices diagonales
+## Matrices diagonales y triangulares
 
 <l class="prop">
 Proposición.
@@ -619,7 +706,7 @@ Proposición.
   - Si $A,B$ son matrices triangulares superiores (inferiores) entonces el producto $AB$ es también una matriz triangular superior (inferior).
   
 
-## Matrices diagonales{.exercise}
+## Matrices diagonales y triangulares{.exercise}
 
 **Ejercicio 6.** Dadas
 $$A=\begin{pmatrix}1&0&0&0\\0&5&0&0\\0&0&-3&0\\0&0&0&2\end{pmatrix}\qquad B=\begin{pmatrix}-2&0&0&0\\0&6&0&0\\0&0&3&0\\0&0&0&9\end{pmatrix}$$
@@ -630,7 +717,7 @@ $$A=\begin{pmatrix}1&-1&4&3\\0&5&-2&1\\0&0&-3&7\\0&0&0&2\end{pmatrix}\qquad B=\b
 comprobad que $AB$ y $BA$ son matrices triangulares superiores.
 
 
-## Matrices transpuestas
+## Matriz transpuesta
 
 <l class="definition">
 Transpuesta de una matriz.
@@ -643,7 +730,7 @@ Transpuesta de una matriz.
 La matriz transpuesta de $A = \begin{pmatrix}1&0&3\\2&1&-1\end{pmatrix}$ es $$A^t=\begin{pmatrix}1&2\\0&1\\3&-1\end{pmatrix}$$
 </div>
 
-## Propiedades matrices transpuestas
+## Propiedades matriz transpuesta
 
 Entre las propiedades de las matrices transpuestas destacan las siguientes
 
@@ -659,7 +746,7 @@ Teníamos que lLa matriz transpuesta de $A = \begin{pmatrix}1&0&3\\2&1&-1\end{pm
 $$(A^t)^t = \begin{pmatrix}1&0&3\\2&1&-1\end{pmatrix}=A$$
 </div>
 
-## Propiedades matrices transpuestas
+## Propiedades matriz transpuesta
 
 <l class="prop">
 Transpuesta de una suma.
@@ -667,13 +754,13 @@ Transpuesta de una suma.
 
 $$\left(\sum_{i=1}^r A_i\right)^t=\sum_{i=1}^rA_i^t$$
 
-## Propiedades matrices transpuestas{.exercise}
+## Propiedades matriz transpuesta{.exercise}
 
 **Ejercicio 8.** Comprobar que dadas $$A = \begin{pmatrix}2&3\\3&2\\-1&0\end{pmatrix}\qquad B=\begin{pmatrix}1&0\\3&6\\3&-2\end{pmatrix}\qquad C = \begin{pmatrix}-2&4\\0&5\\7&2\end{pmatrix}$$
 $$(A+B+C)^t=A^t+B^t+C^t$$
 
 
-## Propiedades matrices transpuestas
+## Propiedades matriz transpuesta
 
 <l class="prop">
 Transpuesta de un producto.
