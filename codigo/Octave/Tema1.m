@@ -1,1 +1,0 @@
-a = 1# Esto es un comentariob = 5+3row = [ 1 2 3]col = [1;2;3]M = [1 2 3; 4 5 6; 7 8 9]M(1,1)M(2,1)M(2)size(M)length(M)M'3*MM+MM*Minv(M)det(M)B = [1 0 1; 2 -3 4; 0 1 1]det(B)inv(B)inv(B)*BB*inv(B)linsolve(B, [1;2;3])rank(B)rank(M)trace(B)matrix_type(B)

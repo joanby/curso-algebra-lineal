@@ -1,5 +1,5 @@
 ---
-title: "Tema 2- Sistemas con R, Python y Octave"
+title: "Tema 2- Ecuaciones y Sistemas Lineales con R, Python y Octave"
 author: Juan Gabriel Gomila & María Santos
 date: 
 output: 

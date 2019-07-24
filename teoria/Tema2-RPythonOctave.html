@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 2- Sistemas con R, Python y Octave</title>
+  <title>Tema 2- Ecuaciones y Sistemas Lineales con R, Python y Octave</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 2- Sistemas con R, Python y Octave',
+                title: 'Tema 2- Ecuaciones y Sistemas Lineales con R, Python y Octave',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -96,7 +96,7 @@
     }
   </style>
 
-  <link href="data:text/css;charset=utf-8,%2Ecenter%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Eprop%7B%0Acolor%3A%20%2326b95d%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0Adisplay%3A%20inline%3B%0A%7D%0A%2Eobserv%7B%0Acolor%3A%20%231FD1D9%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0Adisplay%3A%20inline%3B%0A%7D%0A%2Eimportant%7B%0Acolor%3A%20red%3B%0Adisplay%3Ainline%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0A%7D%0A%2Edefinition%7B%0Acolor%3A%20blue%3B%0Adisplay%3Ainline%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0A%7D%0A%2Ebox%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Aborder%3A%202px%20solid%20blue%3B%0Aopacity%3A%200%2E5%3B%0A%7D%0A%2Edem%20%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23c9b2f8%3B%0Afont%2Dsize%3A%200%2E7em%3B%0Acolor%3A%20black%3B%0A%7D%0A%2Er%2Dcode%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23F2F2F2%3B%0Afont%2Dsize%3A%200%2E7em%3B%0Afont%2Dfamily%3A%20%22Courier%22%2C%20monospace%3B%0A%7D%0A%2Eexample%7B%0Acolor%3A%20black%3B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23bfeeff%3B%0Afont%2Dsize%3A%200%2E7em%3B%0A%7D%0A%2Eexercise%7B%0Acolor%3A%20black%3B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%2392e394%3B%0Afont%2Dsize%3A%200%2E7em%3B%0A%7D%0A%2Ephototext%7B%0Afont%2Dsize%3A%200%2E5em%0A%7D%0A" rel="stylesheet" type="text/css" />
+  <link href="data:text/css;charset=utf-8,%2Ecenter%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%2Eprop%7B%0Acolor%3A%20%2326b95d%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0Adisplay%3A%20inline%3B%0A%7D%0A%2Eobserv%7B%0Acolor%3A%20%231FD1D9%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0Adisplay%3A%20inline%3B%0A%7D%0A%2Eimportant%7B%0Acolor%3A%20red%3B%0Adisplay%3Ainline%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0A%7D%0A%2Edefinition%7B%0Acolor%3A%20blue%3B%0Adisplay%3Ainline%3B%0Afont%2Dvariant%3A%20small%2Dcaps%3B%0A%7D%0A%2Ebox%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Aborder%3A%202px%20solid%20gray%3B%0A%7D%0A%2Edem%20%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23c9b2f8%3B%0Afont%2Dsize%3A%200%2E7em%3B%0Acolor%3A%20black%3B%0A%7D%0A%2Er%2Dcode%7B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23F2F2F2%3B%0Afont%2Dsize%3A%200%2E7em%3B%0Afont%2Dfamily%3A%20%22Courier%22%2C%20monospace%3B%0A%7D%0A%2Eexample%7B%0Acolor%3A%20black%3B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%23bfeeff%3B%0Afont%2Dsize%3A%200%2E7em%3B%0A%7D%0A%2Eexercise%7B%0Acolor%3A%20black%3B%0Aborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dmoz%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0A%2Dwebkit%2Dborder%2Dradius%3A%2010px%2010px%2010px%2010px%3B%0Abackground%2Dcolor%3A%20%2392e394%3B%0Afont%2Dsize%3A%200%2E7em%3B%0A%7D%0A%2Ephototext%7B%0Afont%2Dsize%3A%200%2E5em%0A%7D%0A" rel="stylesheet" type="text/css" />
 
 </head>
 

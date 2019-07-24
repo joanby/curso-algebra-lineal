@@ -21,6 +21,22 @@ library(expm)
 
 ## Matrices con `R`
 
+Para crear una matriz fila,
+
+```{r}
+row = matrix(c(1,2,3,4), nrow = 1)
+row
+```
+
+Para crear una matriz columna,
+
+```{r}
+col = matrix(c(1,2,3), ncol = 1)
+col
+```
+
+## Matrices con `R`
+
 Para crear matrices se utiliza la instrucción `matrix()`
 
 ```{r}
@@ -34,7 +50,7 @@ B
 
 - Los datos de la matriz deben ir en un vector `c()`
 - Hay que indicar el número de filas y/o columnas con `nrow` o `ncol`, respectivamente
-- Debemos utilizar le parámetro lógico `byrow` para indicar si hemos escrito los números del vector por filas o por columnas
+- Debemos utilizar el parámetro lógico `byrow` para indicar si hemos escrito los números del vector por filas o por columnas
 
 ## Matrices con `R`
 
@@ -50,15 +66,41 @@ D
 
 ## Matrices con `R`
 
-Para acceder a una fila/columna/elemento de una matriz se sigue la sintaxis `A[i,j]`, donde $i$ indica la fila y j, la columna
+Para acceder a un elemento/fila/columna de una matriz se sigue la sintaxis `A[i,j]`, donde $i$ indica la fila y $j$, la columna
 
 ```{r}
+A[3,3] #Elemento a33
 A[1,] #Primera fila
 B[,2] #Segunda columna
-A[3,3] #Elemento a33
 ```
 
 ## Matrices con `R`
+
+<l class = "observ">Observación.</l> Tal y como podemos ver en la anterior diapositiva, si dejamos el parámetro de las filas vacío, estamos llamando a todas las filas. Lo mismo ocurre con las columnas si dejamos ese parámetro vacío.
+
+Además, no necesariamente tiene por qué ser simplemente un número lo introducido por parámetro, también puede ser un vector de posiciones con el cual llamar a varias filas o columnas a la vez según pertoque.
+
+## Matrices con `R`
+
+Para crear una matriz de ceros,
+
+```{r}
+O = matrix(0, nrow = 3, ncol = 3)
+O
+```
+
+## Matrices con `R`
+
+Para crear una matriz de unos,
+
+```{r}
+ones = matrix(1, nrow = 3, ncol = 3)
+ones
+```
+
+
+## Matrices con `R`
+
 
 Para crear una matriz diagonal, utilizamos la función `diag()`
 
@@ -132,7 +174,7 @@ rowMeans(M) #sumas por filas
 colMeans(M) #sumas por columnas
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 La transpuesta de una matriz se consegue aplicando la función `t()`
 
@@ -141,7 +183,15 @@ M
 t(M)
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
+
+Para calcular la traza de la matriz (la suma de los elementos de la diagonal):
+
+```{r}
+sum(diag(M))
+```
+
+## Operaciones con matrices en `R`
 
 La suma de matrices:
 
@@ -152,7 +202,7 @@ A+B
 B+A
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 El producto de un esclalar por una matriz:
 
@@ -160,7 +210,7 @@ El producto de un esclalar por una matriz:
 5*A
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 El producto de matrices:
 
@@ -169,7 +219,7 @@ A%*%B
 B%*%A
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 Fijaos que el producto de matrices se consigue aplicando `%*%` y no `*`. 
 
@@ -179,7 +229,8 @@ En el segundo caso, lo que hace `R` es devolver como resultado una matriz $C = (
 A*B
 ```
 
-## Operacions con matrices en `R`
+
+## Operaciones con matrices en `R`
 
 Para comprobar que dos matrices son iguales, utilizamos el operador lógico `==`
 
@@ -190,7 +241,7 @@ A%*%B == B%*%A
 
 Con que haya un `FALSE`, sabemos que son diferentes
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos la función `mtx.exp()`, del paquete `Biodem`
 
@@ -198,7 +249,7 @@ Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos la f
 mtx.exp(A,4)
 ```
 
-## Operacions con matrices en `R`
+## Operaciones con matrices en `R`
 
 Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos `%^%`, del paquete `expm`
 
@@ -206,15 +257,7 @@ Para calcular la potencia $n$-ésima (aproximada) de una matriz, utilizamos `%^%
 A%^%4
 ```
 
-## Determinante, rango e inversa en `R`
-
-El determinante de una matriz se calcula con la función `det()`
-
-```{r}
-det(A)
-```
-
-## Determinante, rango e inversa en `R`
+## Rango e inversa en `R`
 
 El rango de una matriz se calcula con la función `qr()$rank`
 
@@ -222,7 +265,7 @@ El rango de una matriz se calcula con la función `qr()$rank`
 qr(A)$rank
 ```
 
-## Determinante, rango e inversa en `R`
+## Rango e inversa en `R`
 
 La inversa (aproximada) de una matriz (invertible) se calcula mediante la función `solve()`
 
@@ -231,34 +274,13 @@ solve(M)
 round(M%*%solve(M))
 ```
 
-## Determinante, rango e inversa en `R`
+## Rango e inversa en `R`
 
 ```{r}
 round(solve(M)%*%M)
 ```
 
-Fijaos que no se podría calcular la inversa de las matrices $A$ y $B$ ya que
 
-```{r}
-round(det(A))
-det(B)
-```
-
-## Determinante, rango e inversa en `R`
-
-Para resolver el sistema $Ax=b$, también utilizamos la función `solve(A,b)` (donde $A$ es una matriz invertible), que nos devuelve el vector solución $x$
-
-```{r}
-solve(M,c(1,2,3))
-```
-
-## Determinante, rango e inversa en `R`
-
-Para calcular la traza de la matriz (la suma de los elementos de la diagonal):
-
-```{r}
-sum(diag(M))
-```
 
 # Matrices con `Python`
 
@@ -349,14 +371,14 @@ print(M[1])
 
 ## Matrices con `Python`
 
-Para llamar a una columna, necesitamos recorrer todas las filas de la matriz:
+También nos sirve la sintaxis
 
 ```{python}
-for row in M:
-  print(row[0]) #Primera columna
+M[1,:]
 ```
 
-No obstante, hay una forma más sencilla: 
+
+Para llamar a una columna, 
 
 ```{python}
 M[:,0]
@@ -373,10 +395,28 @@ print(np.zeros((5,7)))
 
 ## Matrices con `Python`
 
-Para crear una matriz de ceros, utilizamos la función `np.ones((fil,col))`:
+Para crear una matriz de unos, utilizamos la función `np.ones((fil,col))`:
 
 ```{python}
 print(np.ones((5,10)))
+```
+
+## Matrices con `Python`
+
+Para crear una matriz diagonal hacemos lo siguiente:
+
+```{python}
+x = [1,2,3,4]
+N = np.diag(x)
+N
+```
+
+## Matrices con `Python`
+
+Y para obtener la diagonal principal de una matriz, utilizamos de nuevo la función `numpy.diag()`
+
+```{python}
+np.diag(N)
 ```
 
 ## Matrices con `Python`
@@ -387,6 +427,69 @@ Para saber la dimensión de una matriz, utilizamos la función `np.shape()`:
 np.shape(M)
 ```
 
+## Manipulación de matrices con `Python`
+
+Si queremos la suma de todos los elementos de una matriz:
+
+```{python}
+np.sum(M)
+```
+
+## Manipulación de matrices con `Python`
+
+Si queremos la suma por filas
+
+```{python}
+np.sum(M, axis = 0)
+```
+
+Si queremos la suma por columnas
+
+```{python}
+np.sum(M, axis = 1)
+```
+
+## Manipulación de matrices con `Python`
+
+Si queremos el producto de todos los elementos de una matriz:
+
+```{python}
+np.prod(M)
+```
+
+
+## Manipulación de matrices con `Python`
+
+Si queremos la media aritmética de todos los elementos de una matriz:
+
+```{python}
+np.mean(M)
+```
+
+Si queremos la media aritmética por filas o columnas:
+
+```{python}
+np.mean(M, axis = 0) #Por filas
+np.mean(M, axis = 1) #Por columnas
+```
+
+## Operaciones con matrices en `Python`
+
+Para calcular la transpuesta de una matriz, utilizamos la función `.transpose()`:
+
+```{python}
+print(M.transpose())
+```
+
+## Operaciones con matrices en `Python`
+
+Para calcular la traza de una matriz:
+
+```{python}
+print(M.trace())
+```
+
+
 ## Operaciones con matrices en `Python`
 
 Suma de matrices:
@@ -394,7 +497,6 @@ Suma de matrices:
 ```{python}
 A = np.array([[1,2],[2,0]])
 B = np.array([[3,0],[1,4]])
-
 print(A+B)
 ```
 
@@ -421,23 +523,6 @@ Observad que si utilizáis la sintaxis `A*B`, se multiplican elemento a elemento
 print(A*B)
 ```
 
-## Operaciones con matrices en `Python`
-
-Para calcular la transpuesta de una matriz, utilizamos la función `.transpose()`:
-
-```{python}
-print(M.transpose())
-```
-
-## Operaciones con matrices en `Python`
-
-Para calcular la traza de una matriz:
-
-```{python}
-print(M.trace())
-print(A.trace())
-print(B.trace())
-```
 
 ## Operaciones con matrices en `Python`
 
@@ -448,17 +533,7 @@ print(np.linalg.matrix_power(A,5))
 ```
 
 
-## Determinante, rango e inversa en `Python`
-
-Para calcular el determinante de una matriz:
-
-```{python}
-np.linalg.det(M)
-np.linalg.det(A)
-np.linalg.det(B)
-```
-
-## Determinante, rango e inversa en `Python`
+## Rango e inversa en `Python`
 
 Para calcular el rango de una matriz, utilizamos `np.linalg.matrix_rank()`
 
@@ -467,7 +542,7 @@ np.linalg.matrix_rank(A)
 np.linalg.matrix_rank(B)
 ```
 
-## Determinante, rango e inversa en `Python`
+## Rango e inversa en `Python`
 
 Para calcular la inversa:
 
@@ -476,13 +551,6 @@ print(np.linalg.inv(A))
 print(np.linalg.inv(A).dot(A))#Comprobamos
 ```
 
-## Determinante, rango e inversa en `Python`
-
-Fijaos que la matriz $M$ tiene determinante 0, lo que se traduce en que no tiene inversa. Sin embargo,`Python`la calcula sin queja alguna porque utiliza métodos numéricos. No obstante, el resultado es una «matriz infinita» que no tiene mucho sentido:
-
-```{python}
-print(np.linalg.inv(M))
-```
 
 # Matrices con `Octave`
 
@@ -545,6 +613,39 @@ N = [1 0 0; 0 1 0; 0 0 9];
 matrix_type(N)
 ```
 
+## Matrices con `Octave`
+
+Para crear una matriz de ceros, utilizamos la función `repmat(0,m,n)` donde $m$ son el número de filas y $n$ el de columnas:
+
+```{octave}
+O = repmat(0,5,8)
+```
+
+## Matrices con `Octave`
+
+Para crear una matriz de unos, utilizamos una sintaxis similar a la anterior:
+
+```{octave}
+ones = repmat(1,3,7)
+```
+
+
+## Matrices con `Octave`
+
+Para crear una matriz diagonal:
+
+```{octave}
+N = diag([1 2 3 4 5])
+```
+
+## Matrices con `Octave`
+
+Para obtener la diagonal principal de una matriz:
+
+```{octave}
+N = diag([1 2 3 4 5]);
+diagonal = diag(N)
+```
 
 ## Matrices con `Octave`
 
@@ -555,6 +656,86 @@ M = [1 2 3; 4 5 6; 7 8 9];
 size(M)
 ```
 
+## Manipulación de matrices con `Octave`
+
+Para sumar todos los elementos de una matriz:
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+suma = sum(sum(M))
+```
+
+## Manipulación de matrices con `Octave`
+
+Para sumar los elementos de una matriz por filas:
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+sumaFil = sum(M,2)
+```
+
+## Manipulación de matrices con `Octave`
+
+Para sumar los elementos de una matriz por columnas, basta simplemente
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+sumaCol = sum(M)
+```
+
+o bien
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+sumaCol = sum(M, 1)
+```
+
+## Manipulación de matrices con `Octave`
+
+Para multiplicar los elementos de una matriz:
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+producto = prod(prod(M))
+```
+
+## Manipulación de matrices con `Octave`
+
+Para calcular la media los elementos de una matriz:
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+media = mean(mean(M))
+```
+
+## Manipulación de matrices con `Octave`
+
+Para calcular la media los elementos de una matriz por filas
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+mediaFil = mean(M,2)
+```
+
+## Manipulación de matrices con `Octave`
+
+Para calcular la media los elementos de una matriz por columnas basta simplemente
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+mediaCol = mean(M)
+```
+
+## Manipulación de matrices con `Octave`
+
+O bien
+
+```{octave}
+M = [1 2 3; 4 5 6; 7 8 9];
+mediaCol = mean(M,1)
+```
+
+
 ## Operaciones con matrices en `Octave`
 
 Para calcular la transpuesta de una matriz, utilizamos el apostrofe, `'`
@@ -562,6 +743,17 @@ Para calcular la transpuesta de una matriz, utilizamos el apostrofe, `'`
 ```{octave}
 M = [1 2 3; 4 5 6; 7 8 9];
 M'
+```
+
+## Operaciones con matrices en `Octave`
+
+Para calcular la traza de una matriz, utilizamos la función `trace()`:
+
+```{octave}
+A = [1 -1; 0 3];
+B = [2 1; -1 0];
+trace(A)
+trace(B)
 ```
 
 ## Operaciones con matrices en `Octave`
@@ -595,29 +787,17 @@ A*B
 
 ## Operaciones con matrices en `Octave`
 
-Para calcular la traza de una matriz, utilizamos la función `trace()`:
+Potencia de matrices:
 
 ```{octave}
 A = [1 -1; 0 3];
 B = [2 1; -1 0];
-trace(A)
-trace(B)
+A^3
+B^4
 ```
 
 
-## Determinante, rango e inversa en `Octave`
-
-Para calcular el determinante, utilizamos la función `det)()`:
-
-```{octave}
-A = [1 -1; 0 3];
-B = [2 1; -1 0];
-det(A)
-det(B)
-```
-
-
-## Determinante, rango e inversa en `Octave`
+## Rango e inversa en `Octave`
 
 Para calcular el rango de una matriz, utilizamos la función `rank()`:
 
@@ -629,7 +809,7 @@ rank(B)
 ```
 
 
-## Determinante, rango e inversa en `Octave`
+## Rango e inversa en `Octave`
 
 Para calcular la inversa de una matriz, hacemos uso de la función `inv()`
 
@@ -639,14 +819,3 @@ B = [2 1; -1 0];
 inv(A)
 inv(A)*A
 ```
-
-## Determinante, rango e inversa en `Octave`
-
-Ocurrirá lo mismo que en `Python`: por mucho que la matriz no sea invertible, `Octave` nos calculará la inversa numéricamente. En cambio, en este caso, nos devolverá un «warning» indicando que la matriz es singular.
-
-```{octave}
-M = [1 2 3; 4 5 6; 7 8 9];
-det(M)
-inv(M)
-```
-
