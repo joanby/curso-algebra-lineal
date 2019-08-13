@@ -1,0 +1,427 @@
+---
+title: Tema 5 - Vectores con R, Python y Octave
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
+library(matlib)
+library(pracma)
+```
+
+# Vectores con `R`
+
+## Vectores con `R`
+
+Para definir vectores con `R`, simplemente utilizamos la función `c()` 
+
+```{r}
+x = c(1,2,3,4,5,6,7,8,9,0)
+x
+```
+
+## Vectores con `R`
+
+Para saber la longitud de un vector (la dimensión), utilizamos la función `length()`
+
+```{r}
+length(x)
+```
+
+## Operaciones con vectores en `R`
+
+Sumar y restar dos o más vectores es muy simple, siempre y cuando sean de la misma dimensión:
+
+```{r}
+x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+x+y
+x-y
+```
+
+## Operaciones con vectores en `R`
+
+El producto por un escalar también funciona de forma sencilla:
+
+```{r}
+x = c(1,0,-1,0,2,0,-2)
+2*x
+-2*x
+5*x
+```
+
+## Producto escalar en `R`
+
+El producto escalar no está definido en `R`, pero es sencillo crear una función que nos lo calcule:
+
+```{r}
+productoEscalar = function(x,y){
+  if (length(x) == length(y)){
+    sum(x*y)
+  }else{
+    print("ERROR: No se puede calcular el producto escalar de estos dos vectores porque 
+          no son de la misma dimensión")
+  }
+}
+```
+
+## Producto escalar en `R`
+
+Simplemente, lo que hace la función anterior es calcular el producto escalar de dos vectores, siempre y cuando estos tengan la misma dimensión. 
+
+Si no, salta un mensaje explicando el error cometido.
+
+```{r}
+x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+productoEscalar(x,y)
+```
+
+
+## Norma Euclídea con `R`
+
+Para calcular la norma euclídea de un vector, utilizamos la función `Norm()`
+
+```{r}
+x = c(1,2,0,3,-1,1)
+Norm(x)
+```
+
+## Calcular Distancia Eucídea entre dos vectores con `R`
+
+Para calcular la distancia entre dos vectores, definida como $\text{d}(x,y) = ||x-y||$ utilizamos la función `distancia()`, la cual definimos del siguiente modo:
+
+```{r}
+distancia = function(x,y){
+  if (length(x) == length(y)){
+    Norm(x-y)
+  }else{
+    print("ERROR: No se puede calcular la distancia entre estos dos vectores porque 
+          no son de la misma dimensión")
+  }
+}
+```
+
+## Calcular Distancia Eucídea entre dos vectores con `R`
+
+```{r}
+x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+distancia(x,y)
+```
+
+Simplemente, lo que hace la función anterior es calcular la distancia Euclídea entre dos vectores, siempre y cuando estos tengan la misma dimensión. 
+
+Si no, salta un mensaje explicando el error cometido.
+
+## Ángulo entre dos vectores en `R`
+
+Si queremos calcular el ángulo entre dos vectores, debemos definir nosotros mismos la función 
+
+```{r}
+angleRad = function(x,y){
+  if (length(x) == length(y)){
+    acos(productoEscalar(x,y)/(Norm(x)*Norm(y)))
+  }else{
+    print("ERROR: No se puede calcular el ángulo entre estos dos vectores porque 
+          no son de la misma dimensión")
+  }
+}
+angleRad(x,y)
+```
+
+## Ángulo entre dos vectores en `R`
+
+Nuestra función nos devuelve el resultado en Radianes. En caso de querer el resultado en grados, lo que podemos hacer es una pequeña conversión:
+
+```{r}
+angleGrad = function(x,y){
+  if (length(x) == length(y)){
+    acos(productoEscalar(x,y)/(Norm(x)*Norm(y)))*360/(2*pi)
+  }else{
+    print("ERROR: No se puede calcular el ángulo entre estos dos vectores porque 
+          no son de la misma dimensión")
+  }
+}
+angleGrad(x,y)
+```
+
+## Calcular la proyección ortogonal de $\vec{v}$ sobre $\vec{u}$ con `R`
+
+```{r}
+proyeccionOrt = function(u,v){
+  if (length(u) == length(v)){
+    productoEscalar(u,v)/Norm(u)^2*u
+  }else{
+    print("ERROR: No se puede calcular la proyección ortogonal de v sobre 
+          u porque no son de la misma dimensión")
+  }
+}
+u = c(3,1)
+v = c(1,2)
+proyeccionOrt(u,v)
+```
+
+## Producto vectorial con `R`
+
+```{r}
+productoVectorial= function(x,y){
+  if (length(x) == length(y) & length(x) == 3){
+    c(x[2]*y[3] - x[3]*y[2], x[1]*y[3]-x[3]*y[1], x[1]*y[2]-x[2]*y[1])
+  }else{
+    print("No se cumplen las condiciones necesarias para calcular el 
+          producto vectorial de estos dos vectores")
+  }
+}
+```
+
+## Producto vectorial con `R`
+
+```{r}
+x = c(1,2,3)
+y = c(0,-1,1)
+productoVectorial(x,y)
+```
+
+
+
+## Producto mixto con `R`
+
+```{r}
+productoMixto = function(x,y,z){
+  if (length(x) == length(y) & length(x) == length(z) & length(x) == 3){
+    det(rbind(x,y,z))
+  }else{
+    print("No se cumplen las condiciones necesarias para calcular el 
+          producto mixto de estos dos vectores")
+  }
+}
+```
+
+## Producto mixto con `R`
+
+```{r}
+x = c(1,2,3)
+y = c(0,-1,1)
+z = c(2,0,-3)
+productoMixto(x,y,z)
+```
+
+
+
+# Vectores con `Python`
+
+## Vectores con `Python`
+
+Para crear un vector en `Python`, utilizamos `numpy.array()`
+
+```{python}
+import numpy as np
+x = np.array([1,2,3,4,5,6,7,8,9,0])
+x
+```
+
+
+## Vectores con `Python`
+
+Para calcular la longitud (la dimensión), utilizamos la función `len()`
+
+```{python}
+len(x)
+```
+
+
+
+## Operaciones con vectores en `Python`
+
+Sumar y restar dos o más vectores es muy simple, siempre y cuando sean de la misma dimensión:
+
+```{python}
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+x+y
+x-y
+```
+
+## Operaciones con vectores en `Python`
+
+El producto por un escalar también funciona de forma sencilla:
+
+```{python}
+x = np.array([1,0,-1,0,2,0,-2])
+2*x
+-2*x
+5*x
+```
+
+
+
+## Producto escalar en `Python`
+
+```{python}
+def productoEscalar(x,y):
+  if len(x) == len(y):
+    suma = 0
+    for i in range(0,len(x)):
+      suma = suma + x[i]*y[i]
+    return suma
+  else:
+   return "ERROR: las longitudes de los vectores no coinciden"
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+productoEscalar(x,y)
+```
+
+
+## Producto escalar en `Python`
+
+Simplemente, lo que hace la función anterior es calcular el producto escalar de dos vectores, siempre y cuando estos tengan la misma dimensión. 
+
+Si no, salta un mensaje explicando el error cometido.
+
+
+## Norma Euclídea con `Python`
+
+Para calcular la norma de un vector, lo que hacemos es utilizar la función `numpy.linalg.norm()`:
+
+```{python}
+x = np.array([1,2,0,3,-1,1])
+np.linalg.norm(x)
+```
+
+
+## Calcular Distancia Eucídea entre dos vectores con `Python`
+
+Para calcular la distancia entre dos vectores, definida como $d(x,y)=||x−y||$ utilizamos la función `distancia()`, la cual definimos del siguiente modo:
+
+```{python}
+def distancia(x,y):
+  import numpy as np
+  if len(x) == len(y):
+    dist =  np.linalg.norm(x-y)
+    return dist
+  else:
+   return "ERROR: las longitudes de los vectores no coinciden"
+```
+
+
+## Calcular Distancia Eucídea entre dos vectores con `Python`
+
+```{python}
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+distancia(x,y)
+```
+
+
+## Ángulo entre dos vectores en `Python`
+
+```{python}
+def angleRad(x,y):
+  import numpy as np
+  import math
+  if len(x) == len(y):
+    angle = math.acos(productoEscalar(x,y)/(np.linalg.norm(x)*np.linalg.norm(y)))
+    return angle
+  else:
+    return "ERROR: Las dimensiones no coinciden" 
+          
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+angleRad(x,y)
+```
+
+
+## Ángulo entre dos vectores en `Python`
+
+Si lo que queremos es el resultado en grados,
+
+```{python}
+def angleGrad(x,y):
+  import numpy as np
+  import math
+  if len(x) == len(y):
+    angle = math.acos(productoEscalar(x,y)/(np.linalg.norm(x)*np.linalg.norm(y)))
+    return angle/(2*math.pi)*360
+  else:
+    return "ERROR: Las dimensiones no coinciden" 
+          
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+angleGrad(x,y)
+```
+
+
+## Calcular la proyección ortogonal de $\vec{v}$ sobre $\vec{u}$ con `Python`
+
+```{python}
+def proyeccionOrt(u,v):
+  import numpy as np
+  if len(u) == len(v):
+    proy = (productoEscalar(u,v)/pow(np.linalg.norm(u),2))*u
+    return proy
+  else:
+    return "ERROR: Las dimensiones no coinciden"
+    
+u = np.array([3,1])
+v = np.array([1,2])
+proyeccionOrt(u,v)
+```
+
+
+## Producto vectorial con `Python`
+
+```{python}
+def productoVectorial(x,y):
+  import numpy as np
+  if len(x) == len(y) and len(x) == 3:
+    z = np.array([x[1]*y[2] - x[2]*y[1], x[0]*y[2]-x[2]*y[0], x[0]*y[1]-x[1]*y[0]])
+    return z
+  else:
+    return "ERROR"
+```
+
+## Producto vectorial con `Python`
+
+```{python}
+x = np.array([1,2,3])
+y = np.array([0,-1,1])
+productoVectorial(x,y)
+```
+
+
+
+## Producto mixto con `Python` 
+
+```{python}
+def productoMixto(x,y,z):
+  import numpy as np
+  if len(x) == len(y) and len(x) == len(z) and len(z) == 3:
+    return np.linalg.det(np.array([x,y,z]))
+  else:
+    return "ERROR"
+```
+
+## Producto mixto con `Python`
+
+```{python}
+x = np.array([1,2,3])
+y = np.array([0,-1,1])
+z = np.array([2,0,-3])
+productoMixto(x,y,z)
+```
+
+# Vectores con `Octave`
+
+## Vectores con `Octave`
+
+Todo lo relativo a vectores con `Octave` se encuentra en un script en la carpeta `codigo`, subcarpeta `Octave`, del GitHub.
+

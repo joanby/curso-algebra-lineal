@@ -1,0 +1,389 @@
+---
+title: Tema 3 - Factorizaciones LU con R, Python y Octave
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
+library(matlib)
+library(Biodem)
+library(expm)
+```
+
+# Factorizaciones LU con `R`
+
+## Factorizaciones LU con `R` 
+
+Para realizar una factorización LU con `R`, podemos utilizar la función `LU()` introduciendo por parámetro una matriz cuadrada.
+
+La función devolverá una lista con tres componentes: $P$, $L$ y $U$
+
+Veámoslo con un ejemplo
+
+## Ejemplo 1
+
+<div class = "example">
+**Ejemplo 1**
+
+Encontremos la factorización LU de la siguiente matriz $$A = \begin{pmatrix}1 & 3 & 0 & -1\\
+2 & 1 & -1& 5\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix}$$
+
+</div>
+
+```{r}
+A = rbind(c(1,3,0,-1), c(2,1,-1,5), c(0,-2,3,-1), c(1,1,3,1))
+luA = LU(A)
+```
+
+
+## Ejemplo 1
+
+```{r}
+luA$P
+```
+
+En este caso, como no se han permutado filas, la matriz $P$ es la matriz identidad
+
+## Ejemplo 1
+
+```{r}
+luA$L
+luA$U
+```
+
+## Ejemplo 2
+
+<div class = "example">
+**Ejemplo 2**
+
+Encontremos ahora la factorización LU de la matriz 
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}$$
+
+</div>
+
+```{r}
+A = matrix(c(0,1,3,1,3,-2,-3,-2,-1), byrow = T, nrow = 3, ncol = 3)
+luA = LU(A)
+```
+
+## Ejemplo 2
+
+```{r}
+luA$P
+```
+
+En este caso, podemos ver como sí se han permutado filas, ya que la matriz $P$ no es la matriz identidad
+
+## Ejemplo 2
+
+```{r}
+luA$L
+luA$U
+```
+
+## Factorizaciones LU con `R` 
+
+Finalmente, también podemos resolver sistemas de ecuaciones lineales aplicando antes la factorización LU a la matriz de coeficientes.
+
+Esto se lleva a cabo con la misma función utilizada hasta el momento: `LU()`, pero añadiendo un parámetro más. Lo que implica que además de las matrices $P$,$L$ y $U$, la función nos devuelve dos vectores más: $d$ y $x$
+
+- $x$ es la solución del sistema
+- $d$ es el vector solución del sistema $Ld = b$, que luego nos sirve para resolver $Ux = d$
+
+## Ejemplo 3
+
+<div class = "example">
+
+**Ejemplo 3**
+
+Consideremos el sistema 
+
+$$\left\{\begin{matrix}
+&&x_2&+&3x_3&=&1\\
+x_1&+&3x_2&-&2x_3 &=& 3\\
+-3x_1&-&2x_2&-&x_3&=&-2
+\end{matrix}\right.$$
+
+</div>
+
+```{r}
+A = rbind(c(0,1,3), c(1,3,-2), c(-3,-2,-1))
+b = c(1,3,-2)
+sistema = LU(A,b) 
+```
+
+## Ejemplo 3
+
+```{r}
+sistema$P
+```
+
+## Ejemplo 3
+
+```{r}
+sistema$L
+sistema$U
+```
+
+## Ejemplo 3
+
+```{r}
+sistema$d
+sistema$x
+```
+
+# Factorizaciones LU con `Python`
+
+## Factorizaciones LU con `Python`
+
+Para realizar una factorización LU con `Python`, podemos utilizar la función `scipy.linalg.lu()` introduciendo por parámetro una matriz cuadrada. Para ello, habrá que instalar la librería `scipy` mediante `py_install("scipy")`.
+
+La función `scipy.linalg.lu()` devolverá tres matrices: $P$, $L$ y $U$
+
+Veámoslo con un ejemplo
+
+## Ejemplo 1
+
+<div class = "example">
+**Ejemplo 1**
+
+Encontremos la factorización LU de la siguiente matriz $$A = \begin{pmatrix}1 & 3 & 0 & -1\\
+2 & 1 & -1& 5\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix}$$
+
+</div>
+
+```{python}
+import scipy
+import scipy.linalg
+A = scipy.array([[1,3,0,-1], [2,1,-1,5], [0,-2,3,-1], [1,1,3,1]])
+P, L, U = scipy.linalg.lu(A)
+```
+
+## Ejemplo 1
+
+```{python}
+P
+```
+
+En este caso, aunque no fuese necesaria la permutación, `Python` la ha realizado
+
+## Ejemplo 1
+
+```{python}
+L
+U
+```
+
+
+## Ejemplo 2
+
+<div class = "example">
+**Ejemplo 2**
+
+Encontremos ahora la factorización LU de la matriz 
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}$$
+
+</div>
+
+```{python}
+A = scipy.array([[0,1,3], [1,3,-2], [-3,-2,-1]])
+P, L, U = scipy.linalg.lu(A)
+```
+
+## Ejemplo 2
+
+```{python}
+P
+```
+
+En este caso, podemos ver como también se han permutado filas, ya que la matriz $P$ no es la matriz identidad
+
+## Ejemplo 2
+
+```{python}
+L
+U
+```
+
+## Factorizaciones LU con `Python`
+
+Para realizar una factorización LU con `Python`, también podemos utilizar la función `scipy.linalg.lu_factor()` introduciendo por parámetro una matriz cuadrada. 
+
+La función devolverá dos elementos matrices: 
+
+- Una matriz en cuya parte inferior se corresponde con la matriz triangular inferior $L$ y cuya parte superior se corresponde con la matriz triangular superior $U$
+- Un vector de índices, `piv` que indica que la fila $i$ se ha intercambiado con la fila `piv[i]`
+
+Veámoslo con un ejemplo
+
+## Ejemplo 2
+
+<div class = "example">
+**Ejemplo 2**
+
+Encontremos ahora la factorización LU de la matriz 
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}$$
+
+</div>
+
+```{python}
+A = scipy.array([[0,1,3], [1,3,-2], [-3,-2,-1]])
+LU, piv = scipy.linalg.lu_factor(A)
+```
+
+## Ejemplo 2
+
+```{python}
+LU
+L #Resultado anterior
+```
+
+## Ejemplo 2
+
+```{python}
+LU
+U #Resultado anterior
+```
+
+## Ejemplo 2
+
+```{python}
+piv
+P #Resultado anterior
+```
+
+Aquí observamos que la primera fila (la 0), se ha cambiado con la tercera; la segunda se ha quedado tal cual; y la tercera, una vez realizado el primer intercambio, se ha quedado en el sitio.
+
+## Factorizaciones LU con `Python`
+
+Con lo visto anteriormente, ahora somos capaces de resolver sistemas utilizando factorización LU con `Python`. Esto lo podemos hacer con la función `scipy.linalg.lu_solve()` a la cual introducimos por parámetros la tupla `(LU,piv)` y el vector de términos independientes del sistema, `b`.
+
+Esta función devuelve únicamente el vector solución:
+
+## Ejemplo 3
+
+<div class = "example">
+
+**Ejemplo 3**
+
+Consideremos el sistema 
+
+$$\left\{\begin{matrix}
+&&x_2&+&3x_3&=&1\\
+x_1&+&3x_2&-&2x_3 &=& 3\\
+-3x_1&-&2x_2&-&x_3&=&-2
+\end{matrix}\right.$$
+
+</div>
+
+```{python}
+A = scipy.array([[0,1,3], [1,3,-2], [-3,-2,-1]])
+LU, piv = scipy.linalg.lu_factor(A)
+b = [1, 3, -2]
+x = scipy.linalg.lu_solve((LU,piv),b) 
+x
+```
+
+# Factorizaciones LU con `Octave`
+
+## Factorizaciones LU con `Octave`
+
+A la hora de realizar factorizaciones LU con `Octave`, utilizamos la función `lu()` introduciéndole por parámetro una matriz cuadrada
+
+## Ejemplo 1
+
+<div class = "example">
+**Ejemplo 1**
+
+Encontremos la factorización LU de la siguiente matriz $$A = \begin{pmatrix}1 & 3 & 0 & -1\\
+2 & 1 & -1& 5\\
+0 & -2& 3 & -1\\
+1 & 1 & 3 & 1\end{pmatrix}$$
+
+</div>
+
+```{octave}
+A = [1,3,0,-1; 2,1,-1,5; 0,-2,3,-1; 1,1,3,1];
+[L,U,P] = lu(A);
+```
+
+## Ejemplo 1
+
+```{octave}
+A = [1,3,0,-1; 2,1,-1,5; 0,-2,3,-1; 1,1,3,1]; [L,U,P] = lu(A);
+P
+```
+
+De nuevo, aunque no era necesario, la función ha llevado a cabo una permutación de filas.
+
+
+## Ejemplo 1
+
+```{octave}
+A = [1,3,0,-1; 2,1,-1,5; 0,-2,3,-1; 1,1,3,1]; [L,U,P] = lu(A);
+L
+U
+```
+
+## Ejemplo 2
+
+<div class = "example">
+**Ejemplo 2**
+
+Encontremos ahora la factorización LU de la matriz 
+$$A = \begin{pmatrix}0 & 1 & 3\\
+1 & 3& -2\\
+-3 & -2 & -1
+\end{pmatrix}$$
+
+</div>
+
+```{octave}
+A = [0,1,3; 1,3,-2; -3,-2,-1];
+[L,U,P] = lu(A)
+```
+
+## Ejemplo 2
+
+```{octave}
+A = [0,1,3; 1,3,-2; -3,-2,-1]; [L,U,P] = lu(A);
+P
+```
+
+En este caso sí que era necesaria una permutación de filas.
+
+
+## Ejemplo 2
+
+```{octave}
+A = [0,1,3; 1,3,-2; -3,-2,-1]; [L,U,P] = lu(A);
+L
+U
+```
+
+
+
+
+
+

@@ -116,7 +116,7 @@ En este caso, su componente del eje horizontal será positiva, mientras que la c
 
 ## Vectores fijos
 
-<l class = "prop">Caracterización de un vector fijo (I).</l> En el contexto geométrico, las 3 características de un vector fijo son:
+<l class = "prop">Caracterización de un vector fijo (I).</l> En el contexto geométrico, las 4 características de un vector fijo son:
 
 - **Origen.** Punto de aplicación donde empieza el vector
 - **Módulo.** Longitud del segmento
@@ -166,7 +166,7 @@ Este representante define un conjunto infinito de vectores y los representa a to
 
 <l class = "definition">Vector libre.</l> Conjunto de todos los vectores fijos equivalentes entre sí.
 
-Un vector lubre no tiene un origen fijo, sino que se puede ubicar en cualquier punto del espacio.
+Un vector libre no tiene un origen fijo, sino que se puede ubicar en cualquier punto del espacio.
 
 Cada vector fijo es un representante del vector libre.
 
@@ -194,21 +194,16 @@ Por tanto, todo vector libre tiene un representante situado en el origen de coor
 
 <l class = "prop">Caracterización de un vector libre (I).</l> Para caracterizar un vector libre se necesita:
 
-- Módulo
-- Dirección
-- Sentido
+- <l class = "definition">Módulo.</l> Al igual que para los vectores fijos, viene dado por la longitud del segmento
+
+- <l class= "definition">Dirección.</l> Viene dado por el ángulo que forma el vector con la dirección positiva del eje $OX$
+
+- <l class= "definition">Sentido.</l> Viene dado por el ángulo que forma el vector con la dirección positiva del eje $OX$
+
 
 ## Vectores libres
 
 <l class = "prop">Caracterización de un vector libre (II).</l> También se puede caracterizar un vector libre si se conocen las componentes
-
-## Vectores libres
-
-<l class = "definition">Módulo.</l> Al igual que para los vectores fijos, viene dado por la longitud del segmento
-
-<l class= "definition">Dirección.</l> Viene dado por el ángulo que forma el vector con la dirección positiva del eje $OX$
-
-<l class= "definition">Sentido.</l> Viene dado por el ángulo que forma el vector con la dirección positiva del eje $OX$
 
 ## Ejemplo 4
 
@@ -270,6 +265,8 @@ Geométricamente es el vector formado por la diagonal del paralelogramo que tien
 </div>
 
 ## Operaciones con vectores
+
+O bien, el vector que une el origen del primer sumando con el extremo del último, habiendo colocado cada origen de los vectores sumandos sobre el extremo del vector sumando precedente
 
 <div class = "center">
 ![<l class = "phototext">Suma de vectores</l>](Images/vector9.png)
@@ -387,13 +384,13 @@ Al definir las operaciones de suma y producto por un escalar, conviene tener pre
 
 ## Propiedades de las operaciones con vectores
 
-<l class = "prop">Ley de composición interna.</l> La suma de vectores se denomina ley de composición interna ya que opera entre elementos de un conjunto dado, $\mathbb{K}^n$ y el resultado es otro elemento de este conjunto
+<l class = "definition">Ley de composición interna.</l> La suma de vectores se denomina ley de composición interna ya que opera entre elementos de un conjunto dado, $\mathbb{K}^n$ y el resultado es otro elemento de este conjunto
 
 $$\begin{matrix}f:\mathbb{K}^n\times \mathbb{K}^n&\longrightarrow& \mathbb{K}^n\\ (\vec{u},\vec{v})&\mapsto&\vec{u}+\vec{v}\end{matrix}$$
 
 ## Propiedades de las operaciones con vectores
 
-<l class = "prop">Ley de composición externa.</l> El producto de un escalar por un vector tiene como operandos conjuntos diferentes: escalares por un lado y vectores por el otro. El resultado cae del lado de los vectores y la operación se denomina ley de composición externa:
+<l class = "definition">Ley de composición externa.</l> El producto de un escalar por un vector tiene como operandos conjuntos diferentes: escalares por un lado y vectores por el otro. El resultado cae del lado de los vectores y la operación se denomina ley de composición externa:
 
 $$\begin{matrix}f:\mathbb{K}\times \mathbb{K}^n&\longrightarrow& \mathbb{K}^n\\ (\lambda,\vec{u})&\mapsto&\lambda\vec{u}\end{matrix}$$
 
@@ -408,7 +405,7 @@ $$\begin{matrix}f:\mathbb{K}\times \mathbb{K}^n&\longrightarrow& \mathbb{K}^n\\ 
 
 ## Propiedades de las operaciones con vectores
 
-<l class = "prop">Propiedades de la suma de vectores.</l> Sean $\vec{u},\vec{v}\in\mathbb{K}^n$ y $\alpha,\beta\in\mathbb{K}$
+<l class = "prop">Propiedades del producto por un escalar.</l> Sean $\vec{u},\vec{v}\in\mathbb{K}^n$ y $\alpha,\beta\in\mathbb{K}$
 
 - Ley distributiva del producto por un escalar para la suma de vectores: $$\alpha(\vec{u}+\vec{v}) = \alpha\vec{u}+\alpha\vec{v}$$
 - Ley distributiva del producto de un vector por la suma de escalares: $$(\alpha+\beta)\vec{u} = \alpha\vec{u}+\beta\vec{u}$$
@@ -574,7 +571,7 @@ $$|\cos(\alpha)| = \left|\frac{\langle\vec{u},\vec{v}\rangle}{||\vec{u}||\cdot||
 
 
 
-## Desigualdad de Cauchy-Schwarz
+## Proyección Ortogonal
 
 <l class = "definition">Proyección ortogonal.</l> La proyección ortogonal de un vector $\vec{v}$ sobre otro vector $\vec{u}$ es un vector paralelo a $\vec{u}$ tal que sumado a otro perpendicular a $\vec{u}$ dará $\vec{v}$
 
@@ -582,7 +579,7 @@ $$|\cos(\alpha)| = \left|\frac{\langle\vec{u},\vec{v}\rangle}{||\vec{u}||\cdot||
 ![<l class = "phototext">Idea gráfica del significado de proyección ortogonal</l>](Images/vector17.png)
 </div>
 
-## Desigualdad de Cauchy-Schwarz
+## Proyección Ortogonal
 
 <div class = "dem">
 **Cálculo de la proyección ortogonal**
@@ -598,7 +595,7 @@ Se trata de obtener $P_{\vec{v}}(\vec{u}) = \vec{v}_1$ conociendo los vectores $
 Por lo tanto, $$P_{\vec{v}}(\vec{u}) = \vec{v}_1= \lambda\vec{u} = \frac{\langle\vec{u},\vec{v}\rangle}{||\vec{u}||^2}\vec{u} $$
 </div>
 
-## Desigualdad de Cauchy-Schwarz{.example}
+## Proyección Ortogonal{.example}
 
 **Ejemplo 7**
 
@@ -652,7 +649,8 @@ $$||\vec{u}\wedge\vec{v}|| = ||\vec{u}||\cdot h = ||\vec{u}||\cdot||\vec{v}||\cd
 
 <l class = "prop">Producto vectorial como determinante.</l>
 
-$$\vec{u}\wedge\vec{v} = (u_2v_3-u_3v_2,u_3v_1-u_1v_3,u_1v_2-u_2v_1) = \vec{u}\wedge\vec{v} = (u_2v_3-u_3v_2)\vec{i}+(u_3v_1-u_1v_3)\vec{j}+(u_1v_2-u_2v_1)\vec{k}$$
+$$\vec{u}\wedge\vec{v} = (u_2v_3-u_3v_2,u_3v_1-u_1v_3,u_1v_2-u_2v_1)$$ 
+$$\vec{u}\wedge\vec{v} = (u_2v_3-u_3v_2)\vec{i}+(u_3v_1-u_1v_3)\vec{j}+(u_1v_2-u_2v_1)\vec{k}$$
 
 $$\vec{u}\wedge\vec{v} = \begin{vmatrix}
 \vec{i} & \vec{j}& \vec{k}\\

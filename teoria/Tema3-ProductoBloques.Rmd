@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 ## Producto por bloques
 
-En el Tema 1 vimos como multiplicar matrices. Simplemente consistía en realizar el producto de filas por columnas.
+En el `Tema 1` vimos como multiplicar matrices. Resumiéndolo, consistía en realizar proeductos de filas por columnas pertinentes
 
 En caso de tener matrices (no necesariamente cuadradas) de órdenes elevados, cuyo producto pueda llevarse a cabo, los cálculos pueden resultar mucho más sencillos si dividimos las matrices en bloques y realizamos el producto por bloques.
 
@@ -268,7 +268,7 @@ Encontremos la factorización LU de la siguiente matriz $$A = \begin{pmatrix}1 &
 0 & -2& 3 & -1\\
 1 & 1 & 3 & 1\end{pmatrix}$$
 
-Empecemos buscandosu forma escalonada reducida por filas:
+Empecemos buscando su forma escalonada reducida por filas:
 
 $$A\sim_{f_2-2f_1} \begin{pmatrix}1 & 3 & 0 & -1\\
 0 & -5 & -1& 7\\
@@ -482,6 +482,8 @@ En caso de que el sistema admita factorización $PA = LU$ es exactamente igual y
 
 ## Ejemplo 6{.example}
 
+**Ejemplo 6**
+
 Consideremos el sistema 
 
 $$\left\{\begin{matrix}
@@ -533,6 +535,7 @@ que vuelve a tener solución inmediata $x_3 = 0, x_2 = 1-x_3 = 1,\ x_1 = 3-3x_2+
 ## Ejemplo 6
 
 <div class = "example">
+
 Con lo cual, la solución a nuestro sistema inicial
 
 $$\left\{\begin{matrix}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tema 4 - Determinantes</title>
+  <title>Tema 5 - Vectores con R, Python y Octave</title>
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     var SLIDE_CONFIG = {
       // Slide settings
       settings: {
-                title: 'Tema 4 - Determinantes',
+                title: 'Tema 5 - Vectores con R, Python y Octave',
                         useBuilds: true,
         usePrettify: true,
         enableSlideAreas: true,
@@ -114,555 +114,397 @@
           </hgroup>
   </slide>
 
-<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Determinante de una matriz cuadrada</h2></hgroup><article  id="determinante-de-una-matriz-cuadrada">
+<slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Vectores con <code>R</code></h2></hgroup><article  id="vectores-con-r">
 
-</article></slide><slide class=""><hgroup><h2>Determinante de una matriz cuadrada</h2></hgroup><article  id="determinante-de-una-matriz-cuadrada-1">
+</article></slide><slide class=""><hgroup><h2>Vectores con <code>R</code></h2></hgroup><article  id="vectores-con-r-1">
 
-<p><l class = "definition">Determinante.</l> Dada una matriz cuadrada \(A\in\mathcal{M}_n(\mathbb{K})\), llamaremos determinante de la matriz \(A\) y lo denotaremos por \(\det(A)\) o \(|A|\) a un elemento del cuerpo \(\mathbb{K}\) que se define por inducción del siguiente modo:</p>
+<p>Para definir vectores con <code>R</code>, simplemente utilizamos la función <code>c()</code></p>
 
-<ul>
-<li>si \(n=1\), \(A = (a_{11})\) y entonces \(\det(A) = a_{11}\)</li>
-<li>si \(n&gt;1\), \(\det(A)=a_{11}\alpha_{11}-a_{12}\alpha_{12}+\cdots+(-1)^{n+1}a_{1n}\alpha_{1n}\)</li>
-</ul>
+<pre class = 'prettyprint lang-r'>x = c(1,2,3,4,5,6,7,8,9,0)
+x</pre>
 
-<p>donde \(\alpha_{1i}\) es el determinante de la matriz de orden \(n-1\) que se obtiene en suprimir la primera fila y la columna \(i\)-ésima de la matriz \(A\)</p>
+<pre > [1] 1 2 3 4 5 6 7 8 9 0</pre>
 
-</article></slide><slide class=""><hgroup><h2>Determinante de una matriz cuadrada</h2></hgroup><article  id="determinante-de-una-matriz-cuadrada-2" class="example">
+</article></slide><slide class=""><hgroup><h2>Vectores con <code>R</code></h2></hgroup><article  id="vectores-con-r-2">
 
-<p><strong>Ejemplo 1</strong></p>
+<p>Para saber la longitud de un vector (la dimensión), utilizamos la función <code>length()</code></p>
 
-<p>Dada la matriz cuadrada de orden 2, \[A = \begin{pmatrix}a_{11} &amp; a_{12}\\a_{21} &amp; a_{22}\end{pmatrix}\] tenemos que \[\alpha_{11} = \det(a_{22}) = a_{22}\] \[\alpha_{12} = \det(a_{21}) = a_{21}\]</p>
+<pre class = 'prettyprint lang-r'>length(x)</pre>
 
-<p>Así pues, el determinante es \[\det(A) = a_{11}\alpha_{11}-a_{12}\alpha_{12} = a_{11}a_{22}-a_{12}a_{21}\]</p>
+<pre >[1] 10</pre>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 2</h2></hgroup><article  id="ejemplo-2" class="example">
+</article></slide><slide class=""><hgroup><h2>Operaciones con vectores en <code>R</code></h2></hgroup><article  id="operaciones-con-vectores-en-r">
 
-<p><strong>Ejemplo 2</strong></p>
+<p>Sumar y restar dos o más vectores es muy simple, siempre y cuando sean de la misma dimensión:</p>
 
-<p>Dada la matriz cuadrada de orden 3, \[A = \begin{pmatrix}a_{11} &amp; a_{12}&amp;a_{13}\\a_{21}&amp; a_{22} &amp; a_{23}\\ a_{31} &amp; a_{32} &amp; a_{33}\end{pmatrix}\]</p>
+<pre class = 'prettyprint lang-r'>x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+x+y</pre>
 
-<p>El determinante de \(A\) es \[\det(A) = a_{11}\alpha_{11}-a_{12}\alpha_{12}+a_{13}\alpha_{13}\]</p>
+<pre >[1] 1 5 2 2 5</pre>
 
-<p>donde</p>
+<pre class = 'prettyprint lang-r'>x-y</pre>
 
-<p>\[\alpha_{11} = \begin{vmatrix}a_{22} &amp; a_{23}\\a_{32}&amp;a_{33}\end{vmatrix}\qquad \alpha_{12} = \begin{vmatrix}a_{21} &amp; a_{23}\\a_{31} &amp; a_{33}\end{vmatrix}\qquad \alpha_{13} = \begin{vmatrix}a_{21} &amp; a_{22}\\a_{31} &amp; a_{32}\end{vmatrix}\]</p>
+<pre >[1] -1  1 -4  4  5</pre>
 
-<p>Con lo cual, \[\alpha_{11} = a_{22}a_{33}-a_{23}a_{32};\quad \alpha_{12} = a_{21}a_{33}-a_{23}a_{31};\quad \alpha_{13} = a_{21}a_{32}-a_{22}a_{31}\]</p>
+</article></slide><slide class=""><hgroup><h2>Operaciones con vectores en <code>R</code></h2></hgroup><article  id="operaciones-con-vectores-en-r-1">
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 2</h2></hgroup><article  id="ejemplo-2-1" class="example">
+<p>El producto por un escalar también funciona de forma sencilla:</p>
 
-<p>Así pues,</p>
+<pre class = 'prettyprint lang-r'>x = c(1,0,-1,0,2,0,-2)
+2*x</pre>
 
-<p>\[\det(A) = a_{11}(a_{22}a_{33}-a_{23}a_{32})-a_{12}(a_{21}a_{33}-a_{23}a_{31})+a_{13}(a_{21}a_{32}-a_{22}a_{31})\]</p>
+<pre >[1]  2  0 -2  0  4  0 -4</pre>
 
-<p>Lo obtenido anteriormente es exactamente lo que se obtiene con la Regla de Sarrus</p>
+<pre class = 'prettyprint lang-r'>-2*x</pre>
 
-</article></slide><slide class=""><hgroup><h2>Regla de Sarrus</h2></hgroup><article  id="regla-de-sarrus">
+<pre >[1] -2  0  2  0 -4  0  4</pre>
 
-<p><l class = "definition">Regla de Sarrus.</l> Es una regla pnemotécnica utilizada para calcular determiantes de matrices cuadradas de orden 3:</p>
+<pre class = 'prettyprint lang-r'>5*x</pre>
 
-<div class="center">
-<img src='data:image/png;base64,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' title='fig:'/><p class='caption'><l class = "phototext">Regla de Sarrus</l></p></div>
+<pre >[1]   5   0  -5   0  10   0 -10</pre>
 
-<p>Básicamente lo que dice la imágen es:</p>
+</article></slide><slide class=""><hgroup><h2>Producto escalar en <code>R</code></h2></hgroup><article  id="producto-escalar-en-r">
 
-<p>\[\det(A) = a_{11}a_{22}a_{33}+a_{21}a_{32}a_{13}+a_{31}a_{12}a_{23}\] \[-a_{13}a_{22}a_{31}-a_{23}a_{32}a_{11}-a_{33}a_{12}a_{21}\]</p>
+<p>El producto escalar no está definido en <code>R</code>, pero es sencillo crear una función que nos lo calcule:</p>
 
-</article></slide><slide class=""><hgroup><h2>Determinante de una matriz cuadrada</h2></hgroup><article  id="determinante-de-una-matriz-cuadrada-3">
+<pre class = 'prettyprint lang-r'>productoEscalar = function(x,y){
+  if (length(x) == length(y)){
+    sum(x*y)
+  }else{
+    print(&quot;ERROR: No se puede calcular el producto escalar de estos dos vectores porque 
+          no son de la misma dimensión&quot;)
+  }
+}</pre>
 
-<p><l class = "prop">Propiedad.</l> \(\forall n\ge1\), el determinante de la transpuesta de una matriz \(A\in\mathcal{M}_n(\mathbb{K})\) coincide con el determinante de dicha matriz, \[\det(A^t) = \det(A)\]</p>
+</article></slide><slide class=""><hgroup><h2>Producto escalar en <code>R</code></h2></hgroup><article  id="producto-escalar-en-r-1">
 
-<div class="exercise">
-<p><strong>Ejercicio 1</strong></p>
+<p>Simplemente, lo que hace la función anterior es calcular el producto escalar de dos vectores, siempre y cuando estos tengan la misma dimensión.</p>
 
-<ul>
-<li>En primer lugar, probad que es cierto para los casos particulares \(n = 2\) y \(n = 3\)</li>
-<li>Demostrad formalmente este resultado para el caso general</li>
-</ul></div>
+<p>Si no, salta un mensaje explicando el error cometido.</p>
 
-<p>Debido a esto, tenemos las siguientes propiedades</p>
+<pre class = 'prettyprint lang-r'>x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+productoEscalar(x,y)</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes">
+<pre >[1] 0</pre>
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-1">
+</article></slide><slide class=""><hgroup><h2>Norma Euclídea con <code>R</code></h2></hgroup><article  id="norma-euclidea-con-r">
 
-<p>Denotemos por \(\det(u_1,\dots,u_i,\dots,u_n)\) el determinante de \(A\in\mathcal{M}_n(\mathbb{K})\), la cual tiene por filas (o columnas) las matrices fila (o columna) \(u_i,\ i = 1,2,\dots,n\)</p>
+<p>Para calcular la norma euclídea de un vector, utilizamos la función <code>Norm()</code></p>
 
-<p><l class = "prop">Propiedad.</l> \(\det(u_1,\dots,\lambda u_i,\dots,u_n) = \lambda\det(u_1,\dots,u_i,\dots,u_n)\)</p>
+<pre class = 'prettyprint lang-r'>x = c(1,2,0,3,-1,1)
+Norm(x)</pre>
 
-<div class="example">
-<p><strong>Ejemplo 3</strong></p>
+<pre >[1] 4</pre>
 
-<p>\[\begin{vmatrix}1&amp;2&amp;1\\4&amp;4&amp;2\\10&amp;4&amp;1\end{vmatrix} = 2\begin{vmatrix}1&amp;\mathbf{1}&amp;1\\4&amp;\mathbf{2}&amp;2\\10&amp;\mathbf{2}&amp;1\end{vmatrix} = 4\begin{vmatrix}1&amp;1&amp;1\\\mathbf{2}&amp;\mathbf{1}&amp;\mathbf{1}\\10&amp;2&amp;1\end{vmatrix}\]</p></div>
+</article></slide><slide class=""><hgroup><h2>Calcular Distancia Eucídea entre dos vectores con <code>R</code></h2></hgroup><article  id="calcular-distancia-eucidea-entre-dos-vectores-con-r">
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-2">
+<p>Para calcular la distancia entre dos vectores, definida como \(\text{d}(x,y) = ||x-y||\) utilizamos la función <code>distancia()</code>, la cual definimos del siguiente modo:</p>
 
-<p><l class = "prop">Propiedad.</l> \(\det(u_1,\dots,u_i+u_i&#39;,\dots,u_n) = \det(u_1,\dots,u_i,\dots,u_n)+\det(u_1,\dots,u_i&#39;,\dots,u_n)\)</p>
+<pre class = 'prettyprint lang-r'>distancia = function(x,y){
+  if (length(x) == length(y)){
+    Norm(x-y)
+  }else{
+    print(&quot;ERROR: No se puede calcular la distancia entre estos dos vectores porque 
+          no son de la misma dimensión&quot;)
+  }
+}</pre>
 
-<div class="example">
-<p><strong>Ejemplo 4</strong> \[\begin{vmatrix}1&amp;0+3&amp;-1\\2&amp;2+2&amp;3\\0&amp;3+1&amp;5\end{vmatrix} = 
-\begin{vmatrix}1&amp;0&amp;-1\\2&amp;2&amp;3\\0&amp;3&amp;5\end{vmatrix}+\begin{vmatrix}1&amp;3&amp;-1\\2&amp;2&amp;3\\0&amp;1&amp;5\end{vmatrix}\]</p></div>
+</article></slide><slide class=""><hgroup><h2>Calcular Distancia Eucídea entre dos vectores con <code>R</code></h2></hgroup><article  id="calcular-distancia-eucidea-entre-dos-vectores-con-r-1">
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-3">
+<pre class = 'prettyprint lang-r'>x = c(0,3,-1,3,5)
+y = c(1,2,3,-1,0)
+distancia(x,y)</pre>
 
-<p><l class = "prop">Propiedad.</l> Si se intercambian dos filas o columnas, el determinante cambia de signo: \(\det(u_1,\dots,u_i,\dots,u_j,\dots,u_n) = -\det(u_1,\dots,u_j,\dots,u_i,\dots,u_n)\)</p>
+<pre >[1] 7.681146</pre>
 
-<div class="example">
-<p><strong>Ejemplo 5</strong></p>
+<p>Simplemente, lo que hace la función anterior es calcular la distancia Euclídea entre dos vectores, siempre y cuando estos tengan la misma dimensión.</p>
 
-<p>\[\begin{vmatrix}1 &amp; 0 &amp; -2\\2&amp;3&amp;0\\-1&amp;1&amp;0\end{vmatrix} = 
-- \begin{vmatrix}-1 &amp; 1 &amp; 0\\2&amp;3&amp;0\\1&amp;0&amp;-2\end{vmatrix} = 
-\begin{vmatrix}1 &amp; -1 &amp; 0\\3&amp;2&amp;0\\0&amp;1&amp;-2\end{vmatrix}\]</p></div>
+<p>Si no, salta un mensaje explicando el error cometido.</p>
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-4">
+</article></slide><slide class=""><hgroup><h2>Ángulo entre dos vectores en <code>R</code></h2></hgroup><article  id="angulo-entre-dos-vectores-en-r">
 
-<p><l class = "prop">Propiedad.</l> Si una matriz tiene dos filas o columnas iguales, su determinante es 0: \(\det(u_1,\dots,u_i,\dots,u_i\dots,u_n)=0\)</p>
+<p>Si queremos calcular el ángulo entre dos vectores, debemos definir nosotros mismos la función</p>
 
-<div class="exercise">
-<p><strong>Ejercicio 2</strong></p>
+<pre class = 'prettyprint lang-r'>angleRad = function(x,y){
+  if (length(x) == length(y)){
+    acos(productoEscalar(x,y)/(Norm(x)*Norm(y)))
+  }else{
+    print(&quot;ERROR: No se puede calcular el ángulo entre estos dos vectores porque 
+          no son de la misma dimensión&quot;)
+  }
+}
+angleRad(x,y)</pre>
 
-<p>Buscad vosotros mismos dos ejemplos cualesquiera, uno de orden 2 y otro de orden 3 y comprobad que, efectivamente, se cumple la propiedad enunciada</p></div>
+<pre >[1] 1.570796</pre>
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-5">
+</article></slide><slide class=""><hgroup><h2>Ángulo entre dos vectores en <code>R</code></h2></hgroup><article  id="angulo-entre-dos-vectores-en-r-1">
 
-<p><l class = "prop">Propiedad.</l> Si una matriz tiene dos filas o columnas proporcionales, su determinante es 0: \(\det(u_1,\dots,u_i,\dots,\lambda u_i\dots,u_n)=0\)</p>
+<p>Nuestra función nos devuelve el resultado en Radianes. En caso de querer el resultado en grados, lo que podemos hacer es una pequeña conversión:</p>
 
-<div class="exercise">
-<p><strong>Ejercicio 3</strong></p>
+<pre class = 'prettyprint lang-r'>angleGrad = function(x,y){
+  if (length(x) == length(y)){
+    acos(productoEscalar(x,y)/(Norm(x)*Norm(y)))*360/(2*pi)
+  }else{
+    print(&quot;ERROR: No se puede calcular el ángulo entre estos dos vectores porque 
+          no son de la misma dimensión&quot;)
+  }
+}
+angleGrad(x,y)</pre>
 
-<p>Buscad vosotros mismos dos ejemplos cualesquiera, uno de orden 2 y otro de orden 3 y comprobad que, efectivamente, se cumple la propiedad enunciada</p></div>
+<pre >[1] 90</pre>
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-6">
+</article></slide><slide class=""><hgroup><h2>Calcular la proyección ortogonal de \(\vec{v}\) sobre \(\vec{u}\) con <code>R</code></h2></hgroup><article  id="calcular-la-proyeccion-ortogonal-de-vecv-sobre-vecu-con-r">
 
-<p><l class = "prop">Propiedad.</l> Si una fila o columna es combinación lineal de las otras, el determinante es nulo:</p>
+<pre class = 'prettyprint lang-r'>proyeccionOrt = function(u,v){
+  if (length(u) == length(v)){
+    productoEscalar(u,v)/Norm(u)^2*u
+  }else{
+    print(&quot;ERROR: No se puede calcular la proyección ortogonal de v sobre 
+          u porque no son de la misma dimensión&quot;)
+  }
+}
+u = c(3,1)
+v = c(1,2)
+proyeccionOrt(u,v)</pre>
 
-<p>Si \(u_i =\sum_{k\ne i}a_ku_k\), entonces \(\det(u_1,\dots,u_i,\dots,u_n)=0\)</p>
+<pre >[1] 1.5 0.5</pre>
 
-<div class="example">
-<p><strong>Ejemplo 6</strong></p>
+</article></slide><slide class=""><hgroup><h2>Producto vectorial con <code>R</code></h2></hgroup><article  id="producto-vectorial-con-r">
 
-<p>\[\begin{vmatrix}1 &amp; 2 &amp; 3\\4 &amp; 0 &amp; 2\\ 5&amp;2&amp;5\end{vmatrix}=0\]</p>
+<pre class = 'prettyprint lang-r'>productoVectorial= function(x,y){
+  if (length(x) == length(y) &amp; length(x) == 3){
+    c(x[2]*y[3] - x[3]*y[2], x[1]*y[3]-x[3]*y[1], x[1]*y[2]-x[2]*y[1])
+  }else{
+    print(&quot;No se cumplen las condiciones necesarias para calcular el 
+          producto vectorial de estos dos vectores&quot;)
+  }
+}</pre>
 
-<p>La última fila es el resultado de sumar las dos primeras.</p></div>
+</article></slide><slide class=""><hgroup><h2>Producto vectorial con <code>R</code></h2></hgroup><article  id="producto-vectorial-con-r-1">
 
-</article></slide><slide class=""><hgroup><h2>Propiedades de los determinantes</h2></hgroup><article  id="propiedades-de-los-determinantes-7">
+<pre class = 'prettyprint lang-r'>x = c(1,2,3)
+y = c(0,-1,1)
+productoVectorial(x,y)</pre>
 
-<p><l class = "prop">Propiedad.</l> El determinante no cambia si a una fila o columna se le suma una combinación lineal de las otras. \(\det(u_1,\dots,u_i,\dots,u_n) = \det(u_1,\dots,u_i+\sum_{k\ne i}a_ku_k,\dots,u_n)\)</p>
+<pre >[1]  5  1 -1</pre>
 
-<div class="example">
-<p><strong>Ejemplo 7</strong></p>
+</article></slide><slide class=""><hgroup><h2>Producto mixto con <code>R</code></h2></hgroup><article  id="producto-mixto-con-r">
 
-<p>\[\begin{vmatrix}1 &amp; 2 &amp; 3\\4 &amp; 0 &amp; 2\\ 5&amp;-1&amp;0\end{vmatrix} = \begin{vmatrix}1 &amp; 2 &amp; 6\\4 &amp; 0 &amp; 6\\ 5&amp;-1&amp;4\end{vmatrix}\]</p>
+<pre class = 'prettyprint lang-r'>productoMixto = function(x,y,z){
+  if (length(x) == length(y) &amp; length(x) == length(z) &amp; length(x) == 3){
+    det(rbind(x,y,z))
+  }else{
+    print(&quot;No se cumplen las condiciones necesarias para calcular el 
+          producto mixto de estos dos vectores&quot;)
+  }
+}</pre>
 
-<p>A la tercera columna le hemos sumado la primera y la segunda columnas.</p></div>
+</article></slide><slide class=""><hgroup><h2>Producto mixto con <code>R</code></h2></hgroup><article  id="producto-mixto-con-r-1">
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Adjuntos y menores complementarios</h2></hgroup><article  id="adjuntos-y-menores-complementarios">
+<pre class = 'prettyprint lang-r'>x = c(1,2,3)
+y = c(0,-1,1)
+z = c(2,0,-3)
+productoMixto(x,y,z)</pre>
 
-</article></slide><slide class=""><hgroup><h2>Adjuntos y menores complementarios</h2></hgroup><article  id="adjuntos-y-menores-complementarios-1">
+<pre >[1] 13</pre>
 
-<p>Dada \(A = (a_{ij})_{n\times n},\ n\ge2\). Sea \(a_{ij}\) el elemento que ocupa la fila \(i\) y la columna \(j\) de la matriz \(A\). Si suprimimos la fila \(i\) y la columna \(j\) de \(A\) obtendremos una matriz cuadrada de orden \(n-1\)</p>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Vectores con <code>Python</code></h2></hgroup><article  id="vectores-con-python">
 
-<p><l class = "definition">Menor complementario.</l> El menor complementario de \(a_{ij}\) es el determinante de la matriz de orden \(n-1\) que designábamos como \(\alpha_{ij}\)</p>
+</article></slide><slide class=""><hgroup><h2>Vectores con <code>Python</code></h2></hgroup><article  id="vectores-con-python-1">
 
-<p><l class = "definition">Adjunto. </l>El elemento \(A_{ij} = (-1)^{i+j}\alpha_{ij}\) es el adjunto de \(a_{ij}\)</p>
+<p>Para crear un vector en <code>Python</code>, utilizamos <code>numpy.array()</code></p>
 
-<p><l class = "definition">Matriz adjunta de \(A\).</l> Matriz que tiene como coeficientes los adjuntos \(A_{ij}\) de los elementos \(a_{ij}\) de \(A\). Se denota por \(\text{Adj}(A)\)</p>
+<pre class = 'prettyprint lang-python'>import numpy as np
+x = np.array([1,2,3,4,5,6,7,8,9,0])
+x</pre>
 
-</article></slide><slide class=""><hgroup><h2>Adjuntos y menores complementarios</h2></hgroup><article  id="adjuntos-y-menores-complementarios-2" class="example">
+<pre >array([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])</pre>
 
-<p><strong>Ejemplo 8</strong></p>
+</article></slide><slide class=""><hgroup><h2>Vectores con <code>Python</code></h2></hgroup><article  id="vectores-con-python-2">
 
-<p>La matriz adjunta de \[A = \begin{pmatrix}1 &amp; 0 &amp; 5\\-1&amp;3&amp;2\\ 0 &amp; -1 &amp; 1\end{pmatrix}\] es</p>
+<p>Para calcular la longitud (la dimensión), utilizamos la función <code>len()</code></p>
 
-<p>\[\text{Adj}(A) = 
-\begin{pmatrix}
-\begin{vmatrix} 3 &amp; 2\\ -1 &amp; 1\end{vmatrix} &amp; 
--\begin{vmatrix}-1 &amp; 2\\ 0 &amp; 1\end{vmatrix} &amp; 
-\begin{vmatrix}-1 &amp; 3\\0 &amp; -1\end{vmatrix}\\
--\begin{vmatrix}0 &amp; 5\\ -1 &amp; 1\end{vmatrix} &amp; 
-\begin{vmatrix}1 &amp; 5\\ 0 &amp; 1\end{vmatrix} &amp; 
--\begin{vmatrix}1 &amp; 0\\ 0 &amp; -1\end{vmatrix}\\
-\begin{vmatrix}0 &amp; 5\\ 3 &amp; 2\end{vmatrix} &amp; 
--\begin{vmatrix}1 &amp; 5\\-1 &amp; 2\end{vmatrix} &amp; 
-\begin{vmatrix}1 &amp; 0 \\ -1 &amp; 3\end{vmatrix}\\
-\end{pmatrix} = \begin{pmatrix}5 &amp; 1 &amp; 1\\ 5 &amp; 1 &amp; 1\\-15 &amp; 3 &amp; 3\end{pmatrix}\]</p>
+<pre class = 'prettyprint lang-python'>len(x)</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Cálculo de determinantes</h2></hgroup><article  id="calculo-de-determinantes">
+<pre >10</pre>
 
-</article></slide><slide class=""><hgroup><h2>Cálculo de determinantes</h2></hgroup><article  id="calculo-de-determinantes-1">
+</article></slide><slide class=""><hgroup><h2>Operaciones con vectores en <code>Python</code></h2></hgroup><article  id="operaciones-con-vectores-en-python">
 
-<p>El determinante de una matriz cuadrada \(A\in\mathcal{M}_n(\mathbb{K})\), \(n\ge2\) se puede calcular desarrollando por los adjuntos de los elementos de cualquiera de sus filas o columnas:</p>
+<p>Sumar y restar dos o más vectores es muy simple, siempre y cuando sean de la misma dimensión:</p>
 
-<p><l class = "prop"> Proposición.</l> Sea \(A = (a_{ij})\) una matriz cuadrada de orden \(n\). Entonces se verifica</p>
+<pre class = 'prettyprint lang-python'>x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+x+y</pre>
 
-<p>\[\det(A) = a_{i1}A_{i1}+a_{i2}A_{i2}+\cdots+a_{in}A_{in}\]</p>
+<pre >array([1, 5, 2, 2, 5])</pre>
 
-<p>que es el desarrollo de un determinante por los adjuntos de los elementos de una fila; y también</p>
+<pre class = 'prettyprint lang-python'>x-y</pre>
 
-<p>\[\det(A) = a_{1j}A_{1j}+a_{2j}A_{2j}+\cdots+a_{nj}A_{nj}\]</p>
+<pre >array([-1,  1, -4,  4,  5])</pre>
 
-<p>que es el desarrollo de un determinante por los adjuntos de los elementos de una columna</p>
+</article></slide><slide class=""><hgroup><h2>Operaciones con vectores en <code>Python</code></h2></hgroup><article  id="operaciones-con-vectores-en-python-1">
 
-</article></slide><slide class=""><hgroup><h2>Cálculo de determinantes</h2></hgroup><article  id="calculo-de-determinantes-2" class="example">
+<p>El producto por un escalar también funciona de forma sencilla:</p>
 
-<p><strong>Ejemplo 9</strong></p>
+<pre class = 'prettyprint lang-python'>x = np.array([1,0,-1,0,2,0,-2])
+2*x</pre>
 
-<p>El determinante</p>
+<pre >array([ 2,  0, -2,  0,  4,  0, -4])</pre>
 
-<p>\[\det(A) = \begin{vmatrix}1 &amp; -1 &amp; 3\\4 &amp; 0 &amp; 2\\ 5&amp;-1&amp;0\end{vmatrix}\]</p>
+<pre class = 'prettyprint lang-python'>-2*x</pre>
 
-<p>desarrollado por los elementos de la primera fila es</p>
+<pre >array([-2,  0,  2,  0, -4,  0,  4])</pre>
 
-<p>\[|A| = 1\begin{vmatrix}0 &amp; 2\\-1&amp;0\end{vmatrix}-(-1)\begin{vmatrix}4&amp;2\\5&amp;0\end{vmatrix}+3\begin{vmatrix}4 &amp; 0\\5 &amp; -1\end{vmatrix} = 1\cdot 2+1\cdot(-10)+3\cdot(-4) = -20\]</p>
+<pre class = 'prettyprint lang-python'>5*x</pre>
 
-<p>y desarrollado por los elementos de la segunda columna es</p>
+<pre >array([  5,   0,  -5,   0,  10,   0, -10])</pre>
 
-<p>\[|A| = -(-1)\begin{vmatrix}4&amp;2\\5&amp;0\end{vmatrix}+0\begin{vmatrix}1&amp;3\\5&amp;0\end{vmatrix}-(-1)\begin{vmatrix}1&amp;3\\4&amp;2\end{vmatrix} = 1\cdot (-10)+0+1\cdot(-10) = -20\]</p>
+</article></slide><slide class=""><hgroup><h2>Producto escalar en <code>Python</code></h2></hgroup><article  id="producto-escalar-en-python">
 
-</article></slide><slide class=""><hgroup><h2>Cálculo de determinantes</h2></hgroup><article  id="calculo-de-determinantes-3">
+<pre class = 'prettyprint lang-python'>def productoEscalar(x,y):
+  if len(x) == len(y):
+    suma = 0
+    for i in range(0,len(x)):
+      suma = suma + x[i]*y[i]
+    return suma
+  else:
+   return &quot;ERROR: las longitudes de los vectores no coinciden&quot;
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+productoEscalar(x,y)</pre>
 
-<p>Aplicando este último desarrollo a las matrices triangulares, tenemos que el determinante de una de estas matrices es igual al producto de los elementos de la diagonal principal</p>
+<pre >0</pre>
 
-<div class="example">
-<p><strong>Ejemplo 10</strong></p>
+</article></slide><slide class=""><hgroup><h2>Producto escalar en <code>Python</code></h2></hgroup><article  id="producto-escalar-en-python-1">
 
-<p>\[\det(A) = \begin{vmatrix}1 &amp; 2 &amp; 3 &amp; 4\\
-0 &amp; 5 &amp; 6 &amp; 7\\
-0 &amp; 0 &amp; 8 &amp; 9\\
-0 &amp; 0 &amp; 0 &amp; 10\end{vmatrix} = 1\begin{vmatrix}5 &amp; 6 &amp; 7\\
-0 &amp; 8 &amp; 9\\
-0 &amp; 0 &amp; 10\end{vmatrix} = 5\begin{vmatrix}
-8 &amp; 9\\
-0 &amp; 10\end{vmatrix} = 40|10| = 400 \]</p>
+<p>Simplemente, lo que hace la función anterior es calcular el producto escalar de dos vectores, siempre y cuando estos tengan la misma dimensión.</p>
 
-<p>Lo que hemos hecho ha sido hacer un desarrollo por los adjuntos de la primera columna en cada paso</p></div>
+<p>Si no, salta un mensaje explicando el error cometido.</p>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 11</h2></hgroup><article  id="ejemplo-11" class="example">
+</article></slide><slide class=""><hgroup><h2>Norma Euclídea con <code>Python</code></h2></hgroup><article  id="norma-euclidea-con-python">
 
-<p><strong>Ejemplo 11</strong></p>
+<p>Para calcular la norma de un vector, lo que hacemos es utilizar la función <code>numpy.linalg.norm()</code>:</p>
 
-<p>A continuación os presentamos el determinante de Vandermonde de orden 4</p>
+<pre class = 'prettyprint lang-python'>x = np.array([1,2,0,3,-1,1])
+np.linalg.norm(x)</pre>
 
-<p>\[\begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-a &amp; b &amp; c &amp; d\\
-a^2 &amp; b^2 &amp; c^2 &amp; d^2\\
-a^3 &amp; b^3 &amp; c^3 &amp; d^3\end{vmatrix}\]</p>
+<pre >4.0</pre>
 
-<p>Con todo lo que hemos visto hasta ahora, podemos resolverlo de forma sencilla:</p>
+</article></slide><slide class=""><hgroup><h2>Calcular Distancia Eucídea entre dos vectores con <code>Python</code></h2></hgroup><article  id="calcular-distancia-eucidea-entre-dos-vectores-con-python">
 
-<p>En primer lugar, realizamos \(f_4-af_3\)</p>
+<p>Para calcular la distancia entre dos vectores, definida como \(d(x,y)=||x−y||\) utilizamos la función <code>distancia()</code>, la cual definimos del siguiente modo:</p>
 
-<p>\[\begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-a &amp; b &amp; c &amp; d\\
-a^2 &amp; b^2 &amp; c^2 &amp; d^2\\
-a^3 &amp; b^3 &amp; c^3 &amp; d^3\end{vmatrix} = \begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-a &amp; b &amp; c &amp; d\\
-a^2 &amp; b^2 &amp; c^2 &amp; d^2\\
-0 &amp; b^3-ab^2 &amp; c^3-ac^2 &amp; d^3-ad^2\end{vmatrix}\]</p>
+<pre class = 'prettyprint lang-python'>def distancia(x,y):
+  import numpy as np
+  if len(x) == len(y):
+    dist =  np.linalg.norm(x-y)
+    return dist
+  else:
+   return &quot;ERROR: las longitudes de los vectores no coinciden&quot;</pre>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 11</h2></hgroup><article  id="ejemplo-11-1" class="example">
+</article></slide><slide class=""><hgroup><h2>Calcular Distancia Eucídea entre dos vectores con <code>Python</code></h2></hgroup><article  id="calcular-distancia-eucidea-entre-dos-vectores-con-python-1">
 
-<p>A continuación, \(f_3-af_2\)</p>
+<pre class = 'prettyprint lang-python'>x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+distancia(x,y)</pre>
 
-<p>\[=\begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-a &amp; b &amp; c &amp; d\\
-0 &amp; b^2-ab &amp; c^2-ac &amp; d^2-ad\\
-0 &amp; b^3-ab^2 &amp; c^3-ac^2 &amp; d^3-ad^2\end{vmatrix}\]</p>
+<pre >7.681145747868608</pre>
 
-<p>Ahora realizamos \(f_2-af_1\) y obtenemos</p>
+</article></slide><slide class=""><hgroup><h2>Ángulo entre dos vectores en <code>Python</code></h2></hgroup><article  id="angulo-entre-dos-vectores-en-python">
 
-<p>\[=\begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-0 &amp; b-a &amp; c-a &amp; d-a\\
-0 &amp; b^2-ab &amp; c^2-ac &amp; d^2-ad\\
-0 &amp; b^3-ab^2 &amp; c^3-ac^2 &amp; d^3-ad^2\end{vmatrix}
-=\begin{vmatrix}1 &amp; 1 &amp; 1 &amp; 1\\
-0 &amp; b-a &amp; c-a &amp; d-a\\
-0 &amp; b(b-a) &amp; c(c-a) &amp; d(d-a)\\
-0 &amp; b^2(b-a) &amp; c^2(c-a) &amp; d^2(d-a)\end{vmatrix}\]</p>
+<pre class = 'prettyprint lang-python'>def angleRad(x,y):
+  import numpy as np
+  import math
+  if len(x) == len(y):
+    angle = math.acos(productoEscalar(x,y)/(np.linalg.norm(x)*np.linalg.norm(y)))
+    return angle
+  else:
+    return &quot;ERROR: Las dimensiones no coinciden&quot; 
+          
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+angleRad(x,y)</pre>
 
-<p>El siguiente paso es desarrollar por la primera columna</p>
+<pre >1.5707963267948966</pre>
 
-<p>\[ = 1\begin{vmatrix}b-a &amp; c-a &amp; d-a\\
-b(b-a) &amp; c(c-a) &amp; d(d-a)\\
-b^2(b-a) &amp; c^2(c-a) &amp; d^2(d-a)\end{vmatrix} = (b-a)(c-a)(d-a)\begin{vmatrix}1 &amp; 1&amp; 1\\b &amp; c &amp; d\\ b^2&amp;c^2&amp;d^2\end{vmatrix}\]</p>
+</article></slide><slide class=""><hgroup><h2>Ángulo entre dos vectores en <code>Python</code></h2></hgroup><article  id="angulo-entre-dos-vectores-en-python-1">
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 11</h2></hgroup><article  id="ejemplo-11-2" class="example">
+<p>Si lo que queremos es el resultado en grados,</p>
 
-<p>Hemos obtenido un determinante de Vandermonde de orden 3. Lo que implica seguir el mismo razonamiento anterior:</p>
+<pre class = 'prettyprint lang-python'>def angleGrad(x,y):
+  import numpy as np
+  import math
+  if len(x) == len(y):
+    angle = math.acos(productoEscalar(x,y)/(np.linalg.norm(x)*np.linalg.norm(y)))
+    return angle/(2*math.pi)*360
+  else:
+    return &quot;ERROR: Las dimensiones no coinciden&quot; 
+          
+x = np.array([0, 3, -1, 3, 5])
+y = np.array([1, 2, 3, -1, 0])
+angleGrad(x,y)</pre>
 
-<p>Empezamos realizando \(f_3-bf_2\)</p>
+<pre >90.0</pre>
 
-<p>\[(b-a)(c-a)(d-a)\begin{vmatrix}1 &amp; 1&amp; 1\\b &amp; c &amp; d\\ b^2&amp;c^2&amp;d^2\end{vmatrix} = (b-a)(c-a)(d-a)\begin{vmatrix}1 &amp; 1&amp; 1\\b &amp; c &amp; d\\ 0&amp;c^2-bc&amp;d^2-bd\end{vmatrix}\]</p>
+</article></slide><slide class=""><hgroup><h2>Calcular la proyección ortogonal de \(\vec{v}\) sobre \(\vec{u}\) con <code>Python</code></h2></hgroup><article  id="calcular-la-proyeccion-ortogonal-de-vecv-sobre-vecu-con-python">
 
-<p>A continuación, \(f_2-bf_1\)</p>
+<pre class = 'prettyprint lang-python'>def proyeccionOrt(u,v):
+  import numpy as np
+  if len(u) == len(v):
+    proy = (productoEscalar(u,v)/pow(np.linalg.norm(u),2))*u
+    return proy
+  else:
+    return &quot;ERROR: Las dimensiones no coinciden&quot;
+    
+u = np.array([3,1])
+v = np.array([1,2])
+proyeccionOrt(u,v)</pre>
 
-<p>\[= (b-a)(c-a)(d-a)\begin{vmatrix}1 &amp; 1&amp; 1\\0 &amp; c-b &amp; d-d\\ 0&amp;c^2-bc&amp;d^2-bd\end{vmatrix}\]</p>
+<pre >array([1.5, 0.5])</pre>
 
-<p>Finalmente, desarrollando de nuevo por la primera columna y sacando factor común \((c-b)\) y \((d-b)\) de las dos últimas columnas obtenemos:</p>
+</article></slide><slide class=""><hgroup><h2>Producto vectorial con <code>Python</code></h2></hgroup><article  id="producto-vectorial-con-python">
 
-<p>\[\det(A) = (b-a)(c-a)(d-a)(c-b)(d-b)\begin{vmatrix}1 &amp; 1\\ c &amp; d\end{vmatrix} = (b-a)(c-a)(d-a)(c-b)(d-b)(d-c)\]</p>
+<pre class = 'prettyprint lang-python'>def productoVectorial(x,y):
+  import numpy as np
+  if len(x) == len(y) and len(x) == 3:
+    z = np.array([x[1]*y[2] - x[2]*y[1], x[0]*y[2]-x[2]*y[0], x[0]*y[1]-x[1]*y[0]])
+    return z
+  else:
+    return &quot;ERROR&quot;</pre>
 
-</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas">
+</article></slide><slide class=""><hgroup><h2>Producto vectorial con <code>Python</code></h2></hgroup><article  id="producto-vectorial-con-python-1">
 
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-1">
+<pre class = 'prettyprint lang-python'>x = np.array([1,2,3])
+y = np.array([0,-1,1])
+productoVectorial(x,y)</pre>
 
-<p>Los determinantes sirven para facilitar el cálculo con matrices y en la resolución de sistemas</p>
+<pre >array([ 5,  1, -1])</pre>
 
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-2">
+</article></slide><slide class=""><hgroup><h2>Producto mixto con <code>Python</code></h2></hgroup><article  id="producto-mixto-con-python">
 
-<p><l class = "prop">Teorema.</l> Sean \(A\) y \(B\) matrices cuadradas de orden \(n\), \(A,B\in\mathcal{M}_n(\mathbb{K})\). Entonces:</p>
+<pre class = 'prettyprint lang-python'>def productoMixto(x,y,z):
+  import numpy as np
+  if len(x) == len(y) and len(x) == len(z) and len(z) == 3:
+    return np.linalg.det(np.array([x,y,z]))
+  else:
+    return &quot;ERROR&quot;</pre>
 
-<ul>
-<li>\(A\) es invertible si, y solo si, \(\det(A)\ne 0\)</li>
-<li>\(\det(AB) = \det(A)\det(B)\)</li>
-<li>si \(\det(A)\ne 0\), entonces \(\det(A^{-1}) = \frac{1}{\det(A)}\)</li>
-<li>si \(\det(A)\ne 0\), entonces \(A^{-1} = \frac{(\text{Adj}(A))^t}{\det(A)}\)</li>
-</ul>
+</article></slide><slide class=""><hgroup><h2>Producto mixto con <code>Python</code></h2></hgroup><article  id="producto-mixto-con-python-1">
 
-<p><l class = "observ">Observación.</l> La última propiedad nos da una nueva forma de calcular la matriz inversa de \(A\).</p>
+<pre class = 'prettyprint lang-python'>x = np.array([1,2,3])
+y = np.array([0,-1,1])
+z = np.array([2,0,-3])
+productoMixto(x,y,z)</pre>
 
-</article></slide><slide class=""><hgroup><h2>Ejemplo 12</h2></hgroup><article  id="ejemplo-12" class="example">
+<pre >13.0</pre>
 
-<p><strong>Ejemplo 12</strong></p>
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Vectores con <code>Octave</code></h2></hgroup><article  id="vectores-con-octave">
 
-<p>Calculemos la inversa de la matriz \[A = \begin{pmatrix}1 &amp; 0 &amp; -1\\ 0 &amp; -3 &amp; 5\\ 2 &amp; -2 &amp; 0\end{pmatrix}\]</p>
+</article></slide><slide class=""><hgroup><h2>Vectores con <code>Octave</code></h2></hgroup><article  id="vectores-con-octave-1">
 
-<p>En primer lugar, calculemos el determinante de \(A\) y veamos si es nulo o no. Por la Regla de Sarrus,</p>
-
-<p>\[\det(A) = 0 + 0 + 0 -(6-10+0) = 4\ne 0\]</p>
-
-<p>Con lo cual, sabemos que \(A\) es invertible. Procedamos a calcular su inversa. En primer lugar, calculemos la matriz adjunta:</p>
-
-<p>\[A_{11} = \begin{vmatrix}-3 &amp; 5\\-2 &amp; 0\end{vmatrix} = 10\qquad A_{12} = -\begin{vmatrix}0 &amp; 5\\2 &amp; 0\end{vmatrix} = 10\qquad A_{13} = \begin{vmatrix}0 &amp; -3\\2 &amp; -2\end{vmatrix}=6\] \[A_{21} = -\begin{vmatrix}0 &amp; -1\\-2 &amp; 0\end{vmatrix} = 2\qquad A_{22} = \begin{vmatrix}1 &amp; -1\\ 2 &amp; 0\end{vmatrix} = 2\qquad A_{23} = -\begin{vmatrix}1 &amp; 0\\ 2 &amp; -2\end{vmatrix} = 2\] \[A_{31} = \begin{vmatrix}0 &amp; -1\\-3 &amp; 5\end{vmatrix} = -3\qquad A_{32} = -\begin{vmatrix}1 &amp; -1\\0 &amp; 5\end{vmatrix} = -5\qquad A_{33} = \begin{vmatrix}1 &amp; 0\\0 &amp; -3\end{vmatrix} = -3\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 12</h2></hgroup><article  id="ejemplo-12-1" class="example">
-
-<p>Por tanto, \[\text{Adj}(A) = \begin{pmatrix}10 &amp; 10 &amp; 6\\
-2 &amp; 2 &amp; 2\\
--3 &amp; -5 &amp; -3\end{pmatrix}\]</p>
-
-<p>Ahora, su transpuesta es</p>
-
-<p>\[(\text{Adj}(A))^t = \begin{pmatrix}10 &amp; 2 &amp; -3\\
-10 &amp; 2 &amp; -5\\
-6 &amp; 2 &amp; -3\end{pmatrix}\]</p>
-
-<p>Finalmente, \[A^{-1} = \frac{1}{\det(A)}(\text{Adj}(A))^t = \frac{1}{4}\begin{pmatrix}10 &amp; 2 &amp; -3\\
-10 &amp; 2 &amp; -5\\
-6 &amp; 2 &amp; -3\end{pmatrix} = \begin{pmatrix}\frac{5}{2} &amp; \frac{1}{2} &amp; -\frac{3}{4}\\
-\frac{5}{2} &amp; \frac{1}{2} &amp; -\frac{5}{4}\\
-\frac{3}{2} &amp; \frac{1}{2} &amp; -\frac{3}{4}]\end{pmatrix}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-3">
-
-<p>Otra aplicación de los determinantes se encuntra en el cálculo del rango de una matriz:</p>
-
-<p>Dada \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\) y sea \(k&lt;m,n\)</p>
-
-<p><l class = "definition">Menor de orden \(k\) de \(A\).</l> Determinante de cualquier matriz cuadrada de orden \(k\) obtenida suprimiendo \(m-k\) filas y \(n-k\) columnas de \(A\)</p>
-
-<p><l class = "definition">Orlar un menor de orden \(k\).</l> Consiste en completarlo hasta un menor de orden \(k+1\) de \(A\) con otra fila y otra columna de la matriz \(A\) dada.</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-4">
-
-<p>Se pueden utilizar dichos menores para calcular el rango de una matriz \(A\) cualquiera:</p>
-
-<p><l class = "prop">Teorema.</l> Sea \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\) y \(k&lt;m,n\). Entonces, si se puede encontrar un menor de orden \(k\) no nulo y todos los de orden \(k+1\) son 0, entonces \(rg(A)= k\)</p>
-
-<p>En otras palabras, el rango de la matriz \(A\) coincide con el orden del mayor menor no nulo obtenido a partir de \(A\).</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-5">
-
-<p>Otra forma de enunciar el <code>Teorema</code> anterior es la siguiente:</p>
-
-<p><l class = "prop">Teorema.</l> Sea \(A\in\mathcal{M}_{m\times n}(\mathbb{K})\) y \(k&lt;m,n\). Entonces, si se puede encontrar un menor de orden \(k\) no nulo y todas las posibles maneras de orlar dicho menor dan menores de orden \(k+1\) nulos, entonces \(rg(A)= k\)</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-6" class="example">
-
-<p><strong>Ejemplo 13</strong></p>
-
-<p>Calculemos el rango de la matriz \[A = \begin{pmatrix}4 &amp; 3 &amp; 2 &amp; -1 &amp; -2\\ 7 &amp; 5  &amp; 4 &amp; -2 &amp; 1\\ 2 &amp; 1 &amp; 2 &amp; -1 &amp; 8\end{pmatrix}\]</p>
-
-<p>El mayor menor de la matriz \(A\) es de orden 3. De hecho, esta matriz tiene \({5\choose 3} = 10\) menores de orden \(3\) diferentes. Veamos si alguno de ellos es no nulo:</p>
-
-<p>\[(c_1,c_2,c_3) = \begin{vmatrix}4 &amp; 3 &amp; 2\\ 7 &amp; 5 &amp; 4\\ 2 &amp; 1 &amp; 2\end{vmatrix} = 40 +14+24-(20+16+28) = 14\ne 0\]</p>
-
-<p>Como este menor de orden 3 ya no es nulo, por el Teorema anterior concluimos que la matriz tiene rango 3.</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-7" class="exercise">
-
-<p><strong>Ejercicio 4.</strong> Calcular el rango de la matriz \[A = \begin{pmatrix} 0 &amp; 1 &amp; -1\\ 4 &amp; -2 &amp; -6\\
--1 &amp; 1 &amp; 1\\
-2 &amp; -2 &amp; -2\end{pmatrix}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-8">
-
-<p>Otra aplicación muy útil de los determinantes es la de resolver sistemas de ecuaciones lineales.</p>
-
-<p>Dado el sistema \(AX = b\) en su expresión matricial, siendo éste un sistema de \(n\) ecuaciones con \(n\) incógnitas \(x_1,\dots,x_n\). Sabemos que si \(\det(A)\ne 0\) este sistema tiene solución única dada por \(X = A^{-1}b\).</p>
-
-<p>En estos casos, otra forma de encontrar esta solución única es a través de la <l class = "definition">Regla de Cramer</l></p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-9">
-
-<p><l class = "prop">Teorema. Método de Cramer.</l> Sea \(AX = b\) la expresión matricial de un sistema de \(n\) ecuaciones con \(n\) incógnitas \(x_1,\dots,x_n\) con \(\det(A)\ne 0\). Sea \(A_i,\ i=1,2,\dots,n\) la matriz que resulta de sustituir la columna \(i\) de la matriz de coeficientes \(A\) por el término independiente \(b\). Entonces, la solución del sistema viene dada por \[x_i = \frac{|A_i|}{|A|},\ \forall i = 1,2,\dots,n\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 14</h2></hgroup><article  id="ejemplo-14" class="example">
-
-<p><strong>Ejemplo 14</strong></p>
-
-<p>Consideremos el sistema \(AX = b\) dado por \[A = \begin{pmatrix}
-1 &amp; 1 &amp; 1\\ -1 &amp; 0 &amp; 1\\ -1 &amp; -1 &amp; 0\end{pmatrix}\qquad X = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\qquad b = \begin{pmatrix}1\\  0\\  -1\end{pmatrix}\]</p>
-
-<p>Podemos comprobar fácilmente que</p>
-
-<p>\[\det(A) = \begin{vmatrix}
-1 &amp; 1 &amp; 1\\ -1 &amp; 0 &amp; 1\\ -1 &amp; -1 &amp; 0\end{vmatrix} = 1\ne 0\]</p>
-
-<p>Por tanto, tenemos un sistema de Cramer con solución única dada por</p>
-
-<p>\[x_1 = \frac{\begin{vmatrix}
-1 &amp; 1 &amp; 1\\ 0 &amp; 0 &amp; 1\\ -1 &amp; -1 &amp; 0\end{vmatrix}}{|A|} = \frac{0}{1} = 0\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 14</h2></hgroup><article  id="ejemplo-14-1" class="example">
-
-<p>\[x_2 = \frac{\begin{vmatrix}
-1 &amp; 1 &amp; 1\\ -1 &amp; 0 &amp; 1\\ -1 &amp; -1 &amp; 0\end{vmatrix}}{|A|} = \frac{1}{1} = 1\]</p>
-
-<p>\[x_3 = \frac{\begin{vmatrix}
-1 &amp; 1 &amp; 1\\ -1 &amp; 0 &amp; 0\\ -1 &amp; -1 &amp; -1\end{vmatrix}}{|A|} = 0\]</p>
-
-<p>Con lo cual, nuestra solución es \[X = \begin{pmatrix}0\\1\\0\end{pmatrix}\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-10" class="exercise">
-
-<p><strong>Ejercicio 5</strong></p>
-
-<p>Demostrar que el sistema \(AX = b\) dado por</p>
-
-<p>\[A = \begin{pmatrix}
-1 &amp; 1 &amp; 1\\ -1 &amp; 0 &amp; 1\\ -1 &amp; -1 &amp; 0\end{pmatrix}\qquad X = \begin{pmatrix}x_1\\x_2\\x_3\end{pmatrix}\qquad b = \begin{pmatrix}\alpha\\  \beta\\  \gamma\end{pmatrix}\]</p>
-
-<p>con \(\alpha,\beta,\gamma\in\mathbb{R}\) tiene solución única y calcular dicha solución haciendo uso del Método de Cramer</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-11">
-
-<p>La regla de Cramer también sirve en el caso de sistemas compatibles indeterminados.</p>
-
-<p>Lo que se debe hacer en estos casos es encontrar un menor no nulo que nos dé el rango del sistema y la submatriz el sistema correspondiente a este menor es una matriz cuadrada invertible a la que se le puede aplicar el Método de Cramer.</p>
-
-<p>Entonces, las ecuaciones no correspondientes a este menor las podemos eliminar, pues son prescindibles.</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-12">
-
-<p><l class = "definition">Incógnitas principales. </l>Las incógnitas involucradas en la submatriz</p>
-
-<p><l class = "definition">Incógnitas secundarias. </l>Las incógnitas que no son principales.</p>
-
-<p>De este modo, el sistema con las incógnitas principales y solo las ecuaciones correspondientes al menor no nulo, tiene solución única dada por el Método de Cramer en función de las incógnitas secundarias.</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 15</h2></hgroup><article  id="ejemplo-15" class="example">
-
-<p><strong>Ejemplo 15</strong></p>
-
-<p>Consideremos el sistema \(AX = b\) donde \[A = \begin{pmatrix}
-12 &amp; 6 &amp; 8\\ 
-4 &amp; 2 &amp; 4\\ 
--8 &amp; -4 &amp; -4
-\end{pmatrix}\qquad
-X = \begin{pmatrix}
-x\\
-y\\
-z\end{pmatrix}\qquad
-b = \begin{pmatrix}
-1\\
-2\\
-1\end{pmatrix}\]</p>
-
-<p>Es fácil comprobar que \[\det(A) = \begin{vmatrix}
-12 &amp; 6 &amp; 8\\ 
-4 &amp; 2 &amp; 4\\ 
--8 &amp; -4 &amp; -4
-\end{vmatrix} = 0\]</p>
-
-<p>ya que la primera columna es el doble de la segunda.</p>
-
-<p>Por este motivo, consideremos el menor de orden 2 formado por las dos primeras filas y las dos últimas columnas:</p>
-
-<p>\[\begin{vmatrix}
-6 &amp; 8\\2 &amp; 4
-\end{vmatrix} = 8\ne 0\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 15</h2></hgroup><article  id="ejemplo-15-1" class="example">
-
-<p>Orlando este menor con la columna de los términos independientes, lo que obtenemos es \[\begin{vmatrix}
-6 &amp; 8 &amp; 1\\2 &amp; 4 &amp; 2\\ -4 &amp; -4 &amp; 1
-\end{vmatrix} = 0\]</p>
-
-<p>Por lo tanto, concluimos que \(rg(A) = 2\). Además, tenemos que el sistema es compatible indeterminado.</p>
-
-<p>Así pues, las incógnitas principales serán \(y,z\) porque recordemos que el menor de orden 2 no nulo está formado por las dos últimas columnas de \(A\).</p>
-
-<p>Por otro lado, la tercera ecuación, al no haberla considerado en el menor de orden 2, ya no nos es necesaria. Así, nuestro sistema lo podemos reescribir como</p>
-
-<p>\[\left\{\begin{matrix}
-12x&amp;+&amp;6y&amp;+&amp;8z&amp;=&amp;1\\
-4x&amp;+&amp;2y&amp;+&amp;4z&amp;=&amp;2
-\end{matrix}
-\right.\]</p>
-
-</article></slide><slide class=""><hgroup><h2>Ejemplo 15</h2></hgroup><article  id="ejemplo-15-2" class="example">
-
-<p>o, equivalentemente,</p>
-
-<p>\[\left\{\begin{matrix}
-6y&amp;+&amp;8z&amp;=&amp;1-12x\\
-2y&amp;+&amp;4z&amp;=&amp;2-4x
-\end{matrix}
-\right.\]</p>
-
-<p>que es un sistema de Cramer de \(A&#39;X&#39; = b&#39;\) con</p>
-
-<p>\[A&#39; = \begin{pmatrix}
-6 &amp; 8\\
-2 &amp; 4
-\end{pmatrix}\qquad X&#39; = \begin{pmatrix}
-y\\
-z\end{pmatrix}\qquad b&#39; = \begin{pmatrix}
-1-12x\\
-2-4x\end{pmatrix}\]</p>
-
-<p>Y este sistema tiene solución única en función de \(x\) dada por</p>
-
-<p>\[y = \frac{\begin{vmatrix}1-12x &amp; 8\\
-2-4x &amp; 4\end{vmatrix}}{8} = \frac{-16x-12}{8} = -2x-\frac{3}{2}\qquad z = \frac{\begin{vmatrix}6 &amp; 1-12x\\
-2 &amp; 2-4x\end{vmatrix}}{8} = \frac{10}{8}=\frac{5}{4}\]</p>
-
-<p>De este modo, nuestra solución es \(X = \begin{pmatrix}x\\ -2x-\frac{3}{2}\\ \frac{5}{4}\end{pmatrix}\) con \(x\in\mathbb{R}\)</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-13">
-
-<p>A la hora de calcular el rango de una matriz, calcular la inversa de una matriz regular o de resolver un sistema de ecuaciones lineales podemos hacerlo de dos formas:</p>
-
-<ul>
-<li>A través de transformaciones lineales</li>
-<li>Utilizando determinantes</li>
-</ul>
-
-<p>La primera tiene la ventaja de la implementación en ordenadores ya que requiere de muchas menos operaciones.</p>
-
-<p>En cambio, los determinantes permiten más flexibilidad en las operaciones, la cual es de agradecer cuando el estudio a hacer depende de uno o más parámetros.</p>
-
-</article></slide><slide class=""><hgroup><h2>Aplicaciones en el cálculo de matrices y sistemas</h2></hgroup><article  id="aplicaciones-en-el-calculo-de-matrices-y-sistemas-14" class="exercise">
-
-<p><strong>Ejercicio 6</strong></p>
-
-<p>Estudiar el siguiente sistema según los valores del parámetro \(a\in\mathbb{R}\)</p>
-
-<p>\[\left\{\begin{matrix}ax &amp;+&amp;y&amp;+&amp;z&amp;=&amp;1\\
-x &amp;+&amp;ay&amp;+&amp;z&amp;=&amp;1\\
-x &amp;+&amp;y&amp;+&amp;az&amp;=&amp;1\\
-\end{matrix}\right.\]</p></article></slide>
+<p>Todo lo relativo a vectores con <code>Octave</code> se encuentra en un script en la carpeta <code>codigo</code>, subcarpeta <code>Octave</code>, del GitHub.</p></article></slide>
 
 
   <slide class="backdrop"></slide>

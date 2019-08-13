@@ -70,6 +70,13 @@ $$-a_{13}a_{22}a_{31}-a_{23}a_{32}a_{11}-a_{33}a_{12}a_{21}$$
 
 <l class = "prop">Propiedad.</l> $\forall n\ge1$, el determinante de la transpuesta de una matriz $A\in\mathcal{M}_n(\mathbb{K})$ coincide con el determinante de dicha matriz, $$\det(A^t) = \det(A)$$
 
+<div class = "exercise">
+**Ejercicio 1** 
+
+- En primer lugar, probad que es cierto para los casos particulares $n = 2$ y $n = 3$
+- Demostrad formalmente este resultado para el caso general
+</div>
+
 Debido a esto, tenemos las siguientes propiedades
 
 # Propiedades de los determinantes
@@ -113,10 +120,22 @@ $$\begin{vmatrix}1 & 0 & -2\\2&3&0\\-1&1&0\end{vmatrix} =
 
 <l class = "prop">Propiedad.</l> Si una matriz tiene dos filas o columnas iguales, su determinante es 0: $\det(u_1,\dots,u_i,\dots,u_i\dots,u_n)=0$
 
+<div class = "exercise">
+**Ejercicio 2**
+
+Buscad vosotros mismos dos ejemplos cualesquiera, uno de orden 2 y otro de orden 3 y comprobad que, efectivamente, se cumple la propiedad enunciada
+</div>
+
 ## Propiedades de los determinantes
 
 <l class = "prop">Propiedad.</l> Si una matriz tiene dos filas o columnas proporcionales, su determinante es 0:
 $\det(u_1,\dots,u_i,\dots,\lambda u_i\dots,u_n)=0$
+
+<div class = "exercise">
+**Ejercicio 3**
+
+Buscad vosotros mismos dos ejemplos cualesquiera, uno de orden 2 y otro de orden 3 y comprobad que, efectivamente, se cumple la propiedad enunciada
+</div>
 
 ## Propiedades de los determinantes
 
@@ -142,7 +161,7 @@ La última fila es el resultado de sumar las dos primeras.
 
 $$\begin{vmatrix}1 & 2 & 3\\4 & 0 & 2\\ 5&-1&0\end{vmatrix} = \begin{vmatrix}1 & 2 & 6\\4 & 0 & 6\\ 5&-1&4\end{vmatrix}$$
 
-A la tercer columna le hemos sumado la primera y la segunda columnas.
+A la tercera columna le hemos sumado la primera y la segunda columnas.
 </div>
 
 # Adjuntos y menores complementarios
@@ -189,6 +208,8 @@ $$\det(A) = a_{i1}A_{i1}+a_{i2}A_{i2}+\cdots+a_{in}A_{in}$$
 que es el desarrollo de un determinante por los adjuntos de los elementos de una fila; y también 
 
 $$\det(A) = a_{1j}A_{1j}+a_{2j}A_{2j}+\cdots+a_{nj}A_{nj}$$
+
+que es el desarrollo de un determinante por los adjuntos de los elementos de una columna
 
 ## Cálculo de determinantes{.example}
 
@@ -360,6 +381,12 @@ Se pueden utilizar dichos menores para calcular el rango de una matriz $A$ cualq
 
 En otras palabras, el rango de la matriz $A$ coincide con el orden del mayor menor no nulo obtenido a partir de $A$.
 
+## Aplicaciones en el cálculo de matrices y sistemas
+
+Otra forma de enunciar el `Teorema` anterior es la siguiente: 
+
+<l class = "prop">Teorema.</l> Sea $A\in\mathcal{M}_{m\times n}(\mathbb{K})$ y $k<m,n$. Entonces, si se puede encontrar un menor de orden $k$ no nulo y todas las posibles maneras de orlar dicho menor dan menores de orden $k+1$ nulos, entonces $rg(A)= k$
+
 ## Aplicaciones en el cálculo de matrices y sistemas{.example}
 
 **Ejemplo 13**
@@ -374,7 +401,7 @@ Como este menor de orden 3 ya no es nulo, por el Teorema anterior concluimos que
 
 ## Aplicaciones en el cálculo de matrices y sistemas{.exercise}
 
-**Ejercicio 1.** Calcular el rango de la matriz $$A = \begin{pmatrix} 0 & 1 & -1\\ 4 & -2 & -6\\
+**Ejercicio 4.** Calcular el rango de la matriz $$A = \begin{pmatrix} 0 & 1 & -1\\ 4 & -2 & -6\\
 -1 & 1 & 1\\
 2 & -2 & -2\end{pmatrix}$$
 
@@ -420,7 +447,7 @@ Con lo cual, nuestra solución es $$X = \begin{pmatrix}0\\1\\0\end{pmatrix}$$
 
 ## Aplicaciones en el cálculo de matrices y sistemas{.exercise}
 
-**Ejercicio 2**
+**Ejercicio 5**
 
 Demostrar que el sistema $AX = b$ dado por
 
@@ -539,7 +566,7 @@ En cambio, los determinantes permiten más flexibilidad en las operaciones, la c
 
 ## Aplicaciones en el cálculo de matrices y sistemas{.exercise}
 
-**Ejercicio 3**
+**Ejercicio 6**
 
 Estudiar el siguiente sistema según los valores del parámetro $a\in\mathbb{R}$
 
