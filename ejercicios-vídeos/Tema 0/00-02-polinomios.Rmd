@@ -39,7 +39,7 @@ Determinar el valor de $\alpha$ para que  $2x^3-2x^2-\alpha x+4$ admita $x = 2$ 
 
 ## Pregunta 6
 
-Dados los polinomios $$p(x) = x^4-6x+1\qquad q(x) = 3x^3-5x\qquad x^4-x^2+2$$
+Dados los polinomios $$p(x) = x^4-6x+1\qquad q(x) = 3x^3-5x\qquad r(x) = x^4-x^2+2$$
 
 Realizar las siguientes operaciones
 

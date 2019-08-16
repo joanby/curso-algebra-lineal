@@ -61,6 +61,10 @@ En cambio, se simplifica considerablemente en el caso de que $A$ sea diagonaliza
 
 ## Diagonalización
 
+En este tema consideraremos $\mathbb{K}$-espacios vectoriales donde $\mathbb{K} = \mathbb{R},\mathbb{C}$ y $f\in\text{End}(E)$, es decir, $f$ es un endomorfismo de $E$ en sí mismo.
+
+## Diagonalización
+
 <l class = "definition">Matrices semejantes.</l> Dos matrices $A$ y $A'$ son semejantes si existe una matriz $P$ cuadrada invertible tal que $A' = P^{-1}AP$
 
 ## Diagonalización
@@ -84,6 +88,16 @@ Este proceso recibirá el nombre de <l class = "definition">diagonalizar la matr
 <l class = "definition">Matriz diagonalizable.</l> Una matriz $A$ es diagonalizable si es semejante a una matriz $D$; es decir, si existe una matriz $P$ regular tal que $D  = P^{-1}AP$
 
 No siempre es posible. Habrá que estudiar en qué condiciones existe una matriz así y respecto de qué base representará el endomorfismo.
+
+## Diagonalización
+
+<l class = "definition">Endomorfismo diagonalizable.</l> Diremos que un endomorfismo $f\in\text{End}(E)$ es diagonalizable si existe una base de $E$ formada por vectores propios de $f$.
+
+En otras palabras, diagonalizar $f$ es encontrar tal base. En tal caso, si $B = \{v_1,\dots,v_n\}$ es la base que buscamos (base de veps asociados a los vaps $\lambda_1,\dots,\lambda_n$ no necesariamente diferentes), la matriz asociada a $f$ con respecto a esta base es la matriz diagonal $$A = \begin{pmatrix}\lambda_1 &\cdots &0\\
+\vdots &\ddots&\vdots\\
+0&\cdots&\lambda_n\end{pmatrix}$$
+
+ya que $f(v_i) = \lambda_iv_i$ para todo $i = 1,\dots,n$
 
 # Vectores y valores propios de una matriz
 
@@ -144,6 +158,20 @@ Por tanto, es conveniente acompañar cada raíz del polinomio del número de vec
 
 ## Cálculo de valores y vectores propios
 
+Un resultado análogo al anterior, pero referido a endomorfismos es el siguiente:
+
+<l class = "prop">Proposición.</l> Dado $\lambda\in\mathbb{K}$, $\lambda$ es el valor propio del endomorfismo $f$ si, y solo si, $\det(f-\lambda\cdot Id) = 0$, donde $Id$ representa la aplicación lineal identidad
+
+<div class = "exercise">
+**Ejercicio 1**
+
+Demostrar formalmente esta Proposición.
+</div>
+
+
+
+## Cálculo de valores y vectores propios
+
 Una vez se han calculado todos los vaps tocará el conjunto de vectores propios asociados a cada vap. Para ello se resolverá para cada valor propio $\lambda_i$ el sistema homogéneo siguiente
 
 $$(A-\lambda_i I )\vec{x} = 0$$
@@ -176,7 +204,7 @@ Tened en cuenta el teorema de caracterización de un subespacio (la suma de dos 
 
 <l class = "prop">Propiedades.</l> 
 
-- Dos matrices semejantes tienen la misma ecuación característica y por tanto los mimos vaps con la misma multiplicidad
+- Dos matrices semejantes tienen la misma ecuación característica y por tanto los mismos vaps con la misma multiplicidad
 - Una matriz triangular tiene como vaps los elementos de la diagonal principal
 - A los vaps diferentes les corresponden veps linealmente independientes
 - Un mismo vep no puede estar asociado a dos vaps diferentes
@@ -197,37 +225,45 @@ $$1\le \dim(H_i)\le n_i = 1\Rightarrow \dim(H_i) = 1$$
 
 <l class = "prop">Teorema.</l> Dados $\lambda_1,\lambda_2,\dots,\lambda_r$ vaps diferentes de la matriz $A\in\mathcal{M}_n(\mathbb{R})$ y $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_r$ los vectores propios asociados a ella, entonces $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_r$ son LI
 
-## Propiedades de los valores y vectores propios
+<div class = "exercise">
+**Ejercicio 2**
 
-<l class = "prop">Teorema.</l> Si la matriz $A\in\mathcal{M}_n(\mathbb{R})$ formada por vectores de un espacio vectorial $E$ tiene $n$ vaps, también tendrá $n$ veps que serán LI: $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n$
+Demostrar formalmente este Teorema.
+</div>
 
-Además, como $n$ vectores LI de un espacio vectorial de dimensión finita $n$ son base, $\vec{u}_1,\vec{u}_2,\dots,\vec{u}_n$ serán una base de $E$
 
-# Matrices diagonalizables
 
-## Cálculo de la matriz diagonal
+# Endomorfismos y Matrices diagonalizables
 
-<l class = "prop">Teorema.</l> Una matriz $A\in\mathcal{M}_n$ es diagonalizable si, y solo si, tiene $n$ veps LI
+## Teorema de Diagonalización
 
-Equivalentemente, la condición necesaria y suficiente para que una matriz sea diagonalizable es que exista una base del espacio vectorial formada por los veps de la matriz dada
+<l class = "prop">Teorema de Diagonalización.</l> Un endomorfismo $f\in\text{End}(E)$ es diagonalizable si, y solo si, su polinomio característico descompone totalmente en factores lineales y la multiplicidad de cada uno de sus ceros coincide con la dimensión del respectivo subespacio propio asociado.
 
-## Cálculo de la matriz diagonal
+Dicho de otra forma, el polinomio característico debe ser de la forma
 
-<l class = "prop">Corolario.</l> Si la matriz $A$ tiene $n$ vaps diferentes habrá $n$ veps LI. Entonces, $A$ será diagonalizable
+$$p(x) = \det(A-xI) = (x-\lambda_1)^{n_1}\cdots(x-\lambda_r)^{n_r}$$
 
-## Cálculo de la matriz diagonal
+con $n_1+\cdots+n_r = n$ y para cada $i = 1,\dots,r$, $n_i = \dim(H_{\lambda_i})$
 
-<l class = "prop">Teorema de diagonalización.</l> La condición necesaria y suficiente para que una matriz $A$ sea diagonalizable es que para cada valor propio $\lambda_i$ su multiplicidad algebraica $n_i$ coincida con su multiplicidad geométrica $\dim(H_{\lambda_i})$ 
+## Teorema de Diagonalización
 
-## Cálculo de la matriz diagonal
+<l class = "prop">Teorema de Diagonalización (matrices).</l> La condición necesaria y suficiente para que una matriz $A$ sea diagonalizable es que para cada valor propio $\lambda_i$ su multiplicidad algebraica $n_i$ coincida con su multiplicidad geométrica $\dim(H_{\lambda_i})$
+
+## Teorema de Diagonalización
 
 De esta forma, si la matriz tiene vaps diferentes $\lambda_1,\lambda_2,\dots,\lambda_r$, uniendo las bases de todos los subespacios vectoriales propios $H_{\lambda_1},H_{\lambda_2},\dots,H_{\lambda_r}$ se obtiene una base de $E$
 
 $$\{B_{H_{\lambda_1}},\dots,B_{H_{\lambda_r}}\} = B_E$$
 
+
+## Teorema de Diagonalización
+
+<l class = "prop">Corolario.</l> Si la matriz $A$ tiene $n$ vaps diferentes habrá $n$ veps LI. Entonces, $A$ será diagonalizable
+
+
 ## Cálculo de la matriz diagonal
 
-En resumen, $A$ es diagonalizable si todos los vaps pertenecen a los números reales y:
+En resumen, $A$ es diagonalizable si todos los vaps pertenecen a los números reales o complejos y:
 
 - Todos ellos son diferentes o bien,
 - son múltiples y las multiplicidades algebraicas y geométricas son iguales para todos ellos
