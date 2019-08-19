@@ -23,7 +23,7 @@ Demostrar por inducción que $$1^2+2^2+3^2+\cdots+n =\frac{n(n+1)(2n+1)}{6} $$
 
 ## Pregunta 4
 
-Determinar si la suma de 3 enteros consecutivos es siempre divisible por 6
+Determinar si la suma de 3 enteros positivos consecutivos es siempre divisible por 6
 
 ## Pregunta 5
 
