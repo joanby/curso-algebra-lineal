@@ -155,10 +155,10 @@ Con lo cual, el sistema homogéneo siempre es compatible.
 
 <l class = "prop">Teorema de Rouché-Frobenius.</l> Un sistema de $m$ ecuaciones lineales y $n$ incógnitas, $AX=B$, es compatible si, y solo si, rg$(A)=$rg$(A|B)=r$ y, en este caso:
 
-- Si $r=n$, el sistema es determinado
-- Si $r<n$, el sistema es indeterminado
+- Si $r=n$, el sistema es determinado.
+- Si $r<n$, el sistema es indeterminado.
 
-Si rg$(A)<$rg$(A|B)$, entonces el sistema es indeterminado
+Si rg$(A)<$rg$(A|B)$, entonces el sistema es incompatible.
 
 ## Sistemas de ecuaciones lineales
 

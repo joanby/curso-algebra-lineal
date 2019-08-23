@@ -443,7 +443,7 @@ Gráficamente, podemos concluir que el conjunto de soluciones es infinito pues s
 De hecho, podemos representar nuestro conjunto de soluciones por
 
 $$\left\{x\in \mathbb{R}^3 \ :\  x_1 = \frac{3}{2},\ x_2 = \frac{1}{2}+x_3,\ x_3\in\mathbb{R}\right\}$$
-
+$$(x_1,x_2,x_3) = \left(\frac{3}{2}, \frac{1}{2}, 0\right) + \lambda (0,1,1)$$
 # Sistemas incompatibles con `R`
 
 ## Ejemplo 5
