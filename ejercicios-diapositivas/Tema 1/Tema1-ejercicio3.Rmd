@@ -1,6 +1,6 @@
 ---
 title: "Tema 1 - Ejercicio 3"
-author: "María Santos"
+author: "Curso Álgebra Lineal"
 output: pdf_document
 ---
 

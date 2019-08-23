@@ -1,0 +1,204 @@
+---
+title: "Tarea"
+subtitle: "Matrices"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+### Pregunta 1
+
+Consideremos las matrices 
+
+$$A = \begin{pmatrix}
+0 & 1 & -2\\
+2 & 3 & -1\\
+1 & -1 & 5
+\end{pmatrix}\qquad B = \begin{pmatrix}
+1 & -1 & 2 & 1\\
+2 & -2 & 2 & -2\\
+-1 & 2 & 1 & 2
+\end{pmatrix}\qquad C = \begin{pmatrix}
+2\\
+0 \\
+1\\
+-4
+\end{pmatrix}$$
+
+Realizad las operaciones siguientes:
+
+- $A\cdot B$
+- $B\cdot C$
+- $B^t$
+- $B^t\cdot A$
+- $C^t\cdot B^t$
+
+### Pregunta 2
+
+Escribid la matriz de orden $3\times 4$ que tiene por entrada $(i,j)$ el elemento $$a_{ij} = \frac{(-1)^{i+j}}{i+j}$$
+
+### Pregunta 3
+
+Escribid la matriz de orden $(n+1)\times (n+1)$ que tiene por entrada $(i,j)$ el elemento $$a_{ij} = \left\{\begin{matrix}
+0 & \text{si }i>j\\
+1 & \text{si }i=j\\
+k^{j-i} & \text{si }i>j\\
+\end{matrix}\right.$$
+
+donde $k$ es un número real cualquiera.
+
+### Pregunta 4
+
+Dada la matriz $$A = \begin{pmatrix}
+0 & 1\\
+0 & 0\end{pmatrix}$$
+
+hallad todas las matrices cuadradas de orden 2, $X$, tales que $AX = 0$
+
+### Pregunta 5
+
+Considerad las matrices 
+
+$$A = \begin{pmatrix}
+0 & 1\\
+0 & 1
+\end{pmatrix}\qquad B = \begin{pmatrix}
+-1 & -1\\
+0 & 0
+\end{pmatrix}$$
+
+Demostrad que $$(A+B)^2\ne A^2+2AB+B^2$$ pero que en cambio $$(A+B)^3 = A^3+3A^2B+3AB^2+B^3$$
+
+### Pregunta 6
+
+Hallad las matrices $A$ y $B$ tales que cumplan las dos ecuaciones:
+
+$$4A+2B = \begin{pmatrix}
+3 & 4 & 2\\ 2 & 1 & 8
+\end{pmatrix}$$
+
+$$3A+B = \begin{pmatrix}
+\frac{3}{2} & 1 & 0\\ 2 & \frac{1}{2} & 5
+\end{pmatrix}$$
+
+### Pregunta 7
+
+Sean $a,b,c\in\mathbb{R}$ y $A\in\mathcal{M}_3(\mathbb{R})$ dada por 
+$$A = \begin{pmatrix}
+a & a+b & a-c\\
+a-b & b & b-c\\
+a+b-2 & c-b & c
+\end{pmatrix}$$
+
+¿Qué tienen que valer los parámetros para que $A$ sea?
+
+- Triangular superior
+- Triangular inferior 
+- Simétrica
+
+### Pregunta 8
+
+Dada la matriz 
+$$A = \begin{pmatrix}
+1 & 0\\
+1 & 1
+\end{pmatrix}$$
+
+Calculad el valor de $A+A^2+\cdots+A^n$
+
+para todo valor $n\ge 1$
+
+### Pregunta 9
+
+Sea $A$ una matriz cuadrada de orden $n$, $A\in\mathcal{M}_n(\mathbb{K})$. Decimos que $B$ es una raíz cuadrada de $A$ si $B^2 = A$
+
+- Halla tres raices cuadradas diferentes de $I_2$ (Matriz identidad de orden 2)
+- Demuestra que la matriz $\begin{pmatrix}0  & 1\\ 0 & 0\end{pmatrix}$ no tiene raíces cuadradas.
+
+### Pregunta 10
+
+Halla todas las matrices con coeficientes en $\mathbb{R}$ que conmutan con la matriz 
+
+$$A = \begin{pmatrix}
+0 & 0 & 0\\
+1 & 0 & 0\\
+1 & 1 & 0
+\end{pmatrix}$$
+
+### Pregunta 11
+
+Halla las potencias $n$-ésimas de las matrices 
+
+$$A = \begin{pmatrix}
+0 & 1 & 0\\
+0 & 0 & 1\\
+0 & 0 & 0\end{pmatrix}\qquad B = \begin{pmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{pmatrix}$$
+
+### Pregunta 12
+
+Sean $A,B\in\mathcal{M}_n(\mathbb{R})$ dos matrices tales que $A$ es simétrica y $B$ es antisimétrica.
+
+Demostrad que $AB+BA$ es antisimétrica y que $AB-BA$ es simétrica
+
+### Pregunta 13
+
+Sea $A$ una matriz cuadrada de orden $n$. Demostrad que 
+
+- $A+A^t$ es simétrica
+- $A-A^t$ es antisimétrica
+- $A$ se puede poner siempre como suma de una matriz simétrica y una antisimétrica
+
+
+
+### Pregunta 14
+
+Sean $A$ y $B$ matrices cuadradas de orden $n$ de modo que $B$ es simétrica. Demostrad que
+
+- $AA^t$ es simétrica
+- $ABA^t$ es simétrica
+- Si $A$ es antisimétrica, entonces $A^2$ es simétrica
+- Si $A^2=0$, entonces $A(A+I_n)^{i}=A\quad\forall i = 0,1,2,\dots$
+
+### Pregunta 15
+
+Una matriz $A\in\mathcal{M}_n(\mathbb{R})$ se llama estocástica si 
+
+- Todos sus coeficientes son no negativos, es decir $a_{ij}\ge 0$ para todo $i,j = 1,2,\dots,n$
+- La suma de los coeficientes de cada fila vale 1, es decir $$\sum_{j = 1}^n a_{ij} = 1\quad\forall i = 1,\dots,n$$.
+
+Diremos que una matriz es doblemente estocástica si además la suma de los coeficientes de cada columna también vale $1$, es decir, si $\sum_{i = 1}^n a_{ij}= 1\quad\forall j = 1,\dots,n$
+
+- Da un ejemplo de matriz $A\in\mathcal{M}_4(\mathbb{R})$ estocástica
+- Da un ejemplo de matriz $A\in\mathcal{M}_4(\mathbb{R})$ doblemente estocástica
+- Da un ejemplo de matriz estocástica y simétrica
+
+### Pregunta 16
+
+Consideremos la matriz
+
+$$A = \begin{pmatrix}
+0 & a & a^2 & a^3\\
+0 & 0 & a & a^2\\
+0 & 0 & 0 & a\\
+0 & 0 & 0 & 0
+\end{pmatrix}$$
+
+A partir de ella definimos la matriz $B$ como 
+
+$$B = A-\frac{1}{2}A^2+\frac{1}{3}A^3-\frac{1}{4}A^4+\cdots$$
+
+Demostrad que es este sumatorio solamente hay un número finito de términos no nulos y calculad $B$.
+
+Demostrad también que el sumatorio
+
+$$B+\frac{1}{2!}B^2+\frac{1}{3!}B^3+\frac{1}{41}B^4+\cdots$$
+
+solamente tiene un número finito de términos no nulos y que su suma vale $A$
+

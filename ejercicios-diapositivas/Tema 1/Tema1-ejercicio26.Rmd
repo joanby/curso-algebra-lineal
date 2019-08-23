@@ -1,6 +1,6 @@
 ---
-title: "Tema 1 - Ejercicio 16"
-author: "María Santos"
+title: "Tema 1 - Ejercicio 26"
+author: "Curso Álgebra Lineal"
 output: pdf_document
 ---
 

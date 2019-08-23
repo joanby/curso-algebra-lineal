@@ -1,8 +1,7 @@
 ---
 title: "Tarea"
 subtitle: "Ecuaciones y Sistemas Lineales"
-author: "María Santos"
-date: "1/5/2019"
+author: "Curso Álgebra Lineal"
 output: pdf_document
 ---
 
