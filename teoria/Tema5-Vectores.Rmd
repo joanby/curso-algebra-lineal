@@ -456,7 +456,7 @@ $$\langle\vec{u},\vec{v}\rangle = 2\cdot(-1)+3\cdot3+0 = 7$$
 
 <l class = "definition">Norma.</l> Dado $\vec{u} = (u_1,u_2,\dots,u_n)\in\mathbb{R}^n$ su norma o longitud viene dada por
 
-$$||\vec{u}|| = \sqrt{\langle\vec{u},\vec{u}\rangle} = \sqrt{\vec{u}_1^2+\vec{u}_2^2+\cdots+\vec{u}_n^2}$$
+$$||\vec{u}|| = \sqrt{\langle\vec{u},\vec{u}\rangle} = \sqrt{{u}_1^2+{u}_2^2+\cdots+{u}_n^2}$$
 
 ## Norma
 
@@ -465,8 +465,8 @@ $$||\vec{u}|| = \sqrt{\langle\vec{u},\vec{u}\rangle} = \sqrt{\vec{u}_1^2+\vec{u}
 - $||\vec{u}||>0,\ \forall\vec{u}\ne\vec{0}$
 - $||\lambda\vec{u}|| = |\lambda|||\vec{u}||$
 - Desigualdad triangular: $||\vec{u}+\vec{v}||\le ||\vec{u}||+||\vec{v}||$
-- Teorema de Pitágoras: $||\vec{u}+\vec{v}|| = ||\vec{u}||+||\vec{v}||\Leftrightarrow \vec{u}\perp\vec{v}$
-- Desigualdad de Cauchy-Schwarz: $||\vec{u}\vec{v}||\le||\vec{u}||\cdot||\vec{v}||$
+- Teorema de Pitágoras: $||\vec{u}+\vec{v}||^2 = ||\vec{u}||^2+||\vec{v}||^2\Leftrightarrow \vec{u}\perp\vec{v}$
+- Desigualdad de Cauchy-Schwarz: $|\langle\vec{u},\vec{v}\rangle|\le||\vec{u}||\cdot||\vec{v}||$
 
 
 ## Norma

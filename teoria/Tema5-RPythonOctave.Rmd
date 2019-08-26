@@ -95,22 +95,22 @@ x = c(1,2,0,3,-1,1)
 Norm(x)
 ```
 
-## Calcular Distancia Eucídea entre dos vectores con `R`
+## Calcular Distancia Euclídea entre dos puntos con `R`
 
-Para calcular la distancia entre dos vectores, definida como $\text{d}(x,y) = ||x-y||$ utilizamos la función `distancia()`, la cual definimos del siguiente modo:
+La distancia entre dos puntos $x,y$, se define como la norma del vector $\vec{xy}$, es decir $\text{d}(x,y) = ||x-y||$. Para calcularla, definimos la función `distancia()` del siguiente modo:
 
 ```{r}
 distancia = function(x,y){
   if (length(x) == length(y)){
     Norm(x-y)
   }else{
-    print("ERROR: No se puede calcular la distancia entre estos dos vectores porque 
+    print("ERROR: No se puede calcular la distancia entre estos dos puntos porque 
           no son de la misma dimensión")
   }
 }
 ```
 
-## Calcular Distancia Eucídea entre dos vectores con `R`
+## Calcular Distancia Euclídea entre dos puntos con `R`
 
 ```{r}
 x = c(0,3,-1,3,5)
@@ -118,7 +118,7 @@ y = c(1,2,3,-1,0)
 distancia(x,y)
 ```
 
-Simplemente, lo que hace la función anterior es calcular la distancia Euclídea entre dos vectores, siempre y cuando estos tengan la misma dimensión. 
+Simplemente, lo que hace la función anterior es calcular la distancia Euclídea entre dos puntos, siempre y cuando estos tengan la misma dimensión. 
 
 Si no, salta un mensaje explicando el error cometido.
 
@@ -175,7 +175,7 @@ proyeccionOrt(u,v)
 ```{r}
 productoVectorial= function(x,y){
   if (length(x) == length(y) & length(x) == 3){
-    c(x[2]*y[3] - x[3]*y[2], x[1]*y[3]-x[3]*y[1], x[1]*y[2]-x[2]*y[1])
+    c(x[2]*y[3] - x[3]*y[2], -(x[1]*y[3]-x[3]*y[1]), x[1]*y[2]-x[2]*y[1])
   }else{
     print("No se cumplen las condiciones necesarias para calcular el 
           producto vectorial de estos dos vectores")
@@ -201,7 +201,7 @@ productoMixto = function(x,y,z){
     det(rbind(x,y,z))
   }else{
     print("No se cumplen las condiciones necesarias para calcular el 
-          producto mixto de estos dos vectores")
+          producto mixto de estos tres vectores")
   }
 }
 ```
@@ -298,9 +298,9 @@ np.linalg.norm(x)
 ```
 
 
-## Calcular Distancia Eucídea entre dos vectores con `Python`
+## Calcular Distancia Euclídea entre dos puntos con `Python`
 
-Para calcular la distancia entre dos vectores, definida como $d(x,y)=||x−y||$ utilizamos la función `distancia()`, la cual definimos del siguiente modo:
+Para calcular la distancia entre dos puntos, la definimos la norma del vector que los une, es decir $d(x,y)=||x−y||$. En nuestro caso vamos a utilizar la función `distancia()`, la cual definimos del siguiente modo:
 
 ```{python}
 def distancia(x,y):
@@ -313,7 +313,7 @@ def distancia(x,y):
 ```
 
 
-## Calcular Distancia Eucídea entre dos vectores con `Python`
+## Calcular Distancia Euclídea entre dos puntos con `Python`
 
 ```{python}
 x = np.array([0, 3, -1, 3, 5])
@@ -383,7 +383,7 @@ proyeccionOrt(u,v)
 def productoVectorial(x,y):
   import numpy as np
   if len(x) == len(y) and len(x) == 3:
-    z = np.array([x[1]*y[2] - x[2]*y[1], x[0]*y[2]-x[2]*y[0], x[0]*y[1]-x[1]*y[0]])
+    z = np.array([x[1]*y[2] - x[2]*y[1], -(x[0]*y[2]-x[2]*y[0]), x[0]*y[1]-x[1]*y[0]])
     return z
   else:
     return "ERROR"
