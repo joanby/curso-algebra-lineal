@@ -1,7 +1,7 @@
 ---
 title: "Tarea"
 subtitle: "Sistemas con `R`, `Python` y `Octave`"
-author: "María Santos"
+author: "Curso Álgebra Lineal"
 date: "8/5/2019"
 output: html_document
 ---
