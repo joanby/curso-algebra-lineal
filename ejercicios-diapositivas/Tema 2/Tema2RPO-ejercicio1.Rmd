@@ -1,0 +1,81 @@
+---
+title: "Tema 2 - Ejercicio 1"
+subtitle: "`R`, `Python` y `Octave`"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+library(matlib)
+```
+
+## Enunciado
+
+Dado el sistema de ecuaciones lineales 
+
+$$\left\{ \begin{matrix}4x&+&2y&=&3\\ x&-&2y&=&2\\ 3x&+&4y&=&1\end{matrix}\right.$$
+
+(a) Comprobad que, efectivamente, se trata de un sistema compatible determinado haciendo uso del Teorema de Rouché-Frobenius
+(b) Calculad su solución
+
+### Solución (a)
+
+Pasando el sistema a su forma matricial tenemos:
+
+```{r}
+A = rbind(c(4,2),c(1,-2),c(3,4))
+b = c(3,2,1)
+showEqn(A,b)
+```
+
+En primer lugar, el rango de $A$ es
+
+```{r}
+R(A)
+```
+
+por otro lado, el rango de la matriz ampliada $(A|B)$ es
+
+```{r}
+AB = cbind(A,b)
+R(AB)
+```
+
+Con lo cual,
+
+```{r}
+all.equal(R(A),R(AB))
+```
+
+Teniendo en cuenta que tenemos 2 incógnitas, por el Teorema de Rouché-Frobenius podemos concluir que, al ser los rangos de la matriz de coeficientes y la matriz ampliada iguales entre sí e iguales al número de incógnitas, se trata de un sistema compatible determinado.
+
+
+### Solución (b)
+
+```{r}
+Solve(A, b, fractions = T)
+```
+
+Nuestra solución es $s = \left(1,-\frac{1}{2}\right)$
+
+
+Comprobemos que la solución es correcta. Lo haremos de dos formas diferentes:
+
+- Primero sustituimos la solución obtenida en todas las ecuaciones
+
+$$\begin{matrix}4\cdot 1&+&2\cdot (-\frac{1}{2})&=&4&-&1&=&3\\ 1&-&2\cdot (-\frac{1}{2})&=&1&+&1&=&2\\ 3\cdot 1&+&4\cdot (-\frac{1}{2})&=&3&-&2&=&1\end{matrix}$$
+
+Todas las igualdades son ciertas. Por tanto, la solución es correcta.
+
+- En segundo lugar, comprobamos de forma matricial:
+
+```{r}
+s = c(1,-1/2)
+A%*%s == b
+```
+
+Lo que acabamos de ver es que multiplicando la matriz de coeficientes por el vector solución hemos obtenido el vector de términos independientes. Es decir, la solución es la correcta.
+
+
+
