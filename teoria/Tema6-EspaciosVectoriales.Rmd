@@ -97,7 +97,7 @@ Para ver la unicidad del elemento neutro, supongamos que $0_1$ y $0_2$ son dos n
 
 Con lo cual, $0_1 = 0_2$ tal y como queríamos ver.
 
-Ahora, para ver la unicidad del elemento opuesto, supongamos que $x\in E$ tiene dos elementos opuestos: $y,z$. Entonces, tendríamos $$y = y+0 = y + (x+z) = (y+x)+z = 0+z = 0$$
+Ahora, para ver la unicidad del elemento opuesto, supongamos que $x\in E$ tiene dos elementos opuestos: $y,z$. Entonces, tendríamos $$y = y+0 = y + (x+z) = (y+x)+z = 0+z = z$$
 
 Con lo cual, $y = z$ tal y como queríamos demostrar.
 
@@ -191,7 +191,7 @@ En el $\mathbb{R}$ espacio vectorial $\mathbb{R}^2$, consideremos los subespacio
 
 $$F = \{(x,0)\ |\ x\in\mathbb{R}\}\qquad G = \{(0,y)\ |\ y\in\mathbb{R}\}$$
 
-Entonces, es fácil ver que $F\cap G =\{(0,0)\} $ y que $F+G = \mathbb{R}^2$, que son efectivamente subespacios vectoriales (de hecho son los impropios).
+Entonces, es fácil ver que $F\cap G =\{(0,0)\}$ y que $F+G = \mathbb{R}^2$, que son efectivamente subespacios vectoriales (de hecho son los impropios).
 
 En cambio, si hacemos la unióin, tenemos $F\cup G = \{(x,y)\in\mathbb{R}^2\ |\ x=0\text{ o }y = 0\}$, que no es subespacio vectorial de $\mathbb{R}^2$, ya que tomando los elementos $(1,0), (0,1)\in F\cup G$, tenemos que su suma, $(1,1)\not\in F\cup G$ 
 
@@ -229,7 +229,7 @@ En este sentido, podemos dar las siguientes definiciones:
 
 Recordemos el `Ejemplo 3`: 
 
-En el $\mathbb{R}$-e.v $\mathbb{R}^2$ habíamso considerado 
+En el $\mathbb{R}$-e.v $\mathbb{R}^2$ habíamos considerado 
 
 $$F = \{(x,0)\ |\ x\in\mathbb{R}\}\qquad G = \{(0,y)\ |\ y\in\mathbb{R}\}$$
 
@@ -241,7 +241,7 @@ Con lo cual, tenemos que $F\oplus G = \mathbb{R}^2$
 
 El concepto de suma directa lo podemos generalizar a $n$ sumandos del siguiente modo:
 
-<l class = "definition">Suma directa.</l> Sean $E$ un $\mathbb{K}$-e.v. y $F_1,\dots,F_n$ subespacios vectoriales de $E$. Entonces, diremos que la suma $F_1+\cdots +F_n$ es directa si cada elemento de $F_1+\cdots +F_n$ se escribe de manera única como suma de elementos de $F_1,\dots,F_n$. Se denota por $F_1\oplus\cdots\oplus F_n $
+<l class = "definition">Suma directa.</l> Sean $E$ un $\mathbb{K}$-e.v. y $F_1,\dots,F_n$ subespacios vectoriales de $E$. Entonces, diremos que la suma $F_1+\cdots +F_n$ es directa si cada elemento de $F_1+\cdots +F_n$ se escribe de manera única como suma de elementos de $F_1,\dots,F_n$. Se denota por $F_1\oplus\cdots\oplus F_n$
 
 <div class = "exercise">
 **Ejercicio 7**
@@ -294,7 +294,7 @@ Es decir, $\langle S\rangle$ es el subespacio formado por todas las combinacione
 
 <l class = "observ">Observación.</l> A partir de la caracterización de subespacio generado por un subconjunto, queda claro que si tenemos dos subconjuntos de $E$ de forma que $S\subseteq S'$, entonces $\langle S\rangle\subseteq\langle S'\rangle$
 
-En el caso en que $S$ es finito, $S = \{x_1,\dots,x_n\}$, entonces se puede esccribir
+En el caso en que $S$ es finito, $S = \{x_1,\dots,x_n\}$, entonces se puede escribir
 
 $$\langle S\rangle = \langle x_1,\dots,x_n\rangle = \{\alpha_1\cdot x_1 +\cdots +\alpha_n\cdot x_n\ |\ \alpha_i\in\mathbb{K},\ i=1,\dots,n\}$$
 
@@ -595,7 +595,7 @@ Por tanto, podemos sustituir cualquiera de los restantes ya que todos los escala
 <l class = "prop">Corolario.</l> Sean $E$ un $\mathbb{K}$-e.v. de dimensión finita y $F,G$ sub-e.v. de $E$. Entonces las siguientes afirmaciones son equivalentes:
 
 - $F$ y $G$ son complementarios ($E = F\oplus G$)
-- $F\cup G = \{0\}$ y $\dim(E)= \dim(F)+\dim(G)$
+- $F\cap G = \{0\}$ y $\dim(E)= \dim(F)+\dim(G)$
 
 ## Bases de un espacio vectorial
 
@@ -655,7 +655,7 @@ Con las operaciones suma y producto por escalares definidas componente a compone
 
 $$(\vec{u}_1,\dots,\vec{u}_n)+(\vec{v}_1,\dots,\vec{v}_n) = (\vec{u}_1+\vec{v}_1,\dots,\vec{u}_n+\vec{v}_n)$$$$\alpha\cdot(\vec{u}_1,\dots,\vec{u}_n) = (\alpha\cdot \vec{u}_1,\dots,\alpha\cdot\vec{u}_n)$$
 
-donde $\vec{u}_1,\dots,\vec{u}_n\in E,\ \vec{v}_1,\dots,\vec{v}_n\in F$ y $\alpha\in\mathbb{K}$
+donde $\vec{u}_i,\vec{v}_i\in E_i,\ \forall i = 1,\dots, n$ y $\alpha\in\mathbb{K}$
 
 
 ## Espacio vectorial producto{.example}
@@ -693,7 +693,7 @@ La relación definida anteriormente sobre $E$ es siempre una relación de equiva
 
 De esta manera podemos considerar el <l class = "definition">conjunto cociente</l>, denotado como $E/F$ formado por todas las clases de equivalencia módulo $F$.
 
-<l class = "definition">Clase de equivalencia módulo $F$</l>. Dado $x\in F$, su clase de equivalencia módulo $F$ la denotamos por $[x]_F$ y viene dada por $$[x]_F = \{y\in E\ |\ y\sim_F x\} = \{y\in E\ |\ y-x = z\in F\}$$ $$=\{y\in E\ |\ y = x+z,\ z\in F \} = \{x+z\ |\ z\in F\} = x+F$$
+<l class = "definition">Clase de equivalencia módulo $F$</l>. Dado $x\in E$, su clase de equivalencia módulo $F$ la denotamos por $[x]_F$ y viene dada por $$[x]_F = \{y\in E\ |\ y\sim_F x\} = \{y\in E\ |\ y-x = z\in F\}$$ $$=\{y\in E\ |\ y = x+z,\ z\in F \} = \{x+z\ |\ z\in F\} = x+F$$
 
 ## Espacio vectorial cociente
 
@@ -751,7 +751,22 @@ donde $\alpha\in\mathbb{K}$, $u,v\in E$
 
 ## Espacio vectorial cociente
 
-<l class = "prop">Proposición.</l>  Sea $p(x)\in\mathbb{K}[x]$ un polinomio no constante y digamos que de grado $\deg(p(x)) = n\ge 1$. Entonces, dentro de cada clase no nula $[a(x)]$ hay un representante de grado menor a $n$
+En dimensiones infinitas, la fórmula anterior ya no sería válida. Un ejemplo de ello es el $\mathbb K$-espacio vectorial de los polinomios $\mathbb K[x]$. 
+
+Si $p(x)\in\mathbb K[x]$ es un polinomio no constante cualquiera, y consideramos el subconjunto de los múltiplos de $p(x)$, que denotamos por
+
+$$F=(p(x)) = \{p(x)q(x)| q(x)\in\mathbb K[x]\}$$
+
+se puede demostrar fácilmente que $F=(p(x))$ es un subespacio vectorial de $\mathbb K[x]$, ya que la suma de múltiplos de $p(x)$ es múltiplo de $p(x)$ y el producto de un escalar por un múltiplo de $p(x)$ también es múltiplo de $p(x)$. Además es de dimensión infinita ya que podemos demostrar que no puede tener un número finito de generadores como ocurría con el caso de $\mathbb K[x]$.
+
+
+## Espacio vectorial cociente
+
+En este caso podemos definir el $\mathbb K$-espacio vectorial cociente $\mathbb K[x]/F$ con $F=(p(x))$ donde la relación módulo $F$ sería:
+
+$$a(x)\sim_F b (x)\Longleftrightarrow a(x) - b(x) \in F = (p(x))$$
+
+<l class = "prop">Proposición.</l>  Sea $p(x)\in\mathbb{K}[x]$ un polinomio no constante y de grado $\deg(p(x)) = n\ge 1$. Entonces, dentro de cada clase no nula de un polinomio $a(x)\in \mathbb K[x]$, $[a(x)]_F$ hay un representante de grado menor a $n$
 
 <div class = "exercise">
 **Ejercicio 23.** Demostrar formalmente esta Proposición.
@@ -759,7 +774,7 @@ donde $\alpha\in\mathbb{K}$, $u,v\in E$
 
 ## Espacio vectorial cociente
 
-<l class = "prop">Proposición.</l> Sea $p(x)\in\mathbb{K}[x]$ un polinomio no constante y digamos que de grado $\deg(p(x))= n\ge 1$. Entonces, las clases $[1],[x],[x^2],\dots,[x^{n-1}]$ forman una base de $\mathbb{K}[x]/(p(x))$, y, por lo tanto, $$\dim(\mathbb{K}[x]/(p(x))) = n = \deg(p(x))$$
+<l class = "prop">Proposición.</l> Sea $p(x)\in\mathbb{K}[x]$ un polinomio no constante de grado $\deg(p(x))= n\ge 1$. Entonces, las clases $[1],[x],[x^2],\dots,[x^{n-1}]$ forman una base de $\mathbb{K}[x]/(p(x))$, y, por lo tanto, $$\dim(\mathbb{K}[x]/(p(x))) = n = \deg(p(x))$$
 
 <div class = "exercise">
 **Ejercicio 24.** Demostrar formalmente esta Proposición.
@@ -767,9 +782,9 @@ donde $\alpha\in\mathbb{K}$, $u,v\in E$
 
 ## Espacio vectorial cociente
 
-<l class = "observ">Observación.</l> En el caso en que hiciésemos $\mathbb{K}[x]/(p(x))$ con $p(x)$ un polinomio constante, entonces tendríamos que $p(x) = \mathbb{K}[x]$ ya que las constantes son invertibles y todo polinomio se puede poner como múltiplo de una constante cualquiera.
+<l class = "observ">Observación.</l> En el caso en que hiciésemos $\mathbb{K}[x]/(p(x))$ donde $p(x)$ fuese un polinomio constante, entonces tendríamos que $(p(x)) = \mathbb{K}[x]$ ya que las constantes son invertibles y todo polinomio se puede poner como múltiplo de una constante cualquiera (ya que $p(x) = k(1/k\cdot p(x))\ \forall k\in \mathbb K^*$)
 
-De este modo, $\mathbb{K}[x]/(p(x))$ sería el $\mathbb{K}$-espacio vectorial trivial
+De este modo, $\mathbb{K}[x]/(p(x))$ sería el $\mathbb{K}$-espacio vectorial trivial, el ${0}$.
 
 
 # Rango de un conjunto de vectores. Coordenadas en una base.
@@ -926,7 +941,7 @@ $$x=\sum_{j = 1}^n\beta_j\cdot v_j = x=\sum_{j = 1}^n\beta_j\cdot \left(\sum_{i 
 
 ## Cambio de base
 
-Ahoram como que las coordenadas de $x$ en la base $B$ son únicas, se debe verificar que
+Ahora como que las coordenadas de $x$ en la base $B$ son únicas, se debe verificar que
 
 $$\alpha_i = \sum_{j = 1}^n\beta_ja_{ij}\quad \text{para todo }i=1,\dots,n$$
 
@@ -1098,14 +1113,14 @@ $$\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j$$
 $$\langle\vec{u}_i,\vec{u}_j\rangle = 0\quad\forall i\ne j$$
 $$||\vec{u}_i|| = 1\quad\forall i$$
 
-## Método de diagonalización Gram-Schmidt
+## Método de ortogonalización de Gram-Schmidt
 
-<l class = "definition">Método de diagonalización Gram-Schmidt.</l> Permite construir una base ortogonal a partir de una base cualquiera del espacio vectorial.
+<l class = "definition">Método de ortogonalización de Gram-Schmidt.</l> Permite construir una base ortogonal a partir de una base cualquiera del espacio vectorial.
 
-## Método de diagonalización Gram-Schmidt
+## Método de ortogonalización de Gram-Schmidt
 
 <div class = "dem">
-**Método de diagonalización Gram-Schmidt**
+**Método de ortogonalización de Gram-Schmidt**
 
 Sea $B= \{\vec{v}_1,\vec{v}_2,\dots,\vec{v}_n\}$ una base cualquiera de un espacio vectorial $E$ de $\dim(E) = n$.
 
@@ -1116,11 +1131,11 @@ A partir de los vectores de la base $B$, se construirá una nueva base $B_o = \{
 3. Para calcular el tercer vector, se procede del mismo modo: el tercer vector será una combinación lineal de $\vec{v}_1,\vec{v}_2,\vec{v}_3$ de la forma $\vec{u}_3= \vec{v}_3-\alpha_1\vec{u_1}-\alpha_2\vec{u}_2$ a la cual se impondrán las condiciones $\vec{u}_1\perp\vec{u}_3$ y $\vec{u}_2\perp\vec{u}_3$. Operando se obtniene:$$\alpha_1 = \frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle};\quad\alpha_2 = \frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}$$ $$\vec{u}_3 = \vec{v}_3-\frac{\langle\vec{u}_1,\vec{v}_3\rangle}{\langle\vec{u}_1,\vec{u}_1\rangle}\vec{u}_1-\frac{\langle\vec{u}_2,\vec{v}_3\rangle}{\langle\vec{u}_2,\vec{u}_2\rangle}\vec{u}_2$$
 </div>
 
-## Método de diagonalización Gram-Schmidt
+## Método de ortogonalización de Gram-Schmidt
 
 <div class = "dem">
 <ol start = 4>
-<li> Y operamos de forma análoga hasta llegar a $$\vec{u}_n = \vec{v}_n-\sum_{i=1}^n\frac{\langle\vec{u}_i,\vec{v}_n\rangle}{\langle\vec{u}_i,\vec{u}_i\rangle}\vec{u}_i$$
+<li> Y operamos de forma análoga hasta llegar a $$\vec{u}_n = \vec{v}_n-\sum_{i=1}^{n-1}\frac{\langle\vec{u}_i,\vec{v}_n\rangle}{\langle\vec{u}_i,\vec{u}_i\rangle}\vec{u}_i$$
 <li> Finalmente, si lo que se quiere es una base ortonormal, bastará con dividir cada vector por su norma para así normalizar todos los elementos de la base
 </ol>
 </div>
@@ -1138,7 +1153,7 @@ A partir de los vectores de la base $B$, se construirá una nueva base $B_o = \{
 
 <l class = "prop">Teorema.</l> Dos subespacio $V$ y $W$ de $E$ son ortogonales si:
 
-$$\forall\vec{x}\in V,\ \forall\vec{y}\in W\Rightarrow \langle\vec{x},\vec{y}\rangle$$
+$$\forall\vec{x}\in V,\ \forall\vec{y}\in W\Rightarrow \langle\vec{x},\vec{y}\rangle = 0$$
 
 ## Proyección ortogonal de un vector sobre un subespacio
 
@@ -1150,7 +1165,7 @@ Recordemos...
 
 <l class = "definition">Proyección ortogonal.</l> La proyección ortogonal de un vector $\vec{u}$ sobre otro $\vec{v}$, se expresa como
 
-$$P_{\vec{u}}(\vec{v}) = \frac{\langle\vec{u},\vec{v}\rangle}{\langle\vec{v},\vec{v}\rangle}\vec{v} = \frac{\langle\vec{u},\vec{v}\rangle}{||\vec{v}||^2}\vec{v} = $$
+$$P_{\vec{u}}(\vec{v}) = \frac{\langle\vec{u},\vec{v}\rangle}{\langle\vec{v},\vec{v}\rangle}\vec{v} = \frac{\langle\vec{u},\vec{v}\rangle}{||\vec{v}||^2}\vec{v} $$
 
 ## Proyección ortogonal de un vector sobre un subespacio
 
@@ -1162,5 +1177,5 @@ Con $\vec{u}_S\in S$ y $\vec{u}_0\in S^{\perp}$. En particular, el vector $\vec{
 
 ## Proyección ortogonal de un vector sobre un subespacio
 
-<l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Si se toma en $S$ una base ortogonal $\{\vec{s}_1,\vec{s}_2,\dots,\vec{s}_r\}$, la proyección de $\vec{u}$ sobre $S$ viene dada por $$P_{\vec{u}}(\vec{v}) = \vec{u}_S = \sum_{i = 1}^r\frac{\langle\vec{u},\vec{s}_i\rangle}{||\vec{s}_i||^2}\vec{s}_i$$
+<l class = "definition">Proyección ortogonal de un vector sobre un subespacio.</l> Si se toma en $S$ una base ortogonal $\{\vec{s}_1,\vec{s}_2,\dots,\vec{s}_r\}$, la proyección de $\vec{u}$ sobre $S$ viene dada por $$P_{S}(\vec{u}) = \vec{u}_S = \sum_{i = 1}^r\frac{\langle\vec{u},\vec{s}_i\rangle}{||\vec{s}_i||^2}\vec{s}_i$$
 
