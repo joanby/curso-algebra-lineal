@@ -145,7 +145,7 @@ $$\forall \lambda,\mu\in\mathbb{K},\ \vec{x},\vec{y}\in E,\quad f(\lambda\vec{x}
 
 **Ejemplo 1**
 
-Nos piden si la siguiente aplicación, conocida como <l class = "definition">Primera proyección</l>, es lineao o no:
+Nos piden si la siguiente aplicación, conocida como <l class = "definition">Primera proyección</l>, es lineal o no:
 
 $$\begin{matrix}f:&\mathbb{K}^2\longrightarrow \mathbb{K}\\
 &(x,y)\mapsto x
@@ -289,7 +289,7 @@ $$\text{Im}(f) = \{\vec{y}\in F:\ \exists\vec{x}\in E:\ f(\vec{x}) = \vec{y}\}$$
 &x\mapsto f(x)
 \end{matrix}$$
 
-Entonces $\text{Im}(f)$ es un subespacio vectorial de $E$
+Entonces $\text{Im}(f)$ es un subespacio vectorial de $F$.
 
 ## Imagen
 
@@ -336,7 +336,7 @@ Demostrar formalmente esta Proposición.
 
 - $f$ es un isomorfismo
 - $\dim(E) = \dim(F)$
-- $\ker(f) = \{0_E\}$
+- $\ker(f) = \{0_E\}$ y $Im(f) = F$
 
 ## Clasificación de una aplicación lineal
 
@@ -356,7 +356,7 @@ En el caso de espacios vectoriales de dimensión finita, los subespacios núcleo
 
 ## Teorema del Rango
 
-<l class = "prop">Teorema del Rango.</l> Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales de dimensión finita $n$ y $f:\longrightarrow F$ una aplicación lineal. Entonces, $\ker{(f)}$ e $\text{Im}(f)$ son de dimensión finita y
+<l class = "prop">Teorema del Rango.</l> Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales de dimensión finita y $f: E \longrightarrow F$ una aplicación lineal. Entonces, $\ker{(f)}$ e $\text{Im}(f)$ son de dimensión finita y
 
 $$\dim(E) = \dim(\ker(f))+\dim(\text{Im}(f))$$
 
@@ -394,7 +394,7 @@ Demostrar formalmente esta Proposición.
 
 Una versión similar al resultado anterior, pero referido a cuándo una aplicación $f$ concreta es un isomorfismo es la siguiente:
 
-<l class = "prop">Proposición. </l>Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales de dimensión finita y sea $f:E\longrightarrow F$ una aplicación lineal. Entonces $F$ es un isomorfismo si, y solo si, $\dim(E) = \dim(F)$ y $\ker{(f)} = 0$
+<l class = "prop">Proposición. </l>Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales de dimensión finita y sea $f:E\longrightarrow F$ una aplicación lineal. Entonces $F$ es un isomorfismo si, y solo si, $\dim(E) = \dim(F)$ y $\ker{(f)} = \{0\}$
 
 <div class = "exercise">
 **Ejercicio 8**
@@ -423,7 +423,7 @@ Demostrar formalmente esta Proposición.
 
 <l class = "prop">Proposición.</l> Sea $f:E\longrightarrow F$ una aplicación lineal donde $E,F$ son dos $\mathbb{K}$-espacios vectoriales con $E$ de dimensión finita $n$. Sea $G$ un subespacio vectorial de $E$. Entonces se verifica que 
 
-$$\dim(G) = \dim(G\cup \ker(f))+\dim(f(G))$$
+$$\dim(G) = \dim(G\cap \ker(f))+\dim(f(G))$$
 
 <div class = "exercise">
 **Ejercicio 10**
@@ -583,6 +583,8 @@ Así pues, $$P = \frac{1}{3}\begin{pmatrix}
 1 & 1 & 1
 \end{pmatrix}$$
 
+## Ejemplo 2{.example}
+
 Con lo cual, $$(1,-2,1)_C\xrightarrow{P}(\alpha,\beta,\gamma)_{B_F}$$ $$P\begin{pmatrix}
 1\\
 -2\\
@@ -714,7 +716,11 @@ Después de este ejemplo, empecemos con un resultado que nos asegura que toda ap
 
 ## Matriz asociada a una aplicación lineal
 
-<l class = "prop">Proposición.</l> Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales, $E$ de dimensión finita, $\{u_1,\dots,u_n\}$ una base de $E$ y $\{v_1,\dots,v_n\}$ $n$ vectores cualesquiera de $F$. Entonces existe una aplicación lineal $f:E\longrightarrow F$ tal que
+<l class = "prop">Proposición.</l> Sean $E,F$ dos $\mathbb{K}$-espacios vectoriales, $E$ de dimensión finita, $\{u_1,\dots,u_n\}$ una base de $E$ y $\{v_1,\dots,v_n\}$ $n$ vectores cualesquiera de $F$. Entonces existe una aplicación lineal $f:E\longrightarrow F$ tal que:
+
+$$f(u_i) = v_i\ \forall i= 1,\dots,n$$
+
+y que además la aplicación $f$ verifica que:
 
 - $f$ es monomorfismo si, y solo si, $v_1,\dots,v_n$ son LI
 - $f$ es epimorfismo si, y solo si, $v_1,\dots,v_n$ generan $F$
@@ -946,7 +952,7 @@ Entonces $$Q^{-1}AP = C$$
 
 La ecuación matricial de la aplicación lineal para $A,B_E,B_F$: $$AX_{B_E} = Y_{B_F}$$
 
-La ecuación matricial de la aplicación lineal para $A,B'_E,B'_F$: $$AX_{B'_E} = Y_{B'_F}$$
+La ecuación matricial de la aplicación lineal para $C,B'_E,B'_F$: $$CX_{B'_E} = Y_{B'_F}$$
 
 La ecuación de cambio de base de $B'_E$ a $B_E$ : $$X_{B_E} = PX_{B'_E}$$
 
