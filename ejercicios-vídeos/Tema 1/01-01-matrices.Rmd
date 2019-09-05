@@ -177,7 +177,7 @@ $$A = \begin{pmatrix} 1 & 0 & 2i & 3\\
 
 ## Pregunta 10
 
-Sea $A\in\mathcal{M}_n(\mathbb{R})$ una matriz nulipotente de índice $m$, es decir, que cumple $A^m=0$. Demuestra que $I_n-A$ es invertible y que $I_n+A+A^2+\cdots A^{m-1}$ es la inversa de $I_n-A$
+Sea $A\in\mathcal{M}_n(\mathbb{R})$ una matriz nilpotente de índice $m$, es decir, que cumple $A^m=0$. Demuestra que $I_n-A$ es invertible y que $I_n+A+A^2+\cdots A^{m-1}$ es la inversa de $I_n-A$
 
 ## Pregunta 11
 
@@ -185,7 +185,7 @@ Sea $A$ la matriz $$A = \begin{pmatrix}1 & -1 & 1\\
 0 & 1 & -1\\
 0 & 0 & 1\end{pmatrix}$$
 
-- Demostrad que $I_3-A$ es nulipontente de índice 3
+- Demostrad que $I_3-A$ es nilpontente de índice 3
 - Utilizad el apartado anterior y el binomio de Newton para calcular $A^n$ para todo $n\in\mathbb{Z}^+$
 - Calculad la unversa de $A$. PISTA: puedes hacer uso del problema anterior.
 
