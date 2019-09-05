@@ -17,7 +17,7 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA)
 
 ## Producto por bloques
 
-En el `Tema 1` vimos como multiplicar matrices. Resumiéndolo, consistía en realizar proeductos de filas por columnas pertinentes
+En el `Tema 1` vimos como multiplicar matrices. Resumiéndolo, consistía en realizar productos de filas por columnas pertinentes
 
 En caso de tener matrices (no necesariamente cuadradas) de órdenes elevados, cuyo producto pueda llevarse a cabo, los cálculos pueden resultar mucho más sencillos si dividimos las matrices en bloques y realizamos el producto por bloques.
 

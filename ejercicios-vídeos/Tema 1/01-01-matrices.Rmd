@@ -1,0 +1,222 @@
+---
+title: "Ejercicios"
+subtitle: "Matrices"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Clasifica las siguientes matrices:
+
+$$A = \begin{pmatrix}
+1 & 0 & 3\\
+0 & 2 & 1\\
+0 & 0 & 1
+\end{pmatrix}\qquad B = \begin{pmatrix}
+1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1
+\end{pmatrix}$$
+
+$$C = \begin{pmatrix}
+1 & 1 & 1 & 1 & 1\\
+1 & 1 & 1 & 1 & 1
+\end{pmatrix}\qquad D = \begin{pmatrix} 
+1\\ 2\\ 3\\ 4
+\end{pmatrix}$$
+
+$$E = \begin{pmatrix}1 & 2 & 3\\
+2 & 4 & 5\\
+3 & 5 & 6\end{pmatrix}\qquad F = \begin{pmatrix}0 & -1 & -3\\
+1 & 0 & -5\\
+3 & 5 & 0\end{pmatrix}$$
+
+## Pregunta 2
+
+Realiza las siguientes operaciones con las matrices dadas:
+
+$$A = \begin{pmatrix}2 & 2\\
+0 & -1\end{pmatrix}\qquad B = \begin{pmatrix}
+3\\ -1\end{pmatrix}\qquad C = \begin{pmatrix}
+1 & 0\\
+0 & -5\\
+3 & 2\end{pmatrix}\qquad D = \begin{pmatrix}
+1 & -1 & 0\\
+3 & 2 & -2\\
+4 & -3 & -1\end{pmatrix}$$
+
+$$E = \begin{pmatrix}
+0 & 2 & 3\\
+3 & 2 & 1\end{pmatrix}\qquad F = \begin{pmatrix} 
+0 & 1 & 0\\
+-1 & 1 & 3\\
+7 & -2 & 5
+\end{pmatrix}\qquad G = \begin{pmatrix}
+2 & 0\end{pmatrix}\qquad H = \begin{pmatrix}
+0 & 1\\ 
+1 & -1\end{pmatrix}$$
+
+- $G^t$
+- $D^t$
+- $A+H$
+- $A^2+H^2$
+- $(A+H)^2$
+- $B\cdot G$
+- $B^t+G$
+- $F+D$
+- $E+C^t$
+- $E\cdot C+H\cdot A$
+- $A\cdot H^t$
+- $E\cdot D+C$
+- $G\cdot A+B^t\cdot H$
+- $A(E\cdot C+H)$
+- $C(H\cdot E+C^t\cdot F)$
+
+
+
+## Pregunta 3
+
+Halla la forma escalonada y escalonada reducida por filas de las matrices
+
+$$A = \begin{pmatrix}
+1 & 2 & 1 & 0\\
+1 & 3 & 2 & 1\end{pmatrix}$$
+
+$$B = \begin{pmatrix}
+1 & 2 & 1 & 0\\
+-1 & 3 & -2 & 1\\
+3 & 6 & 0 & -5\end{pmatrix}$$
+
+## Pregunta 4
+
+Halla la forma escalonada y escalonada reducida por columnas de las matrices
+
+$$A = \begin{pmatrix}
+1 & 0 & 3\\
+0 & 2 & 1\\
+0 & 0 & 1
+\end{pmatrix}$$
+
+$$B = \begin{pmatrix}1 & -1 & 1\\
+2 & 2 & 3\\
+1 & 2 & 0\end{pmatrix}$$
+
+## Pregunta 5
+
+Calcula el rango de las siguientes matrices:
+
+$$A = \begin{pmatrix}
+1 & 0\\
+-1 & 1\end{pmatrix}\qquad B = \begin{pmatrix}
+1 & 2 & 3\\
+-3 & -2 & 0\\
+5 & 7 & -2\end{pmatrix}\qquad C = \begin{pmatrix}
+1 & 2 & 0 & -1\\
+4 & 2 & 6 & 0\\
+-2 & 3 & -1 & 3\\
+0 & 0 & 2 & 9\end{pmatrix}$$
+$$D = \begin{pmatrix}
+1 & 2 & 3 & 4 & 5\\
+0 & 1 & 0 & 2 & 3\\
+-1 & 5 & -3 & 0 & -3\\
+2 & 2 & 2 & 2 & 0\\
+-1 & 3 & 0 & 0 & 10\end{pmatrix}$$
+
+## Pregunta 6
+
+¿Para qué valores de $\alpha\in\mathbb{R}$, tiene rango 3 la siguiente matriz?
+
+$$A = \begin{pmatrix} 1 & 2 & 3\\
+0 & 3 & -5\\
+\alpha & 0 & \alpha\end{pmatrix}$$
+
+## Pregunta 7
+
+Calcula la inversa de las siguientes matrices, siempre que sea posible
+
+$$A = \begin{pmatrix}
+0 & 1\\
+1 & -1\end{pmatrix}\qquad B = \begin{pmatrix}
+1 & 2 & 3\\
+-1 & -2 & 0\\
+5 & 0 & -1\end{pmatrix}\qquad C = \begin{pmatrix}
+1 & 2 & 0 & -1\\
+5 & 2 & 6 & 0\\
+-2 & 3 & -1 & 3\\
+0 & 0 & 2 & 3\end{pmatrix}$$
+$$D = \begin{pmatrix}
+1 & 2 & 3 & 4 & 5\\
+0 & 1 & 0 & 2 & 3\\
+-1 & 5 & 1 & 0 & -3\\
+2 & 2 & 2 & 2 & 0\\
+-1 & 3 & 0 & 0 & -1\end{pmatrix}$$
+
+## Pregunta 8
+
+¿Para qué valores de $\alpha\in\mathbb{R}$, tiene inversa la siguiente matriz?
+
+$$A = \begin{pmatrix} 1 & 0 & 2 & 3\\
+0 & 3 & -5 & -2\\
+\alpha & 0 & \alpha & 0\\
+0 & 0 & 0 & 1\end{pmatrix}$$
+
+## Pregunta 9
+
+¿Para qué valores de $\alpha\in\mathbb{C},\ \alpha\ne 0$, tiene inversa la siguiente matriz?
+
+$$A = \begin{pmatrix} 1 & 0 & 2i & 3\\
+0 & 3 & -3 & 0\\
+\alpha & 0 & \alpha & \alpha(4-2i)\\
+0 & 0 & 0 & 1\end{pmatrix}$$
+
+## Pregunta 10
+
+Sea $A\in\mathcal{M}_n(\mathbb{R})$ una matriz nulipotente de índice $m$, es decir, que cumple $A^m=0$. Demuestra que $I_n-A$ es invertible y que $I_n+A+A^2+\cdots A^{m-1}$ es la inversa de $I_n-A$
+
+## Pregunta 11
+
+Sea $A$ la matriz $$A = \begin{pmatrix}1 & -1 & 1\\
+0 & 1 & -1\\
+0 & 0 & 1\end{pmatrix}$$
+
+- Demostrad que $I_3-A$ es nulipontente de índice 3
+- Utilizad el apartado anterior y el binomio de Newton para calcular $A^n$ para todo $n\in\mathbb{Z}^+$
+- Calculad la unversa de $A$. PISTA: puedes hacer uso del problema anterior.
+
+## Pregunta 12
+
+Sea $A$ la matriz $$A = \begin{pmatrix}
+0 & 0 & 0 & 0\\
+2 & 0 & 0 & 0\\
+2 & 2 & 0 & 0\\
+2 & 2 & 0 & 0\end{pmatrix}$$
+
+- Calcula $A^n$ para todo $n\in\mathbb{Z}^+$
+- Sea $B = A+I_4$. Calculad las potencias de $B$ en función de $A$
+- Demostrad que la inversa de $B$ es $A^2-A+I_4$
+
+## Pregunta 13
+
+Dada la matriz de números complejos
+$$A = \begin{pmatrix}4 & 2 & 2i\\
+2 & 1 & i\\
+2i & i & -1\end{pmatrix}$$
+demostrad por inducción que $A^n = 4^{n-1}A$
+
+## Pregunta 14
+
+Sean $\alpha,\beta,\gamma\in\mathbb{R}$ tales que $\alpha^2+\beta^2+\gamma^2 = 1$ y consideremos
+$$A = \begin{pmatrix}
+0 & \alpha & -\beta\\
+-\alpha & 0  & \gamma\\
+\beta & -\gamma & 0
+\end{pmatrix}$$
+
+Demostrad que la matriz $B = A^2+I_3$ es simétrica e idempotente ($B^2 = B$)
+

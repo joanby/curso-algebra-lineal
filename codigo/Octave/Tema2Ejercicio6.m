@@ -1,0 +1,1 @@
+A = [2 2; -1 1];b = [1; 2];AB = [A b];rangoA = rank(A)rangoAB = rank(AB)
