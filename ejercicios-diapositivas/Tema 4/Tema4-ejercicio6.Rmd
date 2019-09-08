@@ -1,0 +1,98 @@
+---
+title: "Tema 4 - Ejercicio 6"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Enunciado
+
+Estudiar el siguiente sistema según los valores del parámetro $a\in\mathbb{R}$
+
+$$\left\{\begin{matrix}
+ax & + & y & + & z & = & 1\\
+x & + & ay & + & z & = & 1\\
+x & + & y & + & az & = & 1
+\end{matrix}\right.$$
+
+### Solución
+
+Vayamos a ver de qué tipo puede ser este sistema.
+
+En primer lugar, calcularemos el rango de la matriz de coeficientes del sistema,
+
+$$A = \begin{pmatrix}
+a & 1 & 1\\
+1 & a & 1\\
+1 & 1 & a
+\end{pmatrix}$$
+
+y lo haremos mediante determinantes:
+
+$$|A| = \begin{vmatrix}
+a & 1 & 1\\
+1 & a & 1\\
+1 & 1 & a
+\end{vmatrix} = a^3+1+1-(a+a+a) = a^3-3a+2$$
+
+Ahora, la pregunta es: ¿Cuándo este determinante vale 0?
+
+Pues cuando $$a^3-3a+2 = 0\Leftrightarrow (a-1)^2(a+2) =0\Leftrightarrow a=1\text{ y }a=-2$$
+
+Entonces, tenemos 3 casos:
+
+- $a\ne 1$ y $a\ne -2$
+- $a = 1$
+- $a = -2$
+
+El primer caso, $a\ne 1$ y $a\ne -2$, es el más sencillo ya que al ser el determinante de $A$ no nulo, lo que tenemos es que tanto $A$ como la matriz ampliada del sistema tienen rango 3. Esto nos lleva a concluir que se trata de un sistema compatible determinado por el Teorema de Rouché-Frobenius.
+
+Ahora, ¿qué ocurre cuando $a=1$? Pues, en primer lugar, que el rango de $A$ es estrictamente menor a 3, con lo cuál, veamos si es 2 o 1:
+
+$$A = \begin{pmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{pmatrix}$$
+
+Como todas las filas y todas las columnas son iguales, el rango de $A$ es 1, ya que no hay ningún menor de orden 2 en esta matriz que sea no nulo.
+
+Veamos qué ocurre con la ampliada:
+
+$$A|b = \begin{pmatrix}
+1 & 1 & 1 & 1\\
+1 & 1 & 1 & 1\\
+1 & 1 & 1 & 1
+\end{pmatrix}$$
+
+Pues ocurre exactamente lo mismo: todas las filas y todas las columnas son iguales. Entonces, el rango es 1. En este caso, por el Th. Rouché-Frobenius, tenemos que se trata de un sistema compatible indeterminado.
+
+Finalmente, si $a = -2$, tenemos lo siguiente,
+
+$$A = \begin{pmatrix}
+-2 & 1 & 1\\
+1 & -2 & 1\\
+1 & 1 & -2
+\end{pmatrix}$$
+
+Si tomamos el menor de orden 2 formado por las 2 primeras filas y las dos primeras columnas, tenemos que es no nulo
+
+$$\begin{vmatrix}
+-2 & 1\\
+1 & -2
+\end{vmatrix} = 4-1 =3\ne 0$$
+
+con lo cual, el rango de la matriz de coeficientes del sistema es 2. ¿Qué ocurre ahora con el rango de la matriz ampliada?
+
+Si orlamos el menor anterior, que ya hemos visto que no era nulo, con la última fila y la cuarta columna, lo que obtenemos es
+
+$$\begin{vmatrix}
+-2 & 1 & 1\\
+1 & -2 & 1\\
+1 & 1 & 1
+\end{vmatrix} = 4+1+1-(-2-2+1) = 9\ne 0$$
+
+Por tanto, acabamos de ver que el rango de la ampliada es 3, lo que nos lleva a concluir que, al ser los rangos diferentes, el sistema es incompatible

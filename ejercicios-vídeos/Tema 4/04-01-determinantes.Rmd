@@ -1,0 +1,158 @@
+---
+title: "Ejercicios"
+subtitle: "Determinantes"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Resuelve la siguiente ecuación donde el determinante es de orden 9:
+$$\begin{vmatrix}x^2 & 9 & \cdots &9\\
+9 & x^2 & \cdots & 9\\
+\vdots & \vdots & \ddots & \vdots\\
+9 & 9 & \cdots & x^2
+\end{vmatrix}=0$$
+
+## Pregunta 2
+
+Calcula para qué valores de $a$ la matriz
+
+$$A = \begin{pmatrix}
+-a & a-1 & a+1\\
+1 & 2 & 3\\
+2-a & a+3 & a+7
+\end{pmatrix}$$
+
+tiene rango 3. En estos casos, calcula su inversa
+
+## Pregunta 3
+
+Calcula los valores de los siguientes determinantes de orden $n$
+
+$$\begin{vmatrix}1+a^2 & -a & 0 & \cdots & 0 &  0\\
+-a & 1+a^2 & -a & \cdots & 0 & 0\\
+0 & -a & 1+a^2 & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}$$
+
+$$\begin{vmatrix}
+0 & 1 & 1 & \cdots & 1\\
+1 & 0 & a & \cdots & a\\
+1 & a & 0 & \cdots & a\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+1 & a & a & \cdots & 0
+\end{vmatrix}$$
+
+$$\begin{vmatrix}
+1 & 2 & 3 & \cdots & n-1 & n-a\\
+1 & 2 & 3 & \cdots & n-1-a & n\\
+1 & 2 & 3 & \cdots & n-1 & n\\
+\vdots & \vdots &  \vdots & \ddots & \vdots & \vdots\\
+1 & 2-a & 3 & \cdots & n-1 & n\\
+1-a & 2 & 3 & \cdots & n-1 & n
+\end{vmatrix}$$
+
+$$\begin{vmatrix}
+1 & b_1 & b_1 & \cdots & b_1\\
+1 & a_1 & b_2 & \cdots & b_2\\
+1 & a_1 & a_2 & \cdots & b_3\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+1 & a_1 & a_2 & \cdots & a_{n-1}
+\end{vmatrix}$$
+
+## Pregunta 4
+
+A partir del determinante de orden $n$
+
+$$|A_n| = \begin{vmatrix}
+x & 1 & 0 & \cdots & 0\\
+1 & x & 0 & \cdots & 0\\
+0 & 1 & x & \cdots & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \cdots & x
+\end{vmatrix}$$
+
+Calculad $$B_n = \begin{vmatrix}
+A_n & A_{n-1}\\
+A_{n+1} & A_n
+\end{vmatrix}$$
+
+## Pregunta 5
+
+Resolved la siguiente ecuación donde el determinante es de orden $n$
+
+$$\begin{vmatrix}
+1 & 2 & 3 & \cdots & n\\
+1 & 1+x & 3 & \cdots & n\\
+1 & 2 & 1+x & \cdots & n\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+1 & 2 & 3 & \cdots & 1+x
+\end{vmatrix} = 0$$
+
+## Pregunta 6
+
+Estudia la compatibilidad de los siguientes sistemas de ecuaciones lineales según los valores de los parámetros y resolvedlos por Crammer en caso de ser posible
+
+$$\left\{\begin{matrix}
+(a+1)x & + & y & + & z & = & 1\\
+x & + & y & + & z & = & a-1\\
+x & + & ay & + & z & = & 0
+\end{matrix}\right.$$
+
+$$\left\{\begin{matrix}
+(a+1)x & + & 2y & + & z & = & 0\\
+x & + & ay & + & z & = & a-1\\
+x & + & y & + & z & = & a
+\end{matrix}\right.$$
+
+$$\left\{\begin{matrix}
+2x & + & ay & + & z &  & & = & 7\\
+x & + & ay & + & z & + & t &  = & b\\
+bx & + & ay & + & z & & &  = & b\\
+x & + & 2ay &  &  & + & t &  = & -1\\
+\end{matrix}\right.$$
+
+## Pregunta 7
+
+Calcula los siguientes determinantes sin desarrollar por filas ni columnas, solamente utilizando sus propiedades:
+
+$$\begin{vmatrix}a & b & b\\
+b & a & b\\
+b & b & a\end{vmatrix}$$
+
+$$\begin{vmatrix}a & 1 & 1\\
+1 & a & 1\\
+1 & 1 & a\end{vmatrix}$$
+
+$$\begin{vmatrix}0 & a & a & a\\
+a & 0 & b & b\\
+b & b & 0 & c\\
+c & c & c & 0\end{vmatrix}$$
+
+## Pregunta 8
+
+Prueba la siguiente igualdad
+
+$$\begin{vmatrix}
+a-b-c & 2b & 2c\\
+2a & b-c-a & 2c\\
+2a & 2b & c-a-b
+\end{vmatrix} = (a+b+c)^3$$
+
+## Pregunta 9
+
+Calcula el determinante
+
+$$\begin{vmatrix}
+a^2 & ab & ab & b^2\\
+ab & a^2 & b^2 & ab\\
+ab & b^2 & a^2 & ab\\
+b^2 & ab & ab & a^2
+\end{vmatrix}$$
