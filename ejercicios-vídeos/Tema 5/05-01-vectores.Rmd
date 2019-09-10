@@ -1,0 +1,136 @@
+---
+title: "Ejercicios"
+subtitle: "Vectores"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Calcula las componentes cartesianas de los siguientes vectores $\vec{AB}\in\mathbb{R}^2$ donde
+
+- $A = (2,3), B = (1,5)$
+- $A = (-2,0), B = (4,-2)$
+- $A = (0,5), B = (-1,0)$
+- $A = (7,9), B = (5,4)$
+- $A = (-6,3), B = (2,9)$
+- $A = (-2,-3), B = (0,-5)$
+
+## Pregunta 2
+
+Calcular el módulo y la dirección de los vectores $\vec{AB}\in\mathbb{R}^2$ anteriores
+
+## Pregunta 3
+
+Dados $$u = (1,2,-3), v = (9,5,-7), w = (3,-2,1), z = (0,5,0)$$ $$a = (1,2), b = (0,-1), c = (3,-5), d = (-4,2)$$ realiza las siguientes operaciones 
+
+- $u+v$
+- $u-v+2w$
+- $a+b+c+d$
+- $a-2b+3c-4d$
+- $u-5z$
+- $b+(4a-5c)$
+
+## Pregunta 4
+
+Dados $$u = (1,2,-3), v = (9,5,-7), w = (-4,-6,12), x = (-3,-2,1), y = (3,6,-9), z = (0,5,0)$$
+
+- ¿Hay algún par de vectores paralelos?
+- Busca un vector paralelo para cada uno de los anteriores vectores dados.
+- Da un vector, no necesariamente de los dados anteriormente, que sea combinación lineal de $v,w,z$
+
+## Pregunta 5
+
+¿Es el vector $(1,0,5)$ combinación lineal de los vectores $(0,1,0), (3,2,1)$?
+
+## Pregunta 6
+
+Dados $$u = (1,0,3), v = (3,0,-5), w = (-2,9,1), x = (-3,5,0), y = (4,-6,9), z = (1,0,0)$$
+
+Calcula los siguientes productos escalares
+
+- $\langle u,v\rangle$
+- $\langle 2u,-w\rangle$
+- $\langle -3x,2z\rangle$
+- $\langle y,-v\rangle$
+- $\langle x,\langle y,2u\rangle z\rangle$
+
+## Pregunta 7
+
+Dados $$u = (0,-2,-3), v = (9,0,-6), w = (4,-2,0), z = (0,3,0)$$ $$a = (2,0), b = (3,-2), c = (0,-5), d = (-4,7)$$ realiza las siguientes operaciones 
+
+- $||u||u$
+- $u+v+5w+\langle a,d\rangle z$
+- $u-||v||v+2w$
+- $a+b+\langle a,c\rangle c+||d||$
+- $a-2b+||z||c-4d$
+- $u-||5z||w$
+- $b+\langle x,y\rangle (4a-5c)$
+
+Finalmente, calcula las normas de los vectores resultantes y di cuál de ellos, si los hay, es unitario.
+
+## Pregunta 8
+
+Dados $$u = (1,0,-3), v = (9,5,-7), w = (-4,-6,12), x = (-3,-2,1), y = (3,6,-9), z = (0,5,0)$$
+
+Calcula el ángulo entre los vectores
+
+- $u,v$
+- $u,w$
+- $u,x$
+- $x,y$
+- $y,z$
+- $v,y$
+- $x,w$
+- $u,z$
+
+¿Hay algún par de vectores que sean ortogonales? Si es así, ¿son ortonormales?
+
+## Pregunta 9
+
+Dados $$u = (1,0,-3), v = (9,5,-7), w = (-4,-6,12), x = (-3,-2,1), y = (3,6,-9), z = (0,5,0)$$
+
+Calcula las siguientes proyecciones ortogonales
+
+- De $u$ sobre $v$
+- De $u$ sobre $w$
+- De $u$ sobre $x$
+- De $x$ sobre $y$
+- De $y$ sobre $z$
+- De $v$ sobre $y$
+- De $x$ sobre $w$
+
+## Pregunta 9
+
+Dados $$u = (1,0,-3), v = (9,5,-7), w = (-4,-6,12), x = (-3,-2,1), y = (3,6,-9), z = (0,5,0)$$
+
+Calcula los siguientes productos vectoriales
+
+- $u\wedge v$
+- $3w\wedge w$
+- $v\wedge u$
+- $(-u)\wedge x$
+- $x\wedge y$
+- $y\wedge z$
+- $(-2)v\wedge (-y)$
+- $x\wedge w$
+- $u\wedge 2z$
+
+## Pregunta 10
+
+Dados $$u = (1,0,-3), v = (9,5,-7), w = (-4,-6,12), x = (-3,-2,1), y = (3,6,-9), z = (0,5,0)$$
+
+Calcula los siguientes productos mixtos
+
+- $\{u,v,w\}$
+- $\{u,w,z\}$
+- $\{u,v+z,w\}$
+- $\{x,y,z\}$
+- $\{z,y,x\}$
+- $\{u,\langle x,y\rangle v,w\}$
+- $\{y,z,u\}$
+

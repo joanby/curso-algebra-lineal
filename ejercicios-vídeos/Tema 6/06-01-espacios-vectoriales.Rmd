@@ -1,0 +1,95 @@
+---
+title: "Ejercicios"
+subtitle: "Espacios vectoriales"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Considera los vectores $\vec{u} = (3,0,0),\ \vec{v} = (1,0,-3),\ \vec{w} = (0,-2,4)$
+
+- Estudiad si son linealmente independientes o linealmente dependientes
+- Encontrad, si es posible, una combinación lineal de estos vectores tal que su resultado sea el vector $(2,-4,1)$
+- ¿Es posible obtener cualquier vector $(x,y,z)\in\mathbb{R}^3$ como combinación lineal de $\vec{u},\vec{v},\vec{w}$?
+
+## Pregunta 2
+
+Dados los vectores $\vec{u} = (1,2,3),\ \vec{v} = (2,4,0),\ \vec{w} = (3,-2,3)$
+
+- Encuentra tres números reales $a,b,c$ tales que $a\vec{u}+b\vec{v}+c\vec{w} = \vec{0}$
+- ¿Es $\vec{u}$ combinación lineal de $\vec{v},\vec{w}$?
+- ¿Es $\vec{w}$ combinación lineal de $\vec{u},\vec{v}$?
+- Expresa el vector $(6,0,9)$ como combinación lineal de los 3 vectores $\vec{u},\vec{v},\vec{w}$
+
+## Pregunta 3
+
+Determina si los siguientes conjuntos de vectores de $\mathbb{R}^3$ son linealmente dependientes o independientes. Estudia su rango:
+
+- $\{(1,-2,1),(2,1,-1),(7,-4,1)\}$
+- $\{(1,-3,7),(2,0,-6),(3,-1,-1),(2,4,5)\}$
+- $\{(1,2,-3),(1,-3,2),(2,-1,5)\}$
+- $\{(2,-3,7),(0,0,0),(3,-1,-4)\}$
+- $\{(1,1,1),(1,-1,5)\}$
+- $\{(1,1,1),(1,2,3),(2,-1,1)\}$
+- $\{(2,2,-1),(4,2,-2),(7,-4,1)\}$
+
+## Pregunta 4
+
+Demostrad que $\vec{u} = (x,y)$ y $\vec{v} = (z,t)$ son linealmente dependientes si, y solo si, $xt-yz = 0$
+
+## Pregunta 5
+
+Encontrad los valores de $\alpha$ tales que los vectores $(-2,\alpha,\alpha), (\alpha,-2,\alpha),(\alpha,\alpha,-2)$ sean linealmente dependientews
+
+## Pregunta 6
+
+Dado el conjunto de vectores $U=\{u_1,u_2,u_3,u_4\}$ tal que $u_4$ es combinación lineal de $u_1,u_2$ y $u_3$ es combinación lineal de $u_1,u_4$, discutid si los vectores de este conjunto son LI o LD y decid cuál es el rango de $U$ 
+
+## Pregunta 7
+
+Determinad si los vectores $u = (1,0,2)$, $v = (0,1,-3)$, $w = (1,1,0)$ y $z = (0,0,-1)$ de $\mathbb{R}^3$ forman un sistema generador de $\mathbb{R}^3$.
+
+## Pregunta 8
+
+Si $U = \{u_1,u_2,u_3,u_4,u_5\}$ es un conjunto de vectores de rango 3, comenta la verdad o la falsedad de las siguientes afirmaciones
+
+- Todos los subconjuntos de $U$ de 3 vectores son conjuntos libres
+- El vector $u_3$ es linealmente independiente del resto
+- Los vectores del subconjunto $U = \{u_1,u_2,u_3\}$ son LI
+- Algún subconjunto de $U$ de 3 vectores es libre (sus vectores son LI) ya que el rango es el número máximo de vectores LI que podemos encontrar en el conjunto. Por tanto, es suficiente con que haya al menos un subconjunto de 3 vectores LI
+
+## Pregunta 9
+
+Estudiad si los siguientes conjuntos de vectores cumplen los requisitos para formar una base de $\mathbb{R}^3$
+
+- $A = \{(1,1,1),(3,1,-1),(-4,2,8)\}$
+- $B = \{(3,2,1),(2,1,0),(1,0,0)\}$
+
+## Pregunta 10
+
+Considerad los vectores $(1,2,-1),(2,1,-1)$. Encontrad un vector tal que con los otros dos forme una base de $\mathbb{R}^3$
+
+## Pregunta 11
+
+Sea $\vec{u} = (2,1,3)$ en la base canónica. Calculad las componentes de $\vec{u}$ en la nueva base $B = \{(1,2,0),(1,-1,1),(0,1,1)\}$
+
+## Pregunta 12
+
+Expresad el vector $(3,1,4)$ en la base de $\mathbb{R}^3$ formada por los vectores $(1,-2,-1),(1,-1,0),(0,0,3)$
+
+## Pregunta 13
+
+Indica cuáles de los siguientes conjuntos son subespacios vectoriales de los espacios indicados. Dad una base en el caso en que sea subespacio
+
+- $A = \{(x,y,z)\in\mathbb{R}^3:\ x-z = 0\}$
+- $B= \{(x,y,z)\in\mathbb{R}^3:\ x-y+z = 0\}$
+- $C = \{(x,y,z)\in\mathbb{R}^3:\ x = 0,\ y+z = 0\}$
+- $D = \{(x,y,0)\in\mathbb{R}^3\}$
+- $E = \{(x,y,z,t)\in\mathbb{R}^4:\ y = x+z+t+1\}$
+- $F = \{(x,y,z,y)\in\mathbb{R}^4\ y = x+z,\ t = 2x:\}$
+
