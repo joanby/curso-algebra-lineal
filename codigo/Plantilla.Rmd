@@ -1,0 +1,50 @@
+---
+title: "titulo"
+author: "autor"
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
+library(knitr)
+library(reticulate)
+use_python("/anaconda3/bin/python3")
+```
+
+
+
+## Código en `R`
+
+
+```{r}
+z1 = 2+1i #Definimos el complejo en forma binómica
+z1
+z2 = complex(real = 2, imaginary = -1) #Definimos mediante parte real e imaginaria
+z2
+z3 = complex(modulus = 2, argument = pi) #Definimos mediante módulo y argumento
+z3
+```
+
+
+## Código en Python
+
+```{python}
+z1 = 4+3j
+print(z1)
+z2 = complex(1,7)
+print(z2)
+```
+
+## Código en Octave
+
+```{octave}
+z1 = complex(1,2)
+z2 = 2-i
+tipoDato1 = class(z1)
+tipoDato2 = class(z2)
+```
