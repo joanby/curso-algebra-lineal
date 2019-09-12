@@ -93,3 +93,10 @@ Indica cuáles de los siguientes conjuntos son subespacios vectoriales de los es
 - $E = \{(x,y,z,t)\in\mathbb{R}^4:\ y = x+z+t+1\}$
 - $F = \{(x,y,z,y)\in\mathbb{R}^4\ y = x+z,\ t = 2x:\}$
 
+## Pregunta 14
+
+Dentro del espacio vectorial de las matrices cuadradas $\mathcal{M}_2(\mathbb{R})$, decid cuáles de los siguientes conjuntos son subespacios vectoriales
+
+- El conjunto de las matrices diagonales
+- El conjunto $V = \left\{\begin{pmatrix}a & 1 \\ b & 1\end{pmatrix}:\quad a,b\in\mathbb{R}\right\}$
+- El conjunto $W = \left\{\begin{pmatrix}a & b \\ c & d\end{pmatrix}:\quad a+b=0,\ a,b,c,d\in\mathbb{R}\right\}$
