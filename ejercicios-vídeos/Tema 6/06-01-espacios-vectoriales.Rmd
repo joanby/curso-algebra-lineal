@@ -98,5 +98,106 @@ Indica cuáles de los siguientes conjuntos son subespacios vectoriales de los es
 Dentro del espacio vectorial de las matrices cuadradas $\mathcal{M}_2(\mathbb{R})$, decid cuáles de los siguientes conjuntos son subespacios vectoriales
 
 - El conjunto de las matrices diagonales
-- El conjunto $V = \left\{\begin{pmatrix}a & 1 \\ b & 1\end{pmatrix}:\quad a,b\in\mathbb{R}\right\}$
+- El conjunto $V = \left\{\begin{pmatrix}a & 1 \\ 1 & b\end{pmatrix}:\quad a,b\in\mathbb{R}\right\}$
 - El conjunto $W = \left\{\begin{pmatrix}a & b \\ c & d\end{pmatrix}:\quad a+b=0,\ a,b,c,d\in\mathbb{R}\right\}$
+
+## Pregunta 15
+
+- Probad que el conjunto $ B = \{(1,1,1), (1,1,2), (1,2,3)\}$ forma una base de $\mathbb{R}^3$. 
+- Encontrad, con respecto a esta base, las coordenadas del vector $(5,1,-3)$.
+- Encontrad las coordenadas en la base canónica del vector que tiene por coordenadas $(3,1,-1)$ en la base $B$
+
+## Pregunta 16
+
+Expresad el vector $u = (1,-2,5)\in\mathbb{R}^3$ como combinación lineal de $u_1 = (1,-3,2), u_2 = (2,-4,-1)$ y $u_3 = (1,-5,7)$. 
+
+¿Forman $u_1,u_2,u_3$ una base de $\mathbb{R}^3$?
+
+## Pregunta 17
+
+- Probad que el conjunto $B = \{(1,0,0,-1), (0,1,-1,0), (0,1,0,-1),(0,1,1,1)\}$ forma una base de $\mathbb{R}^4$.
+- Obtened las coordenadas del vector $(-3,2,1,-2)$ en esta base $B$.
+- Dado el vector $u = (3,0,-1,1)_B$, obtened sus coordenadas en la base canónica
+
+## Pregunta 18
+
+Sea $B = \{u_1,u_2,u_3\}$ una base de un espacio vectorial $E$. Sabiendo que 
+$$\left\{\begin{matrix}
+v_1 &=& 2u_1&-&u_2&&\\
+v_2 &=& -u_1 &&& + & u_3\\
+v_3 &=& &&u_2&&
+\end{matrix}
+\right.$$
+
+Obtened las coordenadas de $v_1,v_2,v_3$ en la base $B$.
+
+Demostrad que la base $B' = \{v_1,v_2,v_3\}$ también forma una base de $E$.
+
+Sean $(2,1,3)$ las coordenadas de un vector $u$ en la base $B$, calcula sus coordenadas en la base $B'$
+
+## Pregunta 19
+
+Consideremos los vectores LI $e_1,e_2,e_3$
+
+- Demostrad que $u_1,u_2,u_3$ también son LI donde
+
+$$\left\{\begin{matrix}
+u_1 &=& 2e_1+e_3\\
+u_2 &=& 3e_3\\
+u_3 &=& e_2-e_3
+\end{matrix}
+\right.$$
+
+- Dado un vector $v = 2e_1+e_2-3e_3$, expresadlo como combinación lineal de $u_1,u_2,u_3$
+
+## Pregunta 20
+
+Demostrad que el conjunto de las matrices de la forma 
+
+$$\begin{pmatrix}
+x-3y & 5y\\
+-4y & x+3y
+\end{pmatrix}$$
+
+con $x,y\in\mathbb{Q}$ forman un subespacio vectorial del espacio de matrices de orden 2 sobre el cuerpo de los racionales.
+
+## Pregunta 21
+
+En el conjunto $\mathbb{R}^+$ de los números reales estrictamente positivos, se consideran las operaciones 
+
+- $(x,y)\mapsto xy$ (operación interna, suma)
+- $(a,x)\mapsto x^a$ (operación externa, producto por escalares)
+
+Demostrad que $\mathbb{R}^+$ junto con estas operaciones es un espacio vectorial sobre $\mathbb{R}$
+
+## Pregunta 22
+
+Demostrad que el conjunto $\{a+b\sqrt{2}+c\sqrt{3}\ :\ a,b,c\in\mathbb{Q}\}$ es un $\mathbb{Q}-$e.v. con las operaciones habituales. 
+
+¿Es también un $\mathbb{R}$-e.v.?
+
+## Pregunta 23
+
+En $\mathbb{R}^4$ se consideran la base canónica $B_C$ y los conjuntos
+
+- $B_1 = \{(0,1,0,3),(-1,1,0,0),(-2,0,-1,2),(-1,-1,-1,1)\}$
+- $B_2 = \{(2,-2,0,1),(1,1,1,0),(3,0,1,-1),(0,-2,-1,1)\}$
+
+(a) Demostrad que $B_1$ y $B_2$ son bases de $\mathbb{R}^4$
+(b) Calculad la matriz del cambio de base de $B_1$ a $B_2$
+(c) Si $v = (2,1,0,-1)_{B_2}$, ¿Cuáles son sus coordenadas en $B_1$?
+
+## Pregunta 24
+
+Expresad los polinomios $P(x) = 5+9x+5x^2$ y $Q(x) = 12+6x^2$ como combinación lineal de 
+
+$$P_1 (x) = 2+x+x^4\\ P_2(x) = 1-x+3x^3\\ P_3(x) = 3+2x+5x^2$$
+
+## Pregunta 25
+
+Considerad en $\mathbb{R}^4$ los subespacios 
+
+$$F = \langle (1,2,3,4), (2,2,2,6),(0,2,4,4)\rangle$$
+$$G = \langle (1,0,1,2),(2,3,0,1)\rangle$$
+
+Determinad las dimensiones y dad una base de cada uno de los espacios vectoriales cociente $\mathbb{R}^4/F$ y $\mathbb{R}^4/G$
