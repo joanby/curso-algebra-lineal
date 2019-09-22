@@ -335,7 +335,7 @@ Demostrar formalmente esta Proposición.
 <l class = "prop">Teorema.</l> Sean $E$ y $F$ espacios vectoriales de dimensión finita sobre $\mathbb{K}$ y $f:E\longrightarrow F$ una aplicación lineal, entonces son equivalentes:
 
 - $f$ es un isomorfismo
-- $\dim(E) = \dim(F)$
+- $\dim(E) = \dim(F)$ y $ker(f)=\{0\}$
 - $\ker(f) = \{0_E\}$ y $Im(f) = F$
 
 ## Clasificación de una aplicación lineal
