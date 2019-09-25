@@ -187,12 +187,23 @@ Plantead un problema de programación lineal para determinar el plan de producci
 ## Producción
 
 <div class = "center">
-Tipos | Prendas vendidas | Demanda (mín-máx) | Metros necesarios | Composición |
+Tipos | Precio venta | Demanda (mín-máx) | Metros necesarios | Composición |
 --- | --- | --- | --- | --- |
-Seda | 6.70 | 6000-70001 | 0.125 | 100% Seda | 
+Seda | 6.70 | 6000-7000 | 0.125 | 100% Seda | 
 Poliester | 3.55 | 10000-14000 | 0.09 | 100% Poliester | 
 Pol / Alg | 4.32 | 12000-17000 | 0.12 | 50% Pol, 50% Alg | 
 Pol / Alg | 4.81 | 4000-9700 | 0.1 | 20% Pol, 80% Alg | 
+</div>
+
+
+## Producción
+Coste y disponiblidad de los materiales
+<div class = "center">
+Material | Coste por metro | Metros disponibles/mes|
+--- | --- | --- |
+Seda | 21 | 800 |
+Poliester | 6 | 3000 |
+Algodón | 9 | 1600 |  
 </div>
 
 # Planificación de horarios
@@ -567,7 +578,7 @@ En este caso, la región facitble es $R = \emptyset$, es decir, el problema no t
 Para describir un PPL se necesita
 
 - Un vector $c = (c_1,\dots,c_n)\in\mathbb{R}^n$, que serán los coeficientes de la función objetivo
-- Un vector $b = (b_1\dots,b_n)\in\mathbb{R}^n$ con $b_i\ge 0$ para todo $i = 1\dots, m$, que será el vector de términos independientes
+- Un vector $b = (b_1\dots,b_m)\in\mathbb{R}^m$ con $b_i\ge 0$ para todo $i = 1\dots, m$, que será el vector de términos independientes
 - Una matriz $A = (a_{ij})_{m\times n}$, que corresponderá a las restricciones
 
 ## Forma estándar de un PPL
@@ -600,7 +611,7 @@ Cualquier PPL se puede transformar a la forma estándar:
 Las variables no restringidas en signo se pueden expresar como diferencia de dos variables no negativas. Se define
 
 $$x_i^+ = \max\{0,x_i\}$$
-$$x_i^- = \min\{0,-x_i\}$$
+$$x_i^- = \max\{0,-x_i\}$$
 
 Se satisface que $x_i^+,\ x_i^-\ge 0$ y que $x_i = x_i^+-x_i^-$
 
@@ -623,7 +634,7 @@ $$a_{i1}x_1+\cdots+a_{in}x_n-x_{n+1} = b_i$$
 Si nos piden maximizar $Z=cx$, esto es equivalente a minimizar $Z = -cx$ si ambos problemas verifican el mismo conjunto de restricciones.
 
 Por otro lado, si nos piden minimizar $Z=cx$, esto es equivalente a maximizar $Z = -cx$ siempre y cuando ambos problemas verifican el mismo conjunto de restricciones.
-## Transformación de un PPL a su forma estándar
+
 
 **PASO 4**: No negatividad de los términos independientes
 
@@ -659,7 +670,7 @@ $$\max Z = 2x_1-3x_2+5x_3+0\cdot x_4+0\cdot x_5$$
 
 bajo las restricciones
 
-$$\left\{\begin{matrix}x_1+x_2+x_3 = 2\\
+$$\left\{\begin{matrix}x_1+x_2+x_4 = 2\\
 3x_1+x_2-x_3-x_5 = 3\\
 x_1,x_2,x_3,x_4,x_5\ge 0\end{matrix}\right.$$
 </div>
@@ -1228,6 +1239,6 @@ A veces un paso del pivote no provoca una mejora de la solución y serán necesa
 
 ## Observaciones finales
 
-Se ha dado una introducciín al algoritmo símplex. El proceso no es difícil, pero en programas lineales de dimensiones considerables la tarea de computar es larga y aburrida.
+Se ha dado una introducción al algoritmo del símplex. El proceso no es difícil, pero en programas lineales de dimensiones considerables la tarea de computar es larga y aburrida.
 
 Afortunadamente, hay programas informáticos que desarrollan todo el proceso.
