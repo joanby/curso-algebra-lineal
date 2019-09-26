@@ -1,0 +1,225 @@
+---
+title: Tema 10 - Cadenas de Markov
+author: Juan Gabriel Gomila & María Santos
+date: 
+output: 
+  ioslides_presentation:
+    widescreen: true
+    css: Mery_style.css
+    logo: Images/matriz_mov.gif
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
+  octave = '/Applications/Octave-4.4.1.app/Contents/Resources/usr/bin/octave'
+))
+library(matlib)
+library(Biodem)
+library(expm)
+```
+
+# Introducción
+
+## Introducción
+
+En este capítulo estudiaremos sistemas estocásticos que serán modelados haciendo uso de Cadenas de Markov
+
+<l class = "definition">Proceso de Markov.</l> Proceso aleatorio donde el valor de la variable aleatoria en el instante $n$ depende solamente de su valor pasado inmediato en el instante $n-1$
+
+En un proceso de Markov, la variable aleatoria representa el estado del sistema en un instante dado $n$
+
+## Introducción
+
+Los procesos de Markov son ejemplos de procesos que salen en situaciones de la vida real:
+
+- Protocolos de telecomunicación y sistemas de maquinaria
+- Llegadas y salidas de clientes en bancos
+- Pasar por caja en los supermercados
+- Mutación de un virus o molécula de ADN
+- Paseo aleatorio como por ejemplo el movimiento Browniano
+- Llegada de coches a una intersección
+- El estado del tiempo diario
+
+# Cadenas de Markov
+## Cadenas de Markov
+
+
+Si el espacio de estados (espacio muestral) de un proceso de Markov es discreto, el proceso de Markov se denomina <l class = "definition">Cadena de Markov</l>.
+
+En este caso, los estados se etiquetan con los números $0,1,2,\dots$
+
+En este tema, estudiaremos cadenas de Markov de tiempo discreto, ya que son las que salen en la mayoría de sistemas de comunicación.
+
+# Selección del paso de tiempo
+## Selección del paso de tiempo
+
+<l class = "definition">Tiemo de espera.</l> En una cadena de Markov, es el tiempo que estamos en un estado determinado
+
+Dependiendo de como midamos este tiempo de espera, tenemos dos tipos de cadenas de Markov:
+
+- <l class = "definition">Cadenas de Markov de tiempo discreto.</l> Los tiempos de espera toman valores enteros. Por tanto, los cambios de estados pasan en tiempos discretos $t = T_0,T_1,T_2,\dots$. Si estos tiempos están equiespaciados, tenemos $T_n = nT$, con $n=0,1,2,\dots$
+- <l class = "definition">Cadenas de Markov de tiempo continuo.</l> En este caso, los cambios de estados pueden tener lugar en cualquier instante de tiempo
+
+## Ejemplo 1{.example}
+
+**Ejemplo 1**
+
+Consideramos un buffer donde los paquetes llegan en cada paso de tiempo con probabilidad $a$ y se van con probabilidad $c$.
+
+Se trata de una cadena de Markov de tiempo discreto. El paso del tiempo sería el tiemop que se necesita para recibir o transmitir un paquete.
+
+Suponiendo que el buffer tiene tamaño $B$, la tabla de estados sería la siguiente
+
+
+## Ejemplo 1
+
+Estado | Significado |
+--- | --- |
+0 | Buffer vacío |
+1 | Hay un paquete en el buffer |
+2 | Hay 2 paquetes en el buffer |
+$\vdots$ | $\vdots$ |
+$B$ | El buffer está lleno |
+
+# Falta de memoria de las cadenas de Markov
+
+## Falta de memoria de las cadenas de Markov
+
+En una cadena de Markov de tiempo discreto el valor de la variable aleatoria $S(n)$ representa el estado en el tiempo $n$
+
+La variable aleatoria $S(n)$ solo depende de la variable aleatoria $S(n-1)$. Esta propiedad se denomina <l class = "definition">falta de memoria de las cadenas de Markov</l>.
+
+La probabilidad de que $S(n)$ tome el valor $s_i$ solo depende de los valores $s_j$ que toma $S(n-1)$. Matemáticamente
+
+$$p\{S(n) = s_i\} = f(s_j)$$ para todos $s_i,s_j\in S$ donde $S$ es el conjunto de estados del sistema (el espacio muestral)
+
+## Ejemplo 2{.example}
+
+**Ejemplo 2**
+
+Consideremos el buffer de un cierto dispositivo de comunicaciones. Supongamos que este dispositivo tiene una capacidad máxima de $B = 4$ paquetes. Los estados de este buffer y las posibles transiciones entre ellos se pueden ver en el siguiente gráfico
+
+## Ejemplo 2
+
+<div class = "center">
+![<l class = "phototext">Estados del buffer y las posibles transiciones entre ellos del `Ejemplo 2`</l>](Images/buffer.png)
+</div>
+
+# Matriz de transición
+
+## Matriz de transición
+
+Definimos $p_{ij}(n)$ la probabilidad de que en el tiempo actual $n$, nuestro sistema se encuentre en el estado $i$ suponiendo que en el tiempo anterior estábamos en el estado $j$ (tiempo $n-1$).
+
+Matemáticamente
+
+$$p_{ij}(n) = p\{S(n) = i\ |\ S(n-1) = j\}$$
+
+En el caso de que la probabilidad anterior $p_{ij}(n)$ sea independiente del tiempo $n$, diremos que la cadena de Markov es <l class = "definition">homogénea</l>.
+
+En este caso, podemos escribir
+
+$$p_{ij} = p\{S(n) = 1\ |\ S(n-1) = j\}$$
+
+## Matriz de transición
+
+Definimos $s_i(n)$ la probabilidad de que en el tiempo $n$ estemos en el estado $i$
+
+$$s_i(n) = p\{S(n) = i\}$$
+
+Haciendo uso del `Teorema de las probabilidades totales` y suponiendo que la cadena de Markov es homogénea, podemos escribir
+
+$$s_i(n) = \sum_{j = 1}^mp_{ij}s_j(n-1)$$
+suponiendo que los estados de nuestra cadena de Markov son $\{1,2,\dots,m\}$
+
+## Matriz de transición
+
+Matricialmente, podemos escribir la expresió$ anterior como 
+$$s(n) = Ps(n-1)$$
+
+donde $P$ es la llamada <l class = "definition">matriz de transición</l> de la cadena de Markov homogénea:
+
+$$P = \begin{pmatrix}
+p_{11} & p_{12} & \cdots & p_{1m}\\
+p_{21} & p_{22} & \cdots & p_{2m}\\
+\vdots & \vdots & \ddots & \vdots\\
+p_{m1} & p_{m2} & \cdots & p_{mm}
+\end{pmatrix}$$
+
+## Matriz de transición
+
+Definiremos $s(n)$ el vector de probabilidades de la cadena de markov en el tiempo $n$:
+
+$$s(n) = (s_n(1), s_n(2),\dots,s_n(m))^t$$
+
+Como que $s(n)$ es un vector de probabilidades, se debe verificar
+
+$$\sum_{i = 1}^ms_n(i) = 1$$
+
+El estudio de la matriz de transición $P$ y más concretamente sus valores y vectores propios, nos determinará el comportamiento de nuestra cadena de Markov
+
+## Matriz de transición
+
+Cada columna $j-$ésima de la matriz de transición $P$ representa las probabilidades de ir hacia cada uno de los estados $i$ desde el estado $j$, para $i = 1,\dots, m$. Por tanto, $$\sum_{i = 1}^mp_{ij} = 1$$
+
+Las matrices que cumplen que la suma de sus columnas valen 1, se llaman <l class = "definition">matrices estocásticas</l>
+
+## Ejemplo 3{.example}
+
+**Ejemplo 3**
+
+Una fuente «on-off» se utiliza frecuentemente en sistemas de comunicación para simular el tráfico de voz. Supongamos que esta fuente tiene dos estados: silencio ($s_1$), donde no se envía ningún dato; y activo ($s_2$), donde el sistema envía un paquete de datos por unidad de tiempo.
+
+Si la fuente está en el estado $s_1$, hay una probabilidad $s$ de que continúe en este estado y, si está en el estado $s_2$, hay una probabilidad $a$ de que continúe en este estado.
+
+Se trata de una cadena de Markov con dos estados: $s_1$ y $s_2$ con matriz de transción
+
+$$P = \begin{pmatrix}
+s & 1-a\\
+1-s & a
+\end{pmatrix}$$
+
+El <l class = "definition">diagrama de transición</l> de la cadena de Markov es el siguiente
+
+## Ejemplo 3
+
+<div class = "center">
+![<l class = "phototext">Diagrama de transición del `Ejemplo 3`</l>](Images/markov1.png)
+</div>
+
+## Ejemplo 4
+
+**Ejemplo 4**
+
+<div class = "example">
+Supongamos que la probabilidad de que un camión de reparto se mueva de una ciudad a otra al principio de cada día se muestra en la figura siguiente
+</div>
+
+<div class = "center">
+![<l class = "phototext">Probabilidades de ruta de reparto diaria de un camión</l>](Images/markov2.png)
+</div>
+
+## Ejemplo 4{.example}
+
+Vayamos a simular el movimiento diario del camión con una cadena de Markov.
+
+Esta cadena de Markov tendrá 3 estados que corresponderán a cada una de las tres ciudades. La matriz de transición será
+
+$$P = \begin{pmatrix}
+0 & \frac{1}{4} & \frac{1}{4}\\
+\frac{3}{4} & 0 & \frac{1}{4}\\
+\frac{1}{4} & \frac{3}{4} & \frac{1}{2}
+\end{pmatrix}$$
+
+Supongamos que al principio el camión se encuentra en la ciudad  de Langford. El vector de probabilidades inciales $s(0)$ será
+
+$$s(0) = (0,1,0)^t$$
+
+## Ejemplo 5{.example}
+
+**Ejemplo 5**
+
+
+
+
+
