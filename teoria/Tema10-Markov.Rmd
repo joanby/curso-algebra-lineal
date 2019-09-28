@@ -1421,8 +1421,670 @@ $$P' = \begin{pmatrix}
 0.0 & 0.0 & 1.0 & 0.1 & 0.3
 \end{pmatrix}$$
 
+# Cadenas de Markov en el equilibrio
+
+## Introducción
+
+En este último capítulo estudiaremos el comportamiento del vector de probabilidades $s_n$ en el infinito. O sea,
+
+$$s_{\infty} = \lim_{n\to \infty}s_n$$
+
+Este vector de probabilidades nos permitirá estudiar el rendimiento de la cadena de Markov.
+
+Anteriormente vimos que si nuestra cadena de Markov es homogénea, el vector $s_{\infty}$ es un vector propio de valor propio 1 de la matriz de transición $$Ps_{\infty} = s_{\infty}$$
+
+Si el valor propio 1 tiene multiplicidad 1, este vector es único
+
+# Significado del estado de equilibrio
+
+## Significado del estado de equilibrio
+
+<l class = "definition">Vector de probabilidades en el estado de equilibrio.</l> Es el vector $s_{\infty}$ de la cadena de Markov
+
+Cuando estamos en el estado de equilibrio, quiere decir que la cadena de Markov ya no cambia en el tiempo. Se mantiene <l class = "definition">estable</l>
+
+La matriz de transición $P^n$, cuando $n\to\infty$ también llega a alcanzar el estado de equilibrio
+
+# Cálculo del vector de probabilidades en el estado de equilibrio
+## Cálculo del vector de probabilidades en el estado de equilibrio
+
+Llamaremos $s$ al vector de probabilidades en el estado de equilibrio
+
+Estudiaremos un conjunto de técnicas para calcular $s$. Estas técnicas dependerán de la estructura de la matriz de transición $P$
+
+## Ejemplo 16{.example}
+
+**Ejemplo 16**
+
+Consideremos una cadena de Markov con matriz de transición 
+$$P = \begin{pmatrix}
+0.2 & 0.4 & 0.5\\
+0.8 & 0.0 & 0.5\\
+0.0 & 0.6 & 0.0
+\end{pmatrix}$$
+
+Vayamos a calcular $s$ por multiplicaciones sucesivas de la matriz $P$
+
+Los valores de $^P^2$, $P^{10}$ y $P^{20}$ son
 
 
+## Ejemplo 16
+
+```{r}
+P = matrix(c(0.2, 0.4, 0.5,
+             0.8, 0, 0.5,
+             0, 0.6, 0), 
+           ncol = 3, byrow = T)
+round(P%^%2, 3)
+```
+
+## Ejemplo 16
+
+```{r}
+round(P%^%10, 3)
+round(P%^%20, 3)
+```
+
+## Ejemplo 16{.example}
+
+Como podemos ver, las columnas de $P^n$ se van estabilizando hasta llegar a $s$. En nuestro caso, $s$ vale
+
+$$s = (0.354, 0.404, 0.242)^t$$
+
+# Técnicas para calcular $s$
+
+## Técnicas para calcular $s$
+
+1. Multiplicaciones repetidas de $P$ para calcular $P^n$ para valores grandes de $n$
+2. Cálculo del vector propio de valor propio 1 de la matriz $P$
+3. Ecuaciones en diferencias
+4. Transformada $Z$ (funciones generatrices)
+5. Métodos directos para resolver un sistema lineal de ecuaciones
+6. Métodos iterativos para resolver un sistema lineal de ecuaciones
+7. Técnicas iterativas para poner los estados de $P$ en función de los otros estados
+
+## Técnicas para calcular $s$
+
+¿Qué técnica es la más adecuada? Depende de la estructura de la matriz $P$
+
+- La técnica de multiplicaciones sucesivas de $P$ es muy sensible a errores numéricos
+- La técnica 2 es adecuada cuando el tamaño de la matriz $P$ no es demasiado grande y $P$ está expresada numéricamente
+- La técnica de ecuaciones en diferencia es adecuada cuando $P$ es una matriz banda con pocas subdiagonales
+- La técnica 4 es adecuada cuando $P$ es triangular inferior o Hessengberg inferior donde cada subdiagonal tiene los mismos elementos
+- Las técnicas 5 y 6 son adecuadas cuando $P$ se expresa numéricamente y no tiene ninguna estructura en particular
+
+# Cálculo de $s$ como vector propio
+
+## Cálculo de $s$ como vector propio
+
+Para calcular $s$, tenemos que resolver el sistema lineal indeterminado siguiente
+
+$$Ps = s$$
+
+Una vez tengamos todas las soluciones del sistema anterior, imponemos que $\sum_{i = 1}^ms_i = 1$ y encontramos el único $s$ que verifica el sistema anterior y que la suma de sus componentes es 1
+
+## Ejemplo 17{.example}
+
+**Ejemplo 17**
+
+Consideremos una cadena de Markov con matriz de transición $P$
+
+$$P = \begin{pmatrix}
+0.80 & 0.70 & 0.50\\
+0.15 & 0.20 & 0.30\\
+0.05 & 0.10 & 0.20
+\end{pmatrix}$$
+
+Los valores y vectores propios de $P$ son
+
+
+## Ejemplo 17
+
+```{r}
+P = rbind(c(0.8, 0.7, 0.5),
+          c(0.15, 0.2, 0.3),
+          c(0.05, 0.1, 0.2))
+round(eigen(P)$values, 3)
+round(eigen(P)$vectors, 3)
+```
+
+## Ejemplo 17
+
+<div class = "example">
+
+El vector $s$ sería el vector propio del valor propio 1, pero normalizado
+
+O sea, primero calculamos la suma de sus componentes
+</div>
+
+```{r}
+X = round(eigen(P)$vectors, 3)
+sum(X[,1])
+```
+
+<div class = "example">
+El vector $s$ normalizado será
+
+$$s = \frac{1}{1.276}\begin{pmatrix}
+0.973\\ 0.215\\ 0.088
+\end{pmatrix} = \begin{pmatrix}
+0.762\\ 0.169\\ 0.069
+\end{pmatrix}$$
+</div>
+
+# Cálculo de $s$ haciendo uso de ecuaciones en diferencia
+## Cálculo de $s$ haciendo uso de ecuaciones en diferencia
+
+Esta técnica es útil cuando la matriz de transición es una matriz banda
+
+## Ejemplo 18
+
+<div class = "example">
+**Ejemplo 18**
+
+Consideremos una cadena de Markov de un proceso de nacimiento y muerte discreto como se muestra en la imagen
+</div>
+
+<div class = "center">
+![](Images/markov6.png)
+</div>
+
+## Ejemplo 18{.example}
+
+Cada estado representaría el número de paquetes que hay en un buffer donde en cada instante de tiempo su tamaño puede crecer o decrecer en un paquete. Haciendo las suposiciones siguientes
+
+- Los estados de la cadena de Markov corresponden al número de paquetes que hay en el buffer en el instante de tiempo
+- El tamaño del buffer se supone infinito
+- La probabilidad de que llegue un paquete en un instante de tiempo es $a$. La probabilidad de que no llegue un paquete será $b = 1-a$
+- La probabilidad de que un paquete se vaya del buffer en un instante de tiempo es $c$. La probabilidad de que un paquete no se vaya es $d = 1-c$
+
+## Ejemplo 18{.example}
+
+La matriz de transición sería, en este caso
+
+$$P = \begin{pmatrix}
+f_0 & bc & 0 & 0 & \cdots\\
+ad & f & bc & 0 & \cdots\\
+0 & ad & f & bc & \cdots\\
+0 & 0 & ad & f & \cdots\\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}$$
+
+donde $f_0 = ac+b$ y $f = ac+bd$
+
+## Ejemplo 18{.example}
+
+La probabilidad $f_0$ sería la probabilidad de que la cadena de Markov se quede vacía suponiendo que en el instante anterior estaba vacía. Esto será si no llega ningún paquete (probabilidad $b$) o si llega uno, este se va en el mismo instante de tiempo (probabilidad $ac$). Por tanto, $f_0 = ac+b$
+
+Del mismo modo, los valores de la subdiagonal inferior representan la probabilidad de que el buffer aumente en un paquete. Esto quiere decir que en el instante de tiempo considerado haya llegado un paquete (probabilidad $a$) y no se ha ido ninguno (probabilidad $d$). La probabilidad sería $ad$
+
+Los valores de la subdiagonal superior representa la probabilidad de que el buffer disminuya en un paquete. Esto quiere decir que en el instante de tiempo considerado no ha llegado ningún paquete (probabilidad $b$) y se ha ido uno (probabilidad $c$). La probabilidad sería $bc$
+
+Por último, los valores de la diagonal representan las probabilidades de que el buffer se haya quedado con los mismos paquetes respecto al instante de tiempo anterior. Esto significa que ha llegado un paquete (probabilidad $a$) y se ha ido uno (probabilidad $c$) o no ha llegado ninguno (probabilidad $b$) y no se ha ido ninguno (probabilidad $d$). La probabilidad será, entonces, $ac+bd$
+
+## Ejemplo 18{.example}
+
+Nuestro objetivo es calcular el vector de probabilidades en el estado de equilibrio $s$, o resolver: $Ps=s$
+
+Si escribimos el sistema anterior en componentes nos queda
+
+
+$$ads_0-bcs_1=0$$
+$$ads_0+(f-1)s_1+bcs_2 =0$$
+$$ads_{i-1}+(f-1)s_i+bcs_{i+1} =0\quad i\ge 1$$
+
+donde $s = (s_0,s_1,s_2,\dots)^t$
+
+Si lo resolvemos, tenemos que
+
+$$s_1 = \frac{ad}{bc}s_0,\quad s_2 = \left(\frac{ad}{bc}\right)^2s_0$$
+
+## Ejemplo 18{.example}
+
+En general,
+
+$$s_i = \left(\frac{ad}{bc}\right)^is_0$$
+
+Introducimos el parámetro $\rho = \frac{ad}{bc}$. Podemos escribir que la componente $i-$ésima del vector $s$ vale $s_i = \rho^is_0$ donde $\rho<1$ (en caso contrario $s$ no podría ser un vector de probabilidades).
+
+A continuación, vamos a normalizar $s$. Para ello, imponemos
+
+$$\sum_{i=0}^\infty s_i =0$$
+
+o, si se prefiere
+
+$$s_0\sum_{i\ge0}\rho^i = \frac{s_0}{1-\rho} = 1$$
+
+Tendremos que $s_0 = (1-\rho)$ y la componente $i-$ésima del vector de probabilidades en el estado de equilibrio $s$ valdrá
+
+$$s_i = (1-\rho)\rho^i,\quad i\ge 0$$
+
+## Ejemplo 18{.example}
+
+Considremos el caso particular de una cadena de Markov de un proceso de nacimiento y muerte donde $a = 0.4, b = 0.6, c = 0.6, d=0.4$
+
+La matriz de transición será
+
+$$P = \begin{pmatrix}
+0.84 & 0.36 & 0 & 0 & \cdots\\
+0.16 & 0.48 & 0.36 & 0 & \cdots\\
+0 & 0.16 & 0.48 & 0.36 & \cdots\\
+0 & 0 & 0.16 & 0.48 & \cdots\\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}$$
+
+Los valores de $\rho$ y $s_0$ valen $\rho = 0.444$, $s_0 = 1-\rho = 0.556$ y las demás componentes del vector de probabilidades $s$ serán $s_i = (1-\rho)\rho^i = 0.556\cdot 0.444^i$
+
+El vector de probabilidades $s$ será
+
+$$s = (0.556, 0.247, 0.11, 0.049, 0.022,\dots)^t$$
+
+# Cálculo de $s$ haciendo uso de la transformada $Z$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Esta técnica es útil si la matriz de transición es Hessenberg superior y los elementos en una diagonal son idénticos
+
+Este tipo de cadenas de Markov tienen lugar cuando modelamos colas con múltiples llegadas y una salida por unidad de tiempo
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Más concretamente, supongamos que en nuestra cadena de Markov podemos ir desde un estado $j$ a cualquier otro estado $i$ con $i\ge j-1$
+
+Esto correspondería a un buffer o cola, donde su tamaño solamente podría disminuir en un paquete pero podría aumentar en uno o más paquetes en cada unidad de tiempo
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Supongamos que la probabilidad de que lleguen $k$ paquetes vale $a_k$
+
+$$p\{k llegadas\} = a_k,\qquad k=0,1,2,\dots$$
+
+Supongamos que la probabilidad de que un paquete abandone la cola vale $c$
+
+La condición para que la cola sea estables es
+
+$$\sum_{k=1}^{\infty}ka_k<c$$
+
+lo que indica que el número medio de llegadas es inferior al número medio de salidas por unidad de tiempo
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+La matriz de transición será
+
+$$P = \begin{pmatrix}
+a_0 & b_0 & 0 & 0 & \cdots\\
+a_1 & b_1 & b_0 & 0 & \cdots\\
+a_2 & b_2 & b_1 & b_0 & \cdots\\
+a_3 & b_3 & b_2 & b_1 & \cdots\\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}$$
+
+donde $b_i = a_ic+a_{i-1}d$ y $d=1-c$ es la probabilidad de que un paquete no abandone la cola por unidad de tiempo. Supongamos que $a_i = 0$ para $i<0$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+El vector de probabilidades en el equilibrio cumple $Ps = s$. En nuestro caso, esto es equivalente a resolver el siguiente sistema de ecuaciones
+
+$$s_i = a_is_0+\sum_{j=1}^{i+1}b_{i-j+1}s_j\quad i=0,1,2,\dots$$
+
+De cara a resolver el sistema lineal anterior, definimos las funciones siguientes
+
+$$A(z) = \sum_{i=0}^{\infty}a_iz^{-i}\qquad B(z)=\sum_{i=0}^{\infty}b_iz^{-i}$$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Definimos la <l class = "definition">transformada $Z$</l> del vector de probabilidades en el equilibrio $s$ como
+
+$$S(z) = \sum_{i = 0}^{\infty}s_iz^{-i}$$
+
+donde $s_i$ son las componentes de $s$
+
+$$s = (s_0,s_1,s_2,\dots)$$
+
+El objetivo es calcular $S(z)$ y a partir de esta función, calcular $s$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Haciendo uso del sistema de ecuaciones lineal que verificaabn las componentes $s_i$, tenemos
+
+$$S(z) = s_0\sum_{i=0}^{\infty}a_iz^{-i}+\sum_{i=0}^{\infty}\sum_{j=1}^{i+1}b_{i-j+1}s_jz^{-i}$$
+$$=s_{0}A(z)+\sum_{j= 1}^{\infty}s_j\sum_{i=j-1}^{\infty}b_{i-j+1}z^{-i}$$
+
+donde hemos cambiado el orden de sumación en la última suma
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Si continuamos haciendo cálculos
+
+$$S(z)=s_0A(z)+\sum_{j\ge1}s_jz^{-j}\sum_{i\ge j-1}b_{i-j+1}z^{-(i-j)} = s_0A(z)+\sum_{j\ge 1}s_jz^{-j}\sum_{i\ge 0}b_iz^{-(i-1)}$$
+$$=s_0A(z)+(S(z)-s_0)zB(z)$$
+
+de donde aislando $S(z)$ tenemos
+
+$$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{z^{-1}-B(z)}$$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Los valores $s_i$ salen de desarrollar la expresión anterior como potencias de $z^{-1}$
+
+$$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0+z^{-1}\left(1-\sum_{i\ge0}b_{i+1}z^{-i}\right)} = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0\left(1-\left(\frac{z^{-1}}{b_0}\right)\left(1-\sum_{i\ge 0b_{i+1}z^{-i}}\right)\right)}$$
+
+Sean ahora las funciones
+
+$$C(z) = \left(\frac{s_0}{-b_0}\right)(z^{-1}A(z)-B(z))$$
+$$D(z) = \left(\frac{z^{-1}}{b_0}\right)\left(1-\sum_{i\ge 0}b_{i+1}z^{-i}\right)$$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+La función $S(z)$ vale
+
+$$S(z) = \frac{C(z)}{1-D(z)}$$
+
+Desarrollando dicha expresión, tendremos
+
+$$S(z) = C(z)(1+D(z)+D(z)^2+\cdots)$$
+
+De esta forma iremos encontrando los coeficientes $s_i$ del vector de probabilidades $s$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Calculemos el valor $s_0$. Sustituyendo en la expresión inicial por $S(1)$, obtenemos
+
+$$S(1) = 1= \frac{s_0(A(1)-B(1))}{1-B(1)}$$
+
+Ahora bien, como $A(1)=B(1)=1$, tenemos una expresión indeterminada de la forma $\frac{0}{0}$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+Para resolverla, aplicamos la regla del Hôpital
+
+$$S(1) = 1 = \lim_{z\to 1}S(z) = \lim_{z\to 1}\frac{s_0(z^{-1}A(z)-B(z))}{z^{-1}-B(z)}$$
+$$=\lim_{z\to 1}\frac{s_0(-z^2A(z)+z^{-1}A'(z)-B'(z))}{-z^2-B'(z)} = \frac{s_0(-A(1)+A'(1)-B'(1))}{-1-B'(1)}$$ 
+$$= \frac{s_0(-1+A'(1)-B'(1))}{-1-B'(1)}$$
+
+## Cálculo de $s$ haciendo uso de la transformada $Z$
+
+de donde deducimos que 
+
+$$s_0 = \frac{1+B'(1)}{1+B'(1)-A'(1)}$$
+
+<l class = "observ">Observación.</l> El término $-A'(1)$ representa el número medio de paquetes que llegan a la cola por unidad de tiempo cuando la cola está vacía y $-B'(1)$ representa el número medio de paquetes que llegan a la cola cunado ésta no está vacía ya que
+
+$$-A'(1) = \sum_{i\ge 1}ia_i<0\qquad -B'(1)=\sum_{i\ge1}ib_i<0$$
+
+## Ejemplo 19{.example}
+
+**Ejemplo 19**
+
+Consideremos una cadena de Markov con la siguiente matriz de transición
+
+$$P = \begin{pmatrix}
+0.84 & 0.36 & 0 & 0 & \cdots\\
+0.16 & 0.48 & 0.36 & 0 & \cdots\\
+0 & 0.16 & 0.48 & 0.36 & \cdots\\
+0 & 0 & 0.16 & 0.48 & \cdots\\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}$$
+
+Las probabilidades de transición son
+
+$$a_0 = 0.84\quad a_1 = 0.16\quad b_0 = 0.36 \quad b_1 = 0.48\quad b_2 = 0.16$$
+
+Las funciones $A(z)$ y $B(z)$ serán
+
+$$A(z) = 0.84+0.16z^{-1}$$
+$$B(z) = 0.36+0.48z^{-1}+0.16z^{-2}$$
+
+## Ejemplo 19{.example}
+
+Las derivadas serán
+
+$$A'(z) = -0.16z^{-2}$$
+$$B'(z) = -0.48z^{-2}-0.32z^{-3}$$
+
+Los valores de $A'(1)$ y $B'(1)$ serán
+
+$$A'(1) = -0.16\qquad B'(1)=0.8$$
+
+El valor de $s_0$ será 
+$$s_0 = \frac{1+B'(1)}{1+B'(1)-A'(1)} = 0.556$$
+
+La función $S(z)$ asociada al vector de probabilidades en el equilibrio valdrá
+
+$$S(z) = \frac{-0.2+0.2z^{-1}}{-0.36+0.52z^{-1}-0.16z^{-2}}$$
+
+## Ejemplo 19
+
+<div class = "example">
+Utilizando Wofram Alpha, introduciéndole la función $S(z)$ que hemos obtenido, encontraremos la serie de Laurent tal y como se muestra en las sucesivas imágenes
+</div>
+
+<div class = "center">
+![<l class = "phototext">Introduciendo la función en WolframAlpha</l>](Images/markov7.png)
+</div>
+
+## Ejemplo 19
+
+<div class = "center">
+![<l class = "phototext">Serie de Laurent</l>](Images/markov8.png)
+</div>
+
+<div class = "example">
+En definitiva, hemos obtenido $$0.556+0.247z^{-1}+0.110z^{-2}+0.049z^{-3}+\mathcal{O}\left(z^{-4}\right)$$
+
+Así pues, el vector de probabilidades en el equilibrio sería
+
+$$s = (0.556,0.247,0.110,0.049,\dots)^t$$
+</div>
+
+# Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
+## Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
+Esta técnica se utiliza cuando la matriz de transición $P$ es Heissemberg inferior y los elementos en cada diagonal no son iguales. Por ejemplo, para $m =6$, $P$ vale
+
+$$P = \begin{pmatrix}
+h_{11} & h_{12} & 0 & 0 & 0 & 0\\
+h_{21} & h_{22} & h_{23} & 0 & 0 & 0\\
+h_{31} & h_{32} & h_{33} & h_{34} & 0 & 0\\
+h_{41} & h_{42} & h_{43} & h_{44} & h_{45} & 0\\
+h_{51} & h_{52} & h_{53} & h_{54} & h_{55} & h_{56}\\
+h_{61} & h_{62} & h_{63} & h_{64} & h_{65} & h_{66}
+\end{pmatrix}$$
+
+Esta matriz de transición correspondería a una cola donde pueden llegar como máximo $m$ paquetes por unidad de tiempo
+
+## Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
+Para calcular el vector de probabilidades en el equilibrio, debemos resolver $Ps = s$
+
+$$P = \begin{pmatrix}
+h_{11} & h_{12} & 0 & 0 & \cdots\\
+h_{21} & h_{22} & h_{23} & 0 & \cdots\\
+h_{31} & h_{32} & h_{33} & h_{34} & \cdots\\
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{pmatrix}\begin{pmatrix}
+s_1\\ s_2\\ s_3\\ \vdots\end{pmatrix} = \begin{pmatrix}
+s_1\\ s_2\\ s_3\\ \vdots
+\end{pmatrix}$$
+
+donde $s = (s_1,s_2,\dots)^t$
+
+## Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
+La primera fila da
+
+$$s_1 = h_{11}s_1+h_{12}s_2$$
+
+Supongamos que $s_1=1$. Al final, cuando normalicemos, ya calcularemos el verdadero valor de $s_1$.
+
+El valor $s_2$ será, por tantom $$s_2 = \frac{1-h_{11}}{h_{12}}$$
+
+## Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
+La segunda fila da
+
+$$s_2 = h_{21}s_1+h_{22}s_2+h_{23}s_3$$
+
+de donde
+
+$$s_3 = \frac{(1-h_{11})(1-h_{22})}{h_{12}h_{23}}-\frac{h_{21}}{h_{23}}$$
+
+Continuando con las otras filas, iríamos encontrando $s_i$, $i>3$.
+
+Al final tenemos que normalizar. Sea $b$ la suma $$b = \sum_{i=1}^ms_i$$ Entonces, el vector de probabilidades en el equilibrio será
+
+$$s = \frac{1}{b}(s_1,s_2,\dots,s_m)$$
+
+## Ejemplo 20{.example}
+
+**Ejemplo 20**
+
+Consideremos una cadena de Markov con matriz de transición 
+
+$$P = \begin{pmatrix}
+0.40 & 0.20 & 0.00 & 0.00 & 0.00 & 0.00\\
+0.30 & 0.35 & 0.20 & 0.00 & 0.00 & 0.00\\
+0.20 & 0.25 & 0.35 & 0.20 & 0.00 & 0.00\\
+0.10 & 0.15 & 0.25 & 0.35 & 0.20 & 0.00\\
+0.00 & 0.05 & 0.15 & 0.25 & 0.35 & 0.20\\
+0.00 & 0.00 & 0.05 & 0.20 & 0.45 & 0.80
+\end{pmatrix}$$
+
+Para calcular el vector $s$, debemos resolver
+
+$$P = \begin{pmatrix}
+0.40 & 0.20 & 0.00 & 0.00 & 0.00 & 0.00\\
+0.30 & 0.35 & 0.20 & 0.00 & 0.00 & 0.00\\
+0.20 & 0.25 & 0.35 & 0.20 & 0.00 & 0.00\\
+0.10 & 0.15 & 0.25 & 0.35 & 0.20 & 0.00\\
+0.00 & 0.05 & 0.15 & 0.25 & 0.35 & 0.20\\
+0.00 & 0.00 & 0.05 & 0.20 & 0.45 & 0.80
+\end{pmatrix}\begin{pmatrix}
+1\\ s_2\\ s_3\\ s_4\\ s_5\\ s_6
+\end{pmatrix} = \begin{pmatrix}
+1\\ s_2\\ s_3\\ s_4\\ s_5\\ s_6
+\end{pmatrix}  $$
+
+## Ejemplo 20{.example}
+
+La resolución del sistema anterior da
+
+$$(s_2,s_3,s_4,s_5,s_6) = (3,8.25,22.063,58.641,156.066)^t$$
+
+La suma de las componentes, contando $s_1 = 1$, vale $249.02$
+
+El vector de probabilidades en el equilibrio da
+
+$$s = \frac{1}{249.02}(1,3,8.25,22.063,58.641,156.066)^t$$
+
+# Cálculo de $s$ haciendo uso de técnicas directas
+
+## Cálculo de $s$ haciendo uso de técnicas directas
+
+Las técnicas directas se utilizan cuando la matriz de transición no tiene ninguna estructura en particular, pero su tamaño no es suficientemente grande para que este tipo de técnicas afecte a los errores de redondeo de cálculo.
+
+Para calcular $s$, tenemos que resolver el sistema de ecuaciones homogéneas indeterminado de $m$ ecuaciones y $m$ incógnitas
+
+$$(P-I_m)s=0$$
+
+## Cálculo de $s$ haciendo uso de técnicas directas
+
+De cara a resolverlo, escogemos una submatriz de orden $m-1$ de la matriz $P-I_m$ con rango $m-1$
+
+Sean $f_1,\dots,f_{m-1}$ las filas de la submatriz anterior.
+
+Consideremos el sistema de ecuaciones lineales formado por las filas anteriores con una ecuación extra, la condición de normalización
+
+$$\sum_{i=1}^ms_i = 1$$
+
+## Cálculo de $s$ haciendo uso de técnicas directas
+
+De esta forma, tendremos un sistema de ecuaciones compatible y determinado de $m$ ecuaciones y $m$ incógnitas. Por ejemplo, supongamos que la submatriz anterior de rango $m-1$ está formada por las $m-1$ primeras filas y columnas. El ssitema a resolver será
+
+$$\begin{pmatrix}
+a_{11} & a_{12} & \cdots & a_{1m}\\
+a_{21} & a_{22} & \cdots & a_{2m}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{m-1,1} & a_{m-1,2} & \cdots & a_{m-1,m}\\
+1 & 1 & \cdots & 1
+\end{pmatrix}\begin{pmatrix}
+s_1\\ s_2\\ \vdots\\ s_{m-1}\\s_m\end{pmatrix} = \begin{pmatrix}0\\0\\\vdots\\0\\1\end{pmatrix}$$
+
+## Ejemplo 21{.example}
+
+**Ejemplo 21**
+
+Consideremos una cadena de Markov con la matriz de transición siguiente
+
+$$P = \begin{pmatrix}
+0.4 & 0.2 & 0.0\\
+0.1 & 0.5 & 0.6\\
+0.5 & 0.3 & 0.4
+\end{pmatrix}$$
+
+Si hacemos $P-I_3$ obtenemos
+
+$$P-I_3 = \begin{pmatrix}
+-0.6 & 0.2 & 0.0\\
+0.1 & -0.5 & 0.6\\
+0.5 & 0.3 & -0.6
+\end{pmatrix}$$
+
+Observemos que la submatriz formada por las dos primeras filas y columnas tiene rango 2.
+
+## Ejemplo 21{.example}
+
+El sistema a resolver de cara a calcular $s$ es
+
+$$\begin{pmatrix}
+-0.6 & 0.2 & 0.0\\
+0.1 & -0.5 & 0.6\\
+1 & 1 & 1
+\end{pmatrix}\begin{pmatrix}
+s_1\\ s_2\\ s_3
+\end{pmatrix} = \begin{pmatrix}
+0\\ 0\\ 1
+\end{pmatrix}$$
+
+La solución del sistema anterior es 
+
+$$s = (0.158, 0.474, 0.368)^t$$
+
+# Cálculo de $s$ haciendo uso de técnicas iterativas
+
+## Cálculo de $s$ haciendo uso de técnicas iterativas
+
+Las técnias iterativas son útiles cuando la matriz de transición no tiene ninguna estructura especial pero su tamaño hace que las técnicas iterativas no sean adecuadas
+
+Estas técnicas son las siguientes
+
+- Sobrerelajación
+- Método de Jacobi
+- Método de Gauss-Seidel
+
+# Ecuaciones de balance
+## Ecuaciones de balance
+
+El vector de probabilidades $s = (s_1,s_2,\dots)$ en el estado de equilibrio verifica
+
+$$s_i = \sum_{j}p_{ij}s_j\qquad i = 1,2,\dots$$
+
+Las ecuaciones anteriores se denominan <l class = "definition">ecuaciones de balance</l>. Veamos el por qué
+
+## Ecuaciones de balance
+
+Sabemos que las probabilidaes $p_{ij}$ de la matriz de transición verifican
+
+$$\sum_jp_{ji} = 1,\quad i = 1,2,\dots$$
+
+Multiplicando por $s_i$ la ecuación anterior, obtenemos
+
+$$\sum_{j}p_{ji}s_i = s_i = \sum_{j}p_{ij}s_j$$
+
+donde hemos utilizado las ecuaciones de balance.
+
+La parte de la izquierda de la expresión anterior representa todas las probabilidades de abandonar el estado $i$ y la parte de la derecha representa todas las probabilidades de llegar al estado $i$. En pocas palabras, tenemos que el flujo con respecto al estado $i$ está balanceado
 
 
 
