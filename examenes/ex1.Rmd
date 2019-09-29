@@ -1,0 +1,72 @@
+---
+title: "Taller evaluable 1"
+author: "<--Escribe tu nombre aquí-->"
+date: "AL y MD - 25/09/2019"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+La presentación y redacción de todos los ejercicios llega a sumar hasta 1 punto del total del taller.
+
+
+## Ejercicio 1
+
+Halla el cociente y el resto de la división de $p(x) = (x+1)^7$ entre $q(x) = x^2+x+1$. 
+
+## Ejercicio 2
+
+Halla el módulo y el árgumento del número complejo $\frac{(1+i)^7}{1-i}$.
+
+## Ejercicio 3
+
+Halla el valor de la matriz $X$ para que se verifique
+
+$$A\cdot X \cdot A^t = \sqrt{5} \cdot A$$
+donde $A$ es la matriz
+
+$$A = 
+\left(
+\begin{matrix}
+1&1&1\\
+0&-1&-1\\
+-1&0&1
+\end{matrix}
+\right)$$
+
+## Ejercicio 4
+
+Resuelve aplicando el método de Gauss y clasifica según corresponda el sistema de ecuaciones lineal siguiente:
+
+$$
+\left\{
+\begin{matrix}
+x &-& y&+& z&+& t&=&4\\
+2x&+& y&-&3z&+& t&=&4\\
+x &-&2y&+&2z&-& t&=&3\\
+x &-&3y&+&3z&-&3t&=&2
+\end{matrix}
+\right.
+$$
+
+## Ejercicio 5
+
+Considera el sistema de ecuaciones lineal
+
+$$
+\left\{
+\begin{matrix}
+ax&+&y&+&z& =& (a-1)(a+2)\\ 
+x&+&ay&+&z& =& (a-1)^2(a+2)\\ 
+x&+&y&+&az& =& (a-1)^3(a+2)
+\end{matrix}
+\right.
+$$
+
+1. Indicar para qué valores del parámetro $a\in\mathbb{R}$ el sistema es compatible determinado, indeterminado o bien incompatible.
+2. Resolver el sistema cuando $a=1$.
+3. Resolver el sistema cuando $a=-2$.
