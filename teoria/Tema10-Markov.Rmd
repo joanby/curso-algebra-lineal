@@ -53,7 +53,7 @@ En este tema, estudiaremos cadenas de Markov de tiempo discreto, ya que son las 
 # Selección del paso de tiempo
 ## Selección del paso de tiempo
 
-<l class = "definition">Tiemo de espera.</l> En una cadena de Markov, es el tiempo que estamos en un estado determinado
+<l class = "definition">Tiempo de espera.</l> En una cadena de Markov, es el tiempo que estamos en un estado determinado
 
 Dependiendo de como midamos este tiempo de espera, tenemos dos tipos de cadenas de Markov:
 
@@ -66,7 +66,7 @@ Dependiendo de como midamos este tiempo de espera, tenemos dos tipos de cadenas 
 
 Consideramos un buffer donde los paquetes llegan en cada paso de tiempo con probabilidad $a$ y se van con probabilidad $c$.
 
-Se trata de una cadena de Markov de tiempo discreto. El paso del tiempo sería el tiemop que se necesita para recibir o transmitir un paquete.
+Se trata de una cadena de Markov de tiempo discreto. El paso del tiempo sería el tiempo que se necesita para recibir o transmitir un paquete.
 
 Suponiendo que el buffer tiene tamaño $B$, la tabla de estados sería la siguiente
 
@@ -93,13 +93,14 @@ La probabilidad de que $S(n)$ tome el valor $s_i$ solo depende de los valores $s
 
 $$p\{S(n) = s_i\} = f(s_j)$$ para todos $s_i,s_j\in S$ donde $S$ es el conjunto de estados del sistema (el espacio muestral)
 
-## Ejemplo 2{.example}
+## Ejemplo 2
+
+<div class = "example">
 
 **Ejemplo 2**
 
 Consideremos el buffer de un cierto dispositivo de comunicaciones. Supongamos que este dispositivo tiene una capacidad máxima de $B = 4$ paquetes. Los estados de este buffer y las posibles transiciones entre ellos se pueden ver en el siguiente gráfico
-
-## Ejemplo 2
+</div>
 
 <div class = "center">
 ![<l class = "phototext">Estados del buffer y las posibles transiciones entre ellos del `Ejemplo 2`</l>](Images/buffer.png)
@@ -119,7 +120,7 @@ En el caso de que la probabilidad anterior $p_{ij}(n)$ sea independiente del tie
 
 En este caso, podemos escribir
 
-$$p_{ij} = p\{S(n) = 1\ |\ S(n-1) = j\}$$
+$$p_{ij} = p\{S(n) = i\ |\ S(n-1) = j\}$$
 
 ## Matriz de transición
 
@@ -134,8 +135,8 @@ suponiendo que los estados de nuestra cadena de Markov son $\{1,2,\dots,m\}$
 
 ## Matriz de transición
 
-Matricialmente, podemos escribir la expresió$ anterior como 
-$$s(n) = Ps(n-1)$$
+Matricialmente, podemos escribir la expresión anterior como 
+$$s(n) = P\cdot s(n-1)$$
 
 donde $P$ es la llamada <l class = "definition">matriz de transición</l> de la cadena de Markov homogénea:
 
@@ -189,9 +190,10 @@ El <l class = "definition">diagrama de transición</l> de la cadena de Markov es
 
 ## Ejemplo 4
 
+<div class = "example">
 **Ejemplo 4**
 
-<div class = "example">
+
 Supongamos que la probabilidad de que un camión de reparto se mueva de una ciudad a otra al principio de cada día se muestra en la figura siguiente
 </div>
 
@@ -287,7 +289,7 @@ Consideremos las probabilidades siguientes:
 Y hagamos las suposiciones siguientes:
 
 - Un usuario cualquiera puede determinar el estado del sistema en el doble de tiempo que tarda el sistema en transmitir un mensaje. De esta manera, el estado actual del sistema de comunicaciones dependerá de las acciones de los usuarios en el tiempo de transmisión del mensaje.
-- En la cadena de Markov, escogemos como unidad de tiempo $T$ el doble de teimpo para transmitir un mensaje. Supongamos que la transmisión de un mensaje se hace en $n$ unidades de tiempo
+- En la cadena de Markov, escogemos como unidad de tiempo $T$ el doble de tiempo para transmitir un mensaje. Supongamos que la transmisión de un mensaje se hace en $n$ unidades de tiempo
 
 ## Ejemplo 6
 
@@ -313,7 +315,7 @@ u_1 & 0 & 0 & 0 & \cdots & 0 & 0\\
 
 ## Matrices estocásticas
 
-<l class = "definition"> Matriz estocástica.</l> Diremos que una matriz $P$ es estocástica o una matriz de Markov si vereifica las siguientes propiedades:
+<l class = "definition"> Matriz estocástica.</l> Diremos que una matriz $P$ es estocástica o una matriz de Markov si verifica las siguientes propiedades:
 
 - La matriz $P$ es cuadrada
 - Los elementos $p_{ij}$ de $P$ están entre 0 y 1 ($0\le p_{ij}\le 1$)
@@ -321,7 +323,7 @@ u_1 & 0 & 0 & 0 & \cdots & 0 & 0\\
 
 ## Matrices estocásticas
 
-Más adelante veremos que estas matrices verifican
+A continuación veremos que estas matrices verifican
 
 - Tienen el valor propio 1
 - Todos los valores propios $\lambda_i$ de $P$ verifican $|\lambda_i|\le 1$
@@ -364,7 +366,7 @@ Ahora bien, recordemos que una matriz estocástica verificaba que la suma de cad
 
 <l class = "prop">Teorema.</l> Sea $A$ una matriz de dimensiones $m\times n$. Sea $P$ una matriz estocástica de orden $m$. Entonces, la suma de cada columna de la matriz $A$ y de la matriz $B = PA$ es la misma. Es decir, si $\sigma_j(M)$ simboliza la suma de la columna $j-$ésima de una matriz $M$, tenemos que $\sigma_j(A) = \sigma_j(B)\quad \forall j=1,\dots,n$
 
-En pocas palabras, las sumas de las columnas de una matriz no cambian cuando la multiplicamos por la izquierda por una matriz estocástica
+En pocas palabras, las sumas de las columnas de una matriz cualquiera no cambian cuando la multiplicamos por la izquierda por una matriz estocástica
 
 ## Matrices estocásticas{.dem}
 
@@ -482,7 +484,7 @@ Esto quiere decir que la multiplicidad del valor propio 1 respecto $P^t$ será 1
 <div class = "dem">
 **Demostración**
 
-Tenemos que $Px = \lambda x$ y recordemos que la vector no cambia cuando se multiplica por una matriz estocástica. Entonces,
+Tenemos que $Px = \lambda x$ y recordemos que el vector no cambia cuando se multiplica por una matriz estocástica. Entonces,
 
 $$\sigma(Px) = \sigma(x) = \lambda\sigma(x)$$
 
@@ -547,8 +549,14 @@ P = matrix(c(0.3, 0.1, 0, 0.2,
              0.2, 0.1, 0.3, 0.2),
            nrow = 4, byrow = T)
 round(eigen(P)$values, 4) #Vaps
+```
+
+## Ejemplo 7
+
+```{r}
 round(eigen(P)$vectors, 4) #Veps
 ```
+
 
 ## Ejemplo 7
 
@@ -563,7 +571,7 @@ round(apply(eigen(P)$vectors, MARGIN = 2, sum), 4)
 ```
 
 <div class = "example">
-Calculamos las sumas de las componentes de todos los vectores propios asociacios a los valores propios distintos de 1 y vemos que vale dan 0. Por otro lado, la suma del vector propio asociado al valor propio 1 da una suma distinta de 0.
+Observamos que las sumas de las componentes de todos los vectores propios asociacios a los valores propios distintos de 1 y vemos que vale dan 0. Por otro lado, la suma del vector propio asociado al valor propio 1 da una suma distinta de 0.
 </div>
 
 
@@ -603,7 +611,7 @@ Consideremos que los estados son los lugares por donde puede ir la bola: $s_0,s_
 
 Por ejemplo, si la bola entra tal y como indica la flecha, una posible trayectoria sería
 
-$$s_4,s_3,s_2,s_4,s_5,s_4,s_5,W_4$$
+$$s_4,s_3,s_2,s_3,s_4,s_5,s_4,s_5,W_4$$
 
 Al final, la bola caería en el lugar indicado por $W_4$
 
@@ -750,6 +758,8 @@ $$=P(c_1x_1+c_2x_2+\cdots+c_mx_m)$$
 $$=c_1Px_1+c_2Px_2+\cdots+c_mPx_m$$
 $$=c_1\lambda_1x_1+c_2\lambda_2x_2+\cdots+c_m\lambda_mx_m$$
 
+## Cálculo de $s_n$ expandiendo $s_0$
+
 y, en general
 
 $$s_n = P^ns_0$$
@@ -772,6 +782,8 @@ podemos escribir las expansiones matricialmente como
 
 $$s_1 = XDc$$
 $$s_n = XD^nc$$
+
+## Cálculo de $s_n$ expandiendo $s_0$
 
 donde $D^n$ es la matriz
 
@@ -1079,7 +1091,7 @@ $$\sum_{k = 1}^my_{kj}\sum_{i=1}^mx_{ik}$$
 
 valdrá 
 
-$$\sum_{k = 1}^my_{kj}\delta(k-1) = y_1j$$
+$$\sum_{k = 1}^my_{kj}\delta(k-1) = y_{1j}$$
 
 Recordemos que esta suma valía 1. Por tanto, $y_{1j} = 1$ para todo $j = 1,\dots, m$ y queda probado que la primera fila de la matriz $X^{-1}$ es $(1,1,\dots,1)$
 
@@ -1092,7 +1104,7 @@ $$P = XDX^{-1}$$
 
 ## Expandiendo $P^n$ en términos de sus valores propios
 
-Definimos la matriz $A_j$ de la forma siguiente: Primero, consideramos la matriz que vale 0 para todo elemento excepto en $(j,j)$, que vale 1. Después definimos $A_j$ como el producto de la matriz $X$ por la matriz anterior por la inversa de $X$
+Definimos la matriz $A_j$ de la forma siguiente: Primero, consideramos la matriz $1_{jj}$, que vale 0 para todo elemento excepto en $(j,j)$, que vale 1. Después definimos $A_j$ como el producto de la matriz $X$ por la matriz anterior por la inversa de $X$
 
 $$A_j = X\begin{pmatrix}
 0 & \cdots & 0 & \cdots & 0\\
@@ -1131,9 +1143,9 @@ $$=A_1+\lambda_2^nA_2+\cdots+\lambda_m^nA_m$$
 
 Estudiemos la matriz $A_1$
 
-<l class = "prop">
+<l class = "prop">Teorema.</l>
 La matriz $A_1$ es estocástica (la suma de sus columnas vale 1) y todas sus columnas son idénticas
-</l>
+
 
 <div class = "dem">
 **Demostración**
@@ -1159,7 +1171,7 @@ tal y como queríamos ver
 
 ## El estado de equilibrio $s_{\infty}$
 
-En el caso de que existan, definimos vector de probabilidades en el estado del infinito $s_{\infty}$ como
+En el caso de que existan, definimos el vector de probabilidades en el estado del infinito $s_{\infty}$ como
 
 $$s_{\infty} = \lim_{n\to\infty}s_n$$
 
@@ -1214,7 +1226,7 @@ para todo $n$. Esto significa que $\sigma_j(A_i) = 0$ para todo $i = 2,\dots,m$ 
 
 ## Estudio de las matrices $A_i$, $i\ne 1$
 
-<l class = "prop">Teorema.</l> Dada una matriz $A$ y una matriz diferencial $V$ (la suma de sus columnas vale 0), la matriz $BV = VA$ será una matriz diferencial
+<l class = "prop">Teorema.</l> Dada una matriz $A$ y una matriz diferencial $V$ (la suma de sus columnas vale 0), la matriz $B = VA$ será una matriz diferencial
 
 <div class = "dem">
 **Demostración**
@@ -1369,7 +1381,7 @@ $$P^n = X\begin{pmatrix}1 & 0\\ 0 & (a+s-1)^n\end{pmatrix}X^{-1} = \begin{pmatri
 
 Si queremos escribir
 
-$$^P^n = A_1+(a+s-1)^nA_2$$
+$$P^n = A_1+(a+s-1)^nA_2$$
 
 las matrices $A_1$ y $A_2$ son 
 
@@ -1411,7 +1423,7 @@ $$P = \begin{pmatrix}
 0.0 & 0.1 & 1.0 & 0.1 & 0.0
 \end{pmatrix}$$
 
-Supongamos que reetiquetamos los estados2 y 5. O sea, el estado 2 será el viejo estado 5 y el viejo estado 2 pasará a ser el estado 5. Así, la nueva matriz de transición nos queda
+Supongamos que reetiquetamos los estados 2 y 5. O sea, el estado 2 será el viejo estado 5 y el viejo estado 2 pasará a ser el estado 5. Así, la nueva matriz de transición nos queda
 
 $$P' = \begin{pmatrix}
 0.0 & 1.0 & 0.0 & 0.1 & 0.2\\
@@ -1435,7 +1447,6 @@ Anteriormente vimos que si nuestra cadena de Markov es homogénea, el vector $s_
 
 Si el valor propio 1 tiene multiplicidad 1, este vector es único
 
-# Significado del estado de equilibrio
 
 ## Significado del estado de equilibrio
 
@@ -1445,7 +1456,7 @@ Cuando estamos en el estado de equilibrio, quiere decir que la cadena de Markov 
 
 La matriz de transición $P^n$, cuando $n\to\infty$ también llega a alcanzar el estado de equilibrio
 
-# Cálculo del vector de probabilidades en el estado de equilibrio
+
 ## Cálculo del vector de probabilidades en el estado de equilibrio
 
 Llamaremos $s$ al vector de probabilidades en el estado de equilibrio
@@ -1465,7 +1476,7 @@ $$P = \begin{pmatrix}
 
 Vayamos a calcular $s$ por multiplicaciones sucesivas de la matriz $P$
 
-Los valores de $^P^2$, $P^{10}$ y $P^{20}$ son
+Los valores de $P^2$, $P^{10}$ y $P^{20}$ son
 
 
 ## Ejemplo 16
@@ -1512,8 +1523,6 @@ $$s = (0.354, 0.404, 0.242)^t$$
 - La técnica de ecuaciones en diferencia es adecuada cuando $P$ es una matriz banda con pocas subdiagonales
 - La técnica 4 es adecuada cuando $P$ es triangular inferior o Hessengberg inferior donde cada subdiagonal tiene los mismos elementos
 - Las técnicas 5 y 6 son adecuadas cuando $P$ se expresa numéricamente y no tiene ninguna estructura en particular
-
-# Cálculo de $s$ como vector propio
 
 ## Cálculo de $s$ como vector propio
 
@@ -1572,7 +1581,7 @@ $$s = \frac{1}{1.276}\begin{pmatrix}
 \end{pmatrix}$$
 </div>
 
-# Cálculo de $s$ haciendo uso de ecuaciones en diferencia
+
 ## Cálculo de $s$ haciendo uso de ecuaciones en diferencia
 
 Esta técnica es útil cuando la matriz de transición es una matriz banda
@@ -1639,11 +1648,13 @@ Si lo resolvemos, tenemos que
 
 $$s_1 = \frac{ad}{bc}s_0,\quad s_2 = \left(\frac{ad}{bc}\right)^2s_0$$
 
-## Ejemplo 18{.example}
-
 En general,
 
 $$s_i = \left(\frac{ad}{bc}\right)^is_0$$
+
+## Ejemplo 18{.example}
+
+
 
 Introducimos el parámetro $\rho = \frac{ad}{bc}$. Podemos escribir que la componente $i-$ésima del vector $s$ vale $s_i = \rho^is_0$ donde $\rho<1$ (en caso contrario $s$ no podría ser un vector de probabilidades).
 
@@ -1679,7 +1690,7 @@ El vector de probabilidades $s$ será
 
 $$s = (0.556, 0.247, 0.11, 0.049, 0.022,\dots)^t$$
 
-# Cálculo de $s$ haciendo uso de la transformada $Z$
+
 
 ## Cálculo de $s$ haciendo uso de la transformada $Z$
 
@@ -1697,11 +1708,11 @@ Esto correspondería a un buffer o cola, donde su tamaño solamente podría dism
 
 Supongamos que la probabilidad de que lleguen $k$ paquetes vale $a_k$
 
-$$p\{k llegadas\} = a_k,\qquad k=0,1,2,\dots$$
+$$p\{k\text{ llegadas}\} = a_k,\qquad k=0,1,2,\dots$$
 
 Supongamos que la probabilidad de que un paquete abandone la cola vale $c$
 
-La condición para que la cola sea estables es
+La condición para que la cola sea estable es
 
 $$\sum_{k=1}^{\infty}ka_k<c$$
 
@@ -1745,7 +1756,7 @@ El objetivo es calcular $S(z)$ y a partir de esta función, calcular $s$
 
 ## Cálculo de $s$ haciendo uso de la transformada $Z$
 
-Haciendo uso del sistema de ecuaciones lineal que verificaabn las componentes $s_i$, tenemos
+Haciendo uso del sistema de ecuaciones lineal que verificaban las componentes $s_i$, tenemos
 
 $$S(z) = s_0\sum_{i=0}^{\infty}a_iz^{-i}+\sum_{i=0}^{\infty}\sum_{j=1}^{i+1}b_{i-j+1}s_jz^{-i}$$
 $$=s_{0}A(z)+\sum_{j= 1}^{\infty}s_j\sum_{i=j-1}^{\infty}b_{i-j+1}z^{-i}$$
@@ -1759,7 +1770,7 @@ Si continuamos haciendo cálculos
 $$S(z)=s_0A(z)+\sum_{j\ge1}s_jz^{-j}\sum_{i\ge j-1}b_{i-j+1}z^{-(i-j)} = s_0A(z)+\sum_{j\ge 1}s_jz^{-j}\sum_{i\ge 0}b_iz^{-(i-1)}$$
 $$=s_0A(z)+(S(z)-s_0)zB(z)$$
 
-de donde aislando $S(z)$ tenemos
+de donde despejando $S(z)$ tenemos
 
 $$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{z^{-1}-B(z)}$$
 
@@ -1808,7 +1819,7 @@ de donde deducimos que
 
 $$s_0 = \frac{1+B'(1)}{1+B'(1)-A'(1)}$$
 
-<l class = "observ">Observación.</l> El término $-A'(1)$ representa el número medio de paquetes que llegan a la cola por unidad de tiempo cuando la cola está vacía y $-B'(1)$ representa el número medio de paquetes que llegan a la cola cunado ésta no está vacía ya que
+<l class = "observ">Observación.</l> El término $-A'(1)$ representa el número medio de paquetes que llegan a la cola por unidad de tiempo cuando la cola está vacía y $-B'(1)$ representa el número medio de paquetes que llegan a la cola cuando ésta no está vacía ya que
 
 $$-A'(1) = \sum_{i\ge 1}ia_i<0\qquad -B'(1)=\sum_{i\ge1}ib_i<0$$
 
@@ -1877,7 +1888,7 @@ Así pues, el vector de probabilidades en el equilibrio sería
 $$s = (0.556,0.247,0.110,0.049,\dots)^t$$
 </div>
 
-# Cálculo de $s$ por sustitución hacia alante o hacia atrás
+
 
 ## Cálculo de $s$ por sustitución hacia alante o hacia atrás
 
@@ -1918,7 +1929,7 @@ $$s_1 = h_{11}s_1+h_{12}s_2$$
 
 Supongamos que $s_1=1$. Al final, cuando normalicemos, ya calcularemos el verdadero valor de $s_1$.
 
-El valor $s_2$ será, por tantom $$s_2 = \frac{1-h_{11}}{h_{12}}$$
+El valor $s_2$ será, por tanto $$s_2 = \frac{1-h_{11}}{h_{12}}$$
 
 ## Cálculo de $s$ por sustitución hacia alante o hacia atrás
 
@@ -1929,6 +1940,8 @@ $$s_2 = h_{21}s_1+h_{22}s_2+h_{23}s_3$$
 de donde
 
 $$s_3 = \frac{(1-h_{11})(1-h_{22})}{h_{12}h_{23}}-\frac{h_{21}}{h_{23}}$$
+
+## Cálculo de $s$ por sustitución hacia alante o hacia atrás
 
 Continuando con las otras filas, iríamos encontrando $s_i$, $i>3$.
 
@@ -1978,7 +1991,6 @@ El vector de probabilidades en el equilibrio da
 
 $$s = \frac{1}{249.02}(1,3,8.25,22.063,58.641,156.066)^t$$
 
-# Cálculo de $s$ haciendo uso de técnicas directas
 
 ## Cálculo de $s$ haciendo uso de técnicas directas
 
@@ -2000,7 +2012,7 @@ $$\sum_{i=1}^ms_i = 1$$
 
 ## Cálculo de $s$ haciendo uso de técnicas directas
 
-De esta forma, tendremos un sistema de ecuaciones compatible y determinado de $m$ ecuaciones y $m$ incógnitas. Por ejemplo, supongamos que la submatriz anterior de rango $m-1$ está formada por las $m-1$ primeras filas y columnas. El ssitema a resolver será
+De esta forma, tendremos un sistema de ecuaciones compatible y determinado de $m$ ecuaciones y $m$ incógnitas. Por ejemplo, supongamos que la submatriz anterior de rango $m-1$ está formada por las $m-1$ primeras filas y columnas. El sistema a resolver será
 
 $$\begin{pmatrix}
 a_{11} & a_{12} & \cdots & a_{1m}\\
@@ -2051,7 +2063,7 @@ La solución del sistema anterior es
 
 $$s = (0.158, 0.474, 0.368)^t$$
 
-# Cálculo de $s$ haciendo uso de técnicas iterativas
+
 
 ## Cálculo de $s$ haciendo uso de técnicas iterativas
 
@@ -2072,11 +2084,11 @@ $$s_i = \sum_{j}p_{ij}s_j\qquad i = 1,2,\dots$$
 
 Las ecuaciones anteriores se denominan <l class = "definition">ecuaciones de balance</l>. Veamos el por qué
 
-## Ecuaciones de balance
-
 Sabemos que las probabilidaes $p_{ij}$ de la matriz de transición verifican
 
 $$\sum_jp_{ji} = 1,\quad i = 1,2,\dots$$
+
+## Ecuaciones de balance
 
 Multiplicando por $s_i$ la ecuación anterior, obtenemos
 
