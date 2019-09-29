@@ -1,7 +1,6 @@
 ---
-title: "Taller evaluable 1"
-author: "<--Escribe tu nombre aquí-->"
-date: "AL y MD - 25/09/2019"
+title: "Taller 1"
+author: "Curso Álgebra Lineal"
 output:
   html_document: default
   pdf_document: default

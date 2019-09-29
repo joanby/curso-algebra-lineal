@@ -1,0 +1,232 @@
+---
+title: "Taller 1"
+author: "Curso Álgebra Lineal"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+La presentación y redacción de todos los ejercicios llega a sumar hasta 1 punto del total del taller.
+
+
+## Ejercicio 1
+
+Halla el cociente y el resto de la división de $p(x) = (x+1)^7$ entre $q(x) = x^2+x+1$.
+
+### Solución
+
+```{r}
+library(polynom)
+
+#Definimos los polinomios
+p = polynomial(coef = c(1,1))^7
+q = polynomial(coef = c(1,1,1))
+p
+q
+
+#Calculamos el cociente y el resto
+cociente = p/q
+resto = p%%q
+cociente
+resto
+
+#Comprobamos que la solución es correcta
+q*cociente + resto == p
+```
+
+
+## Ejercicio 2
+
+Halla el módulo y el árgumento del número complejo $\frac{(1+i)^7}{1-i}$.
+
+### Solución
+
+```{r}
+#Definimos el número complejo 
+z = ((1+1i)^7)/(1-1i)
+
+#Calculamos su módulo
+Mod(z)
+
+#Calculamos el argumento principal
+Arg(z)
+```
+
+
+## Ejercicio 3
+
+Halla el valor de la matriz $X$ para que se verifique
+
+$$A\cdot X \cdot A^t = \sqrt{5} \cdot A$$
+donde $A$ es la matriz
+
+$$A = 
+\left(
+\begin{matrix}
+1&1&1\\
+0&-1&-1\\
+-1&0&1
+\end{matrix}
+\right)$$
+
+### Solución
+
+En primer lugar, comprobamos si la matriz $A$ tiene inversa
+
+```{r}
+A = matrix(c(1, 1, 1,
+             0, -1, -1, 
+             -1, 0, 1),
+           nrow = 3, byrow = T)
+det(A)
+```
+
+Como $\det(A)\ne 0$, sabemos que existe $A^{-1}$. Entonces, podemos multiplicar la ecuación dada en el enunciado por la matriz $A^{-1}$ por la izquierda. Así, lo que obtenemos es lo siguiente
+
+$$A^{-1}\cdot A\cdot X \cdot A^t = A^{-1}\cdot \sqrt{5} \cdot A$$
+$$\Leftrightarrow (A^{-1}\cdot A)\cdot X \cdot A^t = \sqrt{5}(A^{-1}\cdot A)$$
+$$\Leftrightarrow I_3\cdot X \cdot A^t = \sqrt{5}\cdot I_3$$
+
+donde $I_3$ es la matriz identidad de orden 3. De este modo, lo que nos queda es
+
+$$X \cdot A^t = \sqrt{5}\cdot I_3$$
+
+Entonces, $X = \sqrt{5}\cdot(A^t)^{-1}$. Fijaos que $A^t$ es invertible ya que $\det(A^t) = \det(A)\ne 0$
+
+```{r}
+X = sqrt(5)*solve(t(A)) #Calculamos X
+X
+```
+
+
+## Ejercicio 4
+
+Resuelve aplicando el método de Gauss y clasifica según corresponda el sistema de ecuaciones lineal siguiente:
+
+$$
+\left\{
+\begin{matrix}
+x &-& y&+& z&+& t&=&4\\
+2x&+& y&-&3z&+& t&=&4\\
+x &-&2y&+&2z&-& t&=&3\\
+x &-&3y&+&3z&-&3t&=&2
+\end{matrix}
+\right.
+$$
+
+### Solución
+
+```{r}
+library(matlib)
+
+#Definimos la matriz, el vector de términos independientes y la matriz ampliada  del sistema
+A = matrix(c(1, -1, 1, 1, 
+             2, 1, -3, 1, 
+             1, -2, 2, -1, 
+             1, -3, 3, -3),
+           nrow = 4, byrow = T)
+b = c(4, 4, 3, 2)
+AB = cbind(A,b)
+
+echelon(AB, verbose = T) #Utilizamos el método de Gauss
+```
+
+Obtenemos pues que se trata de un sistema compatible indeterminado cuya solución es
+
+$$(5-3t, 4.5-5.5t, 3.5-3.5t, t)\qquad t\in\mathbb{R}$$
+
+
+
+## Ejercicio 5
+
+Considera el sistema de ecuaciones lineal
+
+$$
+\left\{
+\begin{matrix}
+ax&+&y&+&z& =& (a-1)(a+2)\\ 
+x&+&ay&+&z& =& (a-1)^2(a+2)\\ 
+x&+&y&+&az& =& (a-1)^3(a+2)
+\end{matrix}
+\right.
+$$
+
+1. Indicar para qué valores del parámetro $a\in\mathbb{R}$ el sistema es compatible determinado, indeterminado o bien incompatible.
+
+### Solución
+
+$$\det(A) = \begin{vmatrix}
+a & 1 & 1\\
+1 & a & 1\\
+1 & 1 & a
+\end{vmatrix} = 
+\begin{vmatrix}
+a+2 & 1 & 1\\
+a+2 & a & 1\\
+a+2 & 1 & a
+\end{vmatrix} = (a+2)\begin{vmatrix}
+1 & 1 & 1\\
+0 & a-1 & 0\\
+0 & 0 & a-1
+\end{vmatrix} = (a+2)(a-1)^2$$
+
+Lo que se ha hecho anteriormente ha sido utilizar las propiedades de los determinantes para simplificar su cálculo. El primer paso ha sido sumar a la primera columna las dos restantes. A continuación, se ha sacado factor común $(a+2)$. Finalmente se han conseguido ceros en el primer elemento de las dos últimas filas y con ello se ha obtenido una matriz triangular superior, el determinante de la cuál es el producto de los elementos de la diagonal.
+
+Si $a\ne -2$ y $a\ne 1$, el sistema es compatible determinado
+
+Si $a = -2$, tenemos que $\det(A) = 0$, con lo cuál ya tenemos que $\text{rg}(A)<3$. ¿Qué ocurre si cogemos el menor de orden 2 formado por las dos primeras filas y las dos primeras columnas? $$\begin{vmatrix}2 & 1\\ 1 & 2\end{vmatrix} = 3\ne 0$$ con lo cuál el rango de $A$ es 2. ¿Qué pasa ahora con el rango de la matriz ampliada? Sabemos que como mucho puede ser 3. Además, como ya tenemos un menor de orden 2 no nulo, podemos orlarlo con la última fila y la cuarta columna para ver si la ampliada es de rango 3 o no: $$\begin{vmatrix}2 & 1 & 0\\ 1 & 2 & 0\\ 1 & 1 & 0\end{vmatrix} =0$$
+
+
+Acabamos de obtener que el determinante es nulo. Ello conlleva que el rango de la ampliada es 2. Así, por el Teorema de Rouché-Frobenius, el sistema es compatible indeterminado. Observad que no hubiese hecho falta orlar puesto que se trata de un sistema homogéneo y ya sabemos que los sistemas homogéneos siempre son compatibles.
+
+Finalmente, si $a = 1$, tenemos de nuevo que $\det(A)=0$, pero en este caso el rango de $A$ es 1 ya que la matriz 
+
+$$A = \begin{pmatrix}
+1 & 1 & 1\\
+1 & 1 & 1\\
+1 & 1 & 1
+\end{pmatrix}$$
+
+no tiene ningún menor de orden mayor a 1 no nulo. Ahora, lo que tenemos es que la matriz ampliada como mucho tiene rango 2. Análogamente al caso anterior, el rango de la matriz ampliada es también $1$, ya que de nuevo se trata de un sistema homogéneo. Entonces, cuando $a = 1$, el sistema es compatible indeterminado.
+
+En resumen, 
+
+- Si $a\ne -2, a\ne 1$, el sistema es compatible determinado
+- Si $a = -2$ o $a=1$, el sistema es compatible indeterminado
+
+
+2. Resolver el sistema cuando $a=1$.
+
+### Solución
+
+```{r}
+#Resolvemos para caso a = 1
+A = matrix(c(1, 1, 1,
+             1, 1, 1,
+             1, 1, 1),
+           nrow = 3, byrow = 3)
+b = c(0,0,0)
+Solve(A, b, fractions = T)
+```
+
+Entonces, la solución es $$x = -y-z, \quad y,z\in\mathbb{R}$$
+
+
+3. Resolver el sistema cuando $a=-2$.
+
+### Solución
+
+```{r}
+#Resolvemos para caso a = -2
+A = matrix(c(-2, 1, 1,
+             1, -2, 1,
+             1, 1, -2),
+           nrow = 3, byrow = 3)
+Solve(A, b, fractions = T)
+```
+
+Entonces, la solución es $$x = y = z, \quad z\in\mathbb{R}$$
