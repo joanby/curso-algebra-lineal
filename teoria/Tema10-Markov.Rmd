@@ -1426,11 +1426,11 @@ $$P = \begin{pmatrix}
 Supongamos que reetiquetamos los estados 2 y 5. O sea, el estado 2 será el viejo estado 5 y el viejo estado 2 pasará a ser el estado 5. Así, la nueva matriz de transición nos queda
 
 $$P' = \begin{pmatrix}
-0.0 & 1.0 & 0.0 & 0.1 & 0.2\\
-0.0 & 0.0 & 0.0 & 0.2 & 0.2\\
-1.0 & 0.0 & 0.0 & 0.2 & 0.3\\
+0.0 & 1.0 & 0.0 & 0.1 & 0.1\\
+0.0 & 0.0 & 1.0 & 0.1 & 0.1\\
+1.0 & 0.0 & 0.0 & 0.2 & 0.2\\
 0.0 & 0.0 & 0.0 & 0.4 & 0.3\\
-0.0 & 0.0 & 1.0 & 0.1 & 0.3
+0.0 & 0.0 & 0.0 & 0.2 & 0.3
 \end{pmatrix}$$
 
 # Cadenas de Markov en el equilibrio

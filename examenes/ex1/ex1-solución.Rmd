@@ -2,8 +2,8 @@
 title: "Taller 1"
 author: "Curso Álgebra Lineal"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
