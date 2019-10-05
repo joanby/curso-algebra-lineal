@@ -1778,7 +1778,7 @@ $$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{z^{-1}-B(z)}$$
 
 Los valores $s_i$ salen de desarrollar la expresión anterior como potencias de $z^{-1}$
 
-$$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0+z^{-1}\left(1-\sum_{i\ge0}b_{i+1}z^{-i}\right)} = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0\left(1-\left(\frac{z^{-1}}{b_0}\right)\left(1-\sum_{i\ge 0b_{i+1}z^{-i}}\right)\right)}$$
+$$S(z) = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0+z^{-1}\left(1-\sum_{i\ge0}b_{i+1}z^{-i}\right)} = \frac{s_0(z^{-1}A(z)-B(z))}{-b_0\left(1-\left(\frac{z^{-1}}{b_0}\right)\left(1-\sum_{i\ge 0}b_{i+1}z^{-i}\right)\right)}$$
 
 Sean ahora las funciones
 
@@ -1810,7 +1810,7 @@ Ahora bien, como $A(1)=B(1)=1$, tenemos una expresión indeterminada de la forma
 Para resolverla, aplicamos la regla del Hôpital
 
 $$S(1) = 1 = \lim_{z\to 1}S(z) = \lim_{z\to 1}\frac{s_0(z^{-1}A(z)-B(z))}{z^{-1}-B(z)}$$
-$$=\lim_{z\to 1}\frac{s_0(-z^2A(z)+z^{-1}A'(z)-B'(z))}{-z^2-B'(z)} = \frac{s_0(-A(1)+A'(1)-B'(1))}{-1-B'(1)}$$ 
+$$=\lim_{z\to 1}\frac{s_0(-z^{-2}A(z)+z^{-1}A'(z)-B'(z))}{-z^{-2}-B'(z)} = \frac{s_0(-A(1)+A'(1)-B'(1))}{-1-B'(1)}$$ 
 $$= \frac{s_0(-1+A'(1)-B'(1))}{-1-B'(1)}$$
 
 ## Cálculo de $s$ haciendo uso de la transformada $Z$
@@ -1909,7 +1909,7 @@ Esta matriz de transición correspondería a una cola donde pueden llegar como m
 
 Para calcular el vector de probabilidades en el equilibrio, debemos resolver $Ps = s$
 
-$$P = \begin{pmatrix}
+$$\begin{pmatrix}
 h_{11} & h_{12} & 0 & 0 & \cdots\\
 h_{21} & h_{22} & h_{23} & 0 & \cdots\\
 h_{31} & h_{32} & h_{33} & h_{34} & \cdots\\
@@ -1966,7 +1966,7 @@ $$P = \begin{pmatrix}
 
 Para calcular el vector $s$, debemos resolver
 
-$$P = \begin{pmatrix}
+$$\begin{pmatrix}
 0.40 & 0.20 & 0.00 & 0.00 & 0.00 & 0.00\\
 0.30 & 0.35 & 0.20 & 0.00 & 0.00 & 0.00\\
 0.20 & 0.25 & 0.35 & 0.20 & 0.00 & 0.00\\
