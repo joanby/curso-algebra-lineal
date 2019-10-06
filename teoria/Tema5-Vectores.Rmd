@@ -654,7 +654,7 @@ $$\vec{u}\wedge\vec{v} = (u_2v_3-u_3v_2)\vec{i}+(u_3v_1-u_1v_3)\vec{j}+(u_1v_2-u
 
 $$\vec{u}\wedge\vec{v} = \begin{vmatrix}
 \vec{i} & \vec{j}& \vec{k}\\
-u_1 & u_2 & 3\\
+u_1 & u_2 & u_3\\
 v_1 & v_2 & v_3\end{vmatrix}$$
 
 ## Producto vectorial
