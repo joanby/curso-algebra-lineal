@@ -1,0 +1,98 @@
+---
+title: "Ejercicios"
+subtitle: "Aplicaciones Lineales"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Sea $f:\mathbb{R}_n[x]\longrightarrow\mathbb{R}_n[x]$ definida por $f(p(x)) = p(x+1)-p(x)$. Demuestra que $f$ es lineal.
+
+Calcula la matriz de $f$ en la base canónica. Calcula también dimensión y bases de la imagen y el núcleo de $f$.
+
+## Pregunta 2
+
+¿Existe alguna aplicación lineal $f:\mathbb{R}^3\longrightarrow\mathbb{R}^2$ tal que
+
+$$f(1,0,0) = (1,1)\\ f(1,1,0) = (1,0)\\ f(1,1,1) = (1,-1)\\ f(-1,0,1) = (-1,2)$$?
+
+En caso de existir, ¿es única?
+
+## Pregunta 3
+
+Encuentra la matriz de la aplicación lineal $f:\mathbb{R}^3\longrightarrow \mathbb{R}^4$ definida por 
+
+$$f(x,y,z) = (a_0x+b_0y+c_0z,a_1x+b_1y+c_1z,a_2x+b_2y+c_2z,a_3x+b_3y+c_3z)$$
+
+con respecto de las bases canónicas. Generaliza para el caso $\mathbb{R}^n$ y $\mathbb{R}^m$
+
+## Pregunta 4
+
+Sea $f:\mathbb{R}^3\longrightarrow \mathbb{R}^4$ definido por 
+
+$$f(1,0,0) = (1,1,0,1),\ f(0,1,0) = (-1,2,0,0),\ f(0,0,1) = (0,3,0,1)$$
+
+Encuentra la matriz asociada a $f$ con respecto a las bases $B = \{(1,2,1),(0,1,2),(0,0,1)\}$ y $B' = \{(2,1,0,1),(0,2,0,0),(0,0,1,0),(0,0,0,3)\}$
+
+## Pregunta 5
+
+Considera la base de $\mathbb{R}^3$, $B = \{(1,1,1),(0,0,-2),(0,1,2)\}$ y los subespacios vectoriales
+
+$$F = \{(x,y,z)\ |\ 2x+y-z =0,\ x-y+2z =0\}$$
+$$G = \{(x,y,z)\ |\ 2x-3y+4z =0\}$$
+
+donde las coordenadas $(x,y,z)$ están referidas a la base $B$. Sea $f:\mathbb{R}^3\longrightarrow\mathbb{R}^3$ un endomorfismo tal que $f(x) = 2x$ para todo $x\in F$ y $f(x) = 3x$ para todo $x\in G$. Calcula la matriz de $f$ con respecto a la base canónica. 
+
+## Pregunta 6
+
+Sea $f:\mathbb{R}^3\longrightarrow \mathbb{R}^3$ el endomorfismo que tiene por matriz en la base canónica
+
+$$\begin{pmatrix}
+0 & -1 & 1\\
+1 & 0 & -1\\
+-1 & 1 & 0
+\end{pmatrix}$$
+
+Encuentra las bases del núcleo y la imagen de $f$ y demuestra que son suplementarios. ¿Se verifica $f^2 = f$?
+
+## Pregunta 7
+
+Estudia, según los valores del parámetro $\alpha$ (da la dimensión y bases de $\ker(f)$ e $\text{Im}(f)$) la familia de endomorfismos de $\mathbb{R}^3$ que en la base canónica tienen por matriz
+
+$$\begin{pmatrix}
+\alpha & 1 & \alpha\\
+1 & \alpha & 0\\
+1 & \alpha & 1
+\end{pmatrix}$$
+
+## Pregunta 8
+
+Sea $f:\mathbb{R}^3\longrightarrow \mathbb{R}^2$ la aplicación lineal definida por $f(x,y,z) = (-2x+y,3z)$. Encuentra la matriz asociada a $f$ con respecto de las bases
+
+- $B = \{(1,2,-1),(0,1,0),(3,1,1)\}$ y $B' = \{(0,2),(-1,1)\}$
+- $C =1 \{(1,1,1),(0,1,0),(0,0,1)\}$ y $C' = \{f(1,1,1),f(0,1,0)\}$
+
+## Pregunta 9
+
+Sea $E$ el subconjunto de $\mathcal{M}_2(\mathbb{R})$ dado por las matrices de la forma
+
+$$\begin{pmatrix}
+a & b+c\\
+-b+c & a
+\end{pmatrix}$$
+
+- Demuestra que $E$ es un subespacio vectorial de $\mathcal{M}_2(\mathbb{R})$ y encuentra la dimensión y una base.
+- Demuestra que la aplicación $f: E\longrightarrow E$ dada por
+
+$$f\left(\begin{matrix}a & b+c\\ -b+c & a\end{matrix}\right) = \begin{pmatrix}
+0 & 2b+c\\
+-2b+c & 0\end{pmatrix}$$
+
+es lineal y encuentra la matriz de $f$ con respecto a la base encontrada en el apartado $a$. Encuentra también el núcleo y la imagen de $f$.
+
+## Pregunta 10
