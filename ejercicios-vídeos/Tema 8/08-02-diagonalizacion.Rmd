@@ -1,0 +1,150 @@
+---
+title: "Ejercicios"
+subtitle: "Diagonalización"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+
+Dada la matriz
+
+$$A = \begin{pmatrix}
+-5 & -5 & -9\\
+8 & 9 & 18\\
+-2 & -3 & -7
+\end{pmatrix}$$
+
+Comprueba que $\lambda = -1$ es un valor propio de $A$ y que $(3,-6,2)$ es un vector propio asociado a $\lambda$. ¿Es el vector $(1,2,-1)$ un vector propio asociado a $\lambda = -1$?
+
+## Pregunta 2
+
+Justifica si son diagonalizables las siguientes matrices
+
+$$A = \begin{pmatrix}
+2 & 1 & 0\\
+0 & 1 & -1\\
+0 & 2 & 4
+\end{pmatrix}$$
+
+$$B = \begin{pmatrix}
+-1 & 0 & 0\\
+0 & 0 & -1\\
+0 & 1 & 0
+\end{pmatrix}$$
+
+
+## Pregunta 3
+
+Prueba si son o no diagonalizables las siguientes matrices de $\mathcal{M}_3(\mathbb{R})$ y, en caso de serlo, encuentra una matriz $P$ de vectores propios y la matriz diagonal
+
+$$A = \begin{pmatrix}
+a & 1 & 1\\
+1 & a & 0\\
+0 & 0 & a
+\end{pmatrix}$$
+
+$$B = \begin{pmatrix}
+a & 0 & a\\
+1 & a+1 & -2\\
+-1 & -1 & 2
+\end{pmatrix}$$
+
+$$C = \begin{pmatrix}
+a & 1 & a-1\\
+1 & 2a & -1\\
+2a+1 & 1 & -2
+\end{pmatrix}$$
+
+$$D = \begin{pmatrix}
+a+1 & a+b & b\\
+-a & -a & -1\\
+a & a-1 & 0
+\end{pmatrix}$$
+
+## Pregunta 4
+
+Sea $A$ una matriz real, cuadrada de orden $p$ con todos los coeficientes igual a 1
+
+- Demuestra que $A^n = p^{n-1}A$ para todo entero $n\ge 1$
+- Calcula los valores propios de $A$
+- Encuentra, si es posible, una matriz $P$ tal que $P^{-1}A^P$ sea diagonal y calcula $P^{-1}$
+
+## Pregunta 5
+
+Dada la matriz
+
+$$A = \begin{pmatrix}
+-1 & 0 & -3\\
+3 & 2 & 3\\
+-3 & 0 & -1
+\end{pmatrix}$$
+
+- Prueba que $A$ es diagonalizable
+- Calcula $A^n$ para todo $n\ge 1$
+- Prueba que $p_A(A) = 0$ donde $p_A(x)$ es el polinomio característico de la matriz $A$
+
+## Pregunta 6
+
+Dadas las matrices
+
+$$A = \begin{pmatrix}
+1 & 1 & 0\\
+-1 & 0 & 0\\
+2 & 0 & -1
+\end{pmatrix}$$
+
+$$B = \begin{pmatrix}
+0 & 0 & 1\\
+1 & 0 & -2\\
+0 & 1 & 1
+\end{pmatrix}$$
+
+Calcula, utilizando el teorema de Cayley-Hamilton, $A^{-1}, B^4, B^5$
+
+## Pregunta 7
+
+Dado $a\in\mathbb{R}$, considera la matriz
+
+$$A = \begin{pmatrix}
+0 & 0 & 1\\
+1 & 0 & -1\\
+-1 & 1 & a
+\end{pmatrix}$$
+
+- Demuestra que $A^3-aA^2+2A-I_3 =0$
+- Demuestra que $A$ es invertible y calcula $A^{-1}$
+- Encuentra el valor de $A^5-aA^4+A^3-(1-a)A^2-A+I_3$
+
+## Pregunta 8
+
+Sea $A\in\mathcal{M}_n(\mathbb{R})$ una matriz cuadrada de orden $n$. Demuestra que los valores propios de $A$ y $A^t$ coinciden.
+
+## Pregunta 9
+
+Calcula $A^n$ para todo $n\in\mathbb{N}$, si la matriz $A$ es
+
+$$A = \begin{pmatrix}
+1 & 1 & 1\\
+1 & -2 & 0\\
+0 & 3 & 1
+\end{pmatrix}$$
+
+## Pregunta 10
+
+Encuentra el término general de la sucesión $\frac{a_n}{b_n}$ definida por
+
+$$a_1 = b_1 = 1\qquad a_{n+1} = 2a_n + b_n\qquad b_{n+1} = a_n+b_n$$
+
+## Pregunta 11
+
+Considera las sucesiones definidas recurrentemente para todo $n\ge 1$ por
+
+$$u_n = -4u_{n-1}+6v_{n-1}\qquad v_{n} = 3u_{n-1}+5v_{n-1}\qquad w_{n} = 3u_{n-1}+6v_{n-1}+5w_{n-1}$$
+
+Calcula $u_n,v_n,w_n$ en función de $u_0,v_0,w_0$

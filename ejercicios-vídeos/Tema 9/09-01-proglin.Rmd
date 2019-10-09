@@ -1,0 +1,38 @@
+---
+title: "Ejercicios"
+subtitle: "Programación Lineal"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Una alimentación sana y equilibrada pasa por ingerir alimentos que tengan proteínas, hidratos de carbono y grasas
+
+Vamos al mercado de Desembarco del Rey a comprar con nuestra cestita. Los cuatro mercaderes de la zona nos ofrecen diferentes delicias de la región: jabalí del norte a la estaca a 4 venados de plata, serpiente dorniense crujiente con mostaza y miel a 2 venados de plata, vino caliente de las tierras del Rejo a 3 venados de plata el litro y panecillos de limón a 6 venados de plata el panecillo.
+
+Cada uno de estos alimentos tiene los siguientes valores calóricos y alimenticios
+
+. | kcal | Proteínas | Hidratos | Grasas |
+--- | --- | --- | --- | --- |
+Jabalí | 300 | 2 | 1 | 1 |
+Serpiente | 200 | 1 | 1 | 2 |
+Vino | 100 | 0 | 2 | 1 |
+Panecillos | 400 | 0 | 3 | 3 |
+
+Cada día, los guerreros de más allá del Muro necesitan ingerir al menos 600kcal, 20 unidades de proteínas, 30 hidratos y 25 grasas para sobrevivir al invierno que se acerca y luchar contra los caminantes blancos.
+
+Con toda esta información:
+
+1. Plantea el PPL pertinente que minimice el coste de comprar alimentos para nuestro regimiento de 500 soldados
+2. Exprésalo en forma estándar
+3. Resuélvelo por el método de símplex y di cuántos alimentos de cada tenemos que comprar para cada soldado y cuántos venados de plata necesitaremos para abastecer a nuestro regimiento.
+4. Determina si la solución actual sigue siendo óptima en el caso en que el precio unitario del jabalí del norte a la estaca aumente en un 25% su precio original en venados de plata, y que los panecillos de limón se encuentren a un venado de plata de descuento. En caso de que la nueva solución no sea la óptima, encuentra la nueva solución óptima del problema.
+5. ¿Hasta qué precio puede subir el jabalí del norte a la estaca de forma que la base actual siga siendo la óptima del problema?
+6. ¿Hasta qué precio puede bajar el precio de cada panecillo de limón de forma que la base actual siga siendo la óptima?
+
+
