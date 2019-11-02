@@ -1,0 +1,64 @@
+---
+title: "Examen 1"
+date: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Dado el determinante de orden $n\in\mathbb{Z}^+$ con $\alpha\in\mathbb{R}$
+
+$$\begin{vmatrix}
+\alpha^2 & n & n & \cdots & n\\
+n & \alpha^2 & n & \cdots & n\\
+n & n & \alpha^2 & \cdots & n\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+n & n & n & \cdots & \alpha^2
+\end{vmatrix}$$ 
+
+
+
+(a) Calcúlalo utilizando las propiedades de determinantes, indicando en cada paso cuál estás utilizando. 
+
+(b) Halla para qué valores de $\alpha$ el determinante anterior vale 0. 
+
+(c) En el caso particular en que $n = 9$, ¿cuáles son los valores de $\alpha$ que hacen que el determinante valga 0? 
+
+## Pregunta 2
+
+(a) Enuncia el Teorema de Rouché-Frobenius 
+
+(b) Utiliza dicho Teorema para estudiar la compatibilidad del siguiente sistema de ecuaciones según el parámetro $a\in\mathbb{R}$  
+
+$$\left\{\begin{matrix}
+(a+1)x & + & 2y & + & z & = & 0\\
+x & + & ay & + & z & = & a-1\\
+x & + & y & + & z & = & a\\
+\end{matrix}\right.$$
+
+(c) Resuelve por Cramer en caso de ser compatible determinado 
+
+
+
+## Pregunta 3
+
+Dados los vectores $u = (2,3,0)$ y $v = (-3,0,1)$, encuentra el valor $k$ para que los vectores $w,z$ sean perpendiculares, donde $w = 2u-v$ y $z = -3u+kv$. 
+
+## Pregunta 4
+
+Sea $B_u = \{u_1,u_2,u_3\}$ una base de $\mathbb{R}^3$. Sabiendo que
+
+$$\left\{\begin{matrix}
+v_1 &=& 2u_1 &-& u_2 & & &\\
+v_2 & = & u_1 & & & &-&u_3\\
+v_3 &=& & & u_2 & & \\
+\end{matrix}\right.$$
+
+(a) Demuestra que $B_v = \{v_1,v_2,v_3\}$ es una base de $\mathbb{R}^3$ 
+(b) Obtén las coordenadas de $v_1,v_2,v_3$ en la base $B_u$ 
+(c) Obtén las coordenadas de $u_1,u_2,u_3$ en la base $B_v$ 
+(d) Sean $w = (2,3,1)_{B_u}$, calcula las coordenadas de $w$ en la base $B_v$ 
