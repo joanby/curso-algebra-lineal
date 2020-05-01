@@ -19,7 +19,7 @@ Demostrar por inducción que la suma de los $n$ primeros números naturales es $
 
 ## Pregunta 3
 
-Demostrar por inducción que $$1^2+2^2+3^2+\cdots+n =\frac{n(n+1)(2n+1)}{6} $$
+Demostrar por inducción que $$1^2+2^2+3^2+\cdots+n^2 =\frac{n(n+1)(2n+1)}{6} $$
 
 ## Pregunta 4
 
