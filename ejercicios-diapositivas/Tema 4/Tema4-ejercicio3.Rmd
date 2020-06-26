@@ -1,0 +1,161 @@
+---
+title: "Tema 4 - Ejercicio 6"
+author: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 3
+
+Calcula los valores de los siguientes determinantes de orden $n$
+
+$$
+\begin{vmatrix}1+a^2 & -a & 0 & \cdots & 0 &  0\\
+-a & 1+a^2 & -a & \cdots & 0 & 0\\
+0 & -a & 1+a^2 & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}
+$$
+
+
+### Solución 
+
+Denotemos por 
+
+$$
+D_{n}=\begin{vmatrix}1+a^2 & -a & 0 & \cdots & 0 &  0\\
+-a & 1+a^2 & -a & \cdots & 0 & 0\\
+0 & -a & 1+a^2 & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}
+$$
+
+
+Así
+
+$$
+D_{2}=\begin{vmatrix}
+1+a^2 & -a &
+\\-a & 1+a^2
+\end{vmatrix}=(1+a^2)^2-a^2=a^4+a^2+1
+$$
+
+\begin{eqnarray*} D_3  &=&
+\begin{vmatrix}
+1+a^2 & -a & 0 \\
+-a & 1+a^2 & -a \\
+0 & -a & 1+a^2
+\end{vmatrix}= 
+(1+a^2)\cdot 
+\begin{vmatrix}
+1+a^2 & -a \\
+-a & 1+a^2
+\end{vmatrix}
++a \cdot
+\begin{vmatrix}
+-a & 0 \\
+-a & 1+a^2
+\end{vmatrix}\\
+&=&
+(1+a^2)\cdot D_2+a\cdot (-a) \cdot (1+a^2)=(1+a^2)\cdot \left(D_2-a^2\right)\\
+&=& (1+a^2)\cdot(a^4+a^2+1-a^2)=(1+a^2)\cdot(a^4+1)=a^6+a^4+a^2+1 .
+\end{eqnarray*}
+
+
+No es necesario   pero  calculamos  $D_4$ de forma similar   
+
+\begin{eqnarray*}
+D_4
+&=&
+\begin{vmatrix}
+1+a^2 & -a & 0  & 0\\
+-a & 1+a^2 & -a & 0\\
+0 & -a & 1+a^2 & -a\\
+0 & 0 & -a & 1+a^2
+\end{vmatrix}= 
+(1+a^2)\cdot 
+\begin{vmatrix}
+1+a^2 & -a & 0 \\
+-a & 1+a^2 & -a \\
+0 & -a & 1+a^2
+\end{vmatrix}
+-a \cdot
+\begin{vmatrix}
+-a & 0 & 0 \\
+-a & 1+a^2 & -a\\
+0 & -a & (1+a^2)
+\end{vmatrix} \\
+&=& 
+(1+a^2)\cdot D_3-a\cdot (-a) 
+\cdot \begin{vmatrix}
+1+a^2 & -a &
+\\-a & 1+a^2
+\end{vmatrix}=
+(1+a^2)\cdot D_3-a^2 \cdot D_2.
+\end{eqnarray*}
+
+
+
+ En general  podemos calcular $D_{n+1}$ a  partir de $D_n$ y $D_{n-1}$, vamos a comprobarlo  haciendo
+ 
+\begin{eqnarray*}
+D_{n+1}&=&\overbrace{\begin{vmatrix}1+a^2 & -a & 0 & \cdots & 0 &  0\\
+-a & 1+a^2 & -a & \cdots & 0 & 0\\
+0 & -a & 1+a^2 & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}}^{\mbox{orden } n+1 \mbox{ desarrollamos por la primera columna}}\\
+&=&
+(1+a^2)\cdot \overbrace{\begin{vmatrix}1+a^2 & -a & 0 & \cdots & 0 &  0\\
+-a & 1+a^2 & -a & \cdots & 0 & 0\\
+0 & -a & 1+a^2 & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}}^{\mbox{orden } n \mbox{ es } D_n}+a\cdot
+\overbrace{\begin{vmatrix}
+-a & 0  & 0 & \ldots 0 & 0\\
+-a & 1+a^2 & -a & \cdots & 0 &  0\\
+0 & -a & 1+a^2  & \cdots & 0 & 0\\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\
+0 & 0 & 0 & \cdots & 1+a^2 & -a\\
+0 & 0 & 0 & \cdots & -a & 1+a^2
+\end{vmatrix}}^{\mbox{orden } n \mbox{ desarrollamos por la primera  fila}}\\
+&=&
+(1+a^2)\cdot D_n+a \cdot {-a} D_{n-1}\\&=&
+(1+a^2)\cdot D_n-a^2 D_{n-1}.
+\end{eqnarray*}
+
+ 
+ 
+ 
+Hemos demostrado que 
+
+$$D_{n+1}=(1+a^2)\cdot D_n -a^2 \cdot D_{n-1}$$ 
+
+además  sabemos que $D_2=a^4+a^2+1$  y que $D_3= a^6+a^4+a^2+1$.  
+
+Ahora  utilizando el principio de inducción completa  y suponiendo que $D_n=a^{2n}+a^{2(n-1)}+a^{2(n-2)}+\cdot a^2+1$  y que $D_{n-1}=a^{2(n-1)}+a^{2(n-2)}+\cdot a^2+1$  
+
+\begin{eqnarray*}
+D_{n+1}
+&=&
+(1+a^2)\cdot D_n -a^2 \cdot D_{n-1}\\ 
+&=&
+(1+a^2)\cdot (a^{2n}+a^{2(n-1)}+a^{2(n-2)}+\cdots+ a^2+1)-a^2\cdot (a^{2(n-1)}+a^{2(n-2)}+\cdots+ a^2+1)\\
+&=&
+(1+a^2)\cdot (a^{2n}+a^{2(n-1)}+a^{2(n-2)}+\cdots+ a^2+1)-(a^{2(n+1)}+a^{2n}+\cdots+ a^4+a^2)\\ 
+&=& 
+a^{2n}+a^{2(n-1)}+a^{2(n-2)} +\cdots+ a^2+1+\\ & & a^2\cdot (a^{2n}+a^{2(n-1)}+a^{2(n-2)}+\cdots+ a^2+1)-(a^{2(n+1)}+a^{2n}+\cdots+ a^4+a^2)\\ 
+& = &  a^{2(n+1)}+a^{2n}+a^{2(n-1)}+a^{2(n-2)}+\cdots a^2+1
+\end{eqnarray*}
+
+Lo que demuestra, por inducción el valor del determinante  para cualquier orden $n$.
