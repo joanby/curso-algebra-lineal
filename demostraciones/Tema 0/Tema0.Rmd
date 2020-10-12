@@ -1,0 +1,111 @@
+---
+title: "Tema 0 - Demostraciones"
+author: "María Santos"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+**Propiedades de los cuerpos.** En un cuerpo $\mathbb{K}$ se verifican las siguientes propiedades:
+
+1. Propiedad de simplificación para la suma: $a+b=a+c\Rightarrow\ b=c$
+2. Los neutros (0 y 1) son únicos
+3. Cada elemento tienen un único opuesto
+4. Cada elemento diferente de 0 tiene un único inverso
+5. 0 es absorbente para la multiplicación: $a\cdot 0 = 0\quad \forall a\in\mathbb{K}$
+6. $\mathbb{K}$ no tiene divisores de 0: $ab=0\Rightarrow a=0$ o $b=0$
+
+**Demostración 1**
+
+Nosotros queremos ver que si tenemos $a+b=a+c$, entonces tendremos $b = c$. 
+
+Dada la igualdad $a+b=a+c$, sumemos a ambos lados de la igualdad el opuesto de $a$, $-a$. Entonces,
+
+$$(-a)+a+b = (-a)+a+c$$
+
+Por definición, $(-a)+a = 0$, con lo cual,
+
+$$0+b = 0+c$$
+
+y como $0$ es el elemento neutro para la suma, de nuevo por definición obtenemos $$b = c$$ que es lo que queríamos demostrar
+
+
+**Demostración 2**
+
+En este caso queremos ver dos cosas: por un lado, que el neutro para la suma, 0, es único; y, por otro, que el neutro para el producto también es único.
+
+Empecemos por la unicidad de 0. Para ello, supongamos que existen dos números $0,\tilde{0}\mathbb{K}$, $0\ne\tilde{0}$ para los cuales se cumplen:
+
+$$a+0 = 0+a = a\quad \forall a\in\mathbb{K}$$
+$$a+\tilde{0} = \tilde{0}+a = a\quad \forall a\in\mathbb{K}$$
+
+Con lo cual, tenemos las igualdades $$a+0 = a = a+\tilde{0}$$ y, por tanto $$a + 0 = a + \tilde{0}$$ Por la propiedad demostrada anteriormente, sabemos que $$0 = \tilde{0}$$
+
+Obtenemos así una contradicción que viene de suponer que existían dos elementos neutros diferentes para la suma. Así pues, acabamos de demostrar que el neutro para la suma es único.
+
+Pasemos ahora a ver lo mismo para el neutro del producto. De nuevo, supongamos que existen dos números $1,\tilde{1}\mathbb{K}$, $1\ne\tilde{1}$ para los cuales se cumplen las definiciones de elemento neutro.
+
+Por un lado, como $1$ es elemento neutro para el producto, $$1\cdot \tilde{1} = \tilde{1}$$
+
+pero, por otro lado, también se cumple que $\tilde{1}$ es elento neutro para el producto, con lo cual
+
+$$1\cdot \tilde{1} = 1$$
+
+En definitiva, acabamos de obtener $1 = \tilde{1}$, cosa que se contradice con la suposición de que existían dos elementos neutros para el producto diferentes entre sí. Con ello, queda probada la unicidad del elemento neutro para la suma
+
+**Demostración 3**
+
+Esta vez se trata de ver la unicidad del elemento opuesto para cada elemento del cuerpo. Volvamos a suponer que existen 2 diferentes y llegar así a contradicción.
+
+Dado $a\in\mathbb{K}$, suponemos que existen $-a_1,-a_2\in\mathbb{K}$ tales que 
+
+
+$$a+(-a_1) = 0$$
+$$a+(-a_2) = 0$$
+
+Entonces, tenemos la igualdad $$a+(-a_1) = a+(-a_2)$$ y por la propiedad 1, tenemos que $-a_1 = -a_2$. Esto contradice la hipótesis de que existían dos opuestos de $a$, $-a_1\ne -a_2$, con lo cual, el opuesto para cada elemento del cuerpo es único.
+
+**Demostración 4**
+
+Ahora queremos demostrar que $\forall a\in\mathbb{K},\ a\ne 0$, existe un único elemento inverso de $a$. Siguiendo los razonamientos anteriores, suponemos que $\exists a_1^{-1},a_2^{-1}\in\mathbb{K}$, $a_1^{-1}\ne a_2^{-1}$ tales que
+
+$$aa_1^{-1} = 1$$
+$$aa_2^{-1} = 1$$
+
+Tomando la segunda igualdad y multiplicándola por $a_1^{-1}$, 
+
+$$a_1^{-1}aa_2^{-1} = a_1^{-1}\cdot1$$
+
+Aplicando ahora que $a_1^{-1}$ es inverso de $a$, se cumple que
+
+$$a_2^{-1}=(a_1^{-1}a)a_2^{-1} =a_1^{-1}\cdot1 = a_1^{-1}$$
+
+Y con esto llegamos a contradicción. Así pues, existe un único elemento inverso para cada elemento no nulo de $\mathbb{K}$
+
+**Demostración 5**
+
+Aquí se trata de ver que  $a\cdot 0 = 0\quad \forall a\in\mathbb{K}$
+
+Nosotros sabemos que $0+0 = 0$, ya que 0 es el elemento neutro para la suma. Por tanto
+
+$$a\cdot 0 = a\cdot(0+0)$$
+
+Por la propiedad distributiva, lo anterior pasa a escribirse como 
+
+$$a\cdot0 = a\cdot0+a\cdot 0$$
+
+Ahora, como todo elemento del cuerpo tiene opuesto, en particular lo tiene el elemento $a\cdot 0$ y no es otro que $-(a\cdot 0)$. Sumando este último opuesto a ambos lados de la igualdad, lo que obtenemos es
+
+$$-(a\cdot 0)+a\cdot0 = -(a\cdot 0)+a\cdot0+a\cdot 0\Leftrightarrow 0 = a\cdot 0$$ tal y como queríamos demostrar
+
+**Demostración 6**
+
+Finalmente queremos probar que  si $ab=0$, entonces o bien $a=0$, o bien $b=0$
+
+Supongamos que tenemos $ab = 0$, con $a\ne 0$. Entonces, existe $a^{-1}$ y multiplicándolo a ambos lados de la igualdad, lo que obtenemos es
+
+$$a^{-1}ab = a^{-1}\cdot0\Leftrightarrow b = 0$$ tal y como queríamos ver.
+
+Si suponemos que $b\ne 0$, llegamos a que $a=0$ de forma completamente análoga.
