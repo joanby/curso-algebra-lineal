@@ -255,7 +255,7 @@ Existe un algoritmo para encontrar una factorización $LU$ de una matriz cualqui
 <div class = "box">
 1. Encontrar matriz escalonada por filas con pivotes 1 equivalente a $A$, la que será nuestra $U$. 
 2. Para llegar a dicha matriz, habremos realizado una serie de transformaciones elementales correspondientes a matrices elementales de la forma $F_i(\alpha)$ y $F_{ij}(\alpha)$ con $i<j$. Así, $U=L_n\cdots L_1\cdot A$
-3. Entonces, $A = (L_n\cdots L_1)U = L_1^{-1}\cdots L_n^{-1}\cdot U = LU$, donde $L$ es triangular inferior porque todas las $L_i^{-1}$ lo son.
+3. Entonces, $A = (L_n\cdots L_1)^{-1}U = L_1^{-1}\cdots L_n^{-1}\cdot U = LU$, donde $L$ es triangular inferior porque todas las $L_i^{-1}$ lo son.
 </div>
 
 ## Ejemplo 4
