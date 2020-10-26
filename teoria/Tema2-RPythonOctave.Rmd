@@ -1080,6 +1080,8 @@ Además, lo podremos resolver de tres formas:
 
 ## Ejemplo 4
 
+<div class = "example">
+
 Recuperando el sistema del `Ejemplo 4`
 
 
