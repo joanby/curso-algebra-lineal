@@ -19,11 +19,6 @@ $$\begin{pmatrix}
 1 & 1 & 1 & 1 & 1 & 1\\
 \end{pmatrix}$$
 
-**Solución.**
-
-```{r}
-t(matrix(1, nrow = 1, ncol = 6)) %*% matrix(1, nrow = 1, ncol = 6)
-```
 
 ## Pregunta 2
 
@@ -38,18 +33,6 @@ $$\begin{pmatrix}
 
 (a) Calcular la matriz escalonada equivalente de la matriz A
 (b) Calcular su inversa
-
-**Solución.**
-
-```{r}
-A = matrix(c(1, 1, 0, 1,
-             0, 1, 1, 1,
-             0, 0, 1, 1,
-             1, 0, 1, 0),
-           nrow = 4, byrow = T)
-echelon(A)
-solve(A)
-```
 
 
 ## Pregunta 3
@@ -67,76 +50,6 @@ $$\begin{vmatrix}
 (a) Calcularlo utilizando las propiedades de determinantes, indicando en cada paso cuál se está utilizando.
 (b) En el caso particular en que $n = 9$, ¿cuáles son los valores de $\alpha$ que hacen que el determinante valga 0?
 
-**Solución.**
-
-Partimos de 
-
-$$\begin{vmatrix}
-\alpha^2 & 3 & 3 & \cdots & 3\\
-3 & \alpha^2 & 3 & \cdots & 3\\
-3 & 3 & \alpha^2 & \cdots & 3\\
-\vdots & \vdots & \vdots & \ddots & \vdots\\
-3 & 3 & 3 & \cdots & \alpha^2
-\end{vmatrix}$$
-
-Usando la propiedad $\det(u_1,\dots,u_i,\dots,u_n) = \det(u_1,\dots,u_i+\sum_{k\ne i}a_ku_k,\dots,u_n)$, sumamos a la primera columna las $(n-1)$ columnas restantes.
-
-$$\begin{vmatrix}
-\alpha^2 + 3(n-1) & 3 & 3 & \cdots & 3\\
-\alpha^2 + 3(n-1) & \alpha^2 & 3 & \cdots & 3\\
-\alpha^2 + 3(n-1) & 3 & \alpha^2 & \cdots & 3\\
-\vdots & \vdots & \vdots & \ddots & \vdots\\
-\alpha^2 + 3(n-1) & 3 & 3 & \cdots & \alpha^2
-\end{vmatrix}$$
-
-Usando la propiedad $\det(u_1,\dots,\lambda u_i,\dots,u_n) = \lambda\det(u_1,\dots,u_i,\dots,u_n)$, sacamos factor común $\lambda = \alpha^2 + 3(n-1)$ de la primera columna.
-
-$$(\alpha^2 + 3(n-1))\begin{vmatrix}
-1 & 3 & 3 & \cdots & 3\\
-1 & \alpha^2 & 3 & \cdots & 3\\
-1 & 3 & \alpha^2 & \cdots & 3\\
-\vdots & \vdots & \vdots & \ddots & \vdots\\
-1 & 3 & 3 & \cdots & \alpha^2
-\end{vmatrix}$$
-
-Usando la propiedad $\det(u_1,\dots,u_i,\dots,u_n) = \det(u_1,\dots,u_i+\sum_{k\ne i}a_ku_k,\dots,u_n)$, a cada fila salvo a la primera, le restamos la primera fila.
-
-$$(\alpha^2 + 3(n-1))\begin{vmatrix}
-1 & 3 & 3 & \cdots & 3\\
-0 & \alpha^2 - 3 & 0 & \cdots & 0\\
-0 & 0 & \alpha^2 - 3 & \cdots & 0\\
-\vdots & \vdots & \vdots & \ddots & \vdots\\
-0 & 0 & 0 & \cdots & \alpha^2 - 3
-\end{vmatrix}$$
-
-Hemos obtenido una matriz triangular, cuyo determinante sabemos que es el producto de los elementos de la diagonal. Con lo cual, sabiendo que la matriz es de orden $n$,
-
-$$(\alpha^2 + 3(n-1))\begin{vmatrix}
-1 & 3 & 3 & \cdots & 3\\
-0 & \alpha^2 - 3 & 0 & \cdots & 0\\
-0 & 0 & \alpha^2 - 3 & \cdots & 0\\
-\vdots & \vdots & \vdots & \ddots & \vdots\\
-0 & 0 & 0 & \cdots & \alpha^2 - 3
-\end{vmatrix} = (\alpha^2 + 3(n-1))(\alpha^2 - 3)^{n-1}$$
-
-Si ahora $n = 9$, tendremos que el determinante vale
-
-$$(\alpha^2 + 3 \cdot (9 - 1))(\alpha^2 - 3)^8 = (\alpha^2 + 24)(\alpha^2 - 3)^8$$
-
-Si queremos ver qué valores de $\alpha$ anulan dicho determinante, tendremos que resolver
-
-$$(\alpha^2 + 24)(\alpha^2 - 3)^8 = 0$$
-
-Dado que el factor $\alpha^2 + 24 > 0$, entonces la única forma de que el producto anterior valga 0 es calculando cuando el factor $(\alpha^2 - 3)^8 = 0$, es decir
-
-
-$$(\alpha^2 - 3)^8 = 0 \Leftrightarrow \alpha^2 - 3 = 0\Leftrightarrow \alpha^2 = 3\Leftrightarrow \alpha = \pm\sqrt{3}$$
-
-```{r}
-A = matrix(3, nrow = 9, ncol = 9)
-det(A)
-```
-
 
 ## Pregunta 4
 
@@ -148,67 +61,5 @@ x &+& (a+1)y &+& 2z &=& 0\\
 \end{matrix}\right.$$
 (b) Resuelve por Crammer en caso de ser compatible determinado.
 
-**Solución.**
 
-La matriz de coeficientes $A$ es
-
-$$A = \begin{pmatrix}
-1 & 1 & a\\
-1 & 1 & 1\\
-1 & a+1 & 2
-\end{pmatrix}$$
-
-Esta matriz tiene determinante 0 si
-
-$$\begin{vmatrix}
-1 & 1 & a\\
-1 & 1 & 1\\
-1 & a+1 & 2
-\end{vmatrix} = \begin{vmatrix}
-1 & 1 & a\\
-0 & 0 & 1-a\\
-0 & a & 2-a
-\end{vmatrix} = \begin{vmatrix}
-0 & 1-a\\
-a & 2 - a
-\end{vmatrix} = -a(1-a) = a(a-1) = 0$$
-
-Por tanto, el determinante se anula si $a = 0$ o $a = 1$.
-
-- Si $a\ne 0$ y $a\ne 1$, el sistema es **Compatible Determinado**, ya que el rango de $A$ es máximo (rg$(A)$ = 3), coincide con el de la ampliada y es igual al número de incógnitas del sistema.
-- Si $a = 0$, tenemos que $$A_0 = \begin{pmatrix}
-1 & 1 & 0\\
-1 & 1 & 1\\
-1 & 1 & 2
-\end{pmatrix}$$ cuyo rango vale 2, pues hay un menor de orden 2 (el formado por las primeras dos filas y las últimas dos columnas) que es distinto de 0.
-  Orlando con la tercera y última fila y la cuarta columna, tenemos el determinante $$\begin{vmatrix}1 & 0 & -1\\ 1 & 1 & 0\\ 1 & 2 & 0\end{vmatrix} = 0 -2 + 0 - (-1 + 0 + 0) = -2 + 1 ) = -1\ne 0$$
-  Concluimos que el rango de la ampliada difiere del rango de $A$, con lo cual se trata de un sistema **Incompatible**.
-- Si $a = 1$, tenemos que $$A_1 = \begin{pmatrix}
-1 & 1 & 1\\
-1 & 1 & 1\\
-1 & 2 & 2
-\end{pmatrix}$$ cuyo rango vale 2, pues hay un menor de orden 2 (el formado por las últimas dos filas y las primeras dos columnas) que es distinto de 0.
-  Orlando con la primera fila y la cuarta columna, tenemos el determinante $$\begin{vmatrix}1 & 1 & 0\\ 1 & 1 & 1\\ 1 & 2 & 0\end{vmatrix} = 0 + 0 + 1 - (0 + 2 + 0) = -1\ne 0$$
-  Como el rango de $A$ y el de la ampliada no coinciden, se trata de un sistema **Incompatible**.
-  
-Resolvamos por cramer el caso en que $a\in\mathbb{R}\backslash\{0, 1\}$
-
-$$\begin{array}{rl}x & = \frac{\begin{vmatrix}a-1 & 1 & a\\
-a & 1 & 1\\ 0 & a+1 & 2\end{vmatrix}}{|A|}\\  
-& = \frac{2(a-1) + a^2(a+1)- ((a+1)(a-1) + 2a)}{a(a-1)}\\ 
-& = \frac{2a - 2 + a^3 + a^2 - a^2 +1 -2a}{a(a-1)}\\
-& = \frac{a^3 - 1}{a(a-1)}\end{array}$$
-
-$$\begin{array}{rl}y & = \frac{\begin{vmatrix}1 & a-1 & a\\
-1 & a & 1\\ 1 & 0 & 2\end{vmatrix}}{|A|}\\  
-& = \frac{2a + a-1- (a^2+ 2(a-1))}{a(a-1)}\\ 
-& = \frac{3a-1-a^2 - 2a + 2}{a(a-1)}\\
-& = \frac{-a^2+a+1}{a(a-1)}\end{array}$$
-
-$$\begin{array}{rl}z & = \frac{\begin{vmatrix}1 & 1 & a-1\\
-1 & 1 & a\\ 1 & a+1 & 0\end{vmatrix}}{|A|}\\  
-& = \frac{(a+1)(a-1) + a- (a-1 + a(a+1))}{a(a-1)}\\ 
-& = \frac{a^2 -1 + a - (a-1 + a^2 + a)}{a(a-1)}\\
-& = \frac{-a}{a(a-1)}\\
-& = \frac{1}{1-a}\end{array}$$
 
