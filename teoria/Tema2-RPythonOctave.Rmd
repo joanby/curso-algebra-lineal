@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE, comment = NA, engine.path = list(
 ))
 library(reticulate)
 library(matlib)
-use_python("/anaconda3/bin/python3")
+use_condaenv("/Users/juangabriel/opt/anaconda3")
 ```
 
 # Trabajando con `R`
