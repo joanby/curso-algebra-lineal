@@ -1,0 +1,296 @@
+---
+title: "Examen 3"
+date: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Resolver el siguiente producto de matrices:
+
+Sean $$A=\begin{pmatrix}2 & 0 \\ 1 & 2 \\ -1 & x\end{pmatrix}\quad I=\begin{pmatrix}1  \\ 1 \\ 1\end{pmatrix}$$
+ 
+Encontrar el valor real de $x$, o demostrar que no existe, que hace que se cumpla la ecuación
+
+$$A\cdot A^{t}\cdot I\cdot I^t=0$$
+
+donde $0$ representa la matriz  cuadrada nula de orden 3.
+
+
+#### Solución
+
+
+Tenemos que 
+
+$$
+\begin{array}{lll} 
+A\cdot A^{t}\cdot I\cdot I^t & = & 
+\begin{pmatrix}2 & 0 \\ 1 & 2 \\ -1 & x\end{pmatrix}\cdot \begin{pmatrix}2 & 0 \\ 1 & 2 \\ -1 & x\end{pmatrix}^t\cdot
+\begin{pmatrix}1  \\ 1 \\ 1\end{pmatrix}\cdot \begin{pmatrix}1  \\ 1 \\ 1\end{pmatrix}^t\\
+&=&\begin{pmatrix}2 & 0 \\ 1 & 2 \\ -1 & x\end{pmatrix}\cdot 
+\begin{pmatrix}2 & 1 & -1 \\ 0 & 2 & x \end{pmatrix}\cdot
+\begin{pmatrix}1  \\ 1 \\ 1\end{pmatrix}\cdot
+\begin{pmatrix}1  & 1 & 1\end{pmatrix}\\ 
+& =& 
+\begin{pmatrix} 4 & 2 & -2\\ 2 & 5 & -1 +  2 x \\ -2 & -1+2 x & 1+x^2 \end{pmatrix}
+\begin{pmatrix} 1 & 1 & 1  \\ 1 & 1 & 1 \\ 1 & 1 & 1\end{pmatrix}=
+\begin{pmatrix} 4 & 4 & 4  \\ 2x+6 & 2x+6 & 2 x +6  \\ x^2+2 x -2 & x^2+2 x -2  & x^2+2 x -2 \end{pmatrix}
+\end{array}
+$$
+Nos piden valores de $x$ para que 
+
+$$
+\begin{pmatrix} 4 & 4 & 4  \\ 2x+6 & 2x+6 & 2 x +6  \\ x^2+2 x -2 & x^2+2 x -2  & x^2+2 x -2 \end{pmatrix} = 
+\begin{pmatrix} 0 & 0 & 0  \\ 0 & 0 & 0  \\ 0 & 0 & 0   \end{pmatrix}
+$$
+No hay ningún valor de $x$ que  cumpla esta condición pues la primera fila no depende de $x$.
+
+## Pregunta 2 
+
+Dada la matriz  
+
+$$
+A=
+\begin{pmatrix}
+1 & 1 & 0 & 0\\
+0 & 1 & 1 & 0\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+$$
+
+calcular su inversa.
+ 
+#### Solución
+
+Vamos a calcular la inversa de la matriz $A$ por Gauss:
+
+$$
+\begin{array}{lll}
+(A | I) &\sim&
+\begin{pmatrix}
+1 & 1 & 0 & 0 & | & 1 & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & | & 0 & 1 & 0 & 0\\
+0 & 0 & 1 & 1 & | & 0 & 0 & 1 & 0\\
+0 & 0 & 0 & 1 & | & 0 & 0 & 0 & 1
+\end{pmatrix}\\
+&\sim& \begin{pmatrix}
+1 & 1 & 0 & 0 & | & 1 & 0 & 0 & 0\\
+0 & 1 & 1 & 0 & | & 0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0 & | & 0 & 0 & 1 & -1\\
+0 & 0 & 0 & 1 & | & 0 & 0 & 0 & 1
+\end{pmatrix}\\
+&\sim& \begin{pmatrix}
+1 & 1 & 0 & 0 & | & 1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & | & 0 & 1 & -1 & 1\\
+0 & 0 & 1 & 0 & | & 0 & 0 & 1 & -1\\
+0 & 0 & 0 & 1 & | & 0 & 0 & 0 & 1
+\end{pmatrix}\\
+&\sim& \begin{pmatrix}
+1 & 0 & 0 & 0 & | & 1 & -1 & 1 & -1\\
+0 & 1 & 0 & 0 & | & 0 & 1 & -1 & 1\\
+0 & 0 & 1 & 0 & | & 0 & 0 & 1 & -1\\
+0 & 0 & 0 & 1 & | & 0 & 0 & 0 & 1
+\end{pmatrix}\sim (I | A^{-1})
+\end{array}
+$$
+
+donde $I$ representa la matriz identidad de orden 4.
+
+Luego, 
+
+$$A^{-1} = \begin{pmatrix}
+1 & -1 & 1 & -1\\
+0 & 1 & -1 & 1\\
+0 & 0 & 1 & -1\\
+0 & 0 & 0 & 1
+\end{pmatrix}$$
+
+
+```{r}
+A=matrix(c(1,1,0,0,0,1,1,0,0,0,1,1,0,0,0,1),ncol=4,byrow=TRUE)
+solve(A)
+```
+
+
+## Pregunta 3
+
+Sean $\vec{u}$ y $\vec{w}$ dos vectores de $\mathbb{R}^n$ tales que $||\vec{u}||=3$ y $||\vec{w}||=4$ y tales que  si $\alpha$ es el ángulo que forman $\vec{u}$ y $\vec{w}$, tenemos que  $\cos(\alpha)=\frac{1}{2}$.
+
+Consideremos los vectores $\vec{x}=\vec{u}-3\cdot \vec{w}$ y $\vec{y}=2\cdot\vec{u}+ \vec{w}$.
+
+Se pide: 
+
+a. Calcular $||\vec{x}||$, $||\vec{y}||$. 
+b. Calcular $\langle\vec{x},\vec{y}\rangle$.
+
+##### Solución
+
+
+Notemos que $\langle \vec{u},\vec{w}\rangle=\langle \vec{w},\vec{u}\rangle=||u||\cdot ||w||\cos \alpha=3\cdot 4\cdot \frac{1}{2}=6.$
+
+
+$$
+\begin{array}{lll}
+||\vec{x}||^2 &=& \langle \vec{x},\vec{x}\rangle=
+\langle \vec{u}-3\cdot \vec{w}, \vec{u}-3\cdot \vec{w}\rangle\\
+&=& \langle \vec{u},\vec{u}\rangle 
+- 3 \langle \vec{w},\vec{u}\rangle-3 \langle \vec{u},\vec{w}\rangle 
++ 9\langle \vec{w},\vec{w}\rangle\\
+&=& ||\vec{u}||^2- 6 \langle \vec{u},\vec{w}\rangle+ 9 ||\vec{w}||^2=
+3^2-6 \cdot 6 + 9\cdot 4^2\\
+&=& `r 3^2-6*6+9*4^2`.
+\end{array}
+$$
+Luego $|| \vec{x}||= \sqrt{117}.$
+
+$$
+\begin{array}{lll}
+||\vec{y}||^2 &=& \langle \vec{y},\vec{y}\rangle=
+\langle 2\cdot  \vec{u}+ \vec{w}, 2\cdot  \vec{u}+\vec{w}\rangle\\
+&=& 4\cdot \langle \vec{u},\vec{u}\rangle 
++2\cdot \langle \vec{u},\vec{w}\rangle+ 2\cdot \langle \vec{w},\vec{u}\rangle 
++ \langle \vec{w},\vec{w}\rangle\\
+&=& 4\cdot ||\vec{u}||^2+4 \langle \vec{u},\vec{w}\rangle+  ||\vec{w}||^2=
+4\cdot 3^2+ 4 \cdot 6 + 4^2\\
+&=& `r 4*3^2+4*6+4^2`.
+\end{array}
+$$
+Luego $||\vec{x}||= \sqrt{117}$  y $||\vec{y}||= \sqrt{76}.$
+
+
+
+Ahora nos piden calcular $\langle\vec{x},\vec{y}\rangle$.
+
+$$
+\begin{array}{lll}
+\langle\vec{x},\vec{y}\rangle &=& \langle \vec{u}-3\cdot \vec{w}, 2\cdot  \vec{u}+ \vec{w}\rangle\\
+&=& 2\cdot\langle \vec{u}, \vec{u}\rangle - 6\cdot\langle\vec{w}, \vec{u}\rangle + \langle\vec{u},\vec{w}\rangle-3\cdot\langle\vec{w},\vec{w}\rangle\\
+&=& 2\cdot ||\vec{u}||^2 -5\cdot\langle\vec{u}, \vec{w}\rangle - 3\cdot ||\vec{w}||^2\\
+&=& 2\cdot 3^2 - 5\cdot 6 - 3\cdot 4^2\\
+&=& `r 2*3^2-5*6-3*4^2`.
+\end{array}
+$$
+
+Luego $\langle\vec{x},\vec{y}\rangle = `r 2*3^2-5*6-3*4^2`$.
+
+
+
+## Pregunta 4
+
+Sea $B_u = \{u_1,u_2,u_3\}$ una base de $\mathbb{R}^3$. Sabiendo que 
+
+$$\left\{
+\begin{array}{lcl}
+v_1 &=&  u_1 + u_2 - u_3\\ 
+v_2 &=&  u_1 - u_2 - u_3\\
+v_3 &=&  u_1 - u_2 + u_3
+\end{array}
+\right.$$
+
+
+a. Demostrar que $B_v=\{v_1,v_2,v_3\}$ es una base de $\mathbb{R}^3$.
+b. Calcula las coordenadas de $u_1,u_2$ y $u_3$ en la base $B_v$.
+c. Si $(1,1,-1)$ son las coordenadas de un vector en la base $B_u$ ¿cuáles son sus coordenadas en la base $B_v$?
+
+#### Solución
+
+Las coordenadas de $v_1$ en la base $B_u$ son $(1,1-1)$, las de $v_2$ son $(1,-1,-1)$  y las de $v_3$ son $(1,-1,1)$
+
+Para saber si son linealmente independientes, calculamos  el determinante
+
+$$
+\left| 
+\begin{array}{rrr}
+1 & 1 & 1\\
+1 & -1 & -1\\
+-1 & -1 & 1\\
+\end{array}\right|= 
+\left| \begin{array}{rrr}
+1 & 1 & 1\\
+0 & -2 & 0\\
+0 & 0 & 2\\
+\end{array}\right|=1\cdot 2\cdot (-2)=-4\ne 0
+$$
+
+
+Así que $B_v$ es base.
+
+
+$$\left\{
+\begin{array}{lcl}
+v_1 &=&  u_1 + u_2 - u_3\\ 
+v_2 &=&  u_1 - u_2 - u_3\\
+v_3 &=&  u_1 - u_2 + u_3
+\end{array}
+\right.$$
+
+resolvemos el sistema
+
+
+$$\left\{
+\begin{array}{lcl}
+v_1 &=&  u_1 + u_2 - u_3\\ 
+v_2-v_1 &=&  -2\cdot  u_2 \\
+v_3-v_1 &=&  - 2\cdot u_2 + 2\cdot u_3
+\end{array}
+\right.$$
+
+Por lo tanto $$u_2=\frac{1}{2} \cdot v_1 -\frac{1}{2}\cdot v_2$$.
+
+$$u_3= \frac{1}{2} \cdot \left(v_3-v_1 +2 \cdot u_2 \right)=
+\frac{1}{2} v_3 -\frac{1}{2} v_1 +u_2=
+\frac{1}{2} v_3 -\frac{1}{2} v_1+ \frac{1}{2}\cdot v_1-\frac{1}{2}\cdot v_2\cdot=
+-\frac{1}{2} v_2+\frac{1}{2} \cdot v_3.
+$$
+
+
+
+Y por último $u_1$
+
+$$u_1=v_1-u_2+u_3=v_1-\left(\frac{1}{2} \cdot v_1 -\frac{1}{2}\cdot v_2\right)-\frac{1}{2}\cdot v_2+\frac{1}{2} \cdot v_3=\frac{1}{2}\cdot v_1+\frac{1}{2}\cdot v_3.
+$$
+
+Las coordenadas de la base $B_u$ en la $B_v$ son 
+$\left(\frac{1}{2},0,\frac{1}{2}\right)$,  $\left(\frac{1}{2},-\frac{1}{2},0\right)$ y $\left(0,-\frac{1}{2},\frac{1}{2}\right),$ respectivamente.
+
+
+
+Con `R` comprobamos
+
+
+```{r}
+BvBu = matrix(c(1, 1, -1, 1, -1, -1, 1, -1, 1), 
+           ncol = 3, byrow = FALSE)
+BvBu
+det(BvBu)
+BuBv = solve(BvBu)
+BuBv
+```
+
+
+La inversa de $BvBu$ contiene las coordenadas de los vectores de la base $B_u$ en la base $B_v$ por  columnas.
+
+Por último, nos dan el vector $\vec{x} = (1, 1, -1)$ en la base $B_u$ y nos piden que encontremos sus coordenadas en la base $B_v$. Para ello, hay que multiplicar el vector $\vec{x}$ por la izquierda de la matriz $BuBv$
+
+$$\begin{pmatrix}
+\frac{1}{2} & \frac{1}{2} & 0\\
+0 & -\frac{1}{2} & -\frac{1}{2}\\
+\frac{1}{2} & 0 & \frac{1}{2}
+\end{pmatrix}\begin{pmatrix} 1\\ 1\\ -1\end{pmatrix} = \begin{pmatrix}1 \\ 0\\ 0\end{pmatrix}$$
+
+Luego, el vector $\vec{x}$ tiene coordenadas $(1, 0, 0)$ en la base $B_v$.
+
+Comprobamos con `R`:
+
+```{r}
+x_Bu = c(1, 1, -1)
+x_Bu # En base Bu
+x_Bv = BuBv %*% x_Bu
+x_Bv # En base Bv
+```
+

@@ -1,0 +1,25 @@
+---
+title: "Examen 4"
+date: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+Una empresa dedicada a la fabricación de diferentes artículos téxtiles, ante la inminente llegada del COVID-19 se plantea establecer su política de fabricación y almacenaje de mascarillas para el primer cuatrimestre del año, es decir, para los meses de enero, febrero, marzo y abril.
+
+Debido a que se trata de un producto estrella y para mantener la lealtad de los clientes, la dirección de la empresa desea que la demanda prevista de este producto sea totalmente satisfecha. Dicha demanda se estima en 9000 unidades en enero, 12000 en febrero, 14000 en marzo y 13500 en abril. 
+
+Para hacer frente a estos pedidos, la empresa tiene una capacidad de producción de 13000 mascarillas al mes, siendo el coste unitario de fabricación de 40 céntimos. No obstante, debido al proceso de modernización de los equipos que la empresa está llevando a cabo, se espera que el 1 de abril comience a funcionar una nueva línea de fabricación que situaría la capacidad de producción en 15000 mascarillas al mes, reduciéndose los costes unitarios, situándose estos en 35 cts.
+
+Procedente de la temporada anterior, se cuenta con un inventario inicial de 1325 mascarillas, que pueden ser utilizadas para satisfacer la demanda. Además, ante posibles eventualidades futuras, se desea que al final del cuatrimestre considerado se disponga en almacén de un inventario total de 800 mascarillas. Para facilitar el ajuste productivo, se puede utilizar el almacén para el almacenamiento de mascarillas de un mes a otro. La capacidad máxima de almacenamiento es de 2000 mascarillas y el coste de almacenamiento por unidad en inventario al final de cada mes es de 5 céntimos.
+
+Se debe formular (indicar variables, restricciones y función de optimización) y resolver el problema de programación lineal (añadiendo variables artificiales y/o ficticias según haga falta) utilizando el método de simplex para minimizar el coste de fabricación y almacenamiento durante el cuatrimestre considerado, teniendo en cuenta que los costes derivados del inventario inicial y final entran dentro de otra partida presupuestaria que no se considera en esta programación.
+
+PISTAS:
+
+* Llama $X_j$ al número de mascarillas fabricadas en el mes $j$, donde $j = 1,2,3,4$. Llama $y_j$ al número de mascarillas en stock al final del mes $j$, donde $j = 1, 2, 3$.
+* Recuerda que las que serían $y_0 = 1325$ e $y_4 = 800$, no entran dentro de esta partida presupuestaria, por tanto no son variables sino que son constantes para este problema de programación lineal.
+* Las mascarillas producidas en el mes actual  + Las mascarillas en stock a final del mes anterior deben ser igual a las vendidas en el mes + las que quedan en stock

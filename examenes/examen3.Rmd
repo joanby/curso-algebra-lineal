@@ -1,0 +1,68 @@
+---
+title: "Examen 3"
+date: "Curso Álgebra Lineal"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, comment = NA)
+```
+
+## Pregunta 1
+
+Resolver el siguiente producto de matrices:
+
+Sean $$A=\begin{pmatrix}2 & 0 \\ 1 & 2 \\ -1 & x\end{pmatrix}\quad I=\begin{pmatrix}1  \\ 1 \\ 1\end{pmatrix}$$
+ 
+Encontrar el valor real de $x$, o demostrar que no existe, que hace que se cumpla la ecuación
+
+$$A\cdot A^{t}\cdot I\cdot I^t=0$$
+
+donde $0$ representa la matriz  cuadrada nula de orden 3.
+
+## Pregunta 2 
+
+Dada la matriz  
+
+$$
+A=
+\begin{pmatrix}
+1 & 1 & 0 & 0\\
+0 & 1 & 1 & 0\\
+0 & 0 & 1 & 1\\
+0 & 0 & 0 & 1
+\end{pmatrix}.
+$$
+
+
+calcular su inversa.
+
+## Pregunta 3
+
+Sean $\vec{u}$ y $\vec{w}$ dos vectores de $\mathbb{R}^n$ tales que $||\vec{u}||=3$ y $||\vec{w}||=4$ y tales que  si $\alpha$ es el ángulo que forman $\vec{u}$ y $\vec{w}$, tenemos que  $\cos(\alpha)=\frac{1}{2}$.
+
+Consideremos los vectores $\vec{x}=\vec{u}-3\cdot \vec{w}$ y $\vec{y}=2\cdot\vec{u}+ \vec{w}$.
+
+Se pide: 
+
+a. Calcular $||\vec{x}||$, $||\vec{y}||$. 
+b. Calcular $\langle\vec{x},\vec{y}\rangle$.
+
+
+## Pregunta 4
+
+Sea $B_u = \{u_1,u_2,u_3\}$ una base de $\mathbb{R}^3$. Sabiendo que 
+
+$$\left\{
+\begin{array}{lcl}
+v_1 &=&  u_1 + u_2 - u_3\\ 
+v_2 &=&  u_1 - u_2 - u_3\\
+v_3 &=&  u_1 - u_2 + u_3
+\end{array}
+\right.$$
+
+
+a. Demostrar que $B_v=\{v_1,v_2,v_3\}$ es una base de $\mathbb{R}^3$.
+b. Calcula las coordenadas de $u_1,u_2$ y $u_3$ en la base $B_v$.
+c. Si $(1,1,-1)$ son las coordenadas de un vector en la base $B_u$ ¿cuáles son sus coordenadas en la base $B_v$?
+
